@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<!-- 스프링의 인코딩 설정을 UTF-8로 설정 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 전체(web) 프로젝트에서 공통적으로 사용할 빈 설정을 할 스프링 설정 파일 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			<!-- DataSource, 트랜잭션 관리자, 마이바티스-->
+		    /WEB-INF/spring/applicationContext.xml
+		    <!-- 기타 추가적인 것들 -->
+		    /WEB-INF/spring/commonContext.xml
+		 </param-value>
+	</context-param>
+
+	<!-- 위치가 바뀐 설정파일의 위치를 찾아서 읽어서 로딩해 주세요 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- 사용자를 위한 스프링 설정 -->
+	<servlet>
+		<servlet-name>user</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+			  /WEB-INF/spring/userContext/user-servlet.xml
+			  /WEB-INF/spring/userContext/userMember.xml
+			 </param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<!-- 관리자를 위한 스프링 설정 -->
+	<servlet>
+		<servlet-name>admin</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+				/WEB-INF/spring/adminContext/admin-servlet.xml
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>admin</servlet-name>
+		<url-pattern>*.mdo</url-pattern>
+	</servlet-mapping>
+
+</web-app>
