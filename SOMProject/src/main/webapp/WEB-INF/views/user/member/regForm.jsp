@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/views/user/member/regProc.do" method="post">
+<form action="/som/regProc.do" method="post">
 	<input type="text" name="id" />
 	<input type="password" name="pass"/>
 	<input type="text" name="name" />

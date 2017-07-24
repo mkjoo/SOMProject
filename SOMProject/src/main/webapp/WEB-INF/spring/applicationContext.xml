@@ -17,7 +17,7 @@
 			<value>oracle.jdbc.driver.OracleDriver</value>
 		</property> <!-- JDBC 접속 문자열 생성 -->
 		<property name="url">
-			<value>jdbc:oracle:thin:18.220.14.230:1521:xe</value>
+			<value>jdbc:oracle:thin:@18.220.14.230:1521:xe</value>
 		</property>
 		<property name="username">
 			<value>som</value>
