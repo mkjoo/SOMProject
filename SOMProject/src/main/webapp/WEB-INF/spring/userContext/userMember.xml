@@ -19,4 +19,7 @@
 
 	<bean id="memberInsertController" class="com.project.member.controller.MemberInsertController"
 		p:memberInsertService-ref="memberInsertService" />
+		
+	<bean id="MainController" class="com.project.main.controller.MainController" />
+		
 </beans>

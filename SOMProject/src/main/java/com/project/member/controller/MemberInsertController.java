@@ -17,14 +17,14 @@ public class MemberInsertController {
 		this.memberInsertService = memberInsertService;
 	}
 	
-	@RequestMapping(value="/regForm.do", method=RequestMethod.GET)
+	@RequestMapping(value="regForm.do", method=RequestMethod.GET)
 	public String regForm(){
-		return "regForm";
+		return "member/regForm";
 	}
 	
-	@RequestMapping(value="/regProc.do", method=RequestMethod.POST)
+	@RequestMapping(value="regProc.do", method=RequestMethod.POST)
 	public ModelAndView regProcess(MemberVO vo){
-		ModelAndView mav = new ModelAndView("regProc");
+		ModelAndView mav = new ModelAndView("member/regProc");
 		memberInsertService.memberInsert(vo);
 		return mav;		
 	}

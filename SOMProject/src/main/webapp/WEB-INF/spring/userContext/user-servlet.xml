@@ -7,8 +7,9 @@
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/views/user/member/" />
+		<property name="prefix" value="/WEB-INF/views/user/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+
 
 </beans>
