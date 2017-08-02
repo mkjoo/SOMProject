@@ -3,10 +3,7 @@ package com.project.main.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.project.member.model.MemberVO;
-import com.project.member.service.MemberInsertService;
 
 @Controller
 public class MainController {
