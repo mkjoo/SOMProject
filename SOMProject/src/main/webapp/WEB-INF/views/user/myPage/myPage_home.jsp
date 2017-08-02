@@ -37,10 +37,10 @@
 			</ul>
 		</div>
 	</header>
-	<br>
-	<h2>MyPage</h2>
-	<hr />
-	<br>
+	<nav id="myp_title">
+		<h2>&nbsp;MyPage</h2>
+		<hr/>
+	</nav>
 	<section>
 		<div class="container-fluid"></div>
 		<div id="box1">
