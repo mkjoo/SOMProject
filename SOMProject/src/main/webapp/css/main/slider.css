@@ -10,9 +10,9 @@ body {
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1080px;
+  max-width: max;
   position: relative;
-  margin: 0px;
+  margin: 0 auto;
 }
 
 /* Caption text */

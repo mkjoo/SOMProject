@@ -47,7 +47,7 @@
 			<table id="member_info" border="0" width="300" height="200">
 				<tr>
 					<td><a href="myPage_acc.jsp" id="mem_info"><img
-							src="/som/css/images/member_info.jpg">회원정보</a></td>
+							src="/som/images/myPage/member_info.jpg">회원정보</a></td>
 				</tr>
 			</table>
 		</div>
@@ -56,7 +56,7 @@
 			<table id="myPlaylist" border="0" width="300" height="200">
 				<tr>
 					<td><a href="Playlist.jsp" id="playlist"><img
-							src="/som/css/images/myPlaylist.jpg">내 Playlist</a></td>
+							src="/som/images/myPage/myPlaylist.jpg">내 Playlist</a></td>
 				</tr>
 			</table>
 		</div>
@@ -67,7 +67,7 @@
 			<table id="myMusic" border="0" width="300" height="200">
 				<tr>
 					<td><a href="myMusic_list.jsp" id="m_list"><img
-							src="/som/css/images/myMusic.jpg">내 Music</a></td>
+							src="/som/images/myPage/myMusic.jpg">내 Music</a></td>
 				</tr>
 			</table>
 		</div>
@@ -78,7 +78,7 @@
 			<table id="myPoint" border="0" width="300" height="200">
 				<tr>
 					<td><a href="myPoint.jsp" id="point_pay"><img
-							src="/som/css/images/mypoint.jpg">내 Point</a></td>
+							src="/som/images/myPage/mypoint.jpg">내 Point</a></td>
 				</tr>
 			</table>
 		</div>
