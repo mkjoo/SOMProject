@@ -5,19 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<script type="text/javascript" src="/som/js/main/slider.js"></script>
-<script type="text/javascript" src="/som/js/main/login.js"></script>
-<script type="text/javascript" src="/som/js/main/menu.js"></script>
-
 <link href="/som/css/main/modal.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/login.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/slider.css" rel="stylesheet" type="text/css">
-<link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/mp_header.css" rel="stylesheet"
 	type="text/css">
-
-
-
+	
+	<script type="text/javascript" src="/som/js/main/modal.js"></script>
+	<script type="text/javascript" src="/som/js/main/slider.js"></script>
+	<script type="text/javascript" src="/som/js/main/login.js"></script>
 
 </head>
 <body>
@@ -25,95 +21,92 @@
 	<header>
 	<div class="header_menu">
 		<ul class="header_menu_ul" style="color: white">
-			<li class="menu">
-
-				<div class="dropdown">
-
-					<button onclick="myFunction()" class="dropbtn">
-					 	<img src="/som/images/main/메뉴바.png" width="25" height="25" alt="" />
-					</button>
-
-					<div id="myDropdown" class="dropdown-content">
-						<a class= "dropmenu"  href="#">최신가요</a>
-						<a class= "dropmenu"  href="#">인기가요</a>
-						<a class= "dropmenu"  href="#">버스킹</a>
-						<a class= "dropmenu"  href="#">게시판</a>
-					</div>
-				</div>
-			</li>
+			<li class="menu"><button class="btn btn-primary dropdown-toggle"
+					type="button" data-toggle="dropdown">
+					<img src="/som/images/main/메뉴바.png" width="40" height="40" alt="" />
+				</button>
+				<ul class="dropdown-menu">
+					<li><button href="#">최신가요</button></li>
+					<li><button href="#">인기가요</button></li>
+					<li><button href="#">버스킹</button></li>
+					<li><button href="#">게시판</button></li>
+				</ul></li>
 			<li class="menu"><a href="mainPage.jsp" title="Home"
 				class="hd_logo"><img src="/som/images/main/som_logo.png"
-					width="70" height="25"></a></li>
-			<li class="menu"><button id="myBtn">Login/Join</button></li>
+					width="100" height="40"></a></li>
+			<li class="menu" id=""><button type="button"
+					class="btn btn-primary btn-lg" data-toggle="modal"
+					data-target="#myModal">Login/Join</button></li>
 		</ul>
 	</div>
 	</header>
 
-	<!-- The Modal -->
-	<div id="myModal" class="modal">
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Login title</h4>
+				</div>
+				<div class="modal-body">
 
-		<!-- Modal content -->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4 class="modal-title" id="myModalLabel">Login title</h4>
-			</div>
 
-			<div class="modal-body">
-				<div class="login-container animated fadeInDown bootstrap snippets">
-					<div class="loginbox bg-white">
-						<div class="loginbox-title">SIGN IN</div>
-						<div class="loginbox-social">
-							<div class="social-title ">Connect with Your Social
-								Accounts</div>
-							<div class="social-buttons">
-								<a href="" class="button-facebook"> <i
-									class="social-icon fa fa-facebook"></i>
-								</a> <a href="" class="button-twitter"> <i
-									class="social-icon fa fa-twitter"></i>
-								</a> <a href="" class="button-google"> <i
-									class="social-icon fa fa-google-plus"></i>
-								</a>
+
+					<div class="login-container animated fadeInDown bootstrap snippets">
+						<div class="loginbox bg-white">
+							<div class="loginbox-title">SIGN IN</div>
+							<div class="loginbox-social">
+								<div class="social-title ">Connect with Your Social
+									Accounts</div>
+								<div class="social-buttons">
+									<a href="" class="button-facebook"> <i
+										class="social-icon fa fa-facebook"></i>
+									</a> <a href="" class="button-twitter"> <i
+										class="social-icon fa fa-twitter"></i>
+									</a> <a href="" class="button-google"> <i
+										class="social-icon fa fa-google-plus"></i>
+									</a>
+								</div>
+							</div>
+							<div class="loginbox-or">
+								<div class="or-line"></div>
+								<div class="or">OR</div>
+							</div>
+							<div class="loginbox-textbox">
+								<input type="text" class="form-control" placeholder="Email">
+							</div>
+							<div class="loginbox-textbox">
+								<input type="text" class="form-control" placeholder="Password">
+							</div>
+							<div class="loginbox-forgot">
+								<a href="">Forgot Password?</a>
+							</div>
+							<div class="loginbox-submit">
+								<input type="button" class="btn btn-primary btn-block"
+									value="Login">
+							</div>
+							<div class="loginbox-signup">
+								<a href="#register.html">Sign Up With Email</a>
 							</div>
 						</div>
-						<div class="loginbox-or">
-							<div class="or-line"></div>
-							<div class="or">OR</div>
-						</div>
-						<div class="loginbox-textbox">
-							<input type="text" class="form-control" placeholder="Email">
-						</div>
-						<div class="loginbox-textbox">
-							<input type="text" class="form-control" placeholder="Password">
-						</div>
-						<div class="loginbox-forgot">
-							<a href="">Forgot Password?</a>
-						</div>
-						<div class="loginbox-submit">
-							<input type="button" class="btn btn-primary btn-block"
-								value="Login">
-						</div>
-						<div class="loginbox-signup">
-							<a href="#register.html">Sign Up With Email</a>
-						</div>
+						<div class="logobox"></div>
 					</div>
-					<div class="logobox"></div>
+
+
+
+
 				</div>
-
-
-
-
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
 			</div>
 		</div>
-
 	</div>
-<script type="text/javascript" src="/som/js/main/modal.js"></script>
-
 
 
 	<div class="header_search">
@@ -190,8 +183,8 @@
 			onclick="currentSlide(3)"></span>
 	</div>
 	</section>
-
-
+	
+	
 	<!-- footer -->
 	<footer>
 	<hr>

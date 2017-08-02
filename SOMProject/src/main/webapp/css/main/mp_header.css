@@ -16,10 +16,8 @@ header{
 .menu{
 	display:inline; 
 	padding:0 120px; 	
-	color: white;	
-}
-.hd_logo{
-	margin: auto;
+	color: white;
+	
 }
 
 .hd_mn_ul_li_span {
@@ -30,4 +28,17 @@ header{
 	width: 100%;
 	height: 35px;
 	text-align: center;
+}
+
+/* #body {
+	margin: 0;
+	padding: 0;
+} */
+
+.menu a {
+	cursor: pointer;
+}
+
+.menu .hide {
+	display: none;
 }
