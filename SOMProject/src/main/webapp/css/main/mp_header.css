@@ -1,33 +1,33 @@
 @CHARSET "UTF-8";
 html,*{
-	margin: 0;
-	padding: 0;
+   margin: 0;
+   padding: 0;
 }
 header{
-	background-color: #303C43;
-	padding-top: 10px;
-	padding-bottom: 7px;
+   background-color: #303C43;
+   padding-top: 10px;
+   padding-bottom: 7px;
 }
 
 .header_menu_ul {
-	list-style: none;
+   list-style: none;
 }
 
 .menu{
-	display:inline; 
-	padding:0 120px; 	
-	color: white;	
+   display:inline; 
+   padding:0 185px;    
+   color: white;
 }
 .hd_logo{
-	margin: auto;
+   margin: auto;
 }
 
 .hd_mn_ul_li_span {
-	color: white;
+   color: white;
 }
 
 .header_search {
-	width: 100%;
-	height: 35px;
-	text-align: center;
+   width: 100%;
+   height: 35px;
+   text-align: center;
 }

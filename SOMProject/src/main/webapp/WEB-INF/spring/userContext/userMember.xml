@@ -23,4 +23,6 @@
 	<bean id="MainController" class="com.project.main.controller.MainController" />
 		
 	<bean id="MyPageHomeController" class="com.project.myPage.controller.MyPageHomeController" />
+	<bean id="PopularController" class="com.project.popular.controller.PopularController" />
+	<bean id="BuskingController" class="com.project.busking.controller.BuskingController" />
 </beans>
