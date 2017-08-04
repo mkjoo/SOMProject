@@ -5,36 +5,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SOM | Registration Page</title>
+
 <link href="/som/css/main/signUp.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="/som/js/main/signUp.js"></script>
 </head>
 <body>
+<form id= "reg">
+	<div class="container">
+		<div class="email">
+			<label><b>Email</b></label> <input type="text" class="emailInput" id="email" placeholder="Email 입력"
+				name="email" required />
+			<button class="confirm" id="confitm">Email 인증</button>
+		</div></br> 
+		<label><b>비밀번호</b></label> 
+		<input type="password"placeholder="비밀번호 입력" name="psw"  id="psw"required></br> 
+		<label><b>비밀번호확인</b></label> 
+		<input type="password" placeholder="비밀번호 확인" name="psw-repeat"id="repsw"required></br> 
+		<label><b>이름</b></label> 
+		<input type="text"placeholder="이름 입력" name="name" id="name"required></br>
+		<label><b>생년월일</b></label>
+		<input type="text" placeholder="ex) 90.01.01" name="birth" id="birth"required></br>
+		<label><b>전화번호</b></label>
+		<input type="text"placeholder="ex) 010-1234-5678" name="phone" id="phone"required />
+		<p>
+			<input type="checkbox" name="agreementBox"id="agree" /> 계정 생성을 위한 <a href="#">이용약관
+				및 개인 정보 보호 정책</a>에 동의합니다.
 
-<h2>Modal Signup Form</h2>
+		</p>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
-
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-  <form class="modal-content animate" action="/action_page.php">
-    <div class="container">
-      <label><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
-
-      <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-
-      <label><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-      <input type="checkbox" checked="checked"> Remember me
-      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-
-      <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
-      </div>
-    </div>
-  </form>
+		<div class="clearfix">
+			<button type="button" onclick="self.close()" class="cancelbtn">취소</button>
+			<button type="submit" class="signupbtn">회원가입</button>
+		</div>
 </div>
-<script type="text/javascript" src="/som/js/main/signUp.js"></script>
+</form>
 </body>
 </html>

@@ -15,15 +15,11 @@ header{
 
 .menu{
    display:inline; 
-   padding:0 185px;    
+   padding: 12%;    
    color: white;
 }
 .hd_logo{
    margin: auto;
-}
-
-.hd_mn_ul_li_span {
-   color: white;
 }
 
 .header_search {

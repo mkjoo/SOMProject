@@ -8,6 +8,7 @@
 <script type="text/javascript" src="/som/js/main/slider.js"></script>
 <script type="text/javascript" src="/som/js/main/login.js"></script>
 <script type="text/javascript" src="/som/js/main/menu.js"></script>
+<script type="text/javascript" src="/som/js/main/signUp.js"></script>
 
 <link href="/som/css/main/modal.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/login.css" rel="stylesheet" type="text/css">
@@ -15,9 +16,6 @@
 <link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/mp_header.css" rel="stylesheet"
 	type="text/css">
-
-
-
 
 </head>
 <body>
@@ -30,18 +28,16 @@
 				<div class="dropdown">
 
 					<button onclick="myFunction()" class="dropbtn">
-					 	<img src="/som/images/main/메뉴바.png" width="25" height="25" alt="" />
+						<img src="/som/images/main/메뉴바.png" width="25" height="25" alt="" />
 					</button>
 
 					<div id="myDropdown" class="dropdown-content">
-						<a class= "dropmenu"  href="#">최신가요</a>
-						<a class= "dropmenu"  href="#">인기가요</a>
-						<a class= "dropmenu"  href="#">버스킹</a>
-						<a class= "dropmenu"  href="#">게시판</a>
+						<a class="dropmenu" href="#">최신가요</a> <a class="dropmenu" href="#">인기가요</a>
+						<a class="dropmenu" href="#">버스킹</a> <a class="dropmenu" href="#">게시판</a>
 					</div>
 				</div>
 			</li>
-			<li class="menu"><a href="mainPage.jsp" title="Home"
+			<li class="menu"><a href="mainPage.do" title="Home"
 				class="hd_logo"><img src="/som/images/main/som_logo.png"
 					width="70" height="25"></a></li>
 			<li class="menu"><button id="myBtn">Login/Join</button></li>
@@ -64,10 +60,9 @@
 			<div class="modal-body">
 				<div class="login-container animated fadeInDown bootstrap snippets">
 					<div class="loginbox bg-white">
-						<div class="loginbox-title">SIGN IN</div>
+						<div class="loginbox-title">Log In</div>
 						<div class="loginbox-social">
-							<div class="social-title ">Connect with Your Social
-								Accounts</div>
+							<div class="social-title ">sns 계정으로 LogIn 하기</div>
 							<div class="social-buttons">
 								<a href="" class="button-facebook"> <i
 									class="social-icon fa fa-facebook"></i>
@@ -95,7 +90,7 @@
 							<a href="">ID/Password 찾기</a>
 						</div>
 						<div class="loginbox-signup">
-							<a href="#register.html">회원가입</a>
+							<button onclick="openSignUp()">회원가입</button>
 						</div>
 					</div>
 					<div class="logobox"></div>
@@ -111,8 +106,7 @@
 		</div>
 
 	</div>
-<script type="text/javascript" src="/som/js/main/modal.js"></script>
-
+	<script type="text/javascript" src="/som/js/main/modal.js"></script>
 
 
 	<div class="header_search">
@@ -155,7 +149,7 @@
 			onclick="currentSlide(3)"></span>
 	</div>
 	</nav>
-	<!-- section -->
+	<!-- section -
 	<section>
 	<div class="slideshow-container">
 		<div class="mySlides fade">
