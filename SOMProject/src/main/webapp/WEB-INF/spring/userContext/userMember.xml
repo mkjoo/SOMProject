@@ -20,10 +20,13 @@
 	<bean id="memberInsertController" class="com.project.member.controller.MemberInsertController"
 		p:memberInsertService-ref="memberInsertService" />
 	<bean id="MainController" class="com.project.main.controller.MainController" />
-	<bean id="MemberUpdateController" class="com.project.myPage.controller.MemberUpdateController" />
-	<bean id="MyMusicController" class="com.project.myPage.controller.MyMusicController" />
+	<bean id="MyPageMemberUpdateController" class="com.project.myPage.controller.MyPageMemberUpdateController" />
+	<bean id="MyPageMusicController" class="com.project.myPage.controller.MyPageMusicController" />
 	<bean id="MyPageAccessController" class="com.project.myPage.controller.MyPageAccessController" />
 	<bean id="MyPageHomeController" class="com.project.myPage.controller.MyPageHomeController" />
-	<bean id="MyPointController" class="com.project.myPage.controller.MyPointController" />
-	<bean id="PlaylistController" class="com.project.myPage.controller.PlaylistController" />
+	<bean id="MyPagePointController" class="com.project.myPage.controller.MyPagePointController" />
+	<bean id="MyPagePlaylistController" class="com.project.myPage.controller.MyPagePlaylistController" />
+	<bean id="PopularController" class="com.project.popular.controller.PopularController" />
+	<bean id="BuskingController" class="com.project.busking.controller.BuskingController" />
+
 </beans>

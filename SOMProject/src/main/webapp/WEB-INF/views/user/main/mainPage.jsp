@@ -5,15 +5,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<<<<<<< HEAD
+=======
+<script type="text/javascript" src="/som/js/main/slider.js"></script>
+<script type="text/javascript" src="/som/js/main/login.js"></script>
+<script type="text/javascript" src="/som/js/main/menu.js"></script>
+<script type="text/javascript" src="/som/js/main/signUp.js"></script>
+
+>>>>>>> branch 'master' of https://github.com/mkjoo/SOMProject.git
 <link href="/som/css/main/modal.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/login.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/slider.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/mp_header.css" rel="stylesheet"
 	type="text/css">
+<<<<<<< HEAD
 	
 	<script type="text/javascript" src="/som/js/main/modal.js"></script>
 	<script type="text/javascript" src="/som/js/main/slider.js"></script>
 	<script type="text/javascript" src="/som/js/main/login.js"></script>
+=======
+>>>>>>> branch 'master' of https://github.com/mkjoo/SOMProject.git
 
 </head>
 <body>
@@ -21,6 +32,7 @@
 	<header>
 	<div class="header_menu">
 		<ul class="header_menu_ul" style="color: white">
+<<<<<<< HEAD
 			<li class="menu"><button class="btn btn-primary dropdown-toggle"
 					type="button" data-toggle="dropdown">
 					<img src="/som/images/main/메뉴바.png" width="40" height="40" alt="" />
@@ -32,6 +44,23 @@
 					<li><button href="#">게시판</button></li>
 				</ul></li>
 			<li class="menu"><a href="mainPage.jsp" title="Home"
+=======
+			<li class="menu">
+
+				<div class="dropdown">
+
+					<button onclick="myFunction()" class="dropbtn">
+						<img src="/som/images/main/메뉴바.png" width="25" height="25" alt="" />
+					</button>
+
+					<div id="myDropdown" class="dropdown-content">
+						<a class="dropmenu" href="#">최신가요</a> <a class="dropmenu" href="#">인기가요</a>
+						<a class="dropmenu" href="#">버스킹</a> <a class="dropmenu" href="#">게시판</a>
+					</div>
+				</div>
+			</li>
+			<li class="menu"><a href="mainPage.do" title="Home"
+>>>>>>> branch 'master' of https://github.com/mkjoo/SOMProject.git
 				class="hd_logo"><img src="/som/images/main/som_logo.png"
 					width="100" height="40"></a></li>
 			<li class="menu" id=""><button type="button"
@@ -56,6 +85,7 @@
 				<div class="modal-body">
 
 
+<<<<<<< HEAD
 
 					<div class="login-container animated fadeInDown bootstrap snippets">
 						<div class="loginbox bg-white">
@@ -92,9 +122,47 @@
 							</div>
 							<div class="loginbox-signup">
 								<a href="#register.html">Sign Up With Email</a>
+=======
+			<div class="modal-body">
+				<div class="login-container animated fadeInDown bootstrap snippets">
+					<div class="loginbox bg-white">
+						<div class="loginbox-title">Log In</div>
+						<div class="loginbox-social">
+							<div class="social-title ">sns 계정으로 LogIn 하기</div>
+							<div class="social-buttons">
+								<a href="" class="button-facebook"> <i
+									class="social-icon fa fa-facebook"></i>
+								</a> <a href="" class="button-twitter"> <i
+									class="social-icon fa fa-twitter"></i>
+								</a> <a href="" class="button-google"> <i
+									class="social-icon fa fa-google-plus"></i>
+								</a>
+>>>>>>> branch 'master' of https://github.com/mkjoo/SOMProject.git
 							</div>
 						</div>
+<<<<<<< HEAD
 						<div class="logobox"></div>
+=======
+						<div class="loginbox-or">
+							<div class="or-line"></div>
+							<div class="or">OR</div>
+						</div>
+						<div class="loginbox-textbox">
+							<input type="text" class="form-control" placeholder="Email">
+						</div>
+						<div class="loginbox-textbox">
+							<input type="text" class="form-control" placeholder="Password">
+						</div>
+						<div class="loginbox-submit">
+							<button class="login-btn">Login</button>
+						</div>
+						<div class="loginbox-forgot">
+							<a href="">ID/Password 찾기</a>
+						</div>
+						<div class="loginbox-signup">
+							<button onclick="openSignUp()">회원가입</button>
+						</div>
+>>>>>>> branch 'master' of https://github.com/mkjoo/SOMProject.git
 					</div>
 
 
@@ -107,6 +175,10 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
+=======
+	<script type="text/javascript" src="/som/js/main/modal.js"></script>
+>>>>>>> branch 'master' of https://github.com/mkjoo/SOMProject.git
 
 
 	<div class="header_search">
@@ -149,7 +221,7 @@
 			onclick="currentSlide(3)"></span>
 	</div>
 	</nav>
-	<!-- section -->
+	<!-- section -
 	<section>
 	<div class="slideshow-container">
 		<div class="mySlides fade">

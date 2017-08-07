@@ -5,90 +5,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SOM | Registration Page</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta
-	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-	name="viewport">
-<link type="text/css" rel="stylesheet" href="/som/css/regForm.css">
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-	rel="stylesheet">
+
+<link href="/som/css/main/signUp.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="/som/js/main/signUp.js"></script>
 </head>
 <body>
+<form id= "reg">
+	<div class="container">
+		<div class="email">
+			<label><b>Email</b></label> <input type="text" class="emailInput" id="email" placeholder="Email 입력"
+				name="email" required />
+			<button class="confirm" id="confitm">Email 인증</button>
+		</div></br> 
+		<label><b>비밀번호</b></label> 
+		<input type="password"placeholder="비밀번호 입력" name="psw"  id="psw"required></br> 
+		<label><b>비밀번호확인</b></label> 
+		<input type="password" placeholder="비밀번호 확인" name="psw-repeat"id="repsw"required></br> 
+		<label><b>이름</b></label> 
+		<input type="text"placeholder="이름 입력" name="name" id="name"required></br>
+		<label><b>생년월일</b></label>
+		<input type="text" placeholder="ex) 90.01.01" name="birth" id="birth"required></br>
+		<label><b>전화번호</b></label>
+		<input type="text"placeholder="ex) 010-1234-5678" name="phone" id="phone"required />
+		<p>
+			<input type="checkbox" name="agreementBox"id="agree" /> 계정 생성을 위한 <a href="#">이용약관
+				및 개인 정보 보호 정책</a>에 동의합니다.
 
-	<!-- Button trigger modal -->
-	<button type="button" class="btn btn-primary btn-lg"
-		data-toggle="modal" data-target="#myModal">Launch demo modal
-	</button>
+		</p>
 
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">Login title</h4>
-				</div>
-				<div class="modal-body">
-
-
-
-					<div class="login-container animated fadeInDown bootstrap snippets">
-						<div class="loginbox bg-white">
-							<div class="loginbox-title">SIGN IN</div>
-							<div class="loginbox-social">
-								<div class="social-title ">Connect with Your Social
-									Accounts</div>
-								<div class="social-buttons">
-									<a href="" class="button-facebook"> <i
-										class="social-icon fa fa-facebook"></i>
-									</a> <a href="" class="button-twitter"> <i
-										class="social-icon fa fa-twitter"></i>
-									</a> <a href="" class="button-google"> <i
-										class="social-icon fa fa-google-plus"></i>
-									</a>
-								</div>
-							</div>
-							<div class="loginbox-or">
-								<div class="or-line"></div>
-								<div class="or">OR</div>
-							</div>
-							<div class="loginbox-textbox">
-								<input type="text" class="form-control" placeholder="Email">
-							</div>
-							<div class="loginbox-textbox">
-								<input type="text" class="form-control" placeholder="Password">
-							</div>
-							<div class="loginbox-forgot">
-								<a href="">Forgot Password?</a>
-							</div>
-							<div class="loginbox-submit">
-								<input type="button" class="btn btn-primary btn-block"
-									value="Login">
-							</div>
-							<div class="loginbox-signup">
-								<a href="#register.html">Sign Up With Email</a>
-							</div>
-						</div>
-						<div class="logobox"></div>
-					</div>
-
-
-
-
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
+		<div class="clearfix">
+			<button type="button" onclick="self.close()" class="cancelbtn">취소</button>
+			<button type="submit" class="signupbtn">회원가입</button>
 		</div>
-	</div>
+</div>
+</form>
 </body>
 </html>

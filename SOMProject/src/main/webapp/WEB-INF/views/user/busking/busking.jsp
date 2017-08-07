@@ -4,23 +4,35 @@
 <html>
 <head>
 <title>Insert title here</title>
-<link href="Busking.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/som/js/main/menu.js"></script>
+<link href="/som/css/busking/busking.css" rel="stylesheet"
+	type="text/css">
+<link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+	<!-- header -->
 	<header>
 		<div class="header_menu">
 			<ul class="header_menu_ul" style="color: white">
-				<li class="menu"><a><img src="버튼/메뉴바 버튼.png" alt="" /></a> <!-- <ul class="hide">
-						<li>최신가요</li>
-						<li>인기차트</li>
-						<li>버스킹</li>
-						<li>게시판</li>
-					</ul> --></li>
+				<li class="menu">
+
+					<div class="dropdown">
+
+						<button onclick="myFunction()" class="dropbtn">
+							<img src="/som/images/main/메뉴바.png" width="25" height="25" alt="" />
+						</button>
+
+						<div id="myDropdown" class="dropdown-content">
+							<a class="dropmenu" href="#">최신가요</a> <a class="dropmenu"
+								href="#">인기가요</a> <a class="dropmenu" href="#">버스킹</a> <a
+								class="dropmenu" href="#">게시판</a>
+						</div>
+					</div>
+				</li>
 				<li class="menu"><a href="mainPage.jsp" title="Home"
-					class="hd_logo"><img src="버튼/로고버튼.png"></a></li>
-				<li class="menu" id=""><a href="#"><span
-						class="hd_mn_ul_li_span">Login</span></a><a href="#"><span
-						class="hd_mn_ul_li_span">/Join</span></a></li>
+					class="hd_logo"><img src="/som/images/main/som_logo.png"
+						width="70" height="25"></a></li>
+				<li class="menu"><button id="myBtn">Login/Join</button></li>
 			</ul>
 		</div>
 	</header>
