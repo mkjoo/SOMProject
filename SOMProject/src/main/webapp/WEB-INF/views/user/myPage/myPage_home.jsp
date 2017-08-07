@@ -46,7 +46,7 @@
 		<div id="box1">
 			<table id="member_info" border="0" width="300" height="200">
 				<tr>
-					<td><a href="myPage_acc.jsp" id="mem_info"><img
+					<td><a href="myPage_acc.do" id="mem_info"><img
 							src="/som/images/myPage/member_info.jpg">회원정보</a></td>
 				</tr>
 			</table>

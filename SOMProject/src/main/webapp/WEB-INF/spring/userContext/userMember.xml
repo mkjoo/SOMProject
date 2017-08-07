@@ -19,10 +19,14 @@
 
 	<bean id="memberInsertController" class="com.project.member.controller.MemberInsertController"
 		p:memberInsertService-ref="memberInsertService" />
+	<bean id="memberRegFormController" class="com.project.member.controller.MemberRegFormController"/>
 		
 	<bean id="MainController" class="com.project.main.controller.MainController" />
 		
 	<bean id="MyPageHomeController" class="com.project.myPage.controller.MyPageHomeController" />
+	<bean id="MyPageAccessController" class="com.project.myPage.controller.MyPageAccessController" />
+	
 	<bean id="PopularController" class="com.project.popular.controller.PopularController" />
 	<bean id="BuskingController" class="com.project.busking.controller.BuskingController" />
+	
 </beans>
