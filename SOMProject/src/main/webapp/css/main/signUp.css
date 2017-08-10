@@ -60,6 +60,9 @@ float: right;
 .container {
 	padding: 16px;
 }
+.certifyNumber{
+	display: none;
+}
 
 
 

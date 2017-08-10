@@ -20,7 +20,19 @@ import javax.mail.internet.MimeMessage;
 
 @Controller
 public class MemberCertifyController {
-	@RequestMapping(value = "/result", method = RequestMethod.GET)
+	public String makeMessage() {
+		char[] basket = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'F', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
+				'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+		String message = "";
+
+		for (int i = 0; i < 7; i++) {
+			int index = (int) (Math.random() * basket.length);
+			message += basket[index];
+		}
+		return message;
+	}
+
+	@RequestMapping(value = "regForm2.do", method = RequestMethod.GET)
 	public ModelAndView sendMail(@RequestParam("Address") String Address) throws AddressException, MessagingException {
 
 		String host = "smtp.naver.com";
@@ -28,15 +40,14 @@ public class MemberCertifyController {
 		final String username = "mkjoo0909"; // 네이버 아이디
 		final String password = "nibe0109!@#"; // 네이버 비밀번ㄹ호
 		int port = 465;
-		
-		int certifyNumber;
-		certifyNumber = (int)(Math.random()*999999)-1;
 
-		
+		String certifyNumber;
+		certifyNumber = makeMessage();
+
 		String recipient = Address;
 		String subject = "Sound Of Music에서 보내는 인증메일 입니다."; // 메일의 제목
 
-		String body = " 사용자님의 인증번호는 " +certifyNumber + "입니다. ";
+		String body = " 사용자님의 인증번호는 " + certifyNumber + "입니다. ";
 
 		Properties props = System.getProperties();
 
@@ -65,10 +76,10 @@ public class MemberCertifyController {
 		mimeMessage.setText(body);
 		Transport.send(mimeMessage);
 
-		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/member/regForm");
-		
+		mv.setViewName("/member/regForm2");
+		mv.addObject("Address", Address);
+		mv.addObject("certifyNumber", certifyNumber);
 
 		return mv;
 	}

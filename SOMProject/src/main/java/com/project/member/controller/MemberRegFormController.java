@@ -1,8 +1,12 @@
 package com.project.member.controller;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.member.model.MemberVO;
@@ -16,10 +20,27 @@ public class MemberRegFormController {
 	public void setMemberInsertService(MemberInsertService memberInsertService) {
 		this.memberInsertService = memberInsertService;
 	}
-	
-	@RequestMapping(value="regForm1.do", method=RequestMethod.GET)
-	public String regForm(){
-		return "member/regForm1";
+
+	@RequestMapping(value = "regForm.do", method = RequestMethod.GET)
+	public ModelAndView checkCertify(@RequestParam("Address") String Address, @RequestParam("certify") String certify,
+			@RequestParam("certifyNumber") String certifyNumber) throws AddressException, MessagingException {
+
+		if (certify.equals(certifyNumber)) {
+			ModelAndView mv1 = new ModelAndView();
+			mv1.setViewName("/member/regForm");
+			mv1.addObject("Address", Address);
+			mv1.addObject("certify", certify);
+			mv1.addObject("certifyNumber", certifyNumber);
+			return mv1;
+		} else {
+			ModelAndView mv1 = new ModelAndView();
+			mv1.setViewName("/member/regForm2");
+			mv1.addObject("Address", Address);
+			mv1.addObject("certifyNumber", certifyNumber);
+			
+			return mv1;
+		}
+
 	}
-	
+
 }

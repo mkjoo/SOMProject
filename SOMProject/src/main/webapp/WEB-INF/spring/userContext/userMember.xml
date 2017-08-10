@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
@@ -21,41 +20,10 @@
 	<bean id="memberInsertController" class="com.project.member.controller.MemberInsertController"
 		p:memberInsertService-ref="memberInsertService" />
 	<bean id="memberRegFormController" class="com.project.member.controller.MemberRegFormController"/>
-		
-	<bean id="MainController" class="com.project.main.controller.MainController" />
-		
-	<bean id="MyPageHomeController" class="com.project.myPage.controller.MyPageHomeController" />
-	<bean id="MyPageAccessController" class="com.project.myPage.controller.MyPageAccessController" />
-	
-	<bean id="PopularController" class="com.project.popular.controller.PopularController" />
-	<bean id="BuskingController" class="com.project.busking.controller.BuskingController" />
-	
-</beans>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-
-	<bean id="memberDao" class="com.project.member.model.MemberDAOImpl">
-		<property name="sqlSession">
-			<ref bean="sqlSessionTemplate" />
-		</property>
-	</bean>
-
-	<bean id="memberInsertService" class="com.project.member.service.MemberInsertServiceImpl">
-		<property name="memberDao">
-			<ref bean="memberDao" />
-		</property>
-	</bean>
-
-	<bean id="memberInsertController" class="com.project.member.controller.MemberInsertController"
-		p:memberInsertService-ref="memberInsertService" />
+	<bean id="memberCertifyController" class="com.project.member.controller.MemberCertifyController" />
 	<bean id="MainController" class="com.project.main.controller.MainController" />
 	<bean id="MyPageMemberUpdateController" class="com.project.myPage.controller.MyPageMemberUpdateController" />
-	<bean id="MyPageMusicController" class="com.project.myPage.controller.MyPageMusicController" />
+	<bean id="MyPageMusicController" class="com.project.myPage.controller.MyPageMusicListController" />
 	<bean id="MyPageAccessController" class="com.project.myPage.controller.MyPageAccessController" />
 	<bean id="MyPageHomeController" class="com.project.myPage.controller.MyPageHomeController" />
 	<bean id="MyPagePointController" class="com.project.myPage.controller.MyPagePointController" />
@@ -64,4 +32,4 @@
 	<bean id="BuskingController" class="com.project.busking.controller.BuskingController" />
 
 </beans>
->>>>>>> refs/remotes/origin/master
+

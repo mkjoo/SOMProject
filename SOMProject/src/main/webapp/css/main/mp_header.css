@@ -14,46 +14,16 @@ header{
 }
 
 .menu{
-<<<<<<< HEAD
-	display:inline; 
-	padding:0 120px; 	
-	color: white;
-	
-}
-
-.hd_mn_ul_li_span {
-	color: white;
-=======
    display:inline; 
-   padding: 12%;    
+   padding: 13%;    
    color: white;
 }
 .hd_logo{
    margin: auto;
->>>>>>> branch 'master' of https://github.com/mkjoo/SOMProject.git
 }
 
 .header_search {
-<<<<<<< HEAD
-	width: 100%;
-	height: 35px;
-	text-align: center;
-}
-
-/* #body {
-	margin: 0;
-	padding: 0;
-} */
-
-.menu a {
-	cursor: pointer;
-}
-
-.menu .hide {
-	display: none;
-=======
    width: 100%;
    height: 35px;
    text-align: center;
->>>>>>> branch 'master' of https://github.com/mkjoo/SOMProject.git
 }
