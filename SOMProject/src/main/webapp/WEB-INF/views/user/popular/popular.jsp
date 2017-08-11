@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,7 +78,29 @@
 						<th>가사</th>
 						<th>담기</th>
 					</tr>
-
+		<c:forEach var="vo" items="${list}">
+			<tr>
+						<td><input type="checkbox" title="전체선택" class="checkall"></td>
+						<td><h4>1</h4></td>
+						<td><img src="버튼/캡처.PNG" width="50" height="50"></td>
+						<td>${vo.m_name}</td>
+						<td>${vo.m_artist}</td>
+						<td>${vo.m_album}</td>
+						<td><a href="movie.html"><img src="버튼/뮤비버튼.png"
+								width="25" height="25"></a></td>
+						<td><a href="down.html"><img src="버튼/다운버튼.png" width="25"
+								height="25"></a></td>
+						<td><a href="listen.html"><img src="버튼/듣기버튼.png"
+								width="25" height="25"></a></td>
+						<td><a href="lycis.html"><img src="버튼/가사버튼.png"
+								width="25" height="25"></a></td>
+						<td><a href="put.html"><img src="버튼/담기버튼.png" width="25"
+								height="25"></a></td>
+					</tr>
+			
+		</c:forEach>
+		
+<!--
 					<tr>
 						<td><input type="checkbox" title="전체선택" class="checkall"></td>
 						<td><h4>1</h4></td>
@@ -388,7 +411,7 @@
 						<td><a href="put.html"><img src="버튼/담기버튼.png" width="25"
 								height="25"></a></td>
 					</tr>
-
+  -->
 				</table>
 			</div>
 		</div>

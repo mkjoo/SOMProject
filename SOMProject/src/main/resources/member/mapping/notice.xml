@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.user.board">
+	<resultMap id="NoticeResult" type="com.project.user.board.model.NoticeVO">
+		<result property="num" column="NUM" jdbcType="BIGINT" />
+		<result property="writer" column="WRITER" jdbcType="VARCHAR" />
+		<result property="subject" column="SUBJECT" jdbcType="VARCHAR" />
+		<result property="regdate" column="REGDATE" jdbcType="TIMESTAMP" />
+		<result property="content" column="CONTENT" jdbcType="VARCHAR" />
+		<result property="readcount" column="readcount" jdbcType="BIGINT" />
+	</resultMap>
+		
+
+	<select id="getAllCount" resultType="Integer">
+	select count(*) from notice
+	</select> 
+	
+	<select id="getList" parameterType="java.util.Map" resultMap="NoticeResult">
+	<![CDATA[
+	select * from (select rownum rnum,num,writer,subject,content,regdate,readcount from (select * from notice order by num desc)) where rnum>=#{startRow} and rnum <= #{endRow}
+	]]>
+	</select>
+	
+	<insert id="insertArticle" parameterType="com.project.user.board.model.NoticeVO">
+	<![CDATA[
+	insert into notice(num,writer,subject,content,regdate) values(notice_seq.nextval,#{writer},#{subject},#{content},#{regdate})
+		
+	]]>
+	</insert>
+	
+	
+	<select id="getArticle" parameterType="java.lang.Integer"
+		resultMap="NoticeResult">
+		select * from notice where num = #{num}
+	</select>
+
+	
+	<update id="updateArticle" parameterType="com.project.user.board.model.NoticeVO">
+		update notice set writer=#{writer},email=#{email},subject=#{subject},content=#{content} where num = #{num}
+	</update>
+
+
+	<delete id="deleteArticle" parameterType="java.lang.Integer">
+		delete from notice where num=#{num}
+	</delete>
+
+	
+	<update id="upReadcount" parameterType="java.lang.Integer">
+		update notice set readcount = readcount+1 where num = #{num}
+	</update>
+	
+</mapper>

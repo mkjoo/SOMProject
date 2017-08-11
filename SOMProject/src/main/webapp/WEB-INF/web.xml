@@ -42,7 +42,10 @@
 			<param-value>
 			  /WEB-INF/spring/userContext/user-servlet.xml
 			  /WEB-INF/spring/userContext/userMember.xml
-			 </param-value>
+			  /WEB-INF/spring/userContext/notice.xml
+			  /WEB-INF/spring/userContext/qna.xml			 
+			  /WEB-INF/spring/userContext/popular.xml			 
+			  </param-value>
 		</init-param>
 		<load-on-startup>0</load-on-startup>
 	</servlet>

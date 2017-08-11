@@ -10,8 +10,13 @@
 		<config>src/main/webapp/WEB-INF/spring/adminContext/admin-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/userContext/user-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/applicationContext.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/userContext/popular.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/spring/commonContext.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/userContext/qna.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/userContext/userMember.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/userContext/notice.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

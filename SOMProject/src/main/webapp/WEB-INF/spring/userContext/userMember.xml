@@ -5,22 +5,33 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<bean id="memberDao" class="com.project.member.model.MemberDAOImpl">
+	<bean id="memberDao" class="com.project.user.member.model.MemberDAOImpl" >
 		<property name="sqlSession">
 			<ref bean="sqlSessionTemplate" />
 		</property>
 	</bean>
 
-	<bean id="memberInsertService" class="com.project.member.service.MemberInsertServiceImpl">
+	<bean id="memberInsertService" class="com.project.user.member.service.MemberInsertServiceImpl">
 		<property name="memberDao">
 			<ref bean="memberDao" />
 		</property>
 	</bean>
-
-	<bean id="memberInsertController" class="com.project.member.controller.MemberInsertController"
+	<bean id="memberLoginService" class="com.project.user.member.service.MemberLoginServiceImpl">
+		<property name="memberDao">
+			<ref bean="memberDao" />
+		</property>
+	</bean>
+	<bean id="memberInsertController" class="com.project.user.member.controller.MemberInsertController"
 		p:memberInsertService-ref="memberInsertService" />
-	<bean id="memberRegFormController" class="com.project.member.controller.MemberRegFormController"/>
-	<bean id="memberCertifyController" class="com.project.member.controller.MemberCertifyController" />
+	<bean id="memberLoginController" class="com.project.user.member.controller.MemberLoginController"
+		p:memberLoginService-ref="memberLoginService" />	
+		
+	<bean id="memberRegFormController" class="com.project.user.member.controller.MemberRegFormController"/>
+	<bean id="memberCertifyController" class="com.project.user.member.controller.MemberCertifyController" />
+	
+	
+	
+	
 	<bean id="MainController" class="com.project.main.controller.MainController" />
 	<bean id="MyPageMemberUpdateController" class="com.project.myPage.controller.MyPageMemberUpdateController" />
 	<bean id="MyPageMusicController" class="com.project.myPage.controller.MyPageMusicListController" />
@@ -30,6 +41,8 @@
 	<bean id="MyPagePlaylistController" class="com.project.myPage.controller.MyPagePlaylistController" />
 	<bean id="PopularController" class="com.project.popular.controller.PopularController" />
 	<bean id="BuskingController" class="com.project.busking.controller.BuskingController" />
+
+
 
 </beans>
 

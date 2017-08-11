@@ -19,7 +19,8 @@
 				<button class="confirm" id="confirm" >Email
 					인증</button>
 			</div>
-			</br>
+		
+			
 		</div>
 	</form>
 </body>

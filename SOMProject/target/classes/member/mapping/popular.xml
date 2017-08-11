@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.popular">
+	<resultMap id="PopularResult" type="com.project.popular.model.PopularVO">
+		<result property="m_num" column="m_num" jdbcType="BIGINT" />
+		<result property="m_name" column="m_name" jdbcType="VARCHAR" />
+		<result property="m_artist" column="m_artist" jdbcType="VARCHAR" />
+		<result property="m_album" column="m_album" jdbcType="VARCHAR" />
+		<result property="m_genre" column="m_genre" jdbcType="VARCHAR" />
+		<result property="m_create_date" column="m_create_date" jdbcType="TIMESTAMP" />
+		<result property="m_path" column="_path" jdbcType="VARCHAR" />
+		<result property="m_count_play" column="m_count_play" jdbcType="BIGINT" />
+		<result property="m_download" column="m_download" jdbcType="BIGINT" />
+		<result property="m_lyrics" column="m_lyrics" jdbcType="VARCHAR" />
+		<result property="m_musicvideo" column="m_musicvideo" jdbcType="VARCHAR" />
+	</resultMap>
+		
+		
+	<select id="getMusic" resultMap="PopularResult">
+		select * from music
+	</select>
+</mapper> 

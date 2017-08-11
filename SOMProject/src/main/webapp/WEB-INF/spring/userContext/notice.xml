@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	
+	<!-- 공지사항 관련 BEAN -->
+	<bean id="NoticeDao" class="com.project.user.board.model.NoticeDAOImpl"
+		p:sqlSession-ref="sqlSessionTemplate" />
+	<bean id="NoticePaging" class="com.project.user.board.model.Paging" />
+
+	<bean id="NoticeListController" class="com.project.user.board.controller.NoticeListController"
+		p:service-ref="NoticeListService" p:boardPaging-ref="NoticePaging" />
+	<bean id="NoticeWriteController" class="com.project.user.board.controller.NoticeWriteController"
+		p:writeService-ref="NoticeWriteService" />
+	
+	
+	<!--
+	<bean id="NoticeUpdateArticleController" class="com.ziggang.common.qna.controller.UpdateController"
+		p:updateArticleService-ref="updateArticleService" />
+	<bean id="NoticeDeleteArticleController" class="com.ziggang.common.qna.controller.DeleteController"
+		p:deleteArticleService-ref="deleteArticleService" />
+		 -->
+	
+	
+	<bean id="NoticeGetArticleController" class="com.project.user.board.controller.NoticeGetController"
+		p:service-ref="NoticeGetArticleService" />
+		
+	<bean id="NoticeListService" class="com.project.user.board.service.NoticeListServiceImpl"
+		p:dao-ref="NoticeDao" />
+	<bean id="NoticeWriteService" class="com.project.user.board.service.NoticeWriteServiceImpl"
+		p:dao-ref="NoticeDao" />
+	<bean id="NoticeGetArticleService" class="com.project.user.board.service.NoticeGetServiceImpl"
+		p:dao-ref="NoticeDao" />
+	
+	<!--
+	<bean id="NoticeUpdateArticleService" class="board.service.UpdateArticleServiceImpl"
+		p:boardDao-ref="boardDao" />
+	<bean id="NoticeDeleteArticleService" class="board.service.DeleteArticleServiceImpl"
+		p:boardDao-ref="boardDao" />
+	 -->
+	
+
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/common/" />
+		<property name="suffix" value=".jsp" />
+	</bean>	
+	
+
+</beans>

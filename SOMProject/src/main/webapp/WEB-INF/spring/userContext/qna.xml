@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<!-- QNA 관련 BEAN -->		
+		<bean id="boardDao" class="com.project.user.board.model.QnaDAOImpl"
+		p:sqlSession-ref="sqlSessionTemplate" />
+		<bean id="boardPaging" class="com.project.user.board.model.Paging" />
+
+	<bean id="BoardListController" class="com.project.user.board.controller.QnaListController"
+		p:boardListService-ref="boardListService" p:boardPaging-ref="boardPaging" />
+	<bean id="BoardWriteController" class="com.project.user.board.controller.QnaWriteController"
+		p:writeService-ref="writeService" />
+	
+	<bean id="BoardUpdateArticleController" class="com.project.user.board.controller.QnaUpdateController"
+		p:service-ref="updateArticleService" />
+	 
+	<bean id="BoardDeleteArticleController" class="com.project.user.board.controller.QnaDeleteController"
+		p:service-ref="deleteArticleService" />
+		 
+	<bean id="BoardGetArticleController" class="com.project.user.board.controller.QnaGetController"
+		p:getArticleService-ref="getArticleService" />
+		
+	<bean id="boardListService" class="com.project.user.board.service.QnaListServiceImpl"
+		p:dao-ref="boardDao" />
+	<bean id="writeService" class="com.project.user.board.service.QnaWriteServiceImpl"
+		p:dao-ref="boardDao" />
+	<bean id="getArticleService" class="com.project.user.board.service.QnaGetServiceImpl"
+		p:dao-ref="boardDao" />
+	<bean id="updateArticleService" class="com.project.user.board.service.QnaUpdateServiceImpl"
+		p:dao-ref="boardDao" />		  
+	<bean id="deleteArticleService" class="com.project.user.board.service.QnaDeleteServiceImpl"
+		p:dao-ref="boardDao" />
+	
+</beans>

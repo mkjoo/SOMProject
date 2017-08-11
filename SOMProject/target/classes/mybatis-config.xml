@@ -3,5 +3,8 @@
 <configuration>
 	<mappers>
 		<mapper resource="member/mapping/MemberMapper.xml"/>
+		<mapper resource="member/mapping/notice.xml"/>
+		<mapper resource="member/mapping/qna.xml"/>
+		<mapper resource="member/mapping/popular.xml"/>
 	</mappers>
 </configuration>
