@@ -24,7 +24,7 @@ public class QnaWriteController {
 
 	@RequestMapping(value="qnaWriteForm.do", method=RequestMethod.GET)
 	public String setView(){
-		return "qnaWriteForm";
+		return "board/qnaWriteForm";
 	}
 	
 	

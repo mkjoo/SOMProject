@@ -27,12 +27,12 @@
 		p:writeService-ref="NoticeWriteService" />
 	
 	
-	<!--
-	<bean id="NoticeUpdateArticleController" class="com.ziggang.common.qna.controller.UpdateController"
-		p:updateArticleService-ref="updateArticleService" />
-	<bean id="NoticeDeleteArticleController" class="com.ziggang.common.qna.controller.DeleteController"
-		p:deleteArticleService-ref="deleteArticleService" />
-		 -->
+	
+	<bean id="NoticeUpdateArticleController" class="com.project.user.board.controller.NoticeUpdateController"
+		p:service-ref="NoticeUpdateArticleService" />
+	<bean id="NoticeDeleteArticleController" class="com.project.user.board.controller.NoticeDeleteController"
+		p:service-ref="NoticeDeleteArticleService" />
+		 
 	
 	
 	<bean id="NoticeGetArticleController" class="com.project.user.board.controller.NoticeGetController"
@@ -45,12 +45,12 @@
 	<bean id="NoticeGetArticleService" class="com.project.user.board.service.NoticeGetServiceImpl"
 		p:dao-ref="NoticeDao" />
 	
-	<!--
-	<bean id="NoticeUpdateArticleService" class="board.service.UpdateArticleServiceImpl"
-		p:boardDao-ref="boardDao" />
-	<bean id="NoticeDeleteArticleService" class="board.service.DeleteArticleServiceImpl"
-		p:boardDao-ref="boardDao" />
-	 -->
+	
+	<bean id="NoticeUpdateArticleService" class="com.project.user.board.service.NoticeUpdateServiceImpl"
+		p:dao-ref="NoticeDao" />
+	<bean id="NoticeDeleteArticleService" class="com.project.user.board.service.NoticeDeleteServiceImpl"
+		p:dao-ref="NoticeDao" />
+	 
 	
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

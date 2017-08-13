@@ -22,7 +22,7 @@ window.onload=check("${value}");
 
 <body>
 
-<form method="post" name="writeForm" action="noticeUpdateProc.do">
+<form method="post" name="writeForm" action="qnaUpdateProc.do">
 
 <input type="hidden" name="num" value="${num}">
 <table width="450" border="1">
@@ -49,7 +49,7 @@ window.onload=check("${value}");
 </table>
 </form>
 <input type="button" value="글수정" onclick="writeCheck()">
-<input type="button" value="목록보기" onclick="window.location='noticeList.do'" />
+<input type="button" value="목록보기" onclick="window.location='qnaList.do'" />
 
 </body>
 </html>

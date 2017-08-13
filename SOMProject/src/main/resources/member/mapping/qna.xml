@@ -49,9 +49,7 @@
 
 	
 	<update id="updateArticle" parameterType="com.project.user.board.model.QnaVO">
-		update qna set
-		writer=#{writer},email=#{email},subject=#{subject},content=#{content}
-		where num = #{num}
+		update qna set writer=#{writer},email=#{email},subject=#{subject},content=#{content} where num = #{num}
 	</update>
 
 

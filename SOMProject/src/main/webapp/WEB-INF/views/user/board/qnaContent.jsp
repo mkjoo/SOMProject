@@ -46,8 +46,8 @@ function writeCheck(){
 </tr>
 </table>
 
-<input type="button" value="글수정" onclick="window.location='.do?num=${vo.num}'" />
-<input type="button" value="글삭제" onclick="window.location='.do?num=${vo.num}'" />
+<input type="button" value="글수정" onclick="window.location='qnaUpdateForm.do?num=${vo.num}'" />
+<input type="button" value="글삭제" onclick="window.location='qnaDeleteProc.do?num=${vo.num}'" />
 <input type="button" value="목록보기" onclick="window.location='qnaList.do'" />
 <input type="button" value="답글쓰기" onclick="writeCheck()" />
 </form>

@@ -23,17 +23,11 @@ public class QnaDeleteController {
 		return mav;
 	}
 	
-	@RequestMapping(value="qnaDeleteProc.do",method=RequestMethod.POST)
+	@RequestMapping(value="qnaDeleteProc.do",method=RequestMethod.GET)
 	public ModelAndView onSubmit(Integer num,QnaVO boardVo){
-		String dbpass = service.getPass(num);
-		if(boardVo.getPass().equals(dbpass)){
 			service.deleteArticle(boardVo.getNum());	
-			return new ModelAndView("redirect:list.do");
-		}else{
-			ModelAndView mav=new ModelAndView("qnaDeleteForm");
-			mav.addObject("num",num);
-			mav.addObject("value","passerror");
-			return mav;
-		}		
+			return new ModelAndView("redirect:qnaList.do");
+		
+				
 }
 }

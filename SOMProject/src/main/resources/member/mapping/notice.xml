@@ -31,12 +31,10 @@
 	</insert>
 	
 	
-	<select id="getArticle" parameterType="java.lang.Integer"
-		resultMap="NoticeResult">
+	<select id="getArticle" parameterType="java.lang.Integer" resultType="com.project.user.board.model.NoticeVO">
 		select * from notice where num = #{num}
 	</select>
 
-	
 	<update id="updateArticle" parameterType="com.project.user.board.model.NoticeVO">
 		update notice set writer=#{writer},email=#{email},subject=#{subject},content=#{content} where num = #{num}
 	</update>
