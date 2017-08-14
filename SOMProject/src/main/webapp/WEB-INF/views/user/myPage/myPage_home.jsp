@@ -8,6 +8,15 @@
 <link type="text/css" rel="stylesheet"
 	href="/som/css/myPage/myPage_style.css">
 <link type="text/css" rel="stylesheet" href="/som/css/main/menu.css">
+<script>
+function updateResult(value) {
+	if (value == "success") {
+		alert('구매성공');
+	}
+}
+window.onload = updateResult("${value}");
+
+</script>
 
 </head>
 <body>
@@ -55,7 +64,7 @@
 		<div id="box2">
 			<table id="myPlaylist" border="0" width="300" height="200">
 				<tr>
-					<td><a href="Playlist.jsp" id="playlist"><img
+					<td><a href="Playlist.do" id="playlist"><img
 							src="/som/images/myPage/myPlaylist.jpg">내 Playlist</a></td>
 				</tr>
 			</table>
@@ -66,7 +75,7 @@
 		<div id="box3">
 			<table id="myMusic" border="0" width="300" height="200">
 				<tr>
-					<td><a href="myMusic_list.jsp" id="m_list"><img
+					<td><a href="myMusic_list.do" id="m_list"><img
 							src="/som/images/myPage/myMusic.jpg">내 Music</a></td>
 				</tr>
 			</table>
@@ -77,7 +86,7 @@
 		<div id="box4">
 			<table id="myPoint" border="0" width="300" height="200">
 				<tr>
-					<td><a href="myPoint.jsp" id="point_pay"><img
+					<td><a href="myPoint.do" id="point_pay"><img
 							src="/som/images/myPage/mypoint.jpg">내 Point</a></td>
 				</tr>
 			</table>

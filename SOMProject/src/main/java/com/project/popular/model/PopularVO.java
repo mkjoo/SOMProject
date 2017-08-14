@@ -14,6 +14,14 @@ public class PopularVO {
 			private int m_download;
 			private String m_lyrics;
 			private String m_musicvideo;
+			private String src;
+			
+			public String getSrc() {
+				return src;
+			}
+			public void setSrc(String src) {
+				this.src = src;
+			}
 			public int getM_num() {
 				return m_num;
 			}

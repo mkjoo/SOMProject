@@ -6,6 +6,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원정보 수정</title>
 <link type="text/css" rel="stylesheet" href="/som/css/myPage/myPage_style.css">
+<script>
+function updateResult(value) {
+	if (value == "success") {
+		alert('변경성공');
+	}
+}
+function openSignUp() {
+	window.open("regForm1.do", "_blank", "width=550, height=800");
+}
+window.onload = updateResult("${value}");
+
+</script>
 </head>
 <body>
 <header>
@@ -26,6 +38,8 @@
       </ul>
    </div>
    </header>
+   <form method="post" action="member_updateProc.do">
+	<input type="hidden" name="email" value="${vo.email}">
 	<div id="updt_info">
 		<table border="0" width="300" height="480">
 			<tr>
@@ -38,7 +52,7 @@
 					<label for="id">회원 ID</label>
 				</td>
 				<td>
-					<input type="text" name="member" />
+					ID:${vo.email}
 				</td>
 			</tr>
 			<tr>
@@ -46,7 +60,7 @@
 					<label for="password1">패스워드</label>
 				</td>
 				<td>
-					<input type="password" name="password1" />
+					<input type="password" name="pass" value="${vo.pass}"/>
 				</td>
 			</tr>
 			<tr>
@@ -54,7 +68,7 @@
 					<label for="password2">패스워드확인</label>
 				</td>
 				<td>
-					<input type="password" name="password2" />
+					<input type="password" name="password2" value="${vo.pass}"/>
 				</td>
 			</tr>
 			<tr>
@@ -62,15 +76,7 @@
 					<label for="dob">생년월일</label>
 				</td>
 				<td>
-					<input type="date" name="dob" />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="email">이메일</label>
-				</td>
-				<td>
-					<input type="email" name="mail" />
+					<input type="date" name="birth" value="${vo.birth}"/>
 				</td>
 			</tr>
 			<tr>
@@ -78,7 +84,7 @@
 					<label for="name">이름</label>
 				</td>
 				<td>
-					<input type="text" name="name" />
+					<input type="text" name="name" value="${vo.name}"/>
 				</td>
 			</tr>
 			<tr>
@@ -86,17 +92,18 @@
 					<label for="tel">휴대폰 번호</label>
 				</td>
 				<td>
-					<input type="tel" name="phone" />
+					<input type="tel" name="phone" value="${vo.phone}"/>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
 					<br>
 					<a href="myPage_home.jsp"><input type="submit" value="수정"></a>&nbsp;&nbsp;
-					<a href="myPage_home.jsp"><input type="submit" value="취소"></a>
+					<a href="myPage_home.do"><input type="button" value="취소" onclick="window.location='myPage_home.do'"></a>
 				</td>
 			</tr>
 		</table>
 	</div>
+	</form>
 </body>
 </html>

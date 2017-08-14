@@ -1,5 +1,5 @@
 
-package com.project.myPage.controller;
+package com.project.user.myPage.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,5 +12,5 @@ public class MyPageAccessController {
 	public String myPage_acc(){
 		return "myPage/myPage_acc";
 	}
-
+		
 }

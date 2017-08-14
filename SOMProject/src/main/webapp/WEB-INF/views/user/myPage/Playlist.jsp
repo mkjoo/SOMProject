@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,131 +44,33 @@ nav#title{
    <hr color="#7DBCBE"/>
 	<div id="song1">
 		<table border="1" width="320" height="160">
+		<c:forEach var="list" items="${list}">
+			
 			<tr>
 				<td rowspan="6"><a href="../songs_jsp/song1.jsp"><img src="../images/mannam.jpg"></a>
-				<td colspan="2">[EP]</td>
+				<td colspan="2">..</td>
 			</tr>
 			<tr>
-				<td colspan="2"><a href="../songs_jsp/song1.jsp">음악이 사랑이 흐르네</a></td>
+				<td colspan="2"><a href="../songs_jsp/song1.jsp">${list.m_name}</a></td>
 			</tr>
 			<tr>
-				<td colspan="2">권진원</td>
+				<td colspan="2">${list.m_artist}</td>
 			</tr>
 			<tr>
-				<td colspan="2">KWON JIN WON & M..</td>
+				<td colspan="2">${list.m_album}</td>
 			</tr>
 			<tr>
-				<td align="center">2017.07.19</td>
+				<td align="center">${list.m_create_date}</td>
 				<td align="center">3곡</td>
 			</tr>
 			<tr>
 				<td align="center"><a href="">앨범듣기</a>&nbsp;&nbsp;
 				<td align="center"><a href="">앨범다운</a>
-			</td>
-		</table>
-	</div>
-	<br><hr/>
-	<div id="song2">
-		<table border="1" width="320" height="160">
-			<tr>
-				<td rowspan="6"><a href="../songs_jsp/song2.jsp"><img src="../images/milktea.jpg"></a>
-				<td colspan="2">싱글</td>
-			</tr>
-			<tr>
-				<td colspan="2"><a href="../songs_jsp/song2.jsp">궁금해</a></td>
-			</tr>
-			<tr>
-				<td colspan="2">밀크티</td>
-			</tr>
-			<tr>
-				<td colspan="2">궁금해 (싱글)</td>
-			</tr>
-			<tr>
-				<td align="center">2017.07.19</td>
-				<td align="center">1곡</td>
-			</tr>
-			<tr>
-				<td align="center"><a href="">앨범듣기</a>&nbsp;&nbsp;
-				<td align="center"><a href="">앨범다운</a>
-			</td>
-		</table>
-	</div>
-	<br><hr/>
-	<div id="song3">
-		<table border="1" width="320" height="160">
-			<tr>
-				<td rowspan="6"><a href="../songs_jsp/song3.jsp"><img src="../images/nassho.jpg"></a>
-				<td colspan="2">[EP]</td>
-			</tr>
-			<tr>
-				<td colspan="2"><a href="../songs_jsp/song3.jsp">Show Live Vol.008 (광탈)</a></td>
-			</tr>
-			<tr>
-				<td colspan="2">나쑈</td>
-			</tr>
-			<tr>
-				<td colspan="2">Show Live Vol.008 (광탈)</td>
-			</tr>
-			<tr>
-				<td align="center">2017.07.19</td>
-				<td align="center">2곡</td>
-			</tr>
-			<tr>
-				<td align="center"><a href="">앨범듣기</a>&nbsp;&nbsp;
-				<td align="center"><a href="">앨범다운</a>
-			</td>
-		</table>
-	</div>
-	<br><hr/>
-	<div id="song4">
-		<table border="1" width="320" height="160">
-			<tr>
-				<td rowspan="6"><a href="../songs_jsp/song4.jsp"><img src="../images/oppa.jpg"></a>
-				<td colspan="2">싱글</td>
-			</tr>
-			<tr>
-				<td colspan="2"><a href="../songs_jsp/song4.jsp">오빠 (PROD. Brother Su)</a></td>
-			</tr>
-			<tr>
-				<td colspan="2">유승우, 산들 (B1A4)</td>
-			</tr>
-			<tr>
-				<td colspan="2">오빠</td>
-			</tr>
-			<tr>
-				<td align="center">2017.07.06</td>
-				<td align="center">1곡</td>
-			</tr>
-			<tr>
-				<td align="center"><a href="">앨범듣기</a>&nbsp;&nbsp;
-				<td align="center"><a href="">앨범다운</a>
-			</td>
-		</table>
-	</div>
-	<br><hr/>
-	<div id="song5">
-		<table border="1" width="320" height="160">
-			<tr>
-				<td rowspan="6"><a href="../songs_jsp/song5.jsp"><img src="../images/rain and so.jpg"></a>
-				<td colspan="2">///</td>
-			</tr>
-			<tr>
-				<td colspan="2"><a href="../songs_jsp/song5.jsp">널 너무 모르고</a></td>
-			</tr>
-			<tr>
-				<td colspan="2">헤이즈 (Heize)</td>
-			</tr>
-			<tr>
-				<td colspan="2">/// (너 먹구름 비)</td>
-			</tr>
-			<tr>
-				<td align="center">2017.06.26</td>
-				<td align="center">5곡</td>
-			</tr>
-			<tr>
-				<td align="center"><a href="">앨범듣기</a>&nbsp;&nbsp;
-				<td align="center"><a href="">앨범다운</a>
-			</td>
+			</td>	
+			</tr>	
+		</c:forEach>	
+			
+			
 		</table>
 	</div>
 	<br><hr/>

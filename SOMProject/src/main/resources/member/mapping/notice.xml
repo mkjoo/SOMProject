@@ -36,7 +36,7 @@
 	</select>
 
 	<update id="updateArticle" parameterType="com.project.user.board.model.NoticeVO">
-		update notice set writer=#{writer},email=#{email},subject=#{subject},content=#{content} where num = #{num}
+		update notice set writer=#{writer},subject=#{subject},content=#{content} where num = #{num}
 	</update>
 
 

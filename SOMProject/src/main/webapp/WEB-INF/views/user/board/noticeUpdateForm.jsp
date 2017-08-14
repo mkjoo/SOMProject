@@ -24,19 +24,11 @@ window.onload=check("${value}");
 
 <form method="post" name="writeForm" action="noticeUpdateProc.do">
 
-<input type="hidden" name="num" value="${num}">
+<input type="hidden" name="num" value="${vo.num}">
 <table width="450" border="1">
 <tr>
 	<td align="center">작성자</td>
 	<td><input type="text" name="writer" value="${vo.writer}"></td>
-</tr>
-<tr>
-	<td>비밀번호</td>
-	<td width="145"><input type="password" name="pass" value="${vo.pass}"></td>	
-</tr>
-<tr>
-	<td>이메일</td>
-	<td><input type="text" size="60" name="email" value="${vo.email}"></td>
 </tr>
 <tr>
 	<td>제목</td>

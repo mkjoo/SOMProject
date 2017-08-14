@@ -1,5 +1,8 @@
 package com.project.user.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +21,7 @@ public class MemberLoginController {
 	}
 
 	@RequestMapping(value = "loginProc.do", method = RequestMethod.POST)
-	public ModelAndView loginCheck(@RequestParam String email, @RequestParam String pass) {
+	public ModelAndView loginCheck(@RequestParam String email, @RequestParam String pass,HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();
 		MemberVO vo = memberLoginService.getMemberPass(email);
@@ -31,7 +34,8 @@ public class MemberLoginController {
 		}
 
 		if (pass.equals(vo.getPass())) {
-			System.out.println("2");
+			HttpSession session=request.getSession();
+			session.setAttribute("loginID",vo);			
 			mav.setViewName("main/mainPage");
 			mav.addObject("result", "resultOK");
 			mav.addObject("vo", vo);

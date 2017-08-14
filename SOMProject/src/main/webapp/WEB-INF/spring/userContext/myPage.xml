@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<bean id="MyPageUpdateController" class="com.project.user.myPage.controller.MyPageMemberUpdateController" p:service-ref="MyPageService" />
+	<bean id="MyPageMusicController" class="com.project.user.myPage.controller.MyPageMusicListController" p:service-ref="MyPageMusicListService" />
+	<bean id="MyPageAccessController" class="com.project.user.myPage.controller.MyPageAccessController" />
+	<bean id="MyPageHomeController" class="com.project.user.myPage.controller.MyPageHomeController" />
+	<bean id="MyPagePointController" class="com.project.user.myPage.controller.MyPagePointController" p:service-ref="MyPagePointService"  />
+	<bean id="MyPagePlaylistController" class="com.project.user.myPage.controller.MyPagePlaylistController" p:service-ref="MyPagePlayListService" />
+	
+	<bean id="MyPageDAO" class="com.project.user.myPage.model.MyPageDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
+	<bean id="MyPageService" class="com.project.user.myPage.service.MyPageUpdateServiceImpl" p:dao-ref="MyPageDAO" />
+	<bean id="MyPagePointService" class="com.project.user.myPage.service.MyPagePointServiceImpl" p:dao-ref="MyPageDAO" />
+	<bean id="MyPagePlayListService" class="com.project.user.myPage.service.MyPagePlayListServiceImpl" p:dao-ref="MyPageDAO" />
+	<bean id="MyPageMusicListService" class="com.project.user.myPage.service.MyPageMusicListServiceImpl" p:dao-ref="MyPageDAO" />
+		
+</beans>

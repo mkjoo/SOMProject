@@ -33,12 +33,6 @@
 	
 	
 	<bean id="MainController" class="com.project.main.controller.MainController" />
-	<bean id="MyPageMemberUpdateController" class="com.project.myPage.controller.MyPageMemberUpdateController" />
-	<bean id="MyPageMusicController" class="com.project.myPage.controller.MyPageMusicListController" />
-	<bean id="MyPageAccessController" class="com.project.myPage.controller.MyPageAccessController" />
-	<bean id="MyPageHomeController" class="com.project.myPage.controller.MyPageHomeController" />
-	<bean id="MyPagePointController" class="com.project.myPage.controller.MyPagePointController" />
-	<bean id="MyPagePlaylistController" class="com.project.myPage.controller.MyPagePlaylistController" />
 	<bean id="PopularController" class="com.project.popular.controller.PopularController" />
 	<bean id="BuskingController" class="com.project.busking.controller.BuskingController" />
 

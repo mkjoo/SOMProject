@@ -61,7 +61,7 @@ window.onload = loginResult("${result}");
 				class="hd_logo"><img src="/som/images/main/som_logo.png"
 					width="70" height="25"></a></li>
 			<li class="menu"><button id="myBtn">Login/Join</button></li>
-			${vo.email}
+			${loginID.email}
 		</ul>
 	</div>
 	</header>

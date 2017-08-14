@@ -10,7 +10,14 @@ public class NoticeVO {
 	private Date regdate;
 	private String content;
 	private int readcount;
+	private String pass;
 	
+	public String getPass() {
+		return pass;
+	}
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
 	public int getReadcount() {
 		return readcount;
 	}

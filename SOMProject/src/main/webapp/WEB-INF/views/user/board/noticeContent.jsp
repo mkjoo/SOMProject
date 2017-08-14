@@ -20,7 +20,7 @@
 	<td align="center">작성자</td>
 	<td align="center">${vo.writer}</td>
 	<td align="center">조회수</td>
-	<td align="center">${vo.regdate}</td>
+	<td align="center">${vo.readcount}</td>
 </tr>
 <tr>
 	<td align="center">제목</td>
@@ -34,7 +34,7 @@
 
 <!-- 수정삭제 바꺼라.. -->
 <input type="button" value="글수정" onclick="window.location='noticeUpdateForm.do?num=${vo.num}'" />
-<input type="button" value="글삭제" onclick="window.location='noticeDeleteForm.do?num=${vo.num}'" />
+<input type="button" value="글삭제" onclick="window.location='noticeDeleteProc.do?num=${vo.num}'" />
 <input type="button" value="목록보기" onclick="window.location='noticeList.do'" />
 </form>
 </body>

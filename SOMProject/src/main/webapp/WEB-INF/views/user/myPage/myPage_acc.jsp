@@ -26,11 +26,12 @@
       </ul>
    </div>
    </header>
+   <form action="member_passConfirm.do" method="post">
 	<div id="passAcc">
 	<p><h4>암호를 입력해주세요 :D </h4></p>
 	<br/>
 		<label for="password">
-			<input type="password"  name="access_pw">
+			<input type="password"  name="password">
 		</label>
 	<br></br>
 		<div id="pass_submit">
@@ -39,5 +40,6 @@
 			<a href="myPage_home.jsp" target="_self"><input type="submit" value="취소"></a>
 		</div>
 	</div>
+	</form>
 </body>
 </html>

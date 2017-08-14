@@ -193,7 +193,7 @@ div.tab button.active {
 
 <!-- 수정삭제 바꺼라.. -->
 <input type="button" value="글수정" onclick="window.location='noticeUpdateForm.do?num=${vo.num}'" />
-<input type="button" value="글삭제" onclick="window.location='noticeDeleteForm.do?num=${vo.num}'" />
+<input type="button" value="글삭제" onclick="window.location='noticeDeleteProc.do?num=${vo.num}'" />
 <input type="button" value="목록보기" onclick="window.location='noticeList.do'" />
 </form>
       	

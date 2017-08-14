@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.user.myPage">
+		<resultMap id="PlayListResult" type="com.project.user.myPage.model.PlayListVO">
+		<result property="email" column="email" jdbcType="VARCHAR" />
+		<result property="m_name" column="m_name" jdbcType="VARCHAR" />
+		<result property="m_artist" column="m_artist" jdbcType="VARCHAR" />
+		<result property="m_album" column="m_album" jdbcType="VARCHAR" />
+		<result property="m_genre" column="m_genre" jdbcType="VARCHAR" />
+		<result property="m_create_date" column="m_create_date" jdbcType="TIMESTAMP" />
+		<result property="m_lyrics" column="m_lyrics" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<resultMap id="MyMusicResult" type="com.project.user.myPage.model.MusicVO">
+		<result property="m_num" column="m_num" jdbcType="BIGINT" />
+		<result property="m_name" column="m_name" jdbcType="VARCHAR" />
+		<result property="m_artist" column="m_artist" jdbcType="VARCHAR" />
+		<result property="m_album" column="m_album" jdbcType="VARCHAR" />
+		<result property="m_genre" column="m_genre" jdbcType="VARCHAR" />
+		<result property="m_create_date" column="m_create_date" jdbcType="TIMESTAMP" />
+		<result property="m_path" column="_path" jdbcType="VARCHAR" />
+		<result property="m_count_play" column="m_count_play" jdbcType="BIGINT" />
+		<result property="m_download" column="m_download" jdbcType="BIGINT" />
+		<result property="m_lyrics" column="m_lyrics" jdbcType="VARCHAR" />
+		<result property="m_musicvideo" column="m_musicvideo" jdbcType="VARCHAR" />
+		<result property="src" column="src" jdbcType="VARCHAR" />
+	</resultMap>
+		
+		
+	<select id="getMusic" resultMap="MyMusicResult" parameterType="java.util.Map">
+		select * from music
+	</select>
+	
+	
+	<select id="getMemberPass" parameterType="String" resultType="com.project.user.member.model.MemberVO">
+		select * from member where email=#{email}
+	</select>
+	
+	<update id="updateMember" parameterType="com.project.user.member.model.MemberVO">
+		update member set pass=#{pass}, birth=#{birth}, name=#{name}, phone=#{phone} where email = #{email}
+	</update>
+	
+	<insert id="chargeMoney" parameterType="com.project.user.myPage.model.PointVO">
+		insert into point(email,m_point) values(#{email},#{m_point})
+	</insert>
+	
+	<update id="updateMoney" parameterType="com.project.user.myPage.model.PointVO">
+		update point set m_point=#{m_point}+#{startMoney} where email = #{email}
+	</update>
+	
+	<select id="getMoney" parameterType="String" resultType="Integer">
+		select m_point from point where email=#{email}
+	</select>
+	
+	<update id="buyMusic" parameterType="com.project.user.myPage.model.PointVO">
+		update point set m_point=#{m_point}-#{usepoint},usecontent=#{usecontent},usepoint=#{usepoint} where email = #{email}
+	</update>
+	
+	<insert id="insertPlayList" parameterType="com.project.user.myPage.model.PlayListVO">
+		insert into playlist(email,m_name,m_artist,m_album,m_genre,m_lyrics) values(#{email},#{m_name},#{m_artist},#{m_album},#{m_genre},#{m_lyrics})
+	</insert>
+	
+	<select id="getPlayList" resultMap="PlayListResult" parameterType="String">
+		select * from playlist where email=#{email}
+	</select>
+	
+	<update id="upCountPlay" parameterType="String">
+		update music set m_count_play=m_count_play+1 where m_name = #{m_name}
+	</update>
+
+</mapper> 

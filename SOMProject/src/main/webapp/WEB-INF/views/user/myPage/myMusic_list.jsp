@@ -1,11 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>My Playlist</title>
 <link type="text/css" rel="stylesheet" href="../htmls/myPage_style.css">
+<script>
+function updateResult(value) {
+	if (value == "success") {alert('구매성공');}
+	if (value == "succes")	{alert('담기성공');}
+}
+
+window.onload = updateResult("${value}");
+
+</script>
 <style>
 div#content {
 	width: 660px;
@@ -201,96 +211,19 @@ p#about{
 						<th scope="col"><div class="wrap pd_none">담기</div></th>
 					</tr>
 				</thead>
+				<c:forEach var="musicVo" items="${list}">
 				<tr align="center">
 					<td><input type="checkbox"></td>
-					<td>1.</td>
-					<td>KARD</td>
-					<td><a href="../songs_jsp/kard_holahola.jsp">Hola Hola</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
+					<td>${musicVo.m_num}</td>
+					<td>${musicVo.m_artist}</td>
+					<td><a href="../songs_jsp/kard_holahola.jsp">${musicVo.m_name}</a></td>
+					<td><input type="button" value="듣기" onclick="window.location='upCountPlay.do?m_name=${musicVo.m_name}'"></td>
+					<td><input type="button" value="가사" onclick="window.open('lyrics.do?lyrics=${musicVo.m_lyrics}','get','height=500px, width=500px')"></td>
+					<td><input type="button" value="담기" onclick="window.location='insertPlay.do?email=${email}&m_name=${musicVo.m_name}&m_artist=${musicVo.m_artist}&m_album=${musicVo.m_album}&m_genre=${musicVo.m_genre}&m_lyrics=${musicVo.m_lyrics}'"></td>
+					<td><input type="button" value="구매" onclick="window.location='buyProc.do?usepoint=500&usecontent=buymusic'"></td>
 				</tr>
-				<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>2.</td>
-					<td>장문복</td>
-					<td><a href="../songs_jsp/jangmb_wouldyouwalkwithme.jsp">같이 걸을래 (with. 황아영)</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-				<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>3.</td>
-					<td>이예준</td>
-					<td><a href="../songs_jsp/Leeyj_worriedabout.jsp">괜한 걱정을 했나 봐</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-				<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>4.</td>
-					<td>프롬피</td>
-					<td><a href="../songs_jsp/frompi_hopeone.jsp">HOPE 한 잔 (Feat. 소울맨)</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-				<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>5.</td>
-					<td>시윤</td>
-					<td><a href="../songs_jsp/siyoon_beauty.jsp">BEAUTY</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-				<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>6.</td>
-					<td>Ways (웨이즈)</td>
-					<td><a href="../songs_jsp/ways_sopretty.jsp">그렇게 예뻤다</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-				<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>7.</td>
-					<td>김현석</td>
-					<td><a href="../songs_jsp/kimhs_youandi.jsp">You and I</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-				<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>8.</td>
-					<td>우디 (Woody)</td>
-					<td><a href="../songs_jsp/woody_yahae.jsp">YAHAE (야해)</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-				<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>9.</td>
-					<td>윤하 (YOUNHA)</td>
-					<td><a href="../songs_jsp/younha_takefive.jsp">Take Five</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-				<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>10.</td>
-					<td>디에이드 (The Ade)</td>
-					<td><a href="../songs_jsp/theade_sweetsummernight.jsp">달콤한 여름밤</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
+				</c:forEach>
+			
 				
 			</table>
 		</div>
