@@ -4,6 +4,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+function updateResult(value) {
+	if (value == "success") {alert('구매성공');}
+	if (value == "succes")	{alert('담기성공');}
+}
+
+window.onload = updateResult("${value}");
+
+</script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="/som/js/main/menu.js"></script>
@@ -78,24 +87,22 @@
 						<th>가사</th>
 						<th>담기</th>
 					</tr>
-		<c:forEach var="vo" items="${list}">
+		<c:forEach var="musicVo" items="${list}">
 			<tr>
 						<td><input type="checkbox" title="전체선택" class="checkall"></td>
-						<td><h4>1</h4></td>
+						<td><h4>${musicVo.m_num}</h4></td>
 						<td><img src="버튼/캡처.PNG" width="50" height="50"></td>
-						<td>${vo.m_name}</td>
-						<td>${vo.m_artist}</td>
-						<td>${vo.m_album}</td>
+						<td>${musicVo.m_name}</td>
+						<td>${musicVo.m_artist}</td>
+						<td>${musicVo.m_album}</td>
 						<td><a href="movie.html"><img src="버튼/뮤비버튼.png"
 								width="25" height="25"></a></td>
-						<td><a href="down.html"><img src="버튼/다운버튼.png" width="25"
-								height="25"></a></td>
+		
+					<td><input type="button" value="구매" onclick="window.location='buyProc.do?usepoint=500&usecontent=buymusic'"></td>
 						<td><a href="listen.html"><img src="버튼/듣기버튼.png"
 								width="25" height="25"></a></td>
-						<td><a href="lycis.html"><img src="버튼/가사버튼.png"
-								width="25" height="25"></a></td>
-						<td><a href="put.html"><img src="버튼/담기버튼.png" width="25"
-								height="25"></a></td>
+						<td><input type="button" value="가사" onclick="window.open('lyrics.do?lyrics=${musicVo.m_lyrics}','get','height=500px, width=500px')"></td>
+						<td><input type="button" value="담기" onclick="window.location='insertPlay.do?email=${email}&m_name=${musicVo.m_name}&m_artist=${musicVo.m_artist}&m_album=${musicVo.m_album}&m_genre=${musicVo.m_genre}&m_lyrics=${musicVo.m_lyrics}'"></td>
 					</tr>
 			
 		</c:forEach>

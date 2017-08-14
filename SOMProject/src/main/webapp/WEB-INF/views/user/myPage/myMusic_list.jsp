@@ -219,8 +219,7 @@ p#about{
 					<td><a href="../songs_jsp/kard_holahola.jsp">${musicVo.m_name}</a></td>
 					<td><input type="button" value="듣기" onclick="window.location='upCountPlay.do?m_name=${musicVo.m_name}'"></td>
 					<td><input type="button" value="가사" onclick="window.open('lyrics.do?lyrics=${musicVo.m_lyrics}','get','height=500px, width=500px')"></td>
-					<td><input type="button" value="담기" onclick="window.location='insertPlay.do?email=${email}&m_name=${musicVo.m_name}&m_artist=${musicVo.m_artist}&m_album=${musicVo.m_album}&m_genre=${musicVo.m_genre}&m_lyrics=${musicVo.m_lyrics}'"></td>
-					<td><input type="button" value="구매" onclick="window.location='buyProc.do?usepoint=500&usecontent=buymusic'"></td>
+
 				</tr>
 				</c:forEach>
 			

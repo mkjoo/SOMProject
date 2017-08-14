@@ -9,5 +9,32 @@
 		select * from member where email=#{email}
 	</select>
 	
+	<update id="createTable" parameterType="java.util.Map">
+		${sql}
+	</update>	
+	
+	<update id="createTableMusicList" parameterType="java.util.Map">
+		${sql}
+	</update>	
+	
+	<update id="createTablePlay" parameterType="java.util.Map">
+		${sql}
+	</update>	
+	
+	<update id="createPlayListSequence" parameterType="java.util.Map">
+		${sql}
+	</update>
+	
+	<update id="createPlaySequence" parameterType="java.util.Map">
+		${sql}
+	</update>
+	
+	<insert id="insertPlayList" parameterType="java.util.Map">
+		insert into ${tableName}(list_name,list_num) values('${listName}',${sequenceName}.nextval)
+	</insert>
+	
+	
+	
+	
 	
 </mapper> 

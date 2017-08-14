@@ -1,5 +1,6 @@
 package com.project.user.myPage.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.user.member.model.MemberVO;
+import com.project.user.myPage.model.MusicVO;
 import com.project.user.myPage.model.PlayListVO;
 import com.project.user.myPage.service.MyPagePlayListService;
 
@@ -38,12 +40,20 @@ public class MyPagePlaylistController {
 		HttpSession session=request.getSession();
 		MemberVO memberVo=(MemberVO)session.getAttribute("loginID");
 		String email=memberVo.getEmail().trim();
-		
 		playListVo.setEmail(email);
 		service.insertPlayList(playListVo);
-		ModelAndView mav=new ModelAndView("myPage/myMusic_list");
+		System.out.println("insertPlay.do");
+		HashMap map = new HashMap();
+		//map.put();
+		List<MusicVO> list=service.getMusic(map);
+		ModelAndView mav=new ModelAndView("popular/popular");
+		mav.addObject("list",list);
 		mav.addObject("value","succes");
 		return mav;
 	}
+	
+	
+	
+	
 	
 }

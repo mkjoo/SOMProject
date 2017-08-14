@@ -21,8 +21,15 @@
 			<ref bean="memberDao" />
 		</property>
 	</bean>
+		<bean id="memberCreateService" class="com.project.user.member.service.MemberCreateServiceImpl">
+		<property name="memberDao">
+			<ref bean="memberDao" />
+		</property>
+	</bean>
+	
 	<bean id="memberInsertController" class="com.project.user.member.controller.MemberInsertController"
-		p:memberInsertService-ref="memberInsertService" />
+		p:memberInsertService-ref="memberInsertService" 
+		p:memberCreateService-ref="memberCreateService" />
 	<bean id="memberLoginController" class="com.project.user.member.controller.MemberLoginController"
 		p:memberLoginService-ref="memberLoginService" />	
 		

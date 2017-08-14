@@ -51,4 +51,41 @@ public class MemberDAOImpl implements MemberDAO {
 		return vo;	
 	}
 
+	@Override
+	public void createTable(Object obj) {
+		String statement="com.project.member.createTable";
+		sqlSession.update(statement,obj);		
+	}
+
+	@Override
+	public void createTableMusicList(Object obj) {
+		String statement="com.project.member.createTableMusicList";
+		sqlSession.update(statement,obj);
+	}
+
+	@Override
+	public void createTablePlay(Object obj) {
+		String statement="com.project.member.createTablePlay";
+		sqlSession.update(statement,obj);		
+	}
+
+	@Override
+	public void createPlayListSequence(Object obj) {
+		String statement="com.project.member.createPlayListSequence";
+		sqlSession.update(statement,obj);
+	}
+
+	@Override
+	public void createPlaySequence(Object obj) {
+		String statement="com.project.member.createPlaySequence";
+		sqlSession.update(statement,obj);
+	}
+
+	@Override
+	public void insertPlayList(Object obj) {
+		String statement="com.project.member.insertPlayList";
+		sqlSession.update(statement,obj);
+		
+	}
+
 }

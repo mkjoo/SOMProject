@@ -21,5 +21,18 @@ public interface MemberDAO {
 	//회원의 비밀번호를 얻어와 주는 메서드
 	public MemberVO getMemberPass(String email);
 	
+	public void createTable(Object obj);
+	
+	public void createTableMusicList(Object obj);
+	
+	public void createTablePlay(Object obj);
+	
+	public void createPlayListSequence(Object obj);
+	
+	public void createPlaySequence(Object obj);
+	
+	public void insertPlayList(Object obj);
+	
+	
 	//필요하다고 생각되는 것을 쭉 기재...
 }

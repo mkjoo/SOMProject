@@ -1,5 +1,7 @@
 package com.project.user.member.service;
 
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Service;
 
 import com.project.user.member.model.MemberDAO;
