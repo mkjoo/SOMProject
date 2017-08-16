@@ -21,4 +21,9 @@ public class MyPageMusicListServiceImpl implements MyPageMusicListService{
 	public void upCountPlay(String musicName) {
 		dao.upCountPlay(musicName);
 	}
+
+	@Override
+	public void insertMyMusicList(Object obj) {
+		dao.insertMyMusicList(obj);
+	}
 }

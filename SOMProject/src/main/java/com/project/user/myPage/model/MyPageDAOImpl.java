@@ -77,4 +77,30 @@ public class MyPageDAOImpl implements MyPageDAO{
 		String statement="com.project.user.myPage.upCountPlay";
 		sqlSession.update(statement,musicName);
 	}
+
+	@Override
+	public List<PlayListVO> getMyPlayList(Object obj) {
+		String statement="com.project.user.myPage.getMyPlayList";
+		List<PlayListVO> list=sqlSession.selectList(statement,obj);
+		return list;
+	}
+
+	@Override
+	public void insertMyPlayList(Object obj) {
+		String statement="com.project.user.myPage.insertMyPlayList";
+		sqlSession.insert(statement,obj);
+	}
+
+	@Override
+	public void insertMyMusicList(Object obj) {
+		String statement="com.project.user.myPage.insertMyMusicList";
+		sqlSession.insert(statement,obj);	
+	}
+
+	@Override
+	public List<MusicVO> getMyMysic(Object obj) {
+		String statement="com.project.user.myPage.getMyMysic";
+		List<MusicVO> list=sqlSession.selectList(statement,obj);
+		return list;
+	}
 }

@@ -30,6 +30,23 @@ public class MyPagePlayListServiceImpl implements MyPagePlayListService{
 		return list;
 	}
 
+	@Override
+	public List<PlayListVO> getMyPlayList(Object obj) {
+		List<PlayListVO> list=dao.getMyPlayList(obj);
+		return list;
+	}
+
+	@Override
+	public void insertMyPlayList(Object obj) {
+		dao.insertMyPlayList(obj);
+	}
+
+	@Override
+	public List<MusicVO> getMyMusic(Object obj) {
+		List<MusicVO> list=dao.getMyMysic(obj);
+		return list;
+	}
+
 
 
 }

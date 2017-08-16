@@ -20,6 +20,49 @@ nav#title{
 </head>
 <body>
 <header>
+	<c:forEach var="playListVo" items="${list}">
+	<input type="button" value="${playListVo.list_name}" onclick="window.location='getMypl.do?list_num=${playListVo.list_num}'"/>
+	</c:forEach>
+	<br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    <div class="header_menu">
       <ul class="header_menu_ul" style="color: white">
          <li class="menu"><a><img src="../images/menu_bar.png" width="40" height="40" alt="" /></a>
@@ -42,37 +85,7 @@ nav#title{
 	   <br>
    </nav>
    <hr color="#7DBCBE"/>
-	<div id="song1">
-		<table border="1" width="320" height="160">
-		<c:forEach var="list" items="${list}">
-			
-			<tr>
-				<td rowspan="6"><a href="../songs_jsp/song1.jsp"><img src="../images/mannam.jpg"></a>
-				<td colspan="2">..</td>
-			</tr>
-			<tr>
-				<td colspan="2"><a href="../songs_jsp/song1.jsp">${list.m_name}</a></td>
-			</tr>
-			<tr>
-				<td colspan="2">${list.m_artist}</td>
-			</tr>
-			<tr>
-				<td colspan="2">${list.m_album}</td>
-			</tr>
-			<tr>
-				<td align="center">${list.m_create_date}</td>
-				<td align="center">3곡</td>
-			</tr>
-			<tr>
-				<td align="center"><a href="">앨범듣기</a>&nbsp;&nbsp;
-				<td align="center"><a href="">앨범다운</a>
-			</td>	
-			</tr>	
-		</c:forEach>	
-			
-			
-		</table>
-	</div>
+	
 	<br><hr/>
 	<br><br>
 	<footer>

@@ -25,8 +25,12 @@
 		<result property="m_musicvideo" column="m_musicvideo" jdbcType="VARCHAR" />
 		<result property="src" column="src" jdbcType="VARCHAR" />
 	</resultMap>
-		
-		
+	
+	<resultMap id="MyPlayListResult" type="com.project.user.myPage.model.PlayListVO" >	
+		<result property="list_name" column="list_name" jdbcType="VARCHAR" />
+		<result property="list_num" column="list_num" jdbcType="BIGINT" />
+	</resultMap>	
+	
 	<select id="getMusic" resultMap="MyMusicResult" parameterType="java.util.Map">
 		select * from music
 	</select>
@@ -68,4 +72,19 @@
 		update music set m_count_play=m_count_play+1 where m_name = #{m_name}
 	</update>
 
+	<select id="getMyPlayList" resultMap="MyPlayListResult" parameterType="java.util.Map">
+		select * from ${tableName} 
+	</select>
+	
+	<insert id="insertMyPlayList" parameterType="java.util.Map">
+		insert into ${tableName}(list_name,list_num) values('${list_name}',${sequenceName}.nextval)
+	</insert>
+	<insert id="insertMyMusicList" parameterType="java.util.Map">
+		insert into ${tableName}(m_num,list_num) values(${m_num},${list_num})
+	</insert>
+	
+	<select id="getMyMysic" resultMap="MyMusicResult" parameterType="java.util.Map">
+		select * from ${tableName} join music using(m_num) where list_num=${list_num}
+	</select>
+	
 </mapper> 

@@ -9,4 +9,7 @@ public interface MyPagePlayListService {
 	public void insertPlayList(PlayListVO vo);
 	public List<PlayListVO> getPlayList(String email);
 	public List<MusicVO> getMusic(Object obj);
+	public List<MusicVO> getMyMusic(Object obj);
+	public List<PlayListVO> getMyPlayList(Object obj);
+	public void insertMyPlayList(Object obj);
 }

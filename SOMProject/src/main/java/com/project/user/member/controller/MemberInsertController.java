@@ -74,5 +74,5 @@ public class MemberInsertController {
 		ModelAndView mav=new ModelAndView("member/regProc");
 		return mav;
 	}
-	
+
 }

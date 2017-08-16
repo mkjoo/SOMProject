@@ -15,5 +15,10 @@ public interface MyPageDAO {
 	public void insertPlayList(PlayListVO vo);
 	public List<PlayListVO> getPlayList(String email);
 	public List<MusicVO> getMusic(Object obj);
+	public List<MusicVO> getMyMysic(Object obj);
 	public void upCountPlay(String musicName);
+	public List<PlayListVO> getMyPlayList(Object obj);
+	public void insertMyPlayList(Object obj);
+	public void insertMyMusicList(Object obj);
+	
 }

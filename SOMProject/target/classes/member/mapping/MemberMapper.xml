@@ -32,9 +32,5 @@
 	<insert id="insertPlayList" parameterType="java.util.Map">
 		insert into ${tableName}(list_name,list_num) values('${listName}',${sequenceName}.nextval)
 	</insert>
-	
-	
-	
-	
-	
+		
 </mapper> 

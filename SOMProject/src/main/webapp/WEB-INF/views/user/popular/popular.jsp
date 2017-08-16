@@ -102,7 +102,8 @@ window.onload = updateResult("${value}");
 						<td><a href="listen.html"><img src="버튼/듣기버튼.png"
 								width="25" height="25"></a></td>
 						<td><input type="button" value="가사" onclick="window.open('lyrics.do?lyrics=${musicVo.m_lyrics}','get','height=500px, width=500px')"></td>
-						<td><input type="button" value="담기" onclick="window.location='insertPlay.do?email=${email}&m_name=${musicVo.m_name}&m_artist=${musicVo.m_artist}&m_album=${musicVo.m_album}&m_genre=${musicVo.m_genre}&m_lyrics=${musicVo.m_lyrics}'"></td>
+						<!-- <td><input type="button" value="담기" onclick="window.location='insertPlay.do?email=${email}&m_name=${musicVo.m_name}&m_artist=${musicVo.m_artist}&m_album=${musicVo.m_album}&m_genre=${musicVo.m_genre}&m_lyrics=${musicVo.m_lyrics}'"></td>-->
+						<td><input type="button" value="담기" onclick="window.open('selectPlayList.do?m_num=${musicVo.m_num}','get','height=400px, width=400px')"></td>
 					</tr>
 			
 		</c:forEach>

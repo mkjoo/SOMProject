@@ -53,4 +53,25 @@ public class MyPageMusicListController {
 		return mav;
 	}
 	
+	@RequestMapping(value="addMusicList.do", method=RequestMethod.GET)
+	public ModelAndView addMusic(HttpServletRequest request,@RequestParam String m_num,@RequestParam String list_num){
+		HttpSession session=request.getSession();
+		MemberVO memberVo=(MemberVO)session.getAttribute("loginID");
+		String email=memberVo.getEmail().trim();
+		String[] str=email.split("@");
+		String deleteGolbengEE=str[0];
+		String tableName=deleteGolbengEE+"_musicList";
+		HashMap map = new HashMap();		
+		map.put("tableName",tableName);
+		map.put("m_num",m_num);
+		map.put("list_num",list_num);
+		
+		service.insertMyMusicList(map);
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("redirect:selectPlayList.do");
+		mav.addObject("value","ok");
+		
+		return mav;
+	}
+
 }
