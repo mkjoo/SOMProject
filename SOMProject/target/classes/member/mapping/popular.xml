@@ -16,7 +16,9 @@
 	</resultMap>
 		
 		
-	<select id="getMusic" resultMap="PopularResult">
-		select * from music
+	<select id="getNewestPopMusic" resultMap="PopularResult" parameterType="com.project.popular.model.PopularVO">
+		select * from music where m_genre = #{m_genre} order by m_create_date desc
 	</select>
+
+	
 </mapper> 

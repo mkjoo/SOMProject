@@ -8,10 +8,19 @@
 <title>Insert title here</title>
 <script>
 function a(m_num){
+	
 	var select = document.getElementById("select_id");
 	var option_value = select.options[select.selectedIndex].value;
 	window.location='addMusicList.do?list_num='+option_value+'&m_num='+m_num;
 }
+
+function updateResult(value) {
+	if (value == "ok") {
+		alert('담기성공');
+	}
+}
+
+window.onload = updateResult("${value}");
 
 
 </script>
@@ -19,7 +28,7 @@ function a(m_num){
 <body>
 <select id="select_id">
 	<c:forEach var="playListVo" items="${list}">
-	<option id="option" onclick="a();" value="${playListVo.list_num}">${playListVo.list_name}</option>
+	<option id="option" value="${playListVo.list_num}">${playListVo.list_name}</option>
 	</c:forEach>
 </select>
 <input type="button" value="플레이리스트 추가" onclick="window.open('addPlayList.do','popup1','height=400px, width=400px')">

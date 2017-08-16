@@ -5,5 +5,5 @@ import java.util.List;
 import com.project.popular.model.PopularVO;
 
 public interface PopularService {
-	public List<PopularVO> getMusic();
+	public List<PopularVO> getNewestPopMusic(PopularVO vo);
 }

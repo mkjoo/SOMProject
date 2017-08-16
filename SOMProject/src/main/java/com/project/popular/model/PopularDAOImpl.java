@@ -12,9 +12,9 @@ public class PopularDAOImpl implements PopularDAO{
 	}
 
 	@Override
-	public List<PopularVO> getMusic() {
-		String statement="com.project.popular.getMusic";		
-		List<PopularVO> list=sqlSession.selectList(statement);
+	public List<PopularVO> getNewestPopMusic(PopularVO vo) {
+		String statement="com.project.popular.getNewestPopMusic";		
+		List<PopularVO> list=sqlSession.selectList(statement,vo);
 		return list;
 	}
 	

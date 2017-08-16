@@ -12,4 +12,6 @@ public interface MyPagePlayListService {
 	public List<MusicVO> getMyMusic(Object obj);
 	public List<PlayListVO> getMyPlayList(Object obj);
 	public void insertMyPlayList(Object obj);
+	public void insertMyPlay(Object obj);
+	public List<MusicVO> getMyPlay(Object obj);
 }

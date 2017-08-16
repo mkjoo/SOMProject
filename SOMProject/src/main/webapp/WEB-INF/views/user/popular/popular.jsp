@@ -12,6 +12,9 @@ function updateResult(value) {
 
 window.onload = updateResult("${value}");
 
+function a(genre){
+	window.location='popNewest.do?m_genre='+genre;
+}
 </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -61,7 +64,7 @@ window.onload = updateResult("${value}");
 			<ul class="music">
 				<li><button class="tablinks" onclick="openCity(event, 'kpop')"
 						id="defaultOpen">가요</button></li>
-				<li><button class="tablinks" onclick="openCity(event, 'pop')">POP</button></li>
+				<li><button class="tablinks" onclick="a('pop');">POP</button></li>
 				<li><button class="tablinks" onclick="openCity(event, 'ost')">OST</button></li>
 				<li><button class="tablinks" onclick="openCity(event, 'edm')">DEM</button></li>
 				<li><button class="tablinks" onclick="openCity(event, 'jazz')">JAZZ</button></li>
@@ -99,7 +102,7 @@ window.onload = updateResult("${value}");
 								width="25" height="25"></a></td>
 		
 					<td><input type="button" value="구매" onclick="window.location='buyProc.do?usepoint=500&usecontent=buymusic'"></td>
-						<td><a href="listen.html"><img src="버튼/듣기버튼.png"
+						<td><a href=""><img src="버튼/듣기버튼.png"
 								width="25" height="25"></a></td>
 						<td><input type="button" value="가사" onclick="window.open('lyrics.do?lyrics=${musicVo.m_lyrics}','get','height=500px, width=500px')"></td>
 						<!-- <td><input type="button" value="담기" onclick="window.location='insertPlay.do?email=${email}&m_name=${musicVo.m_name}&m_artist=${musicVo.m_artist}&m_album=${musicVo.m_album}&m_genre=${musicVo.m_genre}&m_lyrics=${musicVo.m_lyrics}'"></td>-->

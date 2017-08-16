@@ -13,8 +13,8 @@ public class PopularServiceImpl implements PopularService{
 	}
 
 	@Override
-	public List<PopularVO> getMusic() {
-		List<PopularVO> list=dao.getMusic();
+	public List<PopularVO> getNewestPopMusic(PopularVO vo) {
+		List<PopularVO> list=dao.getNewestPopMusic(vo);
 		return list;
 	}
 

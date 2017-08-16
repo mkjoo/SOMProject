@@ -47,6 +47,17 @@ public class MyPagePlayListServiceImpl implements MyPagePlayListService{
 		return list;
 	}
 
+	@Override
+	public void insertMyPlay(Object obj) {
+		dao.insertMyPlay(obj);
+	}
+
+	@Override
+	public List<MusicVO> getMyPlay(Object obj) {
+		List<MusicVO> list=dao.getMyPlay(obj);
+		return list;
+	}
+
 
 
 }

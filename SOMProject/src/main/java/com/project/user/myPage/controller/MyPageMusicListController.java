@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.user.member.model.MemberVO;
 import com.project.user.myPage.model.MusicVO;
@@ -68,9 +69,9 @@ public class MyPageMusicListController {
 		
 		service.insertMyMusicList(map);
 		ModelAndView mav=new ModelAndView();
-		mav.setViewName("redirect:selectPlayList.do");
+		mav.addObject("m_num",m_num);
 		mav.addObject("value","ok");
-		
+		mav.setViewName("redirect:selectPlayList.do");
 		return mav;
 	}
 

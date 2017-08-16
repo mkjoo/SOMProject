@@ -87,4 +87,12 @@
 		select * from ${tableName} join music using(m_num) where list_num=${list_num}
 	</select>
 	
+	<insert id="insertMyPlay" parameterType="java.util.Map">
+		insert into ${tableName}(turn,m_num) values(${sequenceName}.nextval,${m_num})
+	</insert>
+	
+	<select id="getMyPlay" resultMap="MyMusicResult" parameterType="java.util.Map">
+		select * from ${tableName} join music using(m_num)
+	</select>
+	
 </mapper> 
