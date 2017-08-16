@@ -120,8 +120,27 @@ public class MyPagePlaylistController {
 			return mav; 
 		}
 		
-		@RequestMapping(value="addPlay.do", method=RequestMethod.GET)
-		public ModelAndView addPlay(HttpServletRequest request,@RequestParam String m_num){
+//		@RequestMapping(value="addPlay.do", method=RequestMethod.GET)
+//		public ModelAndView addPlay(HttpServletRequest request,@RequestParam String m_num){
+//			HttpSession session=request.getSession();
+//			MemberVO vo=(MemberVO)session.getAttribute("loginID");
+//			String email=vo.getEmail().trim();
+//			String[] str=email.split("@");
+//			String deleteGolbengEE=str[0];
+//			String tableName=deleteGolbengEE+"_play";
+//			String sequenceName = deleteGolbengEE+"_play_seq";
+//			HashMap map=new HashMap();
+//			map.put("tableName",tableName);
+//			map.put("sequenceName",sequenceName);
+//			map.put("m_num",m_num);
+//			service.insertMyPlay(map);
+//			List<MusicVO> list=service.getMyPlay(map);
+//			ModelAndView mav=new ModelAndView("myPage/myPlay");
+//			mav.addObject("list",list);
+//			return mav; 
+//		}
+		@RequestMapping(value="addAllPlay.do", method=RequestMethod.GET)
+		public ModelAndView addPlay(HttpServletRequest request){
 			HttpSession session=request.getSession();
 			MemberVO vo=(MemberVO)session.getAttribute("loginID");
 			String email=vo.getEmail().trim();
@@ -132,12 +151,15 @@ public class MyPagePlaylistController {
 			HashMap map=new HashMap();
 			map.put("tableName",tableName);
 			map.put("sequenceName",sequenceName);
-			map.put("m_num",m_num);
-			service.insertMyPlay(map);
-			List<MusicVO> list=service.getMyPlay(map);
+			
+			String[] musicNumbers=request.getParameterValues("chk");
+			for(int i=0;i<musicNumbers.length;i++){
+				map.put("m_num", musicNumbers[i]);
+				service.insertMyPlay(map);
+			}
+			List<MusicVO> list=service.getMyPlay(map);		
 			ModelAndView mav=new ModelAndView("myPage/myPlay");
 			mav.addObject("list",list);
 			return mav; 
-		}
-		
+		}	
 }
