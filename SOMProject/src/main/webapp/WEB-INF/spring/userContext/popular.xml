@@ -15,6 +15,7 @@
 	<bean id="PopularDAO" class="com.project.popular.model.PopularDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
 	<bean id="PopularService" class="com.project.popular.service.PopularServiceImpl" p:dao-ref="PopularDAO" />
 	<bean id="PopularController" class="com.project.popular.controller.PopularController" p:service-ref="PopularService" />
+	<bean id="MusicPlayerController" class="com.project.musicPlayer.controller.MusicPlayerController"  />
 	
 	
 </beans>
