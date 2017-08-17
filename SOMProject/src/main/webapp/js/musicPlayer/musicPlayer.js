@@ -31,6 +31,7 @@ function initSongInfor() {
 		tempsonginfor += takesonginfor[i].value + "%";
 	}
 
+
 	var tempsonginfor2 = tempsonginfor.substring(0, tempsonginfor.length - 1);
 	songinforarray = tempsonginfor2.split("%");
 	index = 0;
@@ -39,36 +40,45 @@ function initSongInfor() {
 
 function setTimeAndTempImg() {
 
-	var myAudio = document.getElementById("myAudio");
+	var somAudio = document.getElementById("somAudio");
 	var tempImg = document.getElementById("tempoimg");
-	myAudio.addEventListener("timeupdate", function() {
+	var audioDur= parseInt(Math.floor(somAudio.duration) / 60) + ":"	+ parseInt(Math.floor(somAudio.duration) % 60);
+	somAudio.addEventListener("timeupdate", function() {
 		time.innerHTML = "&nbsp;&nbsp;"
-				+ parseInt(Math.floor(myAudio.currentTime) / 60) + ":"
-				+ parseInt(Math.floor(myAudio.currentTime) % 60) + "/"
-				+ parseInt(Math.floor(myAudio.duration) / 60) + ":"
-				+ parseInt(Math.floor(myAudio.duration) % 60);
+				+ parseInt(Math.floor(somAudio.currentTime) / 60) + ":"
+				+ parseInt(Math.floor(somAudio.currentTime) % 60) + audioDur;
 	});
 
 	tempImg.innerHTML = '&nbsp;<img src="/som/images/musicPlayer/soundbar.gif">';
 
 }
 
+function setAudioDuration(){
+	var somAudio = document.getElementById("somAudio");
+	var audioDur= parseInt(Math.floor(somAudio.duration) / 60) + ":"	+ parseInt(Math.floor(somAudio.duration) % 60);
+}
+function setAudioController(){
+	var somAudio = document.getElementById("somAudio");
+	
+	
+}
+
 function playandpause() {
-	var myAudio = document.getElementById("myAudio");
+	var somAudio = document.getElementById("somAudio");
 	var changebutton = document.getElementById("changebutton");
 	var tempImg = document.getElementById("tempoimg");
-	if (myAudio.paused) {
+	if (somAudio.paused) {
 
 		if (index == songinforarray.length) {
 			index = 0;
 			changeInfor(songinforarray[index]);
 		}
-		myAudio.play();
+		somAudio.play();
 		changebutton.setAttribute("src",
 				"/som/images/musicPlayer/pause.png");
 		tempImg.innerHTML = '&nbsp;<img src="/som/images/musicPlayer/soundbar.gif">';
 	} else {
-		myAudio.pause();
+		somAudio.pause();
 		changebutton.setAttribute("src",
 				"/som/images/musicPlayer/playerplay.png");
 		tempImg.innerHTML = '&nbsp;<img src="/som/images/musicPlayer/soundbar1.gif">';
@@ -133,37 +143,37 @@ function changeInfor(songinformation1) {
 	var albumimage = document.getElementById("albumimage");
 	var songnameandsinger = document.getElementById("songnameandsinger");
 	var time = document.getElementById("time");
-	var myAudio = document.getElementById("myAudio");
-	var myAudiopath = "";
+	var somAudio = document.getElementById("somAudio");
+	var somAudiopath = "";
 
 	if (songarray.length == 1) {
-		myAudiopath = "../mp3files" + songinformation[2] + "/"
+		somAudiopath = "../mp3files" + songinformation[2] + "/"
 				+ songinformation[1] + ".mp3";
-		myAudio.addEventListener("ended", function() {
+		somAudio.addEventListener("ended", function() {
 			this.currentTime = 0;
 		}, false);
 	}
 	if (songarray.length != 1) {
-		myAudiopath = "../mp3files" + songinformation[2] + "/"
+		somAudiopath = "../mp3files" + songinformation[2] + "/"
 				+ songarray[songinformation[0]] + ".mp3";
 	}
 
 	// index가 songinforarray 길이와 같을때.
 
-	myAudio.setAttribute("src", myAudiopath);
-	myAudio.setAttribute("type", "audio/mp3");
+	somAudio.setAttribute("src", somAudiopath);
+	somAudio.setAttribute("type", "audio/mp3");
 
 	var albumimagestr = "../albumimage/" + songinformation[2] + "/"
 			+ songinformation[1] + ".jpg";
 	albumimage.setAttribute("src", albumimagestr);
 	songnameandsinger.innerHTML = songinformation[3] + " | "
 			+ songinformation[4];
-	myAudio.addEventListener("timeupdate", function() {
+	somAudio.addEventListener("timeupdate", function() {
 		time.innerHTML = "&nbsp;&nbsp;"
-				+ parseInt(Math.floor(myAudio.currentTime) / 60) + ":"
-				+ parseInt(Math.floor(myAudio.currentTime) % 60) + "/"
-				+ parseInt(Math.floor(myAudio.duration) / 60) + ":"
-				+ parseInt(Math.floor(myAudio.duration) % 60);
+				+ parseInt(Math.floor(somAudio.currentTime) / 60) + ":"
+				+ parseInt(Math.floor(somAudio.currentTime) % 60) + "/"
+				+ parseInt(Math.floor(somAudio.duration) / 60) + ":"
+				+ parseInt(Math.floor(somAudio.duration) % 60);
 	});
 
 }
@@ -181,12 +191,12 @@ function autoNextSong() {
 	index++;
 
 	if (index == songinforarray.length) {
-		var myAudio = document.getElementById("myAudio");
+		var somAudio = document.getElementById("somAudio");
 		changebutton.setAttribute("src",
 				"/som/images/musicPlayer/playerplay.png");
 		tempImg.innerHTML = '&nbsp;<img src="/som/images/musicPlayer/soundbar1.gif">';
-		myAudio.currentTime = 0;
-		myAudio.pause();
+		somAudio.currentTime = 0;
+		somAudio.pause();
 		return;
 
 	}

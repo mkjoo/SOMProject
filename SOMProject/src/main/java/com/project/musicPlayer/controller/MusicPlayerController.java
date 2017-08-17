@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MusicPlayerController {
 
-	@RequestMapping(value="", method=RequestMethod.GET)
+	@RequestMapping(value="musicPlayer.do", method=RequestMethod.GET)
 	public String musicPlayer(){
 		return "musicPlayer/musicPlayer";
 	}
