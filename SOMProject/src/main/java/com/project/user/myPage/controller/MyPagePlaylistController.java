@@ -133,9 +133,10 @@ public class MyPagePlaylistController {
 			map.put("tableName",tableName);
 			map.put("sequenceName",sequenceName);
 			map.put("m_num",m_num);
-			service.insertMyPlay(map);
+			service.insertMyPlay(map);			
 			List<MusicVO> list=service.getMyPlay(map);
 			ModelAndView mav=new ModelAndView("myPage/myPlay");
+			mav.addObject("songcount",list.size());
 			mav.addObject("list",list);
 			return mav; 
 		}

@@ -100,30 +100,43 @@ div#divide {
 					<font color="white" size="3">앨범 올리기 (관리자모드)</font>
 				</td>
 			</tr>
+						<tr>
+				<th scope="row">
+					<font size="2" color="#F29661">
+					<label for="albumname">노래이름:</label></font>
+				</th>
+				<td align="left">
+					<input id="albumname" name="m_name" type="text" size="20" ></input>
+				</td>
+			</tr>
+			
+			
 			<tr>
 				<th scope="row">
 					<font size="2" color="#F29661">
 					<label for="albumname">앨범이름:</label></font>
 				</th>
 				<td align="left">
-					<input id="albumname" name="album" type="text" size="20" value="${album}"></input>
+					<input id="albumname" name="m_album" type="text" size="20" ></input>
 				</td>
 			</tr>
+			
+	
 			<tr>
 				<th scope="row"><font size="2" color="#F29661">
 					<label for="singername">가수이름:</label></font>
 				</th>
 				<td align="left">
-					<input id="singername" name="singer" type="text" size="20"></input>
+					<input id="singername" name="m_artist" type="text" size="20"></input>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
 					<font size="2" color="#F29661">
-					<label for="content">내용:</label></font>
+					<label for="content">가사:</label></font>
 				</th>
 				<td align="left">
-					<textarea id="content" name="content" cols="35" rows="10"></textarea>
+					<textarea id="content" name="m_lyrics" cols="35" rows="10"></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -149,15 +162,19 @@ div#divide {
 			</tr>
 			<tr>
 				<th scope="row"><font size="1" color="#F29661"><label
-						for="uploadfilecount">업로드할 mp3파일 개수:</label></font></th>
-				<td align="left"><input id="uploadfilecount" name="mp3count"
-					type="text" size="3" value="${mp3count}"></input> <input
-					type="button" name="mp3add" onclick="addfile(this.form)" value="확인"></input></td>
+						for="uploadfilecount">mp3파일:</label></font></th>
+				<td align="left"><input type="file" name="image" />
+				</td>
 			</tr>
 			<tr>
 				<th bgcolor="grey"><font size="2">앨범이미지:</font></th>
-				<td align="left"><input name="albumimage" type="file" size="22"></input></td>
+				<td align="left"><input type="file" size="22"></input></td>
 			</tr>
+			<tr>
+				<th bgcolor="grey"><font size="2">무비:</font></th>
+				<td align="left"><input type="text" size="22"></input></td>
+			</tr>
+			
 			<tr>
 				<td bgcolor="grey" colspan="2" align="center">
 						<input type="submit" value="upload" onclick="" /> 
