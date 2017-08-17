@@ -52,7 +52,7 @@ window.onload = loginResult("${result}");
 					</button>
 
 					<div id="myDropdown" class="dropdown-content">
-						<a class="dropmenu" href="#">최신가요</a> <a class="dropmenu" href="#">인기가요</a>
+						<a class="dropmenu" href="newest.do">최신가요</a> <a class="dropmenu" href="#">인기가요</a>
 						<a class="dropmenu" href="#">버스킹</a> <a class="dropmenu" href="noticeList.do">게시판</a>
 					</div>
 				</div>
@@ -75,6 +75,7 @@ window.onload = loginResult("${result}");
 				<button type="button" class="close">
 					<span aria-hidden="true">&times;</span>
 				</button>
+				
 				<h4 class="modal-title" id="myModalLabel">Login Page</h4>
 			</div>
 

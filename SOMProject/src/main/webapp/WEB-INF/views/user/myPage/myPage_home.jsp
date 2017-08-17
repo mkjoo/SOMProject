@@ -20,6 +20,7 @@ window.onload = updateResult("${value}");
 
 </head>
 <body>
+<input type="button" value="나의뮤직" onclick="javascript:window.open('musicPlayer.do','aa','width=310px height=500px');">
 	<!-- header -->
 	<header>
 		<div class="header_menu">
@@ -33,7 +34,7 @@ window.onload = updateResult("${value}");
 						</button>
 
 						<div id="myDropdown" class="dropdown-content">
-							<a class="dropmenu" href="#">최신가요</a> <a class="dropmenu"
+							<a class="dropmenu" href="newest.do">최신가요</a> <a class="dropmenu"
 								href="#">인기가요</a> <a class="dropmenu" href="#">버스킹</a> <a
 								class="dropmenu" href="#">게시판</a>
 						</div>
