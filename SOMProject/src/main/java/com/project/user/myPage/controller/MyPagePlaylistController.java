@@ -120,27 +120,27 @@ public class MyPagePlaylistController {
 			return mav; 
 		}
 		
-//		@RequestMapping(value="addPlay.do", method=RequestMethod.GET)
-//		public ModelAndView addPlay(HttpServletRequest request,@RequestParam String m_num){
-//			HttpSession session=request.getSession();
-//			MemberVO vo=(MemberVO)session.getAttribute("loginID");
-//			String email=vo.getEmail().trim();
-//			String[] str=email.split("@");
-//			String deleteGolbengEE=str[0];
-//			String tableName=deleteGolbengEE+"_play";
-//			String sequenceName = deleteGolbengEE+"_play_seq";
-//			HashMap map=new HashMap();
-//			map.put("tableName",tableName);
-//			map.put("sequenceName",sequenceName);
-//			map.put("m_num",m_num);
-//			service.insertMyPlay(map);
-//			List<MusicVO> list=service.getMyPlay(map);
-//			ModelAndView mav=new ModelAndView("myPage/myPlay");
-//			mav.addObject("list",list);
-//			return mav; 
-//		}
+		@RequestMapping(value="addPlay.do", method=RequestMethod.GET)
+		public ModelAndView addPlay1(HttpServletRequest request,@RequestParam String m_num){
+			HttpSession session=request.getSession();
+			MemberVO vo=(MemberVO)session.getAttribute("loginID");
+			String email=vo.getEmail().trim();
+			String[] str=email.split("@");
+			String deleteGolbengEE=str[0];
+			String tableName=deleteGolbengEE+"_play";
+			String sequenceName = deleteGolbengEE+"_play_seq";
+			HashMap map=new HashMap();
+			map.put("tableName",tableName);
+			map.put("sequenceName",sequenceName);
+			map.put("m_num",m_num);
+			service.insertMyPlay(map);
+			List<MusicVO> list=service.getMyPlay(map);
+			ModelAndView mav=new ModelAndView("myPage/myPlay");
+			mav.addObject("list",list);
+			return mav; 
+		}
 		@RequestMapping(value="addAllPlay.do", method=RequestMethod.GET)
-		public ModelAndView addPlay(HttpServletRequest request){
+		public ModelAndView addPlay2(HttpServletRequest request){
 			HttpSession session=request.getSession();
 			MemberVO vo=(MemberVO)session.getAttribute("loginID");
 			String email=vo.getEmail().trim();
@@ -162,4 +162,39 @@ public class MyPagePlaylistController {
 			mav.addObject("list",list);
 			return mav; 
 		}	
+		
+//		@RequestMapping(value="view.do", method=RequestMethod.GET)
+//		public ModelAndView view(HttpServletRequest request){
+//			System.out.println("1");
+//			HttpSession session=request.getSession();
+//			MemberVO vo=(MemberVO)session.getAttribute("loginID");
+//			String email=vo.getEmail().trim();
+//			String[] str=email.split("@");
+//			String deleteGolbengEE=str[0];
+//			String tableName=deleteGolbengEE+"_play";
+//			System.out.println("2");
+//			HashMap map=new HashMap();
+//			map.put("tableName",tableName);
+//			List<MusicVO> list=service.getMyPlay(map);		
+//			ModelAndView mav=new ModelAndView("myPage/myPlay");
+//			mav.addObject("list",list);
+//			return mav; 
+//		}	
+		
+		@RequestMapping(value="musicPlayer.do", method=RequestMethod.GET)
+		public ModelAndView musicPlayer(HttpServletRequest request){
+			HttpSession session=request.getSession();
+			MemberVO vo=(MemberVO)session.getAttribute("loginID");
+			String email=vo.getEmail().trim();
+			String[] str=email.split("@");
+			String deleteGolbengEE=str[0];
+			String tableName=deleteGolbengEE+"_play";
+			HashMap map=new HashMap();
+			map.put("tableName",tableName);
+			List<MusicVO> list=service.getMyPlay(map);		
+			ModelAndView mav=new ModelAndView("myPage/myPlay");
+			mav.addObject("songcount",list.size());
+			mav.addObject("list",list);
+			return mav; 
+		}
 }

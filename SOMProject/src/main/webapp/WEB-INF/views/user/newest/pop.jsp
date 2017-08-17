@@ -31,8 +31,9 @@ $(document).ready(function(){
     });
 });
 
-
-출처: http://hellogk.tistory.com/5 [IT Code Storage]
+function a(genre){
+	window.location=genre+'Newest.do?m_genre='+genre;
+}
 </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>

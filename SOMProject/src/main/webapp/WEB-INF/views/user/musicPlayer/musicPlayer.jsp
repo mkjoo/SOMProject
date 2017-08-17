@@ -12,7 +12,7 @@
 	<form name="changemusic">
 		<!-- 오디오 만들기 -->
 		<audio id="myAudio" autoplay onended="autoNextSong()"
-			src="/som/music/소주한잔임창정.mp3""> <font color="#FFFFFF">Your
+			src="/som/music/소주한잔-임창정.mp3""> <font color="#FFFFFF">Your
 			user agent does not support the HTML5 Audio element.</font> </audio>
 		<table width="100%" border="0" cellpadding="0" cellspacing="0">
 			<tr height="6"></tr>
