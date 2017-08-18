@@ -101,14 +101,96 @@ public class PopularController {
 	}
 	
 	@RequestMapping(value="popular.do",method=RequestMethod.GET)
-	public ModelAndView popular3(){
+	public ModelAndView popular9(){
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("popular/popular");
 		return mav;
 	}
 	
+	@RequestMapping(value="ccmPopular.do",method=RequestMethod.GET)
+	public ModelAndView popular10(PopularVO PopularVo){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("popular/ccm");
+		List<PopularVO> list=service.getPopularPopMusic(PopularVo);
+		mav.addObject("m_jenre",PopularVo.getM_genre());
+		mav.addObject("list",list);
+		return mav;
+	}
 	
+	@RequestMapping(value="classicPopular.do",method=RequestMethod.GET)
+	public ModelAndView popular11(PopularVO PopularVo){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("popular/classic");
+		List<PopularVO> list=service.getPopularPopMusic(PopularVo);
+		mav.addObject("m_jenre",PopularVo.getM_genre());
+		mav.addObject("list",list);
+		return mav;
+	}
 	
+	@RequestMapping(value="edmPopular.do",method=RequestMethod.GET)
+	public ModelAndView popular12(PopularVO PopularVo){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("popular/edm");
+		List<PopularVO> list=service.getPopularPopMusic(PopularVo);
+		mav.addObject("m_jenre",PopularVo.getM_genre());
+		mav.addObject("list",list);
+		return mav;
+	}
 	
+	@RequestMapping(value="jazzPopular.do",method=RequestMethod.GET)
+	public ModelAndView popular13(PopularVO PopularVo){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("popular/jazz");
+		List<PopularVO> list=service.getPopularPopMusic(PopularVo);
+		mav.addObject("m_jenre",PopularVo.getM_genre());
+		mav.addObject("list",list);
+		return mav;
+	}
+	
+	@RequestMapping(value="j-popPopular.do",method=RequestMethod.GET)
+	public ModelAndView popular14(PopularVO PopularVo){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("popular/j-pop");
+		List<PopularVO> list=service.getPopularPopMusic(PopularVo);
+		mav.addObject("m_jenre",PopularVo.getM_genre());
+		mav.addObject("list",list);
+		return mav;
+	}
+	
+	@RequestMapping(value="ostPopular.do",method=RequestMethod.GET)
+	public ModelAndView popular15(PopularVO PopularVo){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("popular/ost");
+		List<PopularVO> list=service.getPopularPopMusic(PopularVo);
+		mav.addObject("m_jenre",PopularVo.getM_genre());
+		mav.addObject("list",list);
+		return mav;
+	}
+	
+	@RequestMapping(value="popPopular.do",method=RequestMethod.GET)
+	public ModelAndView popular16(PopularVO PopularVo){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("popular/pop");
+		List<PopularVO> list=service.getPopularPopMusic(PopularVo);
+		mav.addObject("m_jenre",PopularVo.getM_genre());
+		mav.addObject("list",list);
+		return mav;
+	}
+	
+	@RequestMapping(value="getPopularMovie.do",method=RequestMethod.GET)
+	public ModelAndView getMovie(PopularVO PopularVo){
+		String movieSrc=PopularVo.getM_musicvideo();
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("popular/movie");
+		mav.addObject("m_musicvideo",movieSrc);
+		return mav;
+	}
 	
 }

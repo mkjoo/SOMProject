@@ -32,7 +32,7 @@ $(document).ready(function(){
 });
 
 function a(genre){
-	window.location=genre+'Newest.do?m_genre='+genre;
+	window.location=genre+'Popular.do?m_genre='+genre;
 }
 </script>
 <meta charset="UTF-8">
@@ -81,7 +81,7 @@ function a(genre){
 		</nav>
 		<div id="list" class="tab">
 			<ul class="music">
-				<li><button class="tablinks" onclick="a('kpop');"
+				<li><button class="tablinks" onclick="a('k-pop');"
 						>가요</button></li>
 				<li><button class="active" onclick="a('pop');">POP</button></li>
 				<li><button class="tablinks" onclick="a('ost');">OST</button></li>
@@ -119,7 +119,7 @@ function a(genre){
 						<td>${musicVo.m_name}</td>
 						<td>${musicVo.m_artist}</td>
 						<td>${musicVo.m_album}</td>
-						<td><a href="movie.html"><img src="버튼/뮤비버튼.png"
+						<td><a href="#" onclick="javascript:window.open('getPopularMovie.do?m_musicvideo=${musicVo.m_musicvideo}','g','height=500px, width=500px');"><img src="버튼/뮤비버튼.png"
 								width="25" height="25"></a></td>
 		
 					<td><input type="button" value="구매" onclick="window.location='buyProc.do?usepoint=500&usecontent=buymusic'"></td>

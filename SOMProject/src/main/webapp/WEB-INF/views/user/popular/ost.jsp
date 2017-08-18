@@ -32,7 +32,7 @@ $(document).ready(function(){
 });
 
 function a(genre){
-	window.location=genre+'Newest.do?m_genre='+genre;
+	window.location=genre+'Popular.do?m_genre='+genre;
 }
 </script>
 <meta charset="UTF-8">
@@ -81,10 +81,10 @@ function a(genre){
 		</nav>
 		<div id="list" class="tab">
 			<ul class="music">
-				<li><button class="tablinks" onclick="a('kpop');"
+				<li><button class="tablinks" onclick="a('k-pop');"
 						>가요</button></li>
-				<li><button class="active" onclick="a('pop');">POP</button></li>
-				<li><button class="tablinks" onclick="a('ost');">OST</button></li>
+				<li><button class="tablinks" onclick="a('pop');">POP</button></li>
+				<li><button class="active" onclick="a('ost');">OST</button></li>
 				<li><button class="tablinks" onclick="a('edm');">DEM</button></li>
 				<li><button class="tablinks" onclick="a('jazz')">JAZZ</button></li>
 				<li><button class="tablinks"

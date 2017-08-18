@@ -81,7 +81,7 @@ function a(genre){
 		</nav>
 		<div id="list" class="tab">
 			<ul class="music">
-				<li><button class="tablinks" onclick="a('kpop');"
+				<li><button class="tablinks" onclick="a('k-pop');"
 						>가요</button></li>
 				<li><button class="tablinks" onclick="a('pop');">POP</button></li>
 				<li><button class="tablinks" onclick="a('ost');">OST</button></li>
