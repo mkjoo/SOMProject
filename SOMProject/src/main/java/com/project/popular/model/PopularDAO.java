@@ -4,4 +4,6 @@ import java.util.List;
 
 public interface PopularDAO {
 	public List<PopularVO> getNewestPopMusic(PopularVO vo);
+	public List<PopularVO> getPopularPopMusic(PopularVO vo);
+	
 }

@@ -32,8 +32,8 @@ window.onload = loginResult("${result}");
 <link href="/som/css/main/login.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/slider.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/content.css" rel="stylesheet" type="text/css">
-<link href="/som/css/main/footer.css" rel="stylesheet" tyep="text/css">
 <link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/footer.css" rel="stylesheet" tyep="text/css">
 <link href="/som/css/main/mp_header.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -57,7 +57,7 @@ window.onload = loginResult("${result}");
 					</div>
 				</div>
 			</li>
-			<li class="menu"><a href="mainPage.jsp" title="Home"
+			<li class="menu"><a href="mainPage_home.do" title="Home"
 				class="hd_logo"><img src="/som/images/main/som_logo.png"
 					width="70" height="25"></a></li>
 			<li class="menu"><button id="myBtn">Login/Join</button></li>

@@ -33,6 +33,7 @@ public class MemberInsertController {
 		return "member/regForm1";
 	}
 	
+	
 	@RequestMapping(value="regProc.do", method=RequestMethod.GET)
 	public ModelAndView regProc(MemberVO vo){
 		vo.setJoindate(new Date());
@@ -43,33 +44,33 @@ public class MemberInsertController {
 		String tableName=deleteAt+"_playList";
 		String sql="create table "+tableName+"(list_name varchar2(40), list_num number(6,0))";
 		map.put("sql",sql);
-		memberCreateService.createTable(map);
+		//memberCreateService.createTable(map);
 		///////////////////CREATE PLAYLIST/////////
 		String tableName2=deleteAt+"_musicList";
 		String sql2="create table "+tableName2+"(num number(6,0), m_num number(6,0), list_num number(6,0))";
 		map.put("sql",sql2);
-		memberCreateService.createTableMusicList(map);
+		//memberCreateService.createTableMusicList(map);
 		///////////////////CREATE MUSICLIST/////////////////
 		String tableName3=deleteAt+"_play";
 		String sql3="create table "+tableName3+"(turn number(6,0), m_num number(6,0))";
 		map.put("sql",sql3);
-		memberCreateService.createTablePlay(map);
+		//memberCreateService.createTablePlay(map);
 		///////////////////CREATE PLAY/////////////////
 		String sequenceName1 = deleteAt+"_playList_seq";
 		String sql4="create sequence "+sequenceName1+" increment by 1 nocache nomaxvalue";
 		map.put("sql",sql4);
-		memberCreateService.createPlayListSequence(map);
+		//memberCreateService.createPlayListSequence(map);
 		////////////////////CREATE playlist_SEQUENCE///////////
 		String sequenceName2 = deleteAt+"_play_seq";
 		String sql5="create sequence "+sequenceName2+" increment by 1 nocache nomaxvalue";
 		map.put("sql",sql5);
-		memberCreateService.createPlayListSequence(map);
+		//memberCreateService.createPlayListSequence(map);
 		
 		////////////////////CREATE play_SEQUENCE///////////
 		map.put("tableName", tableName);
-		map.put("listName", "달달");
+		map.put("listName", "내재생목록1");
 		map.put("sequenceName", sequenceName1);
-		memberCreateService.insertPlayList(map);
+		//memberCreateService.insertPlayList(map);
 		
 		ModelAndView mav=new ModelAndView("member/regProc");
 		return mav;

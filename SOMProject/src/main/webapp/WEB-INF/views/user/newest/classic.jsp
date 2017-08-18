@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
 function updateResult(value) {
 	if (value == "success") {alert('구매성공');}
@@ -11,6 +14,22 @@ function updateResult(value) {
 }
 
 window.onload = updateResult("${value}");
+
+$(document).ready(function(){
+    //최상단 체크박스 클릭
+    $("#checkall").click(function(){
+        //클릭되었으면
+        if($("#checkall").prop("checked")){
+
+            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 true로 정의
+            $("input[name=chk]").prop("checked",true);
+            //클릭이 안되있으면
+        }else{
+            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
+            $("input[name=chk]").prop("checked",false);
+        }
+    });
+});
 
 function a(genre){
 	window.location=genre+'Newest.do?m_genre='+genre;
@@ -76,9 +95,10 @@ function a(genre){
 		</div>
 		<div id="kpop" class="tabcontent">
 			<div id="content">
+			
 				<table>
 					<tr>
-						<th><input type="checkbox" title="전체선택" class="checkall"></th>
+						<th><input type="checkbox" name="all" class="checkall" id="checkall"></th>
 						<th>No</th>
 						<th></th>
 						<th>곡명</th>
@@ -90,9 +110,10 @@ function a(genre){
 						<th>가사</th>
 						<th>담기</th>
 					</tr>
+		<form action="addAllPlay.do" method="get" name="my_form">
 		<c:forEach var="musicVo" items="${list}">
 			<tr>
-						<td><input type="checkbox" title="전체선택" class="checkall"></td>
+						<td><input type="checkbox" name="chk" value="${musicVo.m_num}" title="전체선택" ></td>
 						<td><h4>${musicVo.m_num}</h4></td>
 						<td><img src="버튼/캡처.PNG" width="50" height="50"></td>
 						<td>${musicVo.m_name}</td>
@@ -102,7 +123,7 @@ function a(genre){
 								width="25" height="25"></a></td>
 		
 					<td><input type="button" value="구매" onclick="window.location='buyProc.do?usepoint=500&usecontent=buymusic'"></td>
-						<td><a href="#" onclick="javascript:window.open('addPlay.do?m_num=${musicVo.m_num}','get','g','height=500px, width=500px')"><img src="버튼/듣기버튼.png"
+						<td><a href="#" onclick="javascript:window.open('addPlay.do?m_num=${musicVo.m_num}','aa','height=310px, width=500px')"><img src="버튼/듣기버튼.png"
 								width="25" height="25"></a></td>
 						<td><input type="button" value="가사" onclick="window.open('lyrics.do?lyrics=${musicVo.m_lyrics}','get','height=500px, width=500px')"></td>
 						<!-- <td><input type="button" value="담기" onclick="window.location='insertPlay.do?email=${email}&m_name=${musicVo.m_name}&m_artist=${musicVo.m_artist}&m_album=${musicVo.m_album}&m_genre=${musicVo.m_genre}&m_lyrics=${musicVo.m_lyrics}'"></td>-->
@@ -110,7 +131,8 @@ function a(genre){
 					</tr>
 			
 		</c:forEach>
-		
+		<input type="submit" value="선택한곡듣기">
+		</form>
 				</table>
 			</div>
 		</div>

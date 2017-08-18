@@ -37,5 +37,9 @@
 <input type="button" value="글삭제" onclick="window.location='noticeDeleteProc.do?num=${vo.num}'" />
 <input type="button" value="목록보기" onclick="window.location='noticeList.do'" />
 </form>
+
+
+
+
 </body>
 </html>

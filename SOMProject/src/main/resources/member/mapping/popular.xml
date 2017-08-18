@@ -20,5 +20,8 @@
 		select * from music where m_genre = #{m_genre} order by m_create_date desc
 	</select>
 
+	<select id="getPopularPopMusic" resultMap="PopularResult" parameterType="com.project.popular.model.PopularVO">
+		select * from music where m_genre = #{m_genre} order by m_count_play desc
+	</select>
 	
 </mapper> 

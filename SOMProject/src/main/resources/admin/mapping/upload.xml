@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.admin">
+	
+	<insert id="addMusic" parameterType="com.project.user.myPage.model.MusicVO">
+	insert into music(m_num,m_name,m_artist,m_album,m_genre,m_path,m_lyrics,m_musicvideo,src) values(music_seq.nextval,#{m_name},#{m_artist},#{m_album},#{m_genre},#{m_path},#{m_lyrics},#{m_musicvideo},#{src})
+	</insert>
+</mapper> 

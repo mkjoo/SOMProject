@@ -17,5 +17,12 @@ public class PopularDAOImpl implements PopularDAO{
 		List<PopularVO> list=sqlSession.selectList(statement,vo);
 		return list;
 	}
+
+	@Override
+	public List<PopularVO> getPopularPopMusic(PopularVO vo) {
+		String statement="com.project.popular.getPopularPopMusic";		
+		List<PopularVO> list=sqlSession.selectList(statement,vo);
+		return list;
+	}
 	
 }

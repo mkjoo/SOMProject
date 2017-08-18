@@ -113,7 +113,7 @@ function a(genre){
 		<form action="addAllPlay.do" method="get" name="my_form">
 		<c:forEach var="musicVo" items="${list}">
 			<tr>
-						<td><input type="checkbox" name="chk" value="${musicVo.m_num}" title="전체선택" ></td>
+						<td><input type="checkbox" name="chk" value="${musicVo.m_num}" ></td>
 						<td><h4>${musicVo.m_num}</h4></td>
 						<td><img src="버튼/캡처.PNG" width="50" height="50"></td>
 						<td>${musicVo.m_name}</td>

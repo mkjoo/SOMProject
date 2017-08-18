@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.admin.qna">
+	
+	<resultMap id="QnaResult" type="com.project.user.board.model.QnaVO">
+		<result property="num" column="NUM" jdbcType="BIGINT" />
+		<result property="writer" column="WRITER" jdbcType="VARCHAR" />
+		<result property="email" column="EMAIL" jdbcType="VARCHAR" />
+		<result property="subject" column="SUBJECT" jdbcType="VARCHAR" />
+		<result property="pass" column="PASS" jdbcType="VARCHAR" />
+		<result property="regdate" column="REGDATE" jdbcType="TIMESTAMP" />
+		<result property="content" column="CONTENT" jdbcType="VARCHAR" />
+		<result property="ref" column="REF" jdbcType="BIGINT" />
+		<result property="step" column="STEP" jdbcType="BIGINT" />
+		<result property="depth" column="DEPTH" jdbcType="BIGINT" />
+	</resultMap>
+	
+	
+	<select id="getAllCount" resultType="Integer">
+		select count(*) from qna
+	</select> 
+	 
+	
+	<select id="getList" parameterType="java.util.Map" resultMap="QnaResult">
+	<![CDATA[
+	select * from (select rownum rnum,num,writer,email,subject,pass,regdate,content,ref,step,depth from (select * from qna order by ref desc,step asc)) where rnum>=#{startRow} and rnum<=#{endRow}
+	]]>
+	</select>
+
+
+	<insert id="insertArticle" parameterType="com.project.user.board.model.QnaVO">
+	<![CDATA[
+	insert into qna(num,writer,pass,email,subject,content,regdate,ref,step,depth) values(qna_seq.nextval,#{writer},#{pass},#{email},#{subject},#{content},#{regdate},#{ref},#{step},#{depth})
+		
+	]]>
+	</insert>
+	
+	
+	<select id="getArticle" parameterType="java.lang.Integer"
+		resultMap="QnaResult">
+		select * from qna where num = #{num}
+	</select>
+
+
+	<select id="getPass" parameterType="java.lang.Integer"
+		resultType="String">
+		select pass from qna where num = #{num}
+	</select>
+
+	
+	<update id="updateArticle" parameterType="com.project.user.board.model.QnaVO">
+		update qna set writer=#{writer},email=#{email},subject=#{subject},content=#{content} where num = #{num}
+	</update>
+
+
+	<delete id="deleteArticle" parameterType="java.lang.Integer">
+		delete from qna where num=#{num}
+	</delete>
+
+
+	<select id="getMaxRef" resultType="java.lang.Integer">
+		select max(ref) from qna
+	</select>
+
+
+	<update id="updateStep" parameterType="com.project.user.board.model.QnaVO2">
+	update qna set step=#{step}+1 where ref=#{ref} and step>#{step}
+	</update>
+	
+	</mapper>

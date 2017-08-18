@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.admin">
+
+	<resultMap id="MyMemberResult" type="com.project.user.member.model.MemberVO">
+		<result property="email" column="email" jdbcType="VARCHAR" />
+		<result property="pass" column="pass" jdbcType="VARCHAR" />
+		<result property="name" column="name" jdbcType="VARCHAR" />
+		<result property="phone" column="phone" jdbcType="VARCHAR" />
+		<result property="birth" column="birth" jdbcType="VARCHAR" />
+		<result property="joindate" column="joindate" jdbcType="TIMESTAMP" />
+		<result property="code" column="code" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<select id="getAllMember" resultMap="MyMemberResult">
+		select * from member where code = 0
+	</select>
+	
+	<select id="getCountMember" resultType="Integer">
+		select count(*) from member
+	</select>
+	
+	<select id="getCountNotice" resultType="Integer">
+		select count(*) from notice
+	</select>
+		
+	<select id="getCountQna" resultType="Integer">
+		select count(*) from qna
+	</select>
+	
+	<select id="getCountMusic" resultType="Integer">
+	 	select count(*) from music
+	</select>
+	
+	<select id="getCountFreeBoard" resultType="Integer">
+		select count(*) from FreeBoard
+	</select>
+	
+	<delete id="deleteMember" parameterType="String">
+		delete from member where email=#{email}
+	</delete>
+		
+</mapper> 

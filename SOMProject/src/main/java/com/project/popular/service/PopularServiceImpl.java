@@ -18,4 +18,10 @@ public class PopularServiceImpl implements PopularService{
 		return list;
 	}
 
+	@Override
+	public List<PopularVO> getPopularPopMusic(PopularVO vo) {
+		List<PopularVO> list=dao.getPopularPopMusic(vo);
+		return list;
+	}
+
 }

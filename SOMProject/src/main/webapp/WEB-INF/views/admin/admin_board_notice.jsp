@@ -19,13 +19,6 @@
 			<button class="tablinks"><a href="../jsp/admin_board_qna.jsp">Q&A</a></button>
 			<button class="tablinks"><a href="../jsp/admin_board_free.jsp">자유게시판</a></button>
 		</div>
-		<!-- 
-		<div class="tab">
-			<button class="tablinks" onclick="openBoard(event, 'notice_board')" id="defaultOpen">공지사항</button>
-			<button class="tablinks" onclick="openBoard(event, 'qna_board')">Q&A</button>
-			<button class="tablinks" onclick="openBoard(event, 'free_board')">자유게시판</button>
-		</div>
-		 -->
 		<div id="notice_board" class="tabcontent">
 			<table width="700" height="350">
 			<colgroup>

@@ -63,36 +63,10 @@ div#divide {
 		</div>
 	</header>
 <div id="divide">
-	<div class="admin_tab" id="maintable">
-	<table width="140">
-		<tr>
-			<td><a href="">관리자 페이지</a></td>
-		</tr>
-		<tr>
-			<td><a href="">회원 관리</a></td>
-		</tr>
-		<tr>
-			<td><a href="">공지사항 관리</a></td>
-		</tr>
-		<tr>
-			<td><a href="">Q&A게시판 관리</a></td>
-		</tr>
-		<tr>
-			<td><a href="">자유게시판 관리</a></td>
-		</tr>
-		<tr>
-			<td><a href="">음악 등록</a></td>
-		</tr>
-		<tr>
-			<td><a href="">뮤직비디오 등록</a></td>
-		</tr>
-		<tr>
-			<td><a href="" onclick="logout();">로그아웃</a></td>
-		</tr>
-	</table>	
-	</div>	
+	<jsp:include page="admin_tab.jsp" flush="false"/>
+	<div>
 
-		
+	<form action="uploadProc.mdo" method="post" enctype="multipart/form-data">
 	<div id="setTable">
 		<table border="1" width="394">
 			<tr bgcolor="black" align="center">
@@ -142,48 +116,49 @@ div#divide {
 			<tr>
 				<th scope="row"><font size="1" color="#F29661">장르</font></th>
 				<td><font size="2"> <input id="pop" type="checkbox"
-						name="m_genre" value="팝(pop)" onclick="genreCheckBoxValidation(0)" /><label
-						for="pop">팝(pop)</label> <input id="dance" type="checkbox"
-						name="genre" value="댄스" onclick="genreCheckBoxValidation(1)" /><label
-						for="dance">댄스</label> <input id="hiphop" type="checkbox"
-						name="genre" value="힙합" onclick="genreCheckBoxValidation(2)" /><label
-						for="hiphop">힙합</label> <input id="balad" type="checkbox"
-						name="genre" value="발라드" onclick="genreCheckBoxValidation(3)" /><label
-						for="balad">발라드</label><br /> <input id="trot" type="checkbox"
-						name="genre" value="트로트" onclick="genreCheckBoxValidation(4)" /><label
-						for="trot">트로트</label> <input id="ost" type="checkbox"
-						name="genre" value="ost" onclick="genreCheckBoxValidation(5)" /><label
+						name="m_genre" value="pop" onclick="genreCheckBoxValidation(0)" /><label
+						for="pop">pop</label> <input id="dance" type="checkbox"
+						name="m_genre" value="ccm" onclick="genreCheckBoxValidation(1)" /><label
+						for="dance">ccm</label> <input id="hiphop" type="checkbox"
+						name="m_genre" value="classic" onclick="genreCheckBoxValidation(2)" /><label
+						for="hiphop">classic</label> <input id="balad" type="checkbox"
+						name="m_genre" value="jazz" onclick="genreCheckBoxValidation(3)" /><label
+						for="balad">jazz</label><br /> <input id="trot" type="checkbox"
+						name="m_genre" value="j-pop" onclick="genreCheckBoxValidation(4)" /><label
+						for="trot">j-pop</label> <input id="ost" type="checkbox"
+						name="m_genre" value="ost" onclick="genreCheckBoxValidation(5)" /><label
 						for="ost">OST</label> <input id="jpop" type="checkbox"
-						name="genre" value="j-pop" onclick="genreCheckBoxValidation(6)" /><label
-						for="jpop">J-POP</label> <input id="ccm" type="checkbox"
-						name="genre" value="ccm" onclick="genreCheckBoxValidation(7)" /><label
-						for="ccm">CCM</label>
+						name="m_genre" value="edm" onclick="genreCheckBoxValidation(6)" /><label
+						for="jpop">edm</label> <input id="ccm" type="checkbox"
+						name="m_genre" value="k-pop" onclick="genreCheckBoxValidation(7)" /><label
+						for="ccm">k-pop</label>
 				</font></td>
 			</tr>
 			<tr>
 				<th scope="row"><font size="1" color="#F29661"><label
 						for="uploadfilecount">mp3파일:</label></font></th>
-				<td align="left"><input type="file" name="image" />
+				<td align="left"><input type="file" name="mp3" />
 				</td>
 			</tr>
 			<tr>
 				<th bgcolor="grey"><font size="2">앨범이미지:</font></th>
-				<td align="left"><input type="file" size="22"></input></td>
+				<td align="left"><input type="file" name="image" size="22"></input></td>
 			</tr>
 			<tr>
 				<th bgcolor="grey"><font size="2">무비:</font></th>
-				<td align="left"><input type="text" size="22"></input></td>
+				<td align="left"><input type="text" size="22" name="m_musicvideo"></input></td>
 			</tr>
 			
 			<tr>
 				<td bgcolor="grey" colspan="2" align="center">
-						<input type="submit" value="upload" onclick="" /> 
+						<input type="submit" value="upload"/> 
 						<input type="button" value="cancel" onclick="" />
 				</td>
 			</tr>
 		</table>
+	
 	</div>
-</div>
+</div>	</form>
 
 	<footer>
 		<br><br>
@@ -220,6 +195,7 @@ div#divide {
 		<br>
 		<br>
 		</div>
+		
 	</footer>
 <script>
 function logout(){

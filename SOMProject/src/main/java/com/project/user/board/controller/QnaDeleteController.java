@@ -27,7 +27,6 @@ public class QnaDeleteController {
 	public ModelAndView onSubmit(Integer num,QnaVO boardVo){
 			service.deleteArticle(boardVo.getNum());	
 			return new ModelAndView("redirect:qnaList.do");
-		
-				
+					
 }
 }

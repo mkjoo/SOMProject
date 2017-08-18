@@ -7,9 +7,25 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+	<!-- 회원관리 -->
 	<bean id="AdminMember_MController" class="com.project.admin.member_M.controller.AdminMember_MController" p:service-ref="AdminMember_MService" />
 	<bean id="AdminMember_MDAO" class="com.project.admin.member_M.model.AdminMember_MDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
 	<bean id="AdminMember_MService" class="com.project.admin.member_M.service.AdminMember_MServiceImpl" p:dao-ref="AdminMember_MDAO" />	
+	
+	<!-- 공지사항 -->
+	<bean id="NoticePaging" class="com.project.user.board.model.Paging" />
+	<bean id="AdminNoticeController" class="com.project.admin.board_M.controller.AdminNoticeController" p:service-ref="AdminNoticeService" p:boardPaging-ref="NoticePaging" />
+	<bean id="AdminNoticeDAO" class="com.project.admin.board_M.model.AdminNoticeDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
+	<bean id="AdminNoticeService" class="com.project.admin.board_M.service.AdminNoticeServiceImpl" p:dao-ref="AdminNoticeDAO" />	
+			
+	<!-- QNA -->
+	<bean id="AdminQnaController" class="com.project.admin.board_M.controller.AdminQnaController" p:service-ref="AdminQnaService" p:boardPaging-ref="NoticePaging"  />
+	<bean id="AdminQnaDAO" class="com.project.admin.board_M.model.AdminQnaDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
+	<bean id="AdminQnaService" class="com.project.admin.board_M.service.AdminQnaServiceImpl" p:dao-ref="AdminQnaDAO" />
+				
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<property name="maxUploadSize" value="2000000000"/>
+	</bean>	
 		
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/admin/" />

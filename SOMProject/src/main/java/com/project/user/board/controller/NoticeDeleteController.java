@@ -20,7 +20,6 @@ public class NoticeDeleteController {
 	public ModelAndView onSubmit(Integer num,NoticeVO boardVo){
 			service.deleteArticle(boardVo.getNum());	
 			return new ModelAndView("redirect:noticeList.do");
-		
-				
+					
 }
 }

@@ -22,7 +22,7 @@ public class PopularController {
 	@RequestMapping(value="newest.do",method=RequestMethod.GET)
 	public ModelAndView popular2(){
 		ModelAndView mav=new ModelAndView();
-		mav.setViewName("newest/popular");
+		mav.setViewName("newest/newest");
 		return mav;
 	}
 	
@@ -99,5 +99,16 @@ public class PopularController {
 		mav.addObject("list",list);
 		return mav;
 	}
+	
+	@RequestMapping(value="popular.do",method=RequestMethod.GET)
+	public ModelAndView popular3(){
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("popular/popular");
+		return mav;
+	}
+	
+	
+	
+	
 	
 }
