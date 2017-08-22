@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="a.b.c">
+<mapper namespace="com.project.admin.freeboard">
 
 <resultMap id="FreeBoardResult" type="com.project.admin.board_M.model.FreeBoardVO">
 		<result property="num" column="NUM" jdbcType="BIGINT" />
