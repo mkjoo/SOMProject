@@ -43,7 +43,6 @@
 	<delete id="deleteArticle" parameterType="java.lang.Integer">
 		delete from notice where num=#{num}
 	</delete>
-
 	
 	<update id="upReadcount" parameterType="java.lang.Integer">
 		update notice set readcount = readcount+1 where num = #{num}

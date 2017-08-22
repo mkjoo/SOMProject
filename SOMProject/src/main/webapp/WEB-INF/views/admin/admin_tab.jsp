@@ -47,12 +47,16 @@ div#divide {
 <body>
 <div class="admin_tab" id="maintable">
 	<table width="140">
+	
+		<!-- 
 		<tr>
 			<td><a href="admin_home.mdo">관리자 페이지</a></td>
 		</tr>
+		-->
 		<tr>
 			<td><a href="admin_home.mdo">회원 관리</a></td>
 		</tr>
+		
 		<tr>
 			<td><a href="adminNoticeList.mdo">공지사항 관리</a></td>
 		</tr>
@@ -60,13 +64,13 @@ div#divide {
 			<td><a href="adminQnaList.mdo">Q&A게시판 관리</a></td>
 		</tr>
 		<tr>
-			<td><a href="">자유게시판 관리</a></td>
+			<td><a href="adminFreeBoardList.mdo">자유게시판 관리</a></td>
 		</tr>
 		<tr>
 			<td><a href="upload_album.mdo">음악 등록</a></td>
 		</tr>
 		<tr>
-			<td><a href="" onclick="logout();">로그아웃</a></td>
+			<td><a href="logout.do">로그아웃</a></td>
 		</tr>
 	</table>	
 	</div>	

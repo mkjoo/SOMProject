@@ -11,4 +11,5 @@ public interface AdminNoticeService {
 	NoticeVO getArticle(Integer num);
 	void updateArticle(NoticeVO boardVo);
 	void deleteArticle(Integer num);
+	void upReadcount(Integer num);
 }

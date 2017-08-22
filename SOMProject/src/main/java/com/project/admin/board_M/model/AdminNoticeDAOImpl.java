@@ -54,5 +54,11 @@ public class AdminNoticeDAOImpl implements AdminNoticeDAO{
 		sqlSession.delete(statement,num);
 	}
 
+	@Override
+	public void upReadcount(Integer num) {
+		String statement="com.project.admin.board.upReadcount";
+		sqlSession.update(statement,num);
+	}
+
 
 }

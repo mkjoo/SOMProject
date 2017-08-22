@@ -36,9 +36,6 @@
 	<bean id="memberRegFormController" class="com.project.user.member.controller.MemberRegFormController"/>
 	<bean id="memberCertifyController" class="com.project.user.member.controller.MemberCertifyController" />
 	
-	
-	
-	
 	<bean id="MainController" class="com.project.main.controller.MainController" />
 	<bean id="PopularController" class="com.project.popular.controller.PopularController" />
 	<bean id="BuskingController" class="com.project.busking.controller.BuskingController" />

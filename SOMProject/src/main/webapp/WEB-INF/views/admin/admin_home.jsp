@@ -6,47 +6,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>앨범 업로드</title>
+<script type="text/javascript" src="/som/js/main/slider.js"></script>
+<script type="text/javascript" src="/som/js/main/login.js"></script>
+<script type="text/javascript" src="/som/js/main/menu.js"></script>
+<script type="text/javascript" src="/som/js/main/signUp.js"></script>
+
 
 <link href="/som/css/main/modal.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/login.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/slider.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/content.css" rel="stylesheet" type="text/css">
-<link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/footer.css" rel="stylesheet" tyep="text/css">
+<link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/mp_header.css" rel="stylesheet" type="text/css">
 
 </head>
+
 <body>
-<!-- header -->
 	<header>
 	<div class="header_menu">
-		<ul class="header_menu_ul" style="color: white">
-			<li class="menu">
-
-				<div class="dropdown">
-
-					<button onclick="myFunction()" class="dropbtn">
-						<img src="/som/images/main/메뉴바.png" width="25" height="25" alt="" />
-					</button>
-
-					<div id="myDropdown" class="dropdown-content">
-						<a class="dropmenu" href="newest.do">최신가요</a> <a class="dropmenu" href="#">인기가요</a>
-						<a class="dropmenu" href="#">버스킹</a> <a class="dropmenu" href="noticeList.do">게시판</a>
-					</div>
-				</div>
-			</li>
-			<li class="menu"><a href="mainPage_home.do" title="Home"
-				class="hd_logo"><img src="/som/images/main/som_logo.png"
-					width="70" height="25"></a></li>
-			<li class="menu"><button id="myBtn">Login/Join</button></li>
-			${loginID.email}
-		</ul>
+		<jsp:include page="a_header.jsp" flush="false"/>
+		
 	</div>
 	</header>
+	
 <div id="divide">
 	<jsp:include page="admin_tab.jsp" flush="false"/>
-	<div>
-	
+
 	회원수=${countMember}&nbsp;&nbsp;&nbsp;노래개수=${countMusic}<br>
 	공지사항 글개수=${countNotice}&nbsp;&nbsp;&nbsp;QNA 글개수=${countQna}	
 	

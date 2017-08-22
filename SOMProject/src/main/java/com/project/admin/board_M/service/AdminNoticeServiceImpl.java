@@ -44,5 +44,10 @@ public class AdminNoticeServiceImpl implements AdminNoticeService{
 	public void deleteArticle(Integer num) {
 		dao.deleteArticle(num);
 	}
+
+	@Override
+	public void upReadcount(Integer num) {
+		dao.upReadcount(num);
+	}
 	
 }

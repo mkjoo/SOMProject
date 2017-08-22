@@ -192,7 +192,10 @@ public class MyPagePlaylistController {
 			String tableName=deleteGolbengEE+"_play";
 			HashMap map=new HashMap();
 			map.put("tableName",tableName);
-			List<MusicVO> list=service.getMyPlay(map);		
+			List<MusicVO> list=service.getMyPlay(map);
+			for(MusicVO oo:list){
+				System.out.println(oo.getM_path());
+			}
 			ModelAndView mav=new ModelAndView("myPage/myPlay");
 			mav.addObject("songcount",list.size());
 			mav.addObject("list",list);

@@ -8,7 +8,7 @@
 		<result property="m_album" column="m_album" jdbcType="VARCHAR" />
 		<result property="m_genre" column="m_genre" jdbcType="VARCHAR" />
 		<result property="m_create_date" column="m_create_date" jdbcType="TIMESTAMP" />
-		<result property="m_path" column="_path" jdbcType="VARCHAR" />
+		<result property="m_path" column="m_path" jdbcType="VARCHAR" />
 		<result property="m_count_play" column="m_count_play" jdbcType="BIGINT" />
 		<result property="m_download" column="m_download" jdbcType="BIGINT" />
 		<result property="m_lyrics" column="m_lyrics" jdbcType="VARCHAR" />

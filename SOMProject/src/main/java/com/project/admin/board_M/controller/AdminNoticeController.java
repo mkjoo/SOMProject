@@ -75,6 +75,7 @@ public class AdminNoticeController {
 	
 	@RequestMapping(value="adminNoticeContent.mdo",method=RequestMethod.GET)
 	public ModelAndView getArticle(Integer num){
+		service.upReadcount(num);
 		NoticeVO boardVo = service.getArticle(num);
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("notice/noticeContent");

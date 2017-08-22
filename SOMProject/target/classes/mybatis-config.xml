@@ -7,9 +7,11 @@
 		<mapper resource="member/mapping/qna.xml"/>
 		<mapper resource="member/mapping/popular.xml"/>
 		<mapper resource="member/mapping/myPage.xml"/>
+		<mapper resource="member/mapping/search.xml"/>
 		<mapper resource="admin/mapping/upload.xml"/>
 		<mapper resource="admin/mapping/home.xml"/>
 		<mapper resource="admin/mapping/board.xml"/>
 		<mapper resource="admin/mapping/qna.xml"/>
+		<mapper resource="admin/mapping/freeboard.xml"/>
 	</mappers>
 </configuration>

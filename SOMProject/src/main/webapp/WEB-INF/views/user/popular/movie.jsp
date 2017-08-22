@@ -9,7 +9,11 @@
 <body>
 musicvideo<br>
 ${m_musicvideo}
-<iframe width="560" height="315" src="//www.youtube.com/embed/qFmXLGheyqs" frameborder="0" allowfullscreen></iframe>
+ <iframe width="560" height="315" src="//www.youtube.com/embed/qFmXLGheyqs?autoplay=1" frameborder="0" allowfullscreen></iframe>
+
+<!--  
+<iframe id="video" width="420" height="315" src="//www.youtube.com/embed/9B7te184ZpQ?rel=0" frameborder="0" allowfullscreen></iframe>
+-->
 
 </body>
 </html>

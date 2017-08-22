@@ -39,12 +39,12 @@ public class AdminMember_MController {
 	@RequestMapping(value="uploadProc.mdo",method=RequestMethod.POST)
 	public ModelAndView submitVideo(@RequestParam("image") MultipartFile multipartFile1,@RequestParam("mp3") MultipartFile multipartFile2,MusicVO musicVo) throws Exception{
 		String imageFileName=multipartFile1.getOriginalFilename();
-		String path="C:/Users/welcometothehell/Desktop/8.18/SOMProject/src/main/webapp/WEB-INF/mp3";
-		File f=new File("C:/Users/welcometothehell/Desktop/8.18/SOMProject/src/main/webapp/WEB-INF/mp3/"+imageFileName);
+		String path="C:/Users/welcometothehell/Desktop/8.22/0/SOMProject/src/main/webapp/WEB-INF/mp3";
+		File f=new File("C:/Users/welcometothehell/Desktop/8.22/0/SOMProject/src/main/webapp/WEB-INF/mp3/"+imageFileName);
 		multipartFile1.transferTo(f);
 		
 		String mp3FileName=multipartFile2.getOriginalFilename();
-		File f2=new File("C:/Users/welcometothehell/Desktop/8.18/SOMProject/src/main/webapp/WEB-INF/mp3/"+mp3FileName);
+		File f2=new File("C:/Users/welcometothehell/Desktop/8.22/0/SOMProject/src/main/webapp/WEB-INF/mp3/"+mp3FileName);
 		multipartFile2.transferTo(f2);
 		//////////////////////여까지가 파일업로드//////////////////////////////
 		

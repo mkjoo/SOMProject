@@ -12,25 +12,28 @@ function writeCheck(){
 	document.writeForm.submit();
 }
 </script>
+<script type="text/javascript" src="/som/js/main/slider.js"></script>
+<script type="text/javascript" src="/som/js/main/login.js"></script>
+<script type="text/javascript" src="/som/js/main/menu.js"></script>
+<script type="text/javascript" src="/som/js/main/signUp.js"></script>
+
+
+<link href="/som/css/main/modal.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/login.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/slider.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/content.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/footer.css" rel="stylesheet" tyep="text/css">
+<link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/mp_header.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
-   <header>
-      <div class="header_menu" width="300">
-         <ul class="header_menu_ul" style="color: white">
-            <li class="menu"><a><img src="../images/menu_bar.png" width="40" height="40" alt="" /></a> 
-            <!-- <ul class="hide">
-               <li>최신가요</li>
-               <li>인기차트</li>
-               <li>버스킹</li>
-               <li>게시판</li>
-            </ul> --></li>
-            <li class="menu"><a href="myPage_home.jsp" title="Home" class="hd_logo">
-               <img src="../images/som_logo.jpg" width="100" height="40"></a></li>
-            <li class="menu" id=""><a href="#"><span class="hd_mn_ul_li_span">Login&nbsp;</span></a>
-               <a href="#"><span class="hd_mn_ul_li_span">/&nbsp;Join</span></a></li>
-         </ul>
-      </div>
-   </header>
+  	<header>
+	<div class="header_menu">
+		<jsp:include page="../a_header.jsp" flush="false"/>
+	</div>
+	</header>
+	
 <div id="divide">
    <jsp:include page="../admin_tab.jsp" flush="false"/>
    <div>

@@ -1,5 +1,6 @@
 package com.project.popular.controller;
 
+import java.io.File;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -36,6 +37,18 @@ public class PopularController {
 		mav.addObject("list",list);
 		return mav;
 	}
+	
+	@RequestMapping(value="k-popNewest.do",method=RequestMethod.GET)
+	public ModelAndView popular17(PopularVO PopularVo){
+		
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("newest/k-pop");
+		List<PopularVO> list=service.getNewestPopMusic(PopularVo);
+		mav.addObject("m_jenre",PopularVo.getM_genre());
+		mav.addObject("list",list);
+		return mav;
+	}
+	
 	
 	@RequestMapping(value="ccmNewest.do",method=RequestMethod.GET)
 	public ModelAndView popular3(PopularVO PopularVo){
@@ -106,6 +119,16 @@ public class PopularController {
 		mav.setViewName("popular/popular");
 		return mav;
 	}
+	
+	@RequestMapping(value="k-popPopular.do",method=RequestMethod.GET)
+	public ModelAndView popular18(PopularVO PopularVo){
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("popular/k-pop");
+		List<PopularVO> list=service.getPopularPopMusic(PopularVo);
+		mav.addObject("m_jenre",PopularVo.getM_genre());
+		mav.addObject("list",list);
+		return mav;
+	}	
 	
 	@RequestMapping(value="ccmPopular.do",method=RequestMethod.GET)
 	public ModelAndView popular10(PopularVO PopularVo){
@@ -193,4 +216,11 @@ public class PopularController {
 		return mav;
 	}
 	
+	@RequestMapping(value="buy.do",method=RequestMethod.GET)
+	public ModelAndView buy(@RequestParam String path,@RequestParam String fileName){		
+		ModelAndView mav=new ModelAndView("fileDownload/confirm");
+		mav.addObject("path",path);
+		mav.addObject("fileName",fileName);
+		return mav;
+	}
 }

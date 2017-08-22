@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.user.myPage">
-		<resultMap id="PlayListResult" type="com.project.user.myPage.model.PlayListVO">
+	<resultMap id="PlayListResult" type="com.project.user.myPage.model.PlayListVO">
 		<result property="email" column="email" jdbcType="VARCHAR" />
 		<result property="m_name" column="m_name" jdbcType="VARCHAR" />
 		<result property="m_artist" column="m_artist" jdbcType="VARCHAR" />
@@ -18,7 +18,7 @@
 		<result property="m_album" column="m_album" jdbcType="VARCHAR" />
 		<result property="m_genre" column="m_genre" jdbcType="VARCHAR" />
 		<result property="m_create_date" column="m_create_date" jdbcType="TIMESTAMP" />
-		<result property="m_path" column="_path" jdbcType="VARCHAR" />
+		<result property="m_path" column="m_path" jdbcType="VARCHAR" />
 		<result property="m_count_play" column="m_count_play" jdbcType="BIGINT" />
 		<result property="m_download" column="m_download" jdbcType="BIGINT" />
 		<result property="m_lyrics" column="m_lyrics" jdbcType="VARCHAR" />
@@ -57,7 +57,7 @@
 	</select>
 	
 	<update id="buyMusic" parameterType="com.project.user.myPage.model.PointVO">
-		update point set m_point=#{m_point}-#{usepoint},usecontent=#{usecontent},usepoint=#{usepoint} where email = #{email}
+		update point set m_point=m_point-#{usepoint},usecontent=#{usecontent},usepoint=#{usepoint} where email = #{email}
 	</update>
 	
 	<insert id="insertPlayList" parameterType="com.project.user.myPage.model.PlayListVO">

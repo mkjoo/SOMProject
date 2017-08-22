@@ -50,29 +50,7 @@ function myFunction2(){
 	<!-- header -->
 	<header>
 	<div class="header_menu">
-		<ul class="header_menu_ul" style="color: white">
-			<li class="menu">
-
-				<div class="dropdown">
-
-					<button onclick="myFunction()" class="dropbtn">
-						<img src="/som/images/main/메뉴바.png" width="25" height="25" alt="" />
-					</button>
-
-					<div id="myDropdown" class="dropdown-content">
-						<a class="dropmenu" href="newest.do">최신가요</a> <a class="dropmenu" href="#">인기가요</a>
-						<a class="dropmenu" href="#">버스킹</a> <a class="dropmenu" href="noticeList.do">게시판</a>
-						<a class="dropmenu" href="admin_home.mdo">관리자홈</a>
-					</div>
-				</div>
-			</li>
-			<li class="menu"><a href="adminMainPage_home.mdo" title="Home"
-				class="hd_logo"><img src="/som/images/main/som_logo.png"
-					width="70" height="25"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${loginID.name}님</li>
-			
-			
-			
-		</ul>
+		<jsp:include page="a_header.jsp" flush="false"/>
 	</div>
 	</header>
 
@@ -152,8 +130,10 @@ function myFunction2(){
 
 
 	<div class="header_search">
-		<input id="seach" type="search" placeholder="Search Music"> <input
-			type="submit" value="Search"> <br />
+		<form action="search.do" method="get">
+		<input id="seach" name="search_text" type="text" placeholder="Search Music"> 
+		<input type="submit" value="Search" > <br />
+		</form>
 	</div>
 
 

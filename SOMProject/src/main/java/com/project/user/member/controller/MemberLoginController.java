@@ -75,4 +75,14 @@ public class MemberLoginController {
 		mav.addObject("vo", vo);
 		return mav;
 	}
+	
+	@RequestMapping(value = "logout.do", method = RequestMethod.GET)
+	public ModelAndView adminLogout(HttpServletRequest request) {
+		HttpSession session=request.getSession();
+		session.invalidate();
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("main/mainPage");
+		return mav;
+	}
 }
+

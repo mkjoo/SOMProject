@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="a.b.c">
+
+<resultMap id="FreeBoardResult" type="com.project.admin.board_M.model.FreeBoardVO">
+		<result property="num" column="NUM" jdbcType="BIGINT" />
+		<result property="writer" column="WRITER" jdbcType="VARCHAR" />
+		<result property="subject" column="SUBJECT" jdbcType="VARCHAR" />
+		<result property="regdate" column="REGDATE" jdbcType="TIMESTAMP" />
+		<result property="content" column="CONTENT" jdbcType="VARCHAR" />
+		<result property="readcount" column="readcount" jdbcType="BIGINT" />
+		<result property="commentcount" column="commentcount" jdbcType="BIGINT" />
+</resultMap>
+
+<resultMap id="commentResult" type="com.project.admin.board_M.model.CommentVO">
+		<result property="cnum" column="CNUM" jdbcType="BIGINT" />
+		<result property="num" column="NUM" jdbcType="BIGINT" />
+		<result property="name" column="NAME" jdbcType="VARCHAR" />
+		<result property="content" column="CONTENT" jdbcType="VARCHAR" />
+		<result property="regdate" column="REGDATE" jdbcType="TIMESTAMP" />
+</resultMap>
+	<select id="getComment" resultMap="commentResult" parameterType="java.lang.Integer">
+		select * from boardcomment where num=#{num}	
+	</select>
+	
+	<select id="getMyComment" parameterType="java.lang.Integer" resultType="com.project.admin.board_M.model.CommentVO">
+		select * from boardcomment where cnum=#{cnum}
+	</select>
+	
+	<select id="getCommentCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select count(*) from boardcomment where num=#{num}
+	</select>
+	
+	<insert id="insertComment" parameterType="com.project.admin.board_M.model.CommentVO">
+		insert into boardcomment values(boardcomment_seq.nextval,#{num},#{name},#{content},#{regdate})
+	</insert>
+	
+	<delete id="deleteComment" parameterType="java.lang.Integer">
+		delete from boardcomment where cnum=#{cnum}
+	</delete>
+	<update id="updateComment" parameterType="com.project.admin.board_M.model.CommentVO">
+		update boardcomment set content=#{content} where cnum=#{cnum}
+	</update>
+		
+	<select id="getAllCount" resultType="Integer">
+		select count(*) from freeboard
+	</select> 
+	
+	<select id="getList" parameterType="java.util.Map" resultMap="FreeBoardResult">
+	<![CDATA[
+	select * from (select rownum rnum,num,writer,subject,content,regdate,readcount,commentcount from (select * from freeboard order by num desc)) where rnum>=#{startRow} and rnum <= #{endRow}
+	]]>
+	</select>
+	
+	<insert id="insertArticle" parameterType="com.project.admin.board_M.model.FreeBoardVO">
+	<![CDATA[
+	insert into freeboard(num,writer,subject,content,regdate) values(freeboard_seq.nextval,#{writer},#{subject},#{content},#{regdate})
+		
+	]]>
+	</insert>
+	
+	
+	<select id="getArticle" parameterType="java.lang.Integer" resultType="com.project.admin.board_M.model.FreeBoardVO">
+		select * from freeboard where num = #{num}
+	</select>
+
+	<update id="updateArticle" parameterType="com.project.admin.board_M.model.FreeBoardVO">
+		update freeboard set writer=#{writer},subject=#{subject},content=#{content} where num = #{num}
+	</update>
+
+
+	<delete id="deleteArticle" parameterType="java.lang.Integer">
+		delete from freeboard where num=#{num}
+	</delete>
+
+	
+	<update id="upReadcount" parameterType="java.lang.Integer">
+		update freeboard set readcount = readcount+1 where num = #{num}
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper> 

@@ -12,6 +12,11 @@
 	<bean id="AdminMember_MDAO" class="com.project.admin.member_M.model.AdminMember_MDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
 	<bean id="AdminMember_MService" class="com.project.admin.member_M.service.AdminMember_MServiceImpl" p:dao-ref="AdminMember_MDAO" />	
 	
+ 	<!-- 검색 관련 -->
+	<bean id="SearchController" class="com.project.user.search.controller.SearchController" p:service-ref="SearchService" />
+	<bean id="SearchService" class="com.project.user.search.service.SearchServiceImpl" p:dao-ref="SearchDAO" />
+	<bean id="SearchDAO" class="com.project.user.search.model.SearchDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
+	
 	<!-- 공지사항 -->
 	<bean id="NoticePaging" class="com.project.user.board.model.Paging" />
 	<bean id="AdminNoticeController" class="com.project.admin.board_M.controller.AdminNoticeController" p:service-ref="AdminNoticeService" p:boardPaging-ref="NoticePaging" />
@@ -22,6 +27,12 @@
 	<bean id="AdminQnaController" class="com.project.admin.board_M.controller.AdminQnaController" p:service-ref="AdminQnaService" p:boardPaging-ref="NoticePaging"  />
 	<bean id="AdminQnaDAO" class="com.project.admin.board_M.model.AdminQnaDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
 	<bean id="AdminQnaService" class="com.project.admin.board_M.service.AdminQnaServiceImpl" p:dao-ref="AdminQnaDAO" />
+	
+	<!-- FreeBoard -->						
+	<bean id="AdminFreeBoardController" class="com.project.admin.board_M.controller.AdminFreeBoardController" p:service-ref="AdminFreeBoardService" p:boardPaging-ref="NoticePaging" />
+	<bean id="AdminFreeBoardDAO" class="com.project.admin.board_M.model.AdminFreeBoardDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
+	<bean id="AdminFreeBoardService" class="com.project.admin.board_M.service.AdminFreeBoardServiceImpl" p:dao-ref="AdminFreeBoardDAO" />
+		
 				
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	<property name="maxUploadSize" value="2000000000"/>
@@ -31,4 +42,5 @@
 		<property name="prefix" value="/WEB-INF/views/admin/" />
 		<property name="suffix" value=".jsp" />
 	</bean>	
+		
 </beans>

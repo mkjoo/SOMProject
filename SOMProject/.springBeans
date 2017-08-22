@@ -12,6 +12,7 @@
 		<config>src/main/webapp/WEB-INF/spring/applicationContext.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/userContext/popular.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/userContext/myPage.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/userContext/download.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
