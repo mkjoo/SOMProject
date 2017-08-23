@@ -46,15 +46,15 @@ public class QnaListController {
 		map.put("endRow",boardPaging.getWriting_End());
 		List<QnaVO> boardList = this.boardListService.getBoardList(map);
 		Map<String,Object> model = new HashMap<String,Object>();
-		model.put("qnaList",boardList);
-		model.put("qnaCount",count);
-		model.put("qnaNumber",number);
-		model.put("qnaPageNum",pageNum);
-		model.put("qnaBp",boardPaging);
-		model.put("qnaStartRow",boardPaging.getWriting_Start());
-		model.put("qnaEndRow",boardPaging.getWriting_End());
+		model.put("boardList",boardList);
+		model.put("count",count);
+		model.put("number",number);
+		model.put("pageNum",pageNum);
+		model.put("bp",boardPaging);
+		model.put("startRow",boardPaging.getWriting_Start());
+		model.put("endRow",boardPaging.getWriting_End());
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("board/board_list");
+		modelAndView.setViewName("board/qnaList");
 		modelAndView.addAllObjects(model);
 		return modelAndView;
 	}

@@ -19,7 +19,7 @@ public class NoticeGetController {
 	public ModelAndView getArticle(Integer num){
 		NoticeVO boardVo = service.getArticle(num);
 		ModelAndView mav=new ModelAndView();
-		mav.setViewName("board/board_list");
+		mav.setViewName("board/noticeContent");
 		mav.addObject("vo",boardVo);
 		return mav;
 	}

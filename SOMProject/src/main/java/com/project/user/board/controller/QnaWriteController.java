@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.project.user.board.model.QnaVO;
 import com.project.user.board.model.QnaVO2;
 import com.project.user.board.service.QnaWriteService;
+import com.project.user.member.model.MemberVO;
 
 @Controller
 public class QnaWriteController {
@@ -23,8 +25,14 @@ public class QnaWriteController {
 	}
 
 	@RequestMapping(value="qnaWriteForm.do", method=RequestMethod.GET)
-	public String setView(){
-		return "board/qnaWriteForm";
+	public ModelAndView setView(HttpServletRequest request){
+		HttpSession session=request.getSession();
+		MemberVO vo=(MemberVO) session.getAttribute("loginID");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("board/qnaWriteForm");
+		mav.addObject("vo",vo);
+		return mav;
 	}
 	
 	
@@ -43,7 +51,7 @@ public class QnaWriteController {
 
 		System.out.println("n="+num+"/  r="+ref+"/  s="+step+"/  d="+depth);
 		this.writeService.insertWriting(boardVo);
-		return new ModelAndView("redirect:list.do");
+		return new ModelAndView("redirect:qnaList.do");
 	}
 	
 	

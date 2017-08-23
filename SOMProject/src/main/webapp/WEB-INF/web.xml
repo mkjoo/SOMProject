@@ -47,6 +47,7 @@
 			  /WEB-INF/spring/userContext/popular.xml			 
 			  /WEB-INF/spring/userContext/myPage.xml			 
 			  /WEB-INF/spring/userContext/download.xml			 
+			  /WEB-INF/spring/userContext/busking.xml			 
 			  </param-value>
 		</init-param>
 		<load-on-startup>0</load-on-startup>

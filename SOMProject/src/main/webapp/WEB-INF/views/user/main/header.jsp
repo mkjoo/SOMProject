@@ -19,12 +19,12 @@
 					</button>
 
 					<div id="myDropdown" class="dropdown-content">
-						<a class="dropmenu" href="newest.do">최신가요</a> <a class="dropmenu" href="#">인기가요</a>
-						<a class="dropmenu" href="#">버스킹</a> <a class="dropmenu" href="noticeList.do">게시판</a>
+						<a class="dropmenu" href="newest.do">최신가요</a> <a class="dropmenu" href="popular.do">인기가요</a>
+						<a class="dropmenu" href="busking.do">버스킹</a> <a class="dropmenu" href="noticeList.do">게시판</a>
 					</div>
 				</div>
 			</li>
-			<li class="menu"><a href="mainPage_home.do" title="Home"
+			<li class="menu"><a href="mainPage.do" title="Home"
 				class="hd_logo"><img src="/som/images/main/som_logo.png"
 					width="70" height="25"></a></li>
 			<li class="menu"><button id="myBtn">Login/Join</button></li>

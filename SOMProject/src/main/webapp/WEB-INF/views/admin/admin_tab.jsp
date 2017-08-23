@@ -47,7 +47,6 @@ div#divide {
 <body>
 <div class="admin_tab" id="maintable">
 	<table width="140">
-	
 		<!-- 
 		<tr>
 			<td><a href="admin_home.mdo">관리자 페이지</a></td>

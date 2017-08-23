@@ -1,478 +1,87 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+	  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>My Playlist</title>
-<link type="text/css" rel="stylesheet" href="../htmls/myPage_style.css">
 <script>
 function updateResult(value) {
-	if (value == "success") {alert('구매성공');}
-	if (value == "succes")	{alert('담기성공');}
+	if (value == "success") {
+		alert('구매성공');
+	}
 }
-
 window.onload = updateResult("${value}");
 
+
+function myFunction2() {
+    document.getElementById("myDropdown2").classList.toggle("show");
+}
+window.onclick = function(event) {
+	  if (!event.target.matches('.dropbtn2')) {
+
+	    var dropdowns = document.getElementsByClassName("dropdown2-content2");
+	    var i;
+	    for (i = 0; i < dropdowns.length; i++) {
+	      var openDropdown = dropdowns[i];
+	      if (openDropdown.classList.contains('show')) {
+	        openDropdown.classList.remove('show');
+	      }
+	    }
+	  }
+	}
+	
 </script>
-<style>
-div#content {
-	width: 660px;
-	margin: 0px auto 30px auto;
-	font-family: Arial, Helvetica;
-	font-size: small;
-	background: #FDF5E6;
-}
+<script type="text/javascript" src="/som/js/main/slider.js"></script>
+<script type="text/javascript" src="/som/js/main/login.js"></script>
+<script type="text/javascript" src="/som/js/main/menu.js"></script>
+<script type="text/javascript" src="/som/js/main/signUp.js"></script>
 
-p#about{
-	text-align : center;
-	padding : 0 0 50px 0;
-}
-#about a:link {
-	color : #4BAF4B;
-}
-#about a:visited {
-	color : #006400;
-}
-#about a:hover {
-	color : #FF1493;
-}
 
-/* ------------------------------------------------- */
-#tabs {
-	overflow: hidden;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	position : relative;
-}
-
-#tabs li {
-	float : left;
-	margin: 0 .5em 0 8px;
-}
-
-#tabs a {
-	position: relative;
-	float : left;
-	left : 140px;
-	background: #ddd;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
-	background-image: -webkit-linear-gradient(top, #fff, #ddd);
-	background-image: -moz-linear-gradient(top, #fff, #ddd);
-	background-image: -ms-linear-gradient(top, #fff, #ddd);
-	background-image: -o-linear-gradient(top, #fff, #ddd);
-	background-image: linear-gradient(to bottom, #fff, #ddd);
-	padding: .7em 3.5em;
-	text-decoration: none;
-	color: #444;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
-	-webkit-border-radius: 5px 0 0 0;
-	-moz-border-radius: 5px 0 0 0;
-	border-radius: 5px 0 0 0;
-	-moz-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
-	-webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
-	box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
-}
-
-#tabs a:hover, #tabs a:hover::after, #tabs a:focus, #tabs a:focus::after
-	{
-	background: #fff;
-}
-
-#tabs a:focus {
-	outline: 0;
-}
-
-#tabs a::after {
-	content: '';
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	right: -.5em;
-	bottom: 0;
-	width: 1em;
-	background: #ddd;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff),
-		to(#ddd));
-	background-image: -webkit-linear-gradient(top, #fff, #ddd);
-	background-image: -moz-linear-gradient(top, #fff, #ddd);
-	background-image: -ms-linear-gradient(top, #fff, #ddd);
-	background-image: -o-linear-gradient(top, #fff, #ddd);
-	background-image: linear-gradient(to bottom, #fff, #ddd);
-	-moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
-	-webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
-	box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
-	-webkit-transform: skew(10deg);
-	-moz-transform: skew(10deg);
-	-ms-transform: skew(10deg);
-	-o-transform: skew(10deg);
-	transform: skew(10deg);
-	-webkit-border-radius: 0 5px 0 0;
-	-moz-border-radius: 0 5px 0 0;
-	border-radius: 0 5px 0 0;
-}
-
-#tabs #current a {
-	background: #fff;
-	z-index: 3;
-}
-
-#tabs #current a::after {
-	background: #fff;
-	z-index: 3;
-}
-
-#btn {
-	position: absolute;
-	right: 60px;
-}
-/* ------------------------------------------------- */
-#content {
-	background: #fff;
-	padding: 2em;
-	height: 620px;
-	position: relative;
-	z-index: 2;
-	-moz-border-radius: 0 5px 5px 5px;
-	-webkit-border-radius: 0 5px 5px 5px;
-	border-radius: 0 5px 5px 5px;
-	-moz-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
-	-webkit-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
-	box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
-}
-
-/* ------------------------------------------------- */
-#about {
-	color: #999;
-}
-
-#about a {
-	color: #eee;
-}
-</style>
+<link href="/som/css/main/modal.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/login.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/slider.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/content.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/mp_header.css" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="/som/css/myPage/myPage_style.css">
+<link href="/som/css/board/board.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+	<!-- header -->
 	<header>
 	<div class="header_menu">
-		<ul class="header_menu_ul" style="color : #FFFFFF">
-			<li class="menu"><a><img src="../images/menu_bar.png"
-					width="40" height="40" alt="" /></a> <!-- <ul class="hide">
-               <li>최신가요</li>
-               <li>인기차트</li>
-               <li>버스킹</li>
-               <li>게시판</li>
-            </ul> --></li>
-			<li class="menu"><a href="myPage_home.jsp" title="Home"
-				class="hd_logo"><img src="../images/som_logo.jpg" width="100"
-					height="40"></a></li>
-			<li class="menu" id=""><a href="#"><span
-					class="hd_mn_ul_li_span">Login</span></a><a href="#"><span
-					class="hd_mn_ul_li_span">/Join</span></a></li>
-		</ul>
+		<jsp:include page="../main/u_header.jsp" flush="false"/>
 	</div>
 	</header>
-
-	<ul id="tabs">
-		<li><a href="#" name="tab1">최근 들은 음악</a></li>
-		<li><a href="#" name="tab2">즐겨찾기한 음악</a></li>
-		<li><a href="#" name="tab3">구매한 음악</a></li>
-	</ul>
-
-	<div id="content">
-		<div id="tab1">
-			<h2>최근 들은 음악</h2>
-			<table border="0" style="width: 100%" height="450">
-				<caption>곡별 순위차트입니다. 곡별 순위별 오름차순으로 정렬됩니다.<br><br></caption>
-				<colgroup>
-					<col style="width: 29px" />
-					<col style="width: 60px" />
-					<col style="width: 110px" />
-					<col style="width: 320px">
-					<col style="width: 50px" />
-					<col style="width: 50px" />
-					<col style="width: 50px" />
-				</colgroup>
-				<!--150515 수정 lyr-->
-				<thead>
-					<tr>
-						<th scope="col"><div class="wrap pd_none left">
-								<input type="checkbox" title="곡 목록 전체 선택"
-									class="input_check d_checkall">
-							</div></th>
-						<th scope="col"><div class="wrap pd_none">NO</div></th>
-						<th scope="col"><div class="wrap none">가수</div></th>
-						<th scope="col"><div class="wrap">곡명</div></th>
-						<th scope="col" class="t_left"><div class="wrap right_none">듣기</div></th>
-						<th scope="col"><div class="wrap pd_none left">가사</div></th>
-						<th scope="col"><div class="wrap pd_none">담기</div></th>
-					</tr>
-				</thead>
-				<c:forEach var="musicVo" items="${list}">
-				<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>${musicVo.m_num}</td>
-					<td>${musicVo.m_artist}</td>
-					<td><a href="../songs_jsp/kard_holahola.jsp">${musicVo.m_name}</a></td>
-					<td><input type="button" value="듣기" onclick="window.location='upCountPlay.do?m_name=${musicVo.m_name}'"></td>
-					<td><input type="button" value="가사" onclick="window.open('lyrics.do?lyrics=${musicVo.m_lyrics}','get','height=500px, width=500px')"></td>
-
-				</tr>
-				</c:forEach>
-			
-				
-			</table>
+	
+	
+	<hr style="width: 90%; margin-left: 40px" />
+	
+		
+		 
+<nav id="myp_title">
+		<h2>&nbsp;MyPage</h2>
+		<hr/>
+	</nav>
+	<section>
+		<div class="container-fluid"></div>
+		<div id="box1">
+			<h3>MY Music</h3>
+			<h4>최근들은가요</h4>
 		</div>
-		<div id="tab2">
-			<h2>즐겨찾기한 음악</h2>
-			<table border="0" style="width: 100%" height="450">
-				<caption>곡별 순위차트입니다. 곡별 순위별 오름차순으로 정렬됩니다.<br><br></caption>
-				<colgroup>
-					<col style="width: 29px" />
-					<col style="width: 60px" />
-					<col style="width: 110px" />
-					<col style="width: 320px">
-					<col style="width: 50px" />
-					<col style="width: 50px" />
-					<col style="width: 50px" />
-				</colgroup>
-				<!--150515 수정 lyr-->
-				<thead>
-					<tr>
-						<th scope="col"><div class="wrap pd_none left">
-								<input type="checkbox" title="곡 목록 전체 선택"
-									class="input_check d_checkall">
-							</div></th>
-						<th scope="col"><div class="wrap pd_none">NO</div></th>
-						<th scope="col"><div class="wrap none">가수</div></th>
-						<th scope="col"><div class="wrap">곡명</div></th>
-						<th scope="col" class="t_left"><div class="wrap right_none">듣기</div></th>
-						<th scope="col"><div class="wrap pd_none left">가사</div></th>
-						<th scope="col"><div class="wrap pd_none">담기</div></th>
-					</tr>
-				</thead>
-					<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>1.</td>
-					<td>JoyPark (조이파크)</td>
-					<td><a href="../songs_jsp/joypark_alive.jsp">Alive (Feat. 지애린)</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-					<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>2.</td>
-					<td>아웃사이더, 강남</td>
-					<td><a href="../songs_jsp/outsider_streetlove.jsp">Street Love</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-					<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>3.</td>
-					<td>윤도현</td>
-					<td><a href="../songs_jsp/yundohyun_realman.jsp">Real Man (상남자 English Chester Busking ver)</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-					<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>4.</td>
-					<td>Luda</td>
-					<td><a href="../songs_jsp/luda_iwillgiveyou.jsp">I will give you all I got</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-					<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>5.</td>
-					<td>Dayday (데이데이)</td>
-					<td><a href="../songs_jsp/dayday_callme.jsp">나를 불러 (Feat. GRAY, 박재범)</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-					<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>6.</td>
-					<td>김영철, 황치열</td>
-					<td><a href="../songs_jsp/hwang_kim_pado.jsp">파도</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-					<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>7.</td>
-					<td>YEIN</td>
-					<td><a href="../songs_jsp/yein_wave.jsp">물결</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-					<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>8.</td>
-					<td>Homme (창민, 이현)</td>
-					<td><a href="../songs_jsp/homme_whereareyounow.jsp">어디쯤 왔니</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-					<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>9.</td>
-					<td>BENJAMIN FLAVOR</td>
-					<td><a href="../songs_jsp/benjamin_flavor_astronaut.jsp">Astronaut</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-				<tr align="center">
-					<td><input type="checkbox"></td>
-					<td>10.</td>
-					<td>폴킴</td>
-					<td><a href="../songs_jsp/paul_kim.jsp">있잖아</a></td>
-					<td><input type="button" value="듣기"></td>
-					<td><input type="button" value="가사"></td>
-					<td><input type="button" value="담기"></td>
-				</tr>
-				
-			</table>
-		</div>
-		<div id="tab3">
-			<h2>구매한 음악</h2>
-			<table border="0" style="width: 100%" height="450">
-				<caption>곡별 순위차트입니다. 곡별 순위별 오름차순으로 정렬됩니다.<br><br></caption>
-				<colgroup>
-					<col style="width: 29px" />
-					<col style="width: 60px" />
-					<col style="width: 110px" />
-					<col style="width: 320px">
-					<col style="width: 50px" />
-					<col style="width: 50px" />
-					<col style="width: 50px" />
-				</colgroup>
-				<!--150515 수정 lyr-->
-				<thead>
-					<tr>
-						<th scope="col"><div class="wrap pd_none left">
-								<input type="checkbox" title="곡 목록 전체 선택"
-									class="input_check d_checkall">
-							</div></th>
-						<th scope="col"><div class="wrap pd_none">NO</div></th>
-						<th scope="col"><div class="wrap none">가수</div></th>
-						<th scope="col"><div class="wrap">곡명</div></th>
-						<th scope="col" class="t_left"><div class="wrap right_none">듣기</div></th>
-						<th scope="col"><div class="wrap pd_none left">가사</div></th>
-						<th scope="col"><div class="wrap pd_none">담기</div></th>
-					</tr>
-				</thead>
-					<tr align="center">
-						<td><input type="checkbox"></td>
-						<td>1.</td>
-						<td>스컬&하하</td>
-						<td><a href="myMusic_list.jsp">Nora (Feat. G.Soul)</a></td>
-						<td><input type="button" value="듣기"></td>
-						<td><input type="button" value="가사"></td>
-						<td><input type="button" value="담기"></td>
-					</tr>
-					<tr align="center">
-						<td><input type="checkbox"></td>
-						<td>2.</td>
-						<td>윤조</td>
-						<td><a href="myMusic_list.jsp">Ponytail</a></td>
-						<td><input type="button" value="듣기"></td>
-						<td><input type="button" value="가사"></td>
-						<td><input type="button" value="담기"></td>
-					</tr>
-					<tr align="center">
-						<td><input type="checkbox"></td>
-						<td>3.</td>
-						<td>김페리</td>
-						<td><a href="myMusic_list.jsp">우주고양이</a></td>
-						<td><input type="button" value="듣기"></td>
-						<td><input type="button" value="가사"></td>
-						<td><input type="button" value="담기"></td>
-					</tr>
-					<tr align="center">
-						<td><input type="checkbox"></td>
-						<td>4.</td>
-						<td>Del.Mo (델모)</td>
-						<td><a href="myMusic_list.jsp">You</a></td>
-						<td><input type="button" value="듣기"></td>
-						<td><input type="button" value="가사"></td>
-						<td><input type="button" value="담기"></td>
-					</tr>
-					<tr align="center">
-						<td><input type="checkbox"></td>
-						<td>5.</td>
-						<td>박재정, 마크 (MARK)</td>
-						<td><a href="myMusic_list.jsp">Lemonade Love</a></td>
-						<td><input type="button" value="듣기"></td>
-						<td><input type="button" value="가사"></td>
-						<td><input type="button" value="담기"></td>
-					</tr>
-					<tr align="center">
-						<td><input type="checkbox"></td>
-						<td>6.</td>
-						<td>윤종신</td>
-						<td><a href="myMusic_list.jsp">Welcome Summer</a></td>
-						<td><input type="button" value="듣기"></td>
-						<td><input type="button" value="가사"></td>
-						<td><input type="button" value="담기"></td>
-					</tr>
-					<tr align="center">
-						<td><input type="checkbox"></td>
-						<td>7.</td>
-						<td>빈센트 앤 로즈</td>
-						<td><a href="myMusic_list.jsp">안전벨트</a></td>
-						<td><input type="button" value="듣기"></td>
-						<td><input type="button" value="가사"></td>
-						<td><input type="button" value="담기"></td>
-					</tr>
-			</table>
-		</div>
-	</div>
 
-	<footer>
-		<br> <br>
-		<p id="about">
-			Back to <a href="myPage_home.jsp">main</a> / Go to <a
-				href="myMusic_list.jsp">Home</a>
-		</p>
-		<br>
-		<br>
-	</footer>
+	</section>
+	
+	
 
-	<script src="../js/jquery-3.2.1.min.js"></script>
-	<script>
-$(document).ready(function() {
-    $("#content").find("[id^='tab']").hide(); // Hide all content
-    $("#tabs li:first").attr("id","current"); // Activate the first tab
-    $("#content #tab1").fadeIn(); // Show first tab's content
-    
-    $('#tabs a').click(function(e) {
-        e.preventDefault();
-        if ($(this).closest("li").attr("id") == "current"){ //detection for current tab
-         return;       
-        }
-        else{             
-          $("#content").find("[id^='tab']").hide(); // Hide all content
-          $("#tabs li").attr("id",""); //Reset id's
-          $(this).parent().attr("id","current"); // Activate this
-          $('#' + $(this).attr('name')).fadeIn(); // Show content for the current tab
-        }
-    });
-});
-</script>
 
+	<!-- footer -->
+
+
+	<script src="/som/js/main/slider.js" type="text/javascript"></script>
 </body>
 </html>

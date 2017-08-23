@@ -18,7 +18,7 @@
 
 					<div id="myDropdown" class="dropdown-content">
 						<a class="dropmenu" href="newest.do">최신가요</a> <a class="dropmenu" href="popular.do">인기가요</a>
-						<a class="dropmenu" href="#">버스킹</a> <a class="dropmenu" href="noticeList.do">게시판</a>
+						<a class="dropmenu" href="busking.do">버스킹</a> <a class="dropmenu" href="noticeList.do">게시판</a>
 						<a class="dropmenu" href="admin_home.mdo">관리자홈</a>
 					</div>
 				</div>

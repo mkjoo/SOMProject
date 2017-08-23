@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+	  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>#즐거운 음악세상! SOM★☆# 마이페이지 입니다.</title>
-<link type="text/css" rel="stylesheet"
-	href="/som/css/myPage/myPage_style.css">
-<link type="text/css" rel="stylesheet" href="/som/css/main/menu.css">
 <script>
 function updateResult(value) {
 	if (value == "success") {
@@ -16,38 +15,56 @@ function updateResult(value) {
 }
 window.onload = updateResult("${value}");
 
-</script>
 
+function myFunction2() {
+    document.getElementById("myDropdown2").classList.toggle("show");
+}
+window.onclick = function(event) {
+	  if (!event.target.matches('.dropbtn2')) {
+
+	    var dropdowns = document.getElementsByClassName("dropdown2-content2");
+	    var i;
+	    for (i = 0; i < dropdowns.length; i++) {
+	      var openDropdown = dropdowns[i];
+	      if (openDropdown.classList.contains('show')) {
+	        openDropdown.classList.remove('show');
+	      }
+	    }
+	  }
+	}
+	
+</script>
+<script type="text/javascript" src="/som/js/main/slider.js"></script>
+<script type="text/javascript" src="/som/js/main/login.js"></script>
+<script type="text/javascript" src="/som/js/main/menu.js"></script>
+<script type="text/javascript" src="/som/js/main/signUp.js"></script>
+
+
+<link href="/som/css/main/modal.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/login.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/slider.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/content.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/mp_header.css" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="/som/css/myPage/myPage_style.css">
+<link href="/som/css/board/board.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
 <input type="button" value="나의뮤직" onclick="javascript:window.open('musicPlayer.do','aa','width=310px height=500px');">
 	<!-- header -->
 	<header>
-		<div class="header_menu">
-			<ul class="header_menu_ul" style="color: white">
-				<li class="menu">
-
-					<div class="dropdown">
-
-						<button onclick="myFunction()" class="dropbtn">
-							<img src="/som/images/main/메뉴바.png" width="25" height="25" alt="" />
-						</button>
-
-						<div id="myDropdown" class="dropdown-content">
-							<a class="dropmenu" href="newest.do">최신가요</a> <a class="dropmenu"
-								href="#">인기가요</a> <a class="dropmenu" href="#">버스킹</a> <a
-								class="dropmenu" href="#">게시판</a>
-						</div>
-					</div>
-				</li>
-				<li class="menu"><a href="userMainPage_home.do" title="Home"
-					class="hd_logo"><img src="/som/images/main/som_logo.png"
-						width="70" height="25"></a></li>
-				<li class="menu"><button id="myBtn">Login/Join</button></li>
-			</ul>
-		</div>
+	<div class="header_menu">
+		<jsp:include page="../main/u_header.jsp" flush="false"/>
+	</div>
 	</header>
-	<nav id="myp_title">
+	
+	
+	<hr style="width: 90%; margin-left: 40px" />
+	
+		
+		 
+<nav id="myp_title">
 		<h2>&nbsp;MyPage</h2>
 		<hr/>
 	</nav>
@@ -94,44 +111,20 @@ window.onload = updateResult("${value}");
 		</div>
 
 	</section>
-	<footer>
-		<br>
-		<br>
-		<div id="footer">
-			<p id="about">
-				Back to <a href="../jsp/myPage_home.jsp">main</a> / Go to <a
-					href="../jsp/myMusic_list.jsp">Home</a>
-			</p>
-			<br>
-			<hr />
-			<table border="0" id="foot1" width="870" height="50">
-				<tr>
-					<td>회사소개&nbsp; |</td>
-					<td>이용약관&nbsp; |</td>
-					<td>개인정보처리방침&nbsp; |</td>
-					<td>청소년보호정책&nbsp; |</td>
-					<td>제휴/프로모션문의&nbsp; |</td>
-					<td>이메일주소무단수집거부&nbsp; |</td>
-					<td>파트너센터&nbsp; |</td>
-					<td>사업자정보확인</td>
-				</tr>
-			</table>
-			<table border="0" id="foot2" width="1000" height="80">
-				<tr>
-					<td>서울시 성동구 무학로2길 54 신방빌딩&nbsp; |</td>
-					<td>대표 : 주민경,신가람,김한누리,최시온&nbsp; |</td>
-					<td>사업자등록번호 : ***-**-*****&nbsp; |</td>
-					<td>통신판매업 신고번호 : 제2017-서울성동-*****호</td>
-				</tr>
-				<tr>
-					<td>문의전화(평일 13:00~15:00) : 1588-0000&nbsp; |</td>
-					<td>이메일 : mymusic_som@gmail.com&nbsp; |</td>
-					<td colspan="2" align="left">ⓒ2017. SOM Entertainment, Inc,
-						ALL RIGHTS RESERVED.</td>
-				</tr>
-			</table>
-			<br> <br>
-		</div>
-	</footer>
+	
+	
+
+
+	<!-- footer -->
+	<div>
+		<span style="white-space: nowrap;">통신판매업신고번호 : 제 2011-서울강서-95051호 |</span><br>
+		<span style="white-space: nowrap;">대표이사 : Swanson Choi |</span> <span
+			style="white-space: nowrap;">주소 : 서울 특별시 강서구 가로공원로 184-11 |</span> <span
+			style="white-space: nowrap;">대표전화 : 010-9252-2095 |</span> <span
+			style="white-space: nowrap;">팩스 : 02-9252-2095</span><br>
+		<span >COPYLIGHT</span>
+	</div>
+
+	<script src="/som/js/main/slider.js" type="text/javascript"></script>
 </body>
 </html>

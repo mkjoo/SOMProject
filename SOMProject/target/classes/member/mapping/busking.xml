@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.busking">
+	<resultMap id="BuskingResult" type="com.project.busking.model.BuskingVO">
+	<result property="b_num" column="b_num" jdbcType="BIGINT" />
+	<result property="b_name" column="b_name" jdbcType="VARCHAR" />
+	<result property="b_artist" column="b_artist" jdbcType="VARCHAR" />
+	<result property="b_lyrics" column="b_lyrics" jdbcType="VARCHAR" />
+	<result property="b_count_play" column="b_count_play" jdbcType="BIGINT" />
+	<result property="b_path" column="b_path" jdbcType="VARCHAR" />
+	<result property="b_img_path" column="b_img_path" jdbcType="VARCHAR"/>
+	<result property="b_regdate" column="b_regdate" jdbcType="DATE"/>
+	</resultMap>
+	
+	<select id="getNewestBusking" resultMap="BuskingResult" parameterType="com.project.busking.model.BuskingVO">
+		select * from busking order by b_regdate desc
+	</select>
+	
+	<select id="getPopularBusking" resultMap="BuskingResult" parameterType="com.project.busking.model.BuskingVO">
+		select * from busking order by b_num asc
+	</select>
+
+	
+</mapper>

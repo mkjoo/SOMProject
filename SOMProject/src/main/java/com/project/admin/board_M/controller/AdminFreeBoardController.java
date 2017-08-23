@@ -35,7 +35,6 @@ public class AdminFreeBoardController {
 	public void setService(AdminFreeBoardService service) {
 		this.service = service;
 	}
-	
 	@RequestMapping(value="adminFreeBoardList.mdo", method=RequestMethod.GET)
 	public ModelAndView handleRequest(HttpServletRequest request)throws Exception{
 		request.setCharacterEncoding("utf-8");
@@ -64,7 +63,6 @@ public class AdminFreeBoardController {
 		model.put("bp",boardPaging);
 		model.put("startRow",boardPaging.getWriting_Start());
 		model.put("endRow",boardPaging.getWriting_End());
-
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("freeboard/freeboardList");
 		modelAndView.addAllObjects(model);

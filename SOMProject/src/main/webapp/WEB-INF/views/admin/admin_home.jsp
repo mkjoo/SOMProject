@@ -26,7 +26,6 @@
 	<header>
 	<div class="header_menu">
 		<jsp:include page="a_header.jsp" flush="false"/>
-		
 	</div>
 	</header>
 	

@@ -28,7 +28,7 @@
 	<bean id="AdminQnaDAO" class="com.project.admin.board_M.model.AdminQnaDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
 	<bean id="AdminQnaService" class="com.project.admin.board_M.service.AdminQnaServiceImpl" p:dao-ref="AdminQnaDAO" />
 	
-	<!-- FreeBoard -->						
+	<!-- FreeBoard -->
 	<bean id="AdminFreeBoardController" class="com.project.admin.board_M.controller.AdminFreeBoardController" p:service-ref="AdminFreeBoardService" p:boardPaging-ref="NoticePaging" />
 	<bean id="AdminFreeBoardDAO" class="com.project.admin.board_M.model.AdminFreeBoardDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
 	<bean id="AdminFreeBoardService" class="com.project.admin.board_M.service.AdminFreeBoardServiceImpl" p:dao-ref="AdminFreeBoardDAO" />

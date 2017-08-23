@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+	  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="../htmls/myPage_style.css">
-
 <script>
 function chkBoxCheck(intChkNumber) {
 	   for (j = 0; j < 8; j++) {
@@ -26,33 +26,62 @@ function updateResult(value) {
 }
 
 window.onload = updateResult("${value}");
-</script>
+function myFunction2() {
+    document.getElementById("myDropdown2").classList.toggle("show");
+}
+window.onclick = function(event) {
+	  if (!event.target.matches('.dropbtn2')) {
 
+	    var dropdowns = document.getElementsByClassName("dropdown2-content2");
+	    var i;
+	    for (i = 0; i < dropdowns.length; i++) {
+	      var openDropdown = dropdowns[i];
+	      if (openDropdown.classList.contains('show')) {
+	        openDropdown.classList.remove('show');
+	      }
+	    }
+	  }
+	}
+	
+</script>
+<script type="text/javascript" src="/som/js/main/slider.js"></script>
+<script type="text/javascript" src="/som/js/main/login.js"></script>
+<script type="text/javascript" src="/som/js/main/menu.js"></script>
+<script type="text/javascript" src="/som/js/main/signUp.js"></script>
+
+
+<link href="/som/css/main/modal.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/login.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/slider.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/content.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/mp_header.css" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="/som/css/myPage/myPage_style.css">
+<link href="/som/css/board/board.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
+
+	<!-- header -->
 	<header>
 	<div class="header_menu">
-		<ul class="header_menu_ul" style="color: white">
-			<li class="menu"><a><img src="../images/menu_bar.png"
-					width="40" height="40" alt="" /></a> <!-- <ul class="hide">
-               <li>최신가요</li>
-               <li>인기차트</li>
-               <li>버스킹</li>
-               <li>게시판</li>
-            </ul> --></li>
-			<li class="menu"><a href="myPage_home.jsp" title="Home"
-				class="hd_logo"><img src="../images/som_logo.jpg" width="100"
-					height="40"></a></li>
-			<li class="menu" id=""><a href="#"><span
-					class="hd_mn_ul_li_span">Login</span></a><a href="#"><span
-					class="hd_mn_ul_li_span">/Join</span></a></li>
-		</ul>
+		<jsp:include page="../main/u_header.jsp" flush="false"/>
 	</div>
 	</header>
-	<br>
-	<h3>현재머니:${money}</h3>
-	<form name="myForm" action="payment.do" method="post">
-	<div id="point_list">
+	
+	
+	<hr style="width: 90%; margin-left: 40px" />
+	
+		
+		 
+<nav id="myp_title">
+		<h2>&nbsp;MyPage</h2><pre><h3>                             ${money}원 소유</h3></pre>
+		<hr/>
+	</nav>
+	<section>
+		<div class="container-fluid"></div>
+		<div id="box1">
+<form name="myForm" action="payment.do" method="post">
 		<table border="1" width="600" height="400">
 			<tr align="center">
 				<td></td>
@@ -105,7 +134,24 @@ window.onload = updateResult("${value}");
 					<input type="submit" value="충전" >
 				</td>
 		</table>
-	</div>
 </form>
+		</div>
+
+	</section>
+	
+	
+
+
+	<!-- footer -->
+	<div>
+		<span style="white-space: nowrap;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;통신판매업신고번호 : 제 2011-서울강서-95051호 |</span><br>
+		<span style="white-space: nowrap;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표이사 : Swanson Choi |</span> <span
+			style="white-space: nowrap;">주소 : 서울 특별시 강서구 가로공원로 184-11 |</span> <span
+			style="white-space: nowrap;">대표전화 : 010-9252-2095 |</span> <span
+			style="white-space: nowrap;">팩스 : 02-9252-2095</span><br>
+		<span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COPYLIGHT</span>
+	</div>
+
+	<script src="/som/js/main/slider.js" type="text/javascript"></script>
 </body>
 </html>

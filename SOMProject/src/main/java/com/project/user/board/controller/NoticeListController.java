@@ -57,7 +57,7 @@ public class NoticeListController {
 		model.put("startRow",boardPaging.getWriting_Start());
 		model.put("endRow",boardPaging.getWriting_End());
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("board/board_list");
+		modelAndView.setViewName("board/noticeList");
 		modelAndView.addAllObjects(model);
 		return modelAndView;
 	}

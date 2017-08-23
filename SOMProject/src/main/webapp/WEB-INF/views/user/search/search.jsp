@@ -134,29 +134,10 @@ window.onload = loginResult("${result}");
 	<!-- header -->
 	<header>
 	<div class="header_menu">
-		<ul class="header_menu_ul" style="color: white">
-			<li class="menu">
-
-				<div class="dropdown">
-
-					<button onclick="myFunction()" class="dropbtn">
-						<img src="/som/images/main/메뉴바.png" width="25" height="25" alt="" />
-					</button>
-
-					<div id="myDropdown" class="dropdown-content">
-						<a class="dropmenu" href="newest.do">최신가요</a> <a class="dropmenu" href="#">인기가요</a>
-						<a class="dropmenu" href="#">버스킹</a> <a class="dropmenu" href="noticeList.do">게시판</a>
-					</div>
-				</div>
-			</li>
-			<li class="menu"><a href="mainPage_home.do" title="Home"
-				class="hd_logo"><img src="/som/images/main/som_logo.png"
-					width="70" height="25"></a></li>
-			<li class="menu"><button id="myBtn">Login/Join</button></li>
-			${loginID.email}
-		</ul>
+		<jsp:include page="../main/u_header.jsp" flush="false"/>
 	</div>
 	</header>
+		
 
 	<!-- The Modal -->
 	<div id="myModal" class="modal">

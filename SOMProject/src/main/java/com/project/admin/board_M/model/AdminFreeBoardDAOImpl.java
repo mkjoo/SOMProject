@@ -35,7 +35,6 @@ private SqlSessionTemplate sqlSession;
 	public FreeBoardVO getArticle(Integer num) {
 		String statement="com.project.admin.freeboard.getArticle";
 		FreeBoardVO vo=sqlSession.selectOne(statement,num);
-	
 		return vo;
 	}
 
