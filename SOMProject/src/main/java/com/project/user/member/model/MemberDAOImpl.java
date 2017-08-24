@@ -88,4 +88,17 @@ public class MemberDAOImpl implements MemberDAO {
 		
 	}
 
+	@Override
+	public String getMemberLogin(String email) {
+		String statement="com.project.member.getMemberLogin";
+		String loginStatement=sqlSession.selectOne(statement,email);
+		return loginStatement;
+	}
+
+	@Override
+	public void updateMemberLogin(Object obj) {
+		String statement="com.project.member.updateMemberLogin";
+		sqlSession.update(statement,obj);
+	}
+
 }

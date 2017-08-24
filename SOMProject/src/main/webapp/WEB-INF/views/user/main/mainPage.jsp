@@ -19,6 +19,9 @@ function loginResult(result) {
 	if(result== "noLogin"){
 		alert('로그인을 해주세요');
 	}
+	if(result== "alreadyLogin"){
+		alert('이미로그인 되있어요');
+	}
 }
 function openSignUp() {
 	window.open("regForm1.do", "_blank", "width=550, height=800");

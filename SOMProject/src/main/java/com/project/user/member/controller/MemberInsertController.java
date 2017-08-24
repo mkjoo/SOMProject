@@ -1,5 +1,6 @@
 package com.project.user.member.controller;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -12,6 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.project.user.member.model.MemberVO;
 import com.project.user.member.service.MemberCreateService;
 import com.project.user.member.service.MemberInsertService;
+
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 @Controller
 public class MemberInsertController {
@@ -35,9 +39,15 @@ public class MemberInsertController {
 	
 	
 	@RequestMapping(value="regProc.do", method=RequestMethod.GET)
-	public ModelAndView regProc(MemberVO vo){
+	public ModelAndView regProc(MemberVO vo) throws IOException{
+		////암호화작업/////
+		BASE64Encoder encoding = new BASE64Encoder();
+		BASE64Decoder decoding = new BASE64Decoder();
+		String encodingPass = encoding.encode(vo.getPass().getBytes());
+		String decodingPass = new String(decoding.decodeBuffer(encodingPass));
+		vo.setPass(encodingPass);
 		vo.setJoindate(new Date());
-		//memberInsertService.insertMember(vo);
+		memberInsertService.insertMember(vo);
 		HashMap map=new HashMap();
 		String[] str=vo.getEmail().split("@");
 		String deleteAt=str[0];

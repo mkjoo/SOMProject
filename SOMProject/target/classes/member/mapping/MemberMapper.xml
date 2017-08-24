@@ -5,6 +5,14 @@
 		insert into member(email,pass,name,phone,birth,joindate) values(#{email}, #{pass}, #{name}, #{phone}, #{birth}, #{joindate})
 	</insert>
 	
+	<select id="getMemberLogin" parameterType="String" resultType="String">
+		select login from member where email=#{email}
+	</select>
+	
+	<update id="updateMemberLogin" parameterType="java.util.Map">
+		update member set login=#{login} where email=#{email} 
+	</update>
+	
 	<select id="getMemberPass" parameterType="String" resultType="com.project.user.member.model.MemberVO">
 		select * from member where email=#{email}
 	</select>

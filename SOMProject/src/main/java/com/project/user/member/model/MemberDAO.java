@@ -33,6 +33,8 @@ public interface MemberDAO {
 	
 	public void insertPlayList(Object obj);
 	
+	public String getMemberLogin(String email);
 	
+	public void updateMemberLogin(Object obj);
 	//필요하다고 생각되는 것을 쭉 기재...
 }

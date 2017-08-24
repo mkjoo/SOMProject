@@ -225,7 +225,7 @@ public class MyPagePlaylistController {
 			for(MusicVO oo:list){
 				System.out.println(oo.getM_path());
 			}
-			ModelAndView mav=new ModelAndView("myPage/myPlay");
+			ModelAndView mav=new ModelAndView("musicPlayer/musicPlayer");
 			mav.addObject("songcount",list.size());
 			mav.addObject("list",list);
 			return mav; 

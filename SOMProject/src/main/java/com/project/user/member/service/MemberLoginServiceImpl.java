@@ -16,4 +16,15 @@ public class MemberLoginServiceImpl implements MemberLoginService{
 		MemberVO vo=memberDao.getMemberPass(email);
 		return vo;
 	}
+
+	@Override
+	public String getMemberLogin(String email) {
+		String a=memberDao.getMemberLogin(email);
+		return a;
+	}
+
+	@Override
+	public void updateMemberLogin(Object obj) {
+		memberDao.updateMemberLogin(obj);
+	}
 }

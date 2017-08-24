@@ -1,6 +1,8 @@
 package com.project.user.member.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +23,9 @@ import com.project.user.board.service.NoticeListService;
 import com.project.user.member.model.MemberVO;
 import com.project.user.member.service.MemberLoginService;
 import com.project.user.myPage.service.MyPagePointService;
+
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 @Controller
 public class MemberLoginController {
@@ -51,7 +56,11 @@ public class MemberLoginController {
 	}
 
 	@RequestMapping(value = "loginProc.do", method = RequestMethod.POST)
-	public ModelAndView loginCheck(@RequestParam String email, @RequestParam String pass,HttpServletRequest request) {
+	public ModelAndView loginCheck(@RequestParam String email, @RequestParam String pass,HttpServletRequest request) throws IOException {
+		MemberVO vo = memberLoginService.getMemberPass(email);
+		BASE64Encoder encoding = new BASE64Encoder();
+		BASE64Decoder decoding = new BASE64Decoder();
+		String decodingPass = new String(decoding.decodeBuffer(vo.getPass()));
 		HashMap map=new HashMap();
 		map.put("startRow",1);
 		map.put("endRow",5);
@@ -61,7 +70,7 @@ public class MemberLoginController {
 		List<NoticeVO> list4=noticeListService.getBoardList(map);
 				
 		ModelAndView mav = new ModelAndView();
-		MemberVO vo = memberLoginService.getMemberPass(email);
+		
 
 		if (vo == null) {
 			mav.setViewName("main/mainPage");
@@ -69,7 +78,8 @@ public class MemberLoginController {
 			return mav;
 		}
 
-		if (pass.equals(vo.getPass())) {
+		if (pass.equals(decodingPass)) {
+			if(memberLoginService.getMemberLogin(email).equals("1")){ModelAndView mav2=new ModelAndView("main/mainPage");mav2.addObject("result","alreadyLogin");return mav2;}
 			HttpSession session=request.getSession();
 			session.setAttribute("loginID",vo);
 			if(vo.getCode().equals("0")){
@@ -83,6 +93,10 @@ public class MemberLoginController {
 			mav.addObject("popularList",list2);
 			mav.addObject("buskingList",list3);
 			mav.addObject("noticeList",list4);
+			HashMap map2 = new HashMap();
+			map2.put("email",email);
+			map2.put("login","1");
+			memberLoginService.updateMemberLogin(map2);
 			return mav;
 			}else{
 				mav.setViewName("main/a_mainPage");				
@@ -130,6 +144,11 @@ public class MemberLoginController {
 	@RequestMapping(value = "logout.do", method = RequestMethod.GET)
 	public ModelAndView adminLogout(HttpServletRequest request) {
 		HttpSession session=request.getSession();
+		MemberVO vo=(MemberVO) session.getAttribute("loginID");
+		HashMap map = new HashMap();
+		map.put("email",vo.getEmail());
+		map.put("login","0");
+		memberLoginService.updateMemberLogin(map);
 		session.invalidate();
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main/mainPage");
