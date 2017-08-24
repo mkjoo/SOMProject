@@ -130,6 +130,11 @@ public class AdminQnaController {
 		boardVo.setStep(step);
 		boardVo.setDepth(depth);
 		service.insertArticle(boardVo);
+///////////여기부터는 댓글처럼 들어갈 부분을 넣어주는 인서트작업/////
+		HashMap map=new HashMap();
+		map.put("num",boardVo.getNum());
+		map.put("content",boardVo.getContent());
+		service.insertQnaComment(map);
 		return new ModelAndView("redirect:adminQnaList.mdo");
 	}
 	

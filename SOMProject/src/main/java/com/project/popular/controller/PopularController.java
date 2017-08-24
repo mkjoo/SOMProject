@@ -3,6 +3,9 @@ package com.project.popular.controller;
 import java.io.File;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.popular.model.PopularVO;
 import com.project.popular.service.PopularService;
+import com.project.user.member.model.MemberVO;
 
 @Controller
 public class PopularController {
@@ -217,7 +221,11 @@ public class PopularController {
 	}
 	
 	@RequestMapping(value="buy.do",method=RequestMethod.GET)
-	public ModelAndView buy(@RequestParam String path,@RequestParam String fileName){		
+	public ModelAndView buy(HttpServletRequest request,@RequestParam String path,@RequestParam String fileName){		
+		HttpSession session=null;
+		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		session=request.getSession();
 		ModelAndView mav=new ModelAndView("fileDownload/confirm");
 		mav.addObject("path",path);
 		mav.addObject("fileName",fileName);

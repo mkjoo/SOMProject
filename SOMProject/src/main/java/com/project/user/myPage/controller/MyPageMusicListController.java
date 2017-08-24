@@ -34,6 +34,7 @@ public class MyPageMusicListController {
 	
 	@RequestMapping(value="myMusic_list.do", method=RequestMethod.GET)
 	public ModelAndView myMusic_list(HttpServletRequest request){
+		try{MemberVO vo=(MemberVO)request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/mainPage");mav.addObject("result","noLogin");return mav;}
 		HttpSession session=request.getSession();
 		MemberVO memberVo=(MemberVO)session.getAttribute("loginID");
 		String email=memberVo.getEmail().trim();
@@ -49,6 +50,7 @@ public class MyPageMusicListController {
 
 	@RequestMapping(value="upCountPlay.do",method=RequestMethod.GET)
 	public ModelAndView upCountPlay(@RequestParam String m_name){
+		
 		service.upCountPlay(m_name);
 		ModelAndView mav=new ModelAndView("redirect:myMusic_list.do");
 		return mav;
@@ -56,6 +58,7 @@ public class MyPageMusicListController {
 	
 	@RequestMapping(value="addMusicList.do", method=RequestMethod.GET)
 	public ModelAndView addMusic(HttpServletRequest request,@RequestParam String m_num,@RequestParam String list_num){
+		try{MemberVO vo=(MemberVO)request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/mainPage");mav.addObject("result","noLogin");return mav;}
 		HttpSession session=request.getSession();
 		MemberVO memberVo=(MemberVO)session.getAttribute("loginID");
 		String email=memberVo.getEmail().trim();

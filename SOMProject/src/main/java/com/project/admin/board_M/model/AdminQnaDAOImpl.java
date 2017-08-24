@@ -71,4 +71,15 @@ public class AdminQnaDAOImpl implements AdminQnaDAO{
 		String statement="com.project.admin.qna.updateStep";
 		sqlSession.update(statement,vo);
 	}
+	@Override
+	public String getQnaComment(Integer num) {
+		String statement="com.project.admin.qna.getQnaComment";
+		String content=sqlSession.selectOne(statement,num);
+		return content;
+	}
+	@Override
+	public void insertQnaComment(Object obj) {
+		String statement="com.project.admin.qna.insertQnaComment";
+		sqlSession.insert(statement,obj);
+	}
 }

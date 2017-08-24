@@ -21,8 +21,12 @@ public class QnaGetController {
 	}
 	
 	@RequestMapping("passConfirm.do")
-	public ModelAndView confirm(@RequestParam String num,@RequestParam String pageNum){
-		System.out.println(num+pageNum);
+	public ModelAndView confirm(HttpServletRequest request,@RequestParam String num,@RequestParam String pageNum){
+		HttpSession session=null;
+		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		session=request.getSession();
+		
 		ModelAndView mav=new ModelAndView("board/passConfirm");
 		mav.addObject("num",num);
 		mav.addObject("pageNum",pageNum);
@@ -30,16 +34,20 @@ public class QnaGetController {
 	}
 	@RequestMapping(value="qnaContent.do",method=RequestMethod.GET)
 	public ModelAndView getArticle(HttpServletRequest request,@RequestParam String num,@RequestParam String pass){
-		HttpSession session=request.getSession();
+		HttpSession session=null;
+		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		session=request.getSession();
 		MemberVO vo=(MemberVO) session.getAttribute("loginID");
 		try{
 		if(getArticleService.getPass(Integer.valueOf(num)).equals(pass)){
 			QnaVO QnaVo = this.getArticleService.getArticle(Integer.valueOf(num));
+			String content=getArticleService.getQnaComment(Integer.valueOf(num));
 			ModelAndView mav=new ModelAndView();
 			mav.setViewName("board/qnaContent");
-			
 			mav.addObject("vo",QnaVo);
 			mav.addObject("memberVO",vo);
+			mav.addObject("content",content);
 			return mav;
 		}else{
 			ModelAndView mav=new ModelAndView();

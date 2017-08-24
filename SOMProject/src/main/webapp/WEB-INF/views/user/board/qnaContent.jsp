@@ -193,8 +193,8 @@ window.onload=passCheck("${value}");
 <input type="button" value="글삭제" onclick="window.location='qnaDeleteProc.do?num=${vo.num}'" />
 </c:if>
 <input type="button" value="목록보기" onclick="window.location='qnaList.do'" />
-
-
+<br><br><br>
+답변 = ${content}
      
 	</nav>
 

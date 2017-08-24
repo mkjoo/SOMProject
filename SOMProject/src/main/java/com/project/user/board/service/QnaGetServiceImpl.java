@@ -20,4 +20,14 @@ public class QnaGetServiceImpl implements QnaGetService{
 		return dao.getPass(num);
 	}
 
+	@Override
+	public String getQnaComment(Integer num) {
+		return dao.getQnaComment(num);
+	}
+
+	@Override
+	public void insertQnaComment(Object obj) {
+		dao.insertQnaComment(obj);
+	}
+
 }

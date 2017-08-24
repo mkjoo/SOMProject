@@ -7,4 +7,6 @@ public interface QnaWriteService {
 	void insertWriting(QnaVO boardVo);
 	public int getMaxRef();
 	void updateStep(QnaVO2 vo);
+	String getQnaComment(Integer num);
+	void insertQnaComment(Object obj);
 }

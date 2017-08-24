@@ -58,7 +58,7 @@
 </tr>
 </table>
 <input type="submit" value="글쓰기" >
-<input type="button" value="목록보기" onclick="window.location='adminNoticeList.mdo'" />
+<input type="button" value="목록보기" onclick="window.location='adminFreeBoardList.mdo'" />
 </form>
 
 	</div>

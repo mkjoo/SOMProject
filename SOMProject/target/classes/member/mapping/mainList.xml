@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="a.b.c">
-
+<mapper namespace="com.project.user.mainList">
+	<resultMap id="PopularResult" type="com.project.popular.model.PopularVO">
+		<result property="m_num" column="m_num" jdbcType="BIGINT" />
+		<result property="m_name" column="m_name" jdbcType="VARCHAR" />
+		<result property="m_artist" column="m_artist" jdbcType="VARCHAR" />
+		<result property="m_album" column="m_album" jdbcType="VARCHAR" />
+		<result property="m_genre" column="m_genre" jdbcType="VARCHAR" />
+		<result property="m_create_date" column="m_create_date" jdbcType="TIMESTAMP" />
+		<result property="m_path" column="m_path" jdbcType="VARCHAR" />
+		<result property="m_count_play" column="m_count_play" jdbcType="BIGINT" />
+		<result property="m_download" column="m_download" jdbcType="BIGINT" />
+		<result property="m_lyrics" column="m_lyrics" jdbcType="VARCHAR" />
+		<result property="m_musicvideo" column="m_musicvideo" jdbcType="VARCHAR" />
+	</resultMap>
+		
+	<resultMap id="BuskingResult" type="com.project.busking.model.BuskingVO">
+		<result property="b_num" column="b_num" jdbcType="BIGINT" />
+		<result property="b_name" column="b_name" jdbcType="VARCHAR" />
+		<result property="b_artist" column="b_artist" jdbcType="VARCHAR" />
+		<result property="b_lyrics" column="b_lyrics" jdbcType="VARCHAR" />
+		<result property="b_count_play" column="b_count_play" jdbcType="BIGINT" />
+		<result property="b_path" column="b_path" jdbcType="VARCHAR" />
+		<result property="b_img_path" column="b_img_path" jdbcType="VARCHAR"/>
+		<result property="b_regdate" column="b_regdate" jdbcType="DATE"/>
+	</resultMap>
+	
+	<resultMap id="NoticeResult" type="com.project.user.board.model.NoticeVO">
+		<result property="num" column="NUM" jdbcType="BIGINT" />
+		<result property="writer" column="WRITER" jdbcType="VARCHAR" />
+		<result property="subject" column="SUBJECT" jdbcType="VARCHAR" />
+		<result property="regdate" column="REGDATE" jdbcType="TIMESTAMP" />
+		<result property="content" column="CONTENT" jdbcType="VARCHAR" />
+		<result property="readcount" column="readcount" jdbcType="BIGINT" />
+	</resultMap>
+	
+	
+	<select id="getMainNewest" parameterType="java.util.Map" resultMap="PopularResult">
+		<![CDATA[
+		select * from (select rownum rnum,m_num,m_name,m_artist,m_create_date,m_path,m_lyrics,src from (select * from music order by m_create_date desc)) where rnum>=#{startRow} and rnum <= #{endRow}		
+		]]>
+	</select>
+	
+	<select id="getMainPopular" parameterType="java.util.Map" resultMap="PopularResult">
+		<![CDATA[
+		select * from (select rownum rnum,m_num,m_name,m_artist,m_create_date,m_path,m_lyrics,src from (select * from music order by m_count_play desc)) where rnum>=#{startRow} and rnum <= #{endRow}
+		]]>
+	</select>
+	
+	<select id="getMainBusking" parameterType="java.util.Map" resultMap="BuskingResult">
+		<![CDATA[
+		select * from (select rownum rnum,b_num,b_name,b_artist,b_regdate,b_path,b_lyrics,b_img_path  from(select * from busking order by b_regdate desc)) where rnum>=#{startRow} and rnum <= #{endRow}
+		]]>
+	</select>
+	
+	<select id="getMainNotice" parameterType="java.util.Map" resultMap="NoticeResult">
+		<![CDATA[
+		select * from (select rownum rnum,num,writer,subject,content,regdate,readcount from (select * from notice order by num desc)) where rnum>=#{startRow} and rnum<=#{endRow}
+		]]>
+	</select>
 </mapper>

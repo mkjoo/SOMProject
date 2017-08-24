@@ -42,8 +42,10 @@ function writeCheck(){
 <div id="divide">
    <jsp:include page="../admin_tab.jsp" flush="false"/>
    <div>
-<form method="post" name="writeForm">
+<form method="get" name="writeForm" action="adminFreeBoardUpdateProc.mdo">
 <input type="hidden" name="num" value="${vo.num}" />
+<input type="hidden" name="writer" value="${vo.writer}" />
+<input type="hidden" name="readcount" value="${vo.readcount}" />
 <table width="600" border="1">
 <tr>
 	<td align="center" width="100">번호</td>
@@ -59,53 +61,20 @@ function writeCheck(){
 </tr>
 <tr>
 	<td align="center">제목</td>
-	<td align="center">${vo.subject}</td>
+	<td align="center"><input type="text" name="subject" value="${vo.subject}"></td>
 </tr>
 <tr>
 	<td align="center">내용</td>
-	<td colspan="7" height="100"><pre>${vo.content}</pre></td>
+	<td colspan="7" height="100"><input type="text" name="content" value="${vo.content}"></td>
 </tr>
 </table>
 
 <!-- 수정삭제 바꺼라.. -->
-<input type="button" value="글수정" onclick="window.location='adminFreeBoardUpdateForm.mdo?num=${vo.num}'" />
-<input type="button" value="글삭제" onclick="window.location='adminFreeBoardDeleteProc.mdo?num=${vo.num}'" />
+<input type="submit" value="글수정" />
 <input type="button" value="목록보기" onclick="window.location='adminFreeBoardList.mdo'" />
 </form>
 
-<!-- 포문돌려서 댓글찍기 -->
-<c:forEach var="commentList" items="${list}" varStatus="number">
-	<div id="comment">
-	<form action="updateCommentProc.mdo" method="get">
-	<input type="hidden" name="cnum" value="${commentList.cnum}">
-	<input type="hidden" name="num" value="${commentList.num}">
-	<input type="hidden" name="name" value="${commentList.name}">
-	
-	<!-- 수정 할 녀석을 고르는것 -->
-	<c:if test="${cnum == commentList.cnum}">
-		${commentList.name}   / <input type="text" name="content" value="${commentList.content}">  /  ${commentList.regdate} 
-	<input type="submit" value="수정" >
-	<input type="button" value="수정 취소" onclick="window.location='adminFreeBoardList.mdo'">
-	</c:if>
-	</form>
-	
-	<c:if test="${cnum != commentList.cnum}">
-		${commentList.name}   /     ${commentList.content}     /     ${commentList.regdate} 
-	<input type="button" value="삭제" onclick="window.location='deleteComment.mdo?cnum=${commentList.cnum}&num=${commentList.num}'">
-	<input type="button" value="수정" onclick="window.location='updateCommentForm.mdo?cnum=${commentList.cnum}&num=${commentList.num}&name=${commentList.name}&content=${commentList.content}'">
-	</c:if>
-	</div>
-</c:forEach>
-<br><br>
 
-<!-- 댓글폼 -->
-<form action="insertComment.mdo" method="get">
-<input type="hidden" name="num" value="${vo.num}">
-<input type="hidden" name="name" value="${writer}">
-이름: <label>${writer}</label>
-<textarea name="content" cols="30" rows="4" value="${commentVo.content}"></textarea>
-<input type="submit" value="댓글등록">
-</form>
 	</div>
    <footer>
       <br><br>

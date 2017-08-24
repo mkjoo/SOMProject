@@ -24,4 +24,13 @@ public class QnaWriteServiceImpl implements QnaWriteService{
 	public void updateStep(QnaVO2 vo) {
 		dao.updateStep(vo);
 	}
+	@Override
+	public String getQnaComment(Integer num) {
+		return dao.getQnaComment(num);
+	}
+
+	@Override
+	public void insertQnaComment(Object obj) {
+		dao.insertQnaComment(obj);
+	}
 }

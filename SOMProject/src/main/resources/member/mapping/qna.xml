@@ -67,4 +67,11 @@
 	update qna set step=#{step}+1 where ref=#{ref} and step>#{step}
 	</update>
 	
+	<select id="getQnaComment" parameterType="java.lang.Integer" resultType="String">
+		select content from qnacomment where num=#{num}
+	</select>
+	
+	<insert id="insertQnaComment" parameterType="java.util.Map">
+		insert into qnacomment values(qnacomment_seq.nextval,#{num},#{content})
+	</insert>
 </mapper>

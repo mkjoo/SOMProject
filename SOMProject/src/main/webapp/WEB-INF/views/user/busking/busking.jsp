@@ -71,11 +71,11 @@
 						<td width="53%">${list.b_name}</td>
 
 						<td rowspan="2" width="8%"><a><input type="image"
-								src="images/myPage/듣기버튼.png" onClick="" width="25" height="25">&nbsp;&nbsp;</a></td>
+								src="images/myPage/듣기버튼.png" onclick="javascript:window.open('addPlay.do?m_num=${musicVo.m_num}','aa','height=310px, width=500px')" width="25" height="25">&nbsp;&nbsp;</a></td>
 						<td rowspan="2" width="8%"><a><input type="image"
-								src="images/myPage/가사버튼.png" onClick="" width="25" height="25">&nbsp;&nbsp;</a></td>
+								src="images/myPage/가사버튼.png" onclick="window.open('lyrics.do?lyrics=${musicVo.m_lyrics}','get','height=500px, width=500px')" width="25" height="25">&nbsp;&nbsp;</a></td>
 						<td rowspan="2" width="8%"><a><input type="image"
-								src="images/myPage/담기버튼.png" onClick="" width="25" height="25">&nbsp;&nbsp;</a></td>
+								src="images/myPage/담기버튼.png" onclick="window.open('selectPlayList.do?m_num=${musicVo.m_num}','get','height=400px, width=400px')" width="25" height="25">&nbsp;&nbsp;</a></td>
 					</tr>
 					<tr>
 						<td>${list.b_artist}</td>

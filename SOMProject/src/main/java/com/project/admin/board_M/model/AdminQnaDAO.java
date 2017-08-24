@@ -15,4 +15,6 @@ public interface AdminQnaDAO {
 	void deleteArticle(Integer num);
 	int getMaxRef();
 	void updateStep(QnaVO2 vo);
+	String getQnaComment(Integer num);
+	void insertQnaComment(Object obj);
 }

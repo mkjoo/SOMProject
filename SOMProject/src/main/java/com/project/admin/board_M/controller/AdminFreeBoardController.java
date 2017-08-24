@@ -123,7 +123,7 @@ public class AdminFreeBoardController {
 	}
 	
 		
-	@RequestMapping(value="adminFreeBoardUpdateProc.mdo", method=RequestMethod.POST)
+	@RequestMapping(value="adminFreeBoardUpdateProc.mdo", method=RequestMethod.GET)
 	public String ooo(FreeBoardVO boardVo){
 		service.updateArticle(boardVo);
 		return "redirect:adminFreeBoardList.mdo";
@@ -162,7 +162,7 @@ public class AdminFreeBoardController {
 		CommentVO commentvo = service.getMyComment(ccnum);
 		
 		ModelAndView mav=new ModelAndView();
-		mav.setViewName("freeboard/freeboardUpdateForm");
+		mav.setViewName("freeboard/freeboardUpdateCommentForm");
 		mav.addObject("list",commentList);
 		mav.addObject("cnum",ccnum);
 		mav.addObject("writer",name);

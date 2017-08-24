@@ -27,7 +27,10 @@ public class MyPagePlaylistController {
 
 	@RequestMapping(value="Playlist.do", method=RequestMethod.GET)
 	public ModelAndView Playlist(HttpServletRequest request){
-		HttpSession session=request.getSession();
+		HttpSession session=null;
+		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		session=request.getSession();
 		MemberVO vo=(MemberVO)session.getAttribute("loginID");
 		String email=vo.getEmail().trim();
 		String[] str=email.split("@");
@@ -43,7 +46,10 @@ public class MyPagePlaylistController {
 	
 	@RequestMapping(value="insertPlay.do", method=RequestMethod.GET)
 	public ModelAndView insertList(HttpServletRequest request,PlayListVO playListVo){
-		HttpSession session=request.getSession();
+		HttpSession session=null;
+		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		session=request.getSession();
 		MemberVO memberVo=(MemberVO)session.getAttribute("loginID");
 		String email=memberVo.getEmail().trim();
 		//playListVo.setEmail(email);
@@ -60,7 +66,10 @@ public class MyPagePlaylistController {
 	
 	@RequestMapping(value="selectPlayList.do", method=RequestMethod.GET)
 	public ModelAndView playListSelect(HttpServletRequest request,@RequestParam String m_num){
-		HttpSession session=request.getSession();
+		HttpSession session=null;
+		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		session=request.getSession();
 		MemberVO vo=(MemberVO)session.getAttribute("loginID");
 		String email=vo.getEmail().trim();
 		String[] str=email.split("@");
@@ -76,7 +85,11 @@ public class MyPagePlaylistController {
 	}
 	
 	@RequestMapping(value="addPlayList.do", method=RequestMethod.GET)
-	public ModelAndView addPlayList(){
+	public ModelAndView addPlayList(HttpServletRequest request){
+		HttpSession session=null;
+		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		session=request.getSession();
 		ModelAndView mav=new ModelAndView("myPage/addPlayList");
 		return mav; 
 	}
@@ -85,7 +98,10 @@ public class MyPagePlaylistController {
 	
 		@RequestMapping(value="addPlaylistProc.do", method=RequestMethod.GET)
 		public ModelAndView addPlaylistProc(HttpServletRequest request,@RequestParam String name){
-			HttpSession session=request.getSession();
+			HttpSession session=null;
+			try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+			if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+			session=request.getSession();
 			MemberVO vo=(MemberVO)session.getAttribute("loginID");
 			String email=vo.getEmail().trim();
 			String[] str=email.split("@");
@@ -105,7 +121,11 @@ public class MyPagePlaylistController {
 	
 		@RequestMapping(value="getMypl.do", method=RequestMethod.GET)
 		public ModelAndView getMypl(HttpServletRequest request,@RequestParam String list_num){
-			HttpSession session=request.getSession();
+			
+			HttpSession session=null;
+			try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+			if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+			session=request.getSession();
 			MemberVO vo=(MemberVO)session.getAttribute("loginID");
 			String email=vo.getEmail().trim();
 			String[] str=email.split("@");
@@ -122,7 +142,10 @@ public class MyPagePlaylistController {
 		
 		@RequestMapping(value="addPlay.do", method=RequestMethod.GET)
 		public ModelAndView addPlay1(HttpServletRequest request,@RequestParam String m_num){
-			HttpSession session=request.getSession();
+			HttpSession session=null;
+			try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+			if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+			session=request.getSession();
 			MemberVO vo=(MemberVO)session.getAttribute("loginID");
 			String email=vo.getEmail().trim();
 			String[] str=email.split("@");
@@ -142,7 +165,10 @@ public class MyPagePlaylistController {
 		}
 		@RequestMapping(value="addAllPlay.do", method=RequestMethod.GET)
 		public ModelAndView addPlay2(HttpServletRequest request){
-			HttpSession session=request.getSession();
+			HttpSession session=null;
+			try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+			if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+			session=request.getSession();
 			MemberVO vo=(MemberVO)session.getAttribute("loginID");
 			String email=vo.getEmail().trim();
 			String[] str=email.split("@");
@@ -184,7 +210,10 @@ public class MyPagePlaylistController {
 		
 		@RequestMapping(value="musicPlayer.do", method=RequestMethod.GET)
 		public ModelAndView musicPlayer(HttpServletRequest request){
-			HttpSession session=request.getSession();
+			HttpSession session=null;
+			try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+			if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+			session=request.getSession();
 			MemberVO vo=(MemberVO)session.getAttribute("loginID");
 			String email=vo.getEmail().trim();
 			String[] str=email.split("@");

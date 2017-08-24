@@ -39,6 +39,7 @@ public class AdminMember_MController {
 	@RequestMapping(value="uploadProc.mdo",method=RequestMethod.POST)
 	public ModelAndView submitVideo(@RequestParam("image") MultipartFile multipartFile1,@RequestParam("mp3") MultipartFile multipartFile2,MusicVO musicVo) throws Exception{
 		String imageFileName=multipartFile1.getOriginalFilename();
+		// 아래의 path 는 정해지면 바꿔주자 
 		String path="C:/Users/welcometothehell/Desktop/8.22/0/SOMProject/src/main/webapp/WEB-INF/mp3";
 		File f=new File("C:/Users/welcometothehell/Desktop/8.22/0/SOMProject/src/main/webapp/WEB-INF/mp3/"+imageFileName);
 		multipartFile1.transferTo(f);

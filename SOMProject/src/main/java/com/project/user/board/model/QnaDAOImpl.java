@@ -67,4 +67,17 @@ public class QnaDAOImpl implements QnaDAO{
 		String statement="com.project.user.board.qna.updateStep";
 		sqlSession.update(statement,vo);
 	}
+	
+	
+	@Override
+	public String getQnaComment(Integer num) {
+		String statement="com.project.user.board.qna.getQnaComment";
+		String content=sqlSession.selectOne(statement,num);
+		return content;
+	}
+	@Override
+	public void insertQnaComment(Object obj) {
+		String statement="com.project.user.board.qna.insertQnaComment";
+		sqlSession.insert(statement);
+	}
 }

@@ -1,5 +1,8 @@
 package com.project.user.member.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.busking.model.BuskingVO;
+import com.project.busking.service.BuskingService;
+import com.project.popular.model.PopularVO;
+import com.project.popular.service.PopularService;
+import com.project.user.board.model.NoticeVO;
+import com.project.user.board.service.NoticeListService;
 import com.project.user.member.model.MemberVO;
 import com.project.user.member.service.MemberLoginService;
 import com.project.user.myPage.service.MyPagePointService;
@@ -17,7 +26,22 @@ import com.project.user.myPage.service.MyPagePointService;
 public class MemberLoginController {
 	private MemberLoginService memberLoginService;
 	private MyPagePointService service;
+	private PopularService popularService;
+	private BuskingService buskingService;
+	private NoticeListService noticeListService;
 	
+	public void setPopularService(PopularService popularService) {
+		this.popularService = popularService;
+	}
+
+	public void setBuskingService(BuskingService buskingService) {
+		this.buskingService = buskingService;
+	}
+
+	public void setNoticeListService(NoticeListService noticeListService) {
+		this.noticeListService = noticeListService;
+	}
+
 	public void setService(MyPagePointService service) {
 		this.service = service;
 	}
@@ -28,7 +52,14 @@ public class MemberLoginController {
 
 	@RequestMapping(value = "loginProc.do", method = RequestMethod.POST)
 	public ModelAndView loginCheck(@RequestParam String email, @RequestParam String pass,HttpServletRequest request) {
-
+		HashMap map=new HashMap();
+		map.put("startRow",1);
+		map.put("endRow",5);
+		List<PopularVO> list1=popularService.getMainNewest(map);
+		List<PopularVO> list2=popularService.getMainPopular(map);
+		List<BuskingVO> list3=buskingService.getMainBusking(map);
+		List<NoticeVO> list4=noticeListService.getBoardList(map);
+				
 		ModelAndView mav = new ModelAndView();
 		MemberVO vo = memberLoginService.getMemberPass(email);
 
@@ -48,11 +79,19 @@ public class MemberLoginController {
 			mav.addObject("money",money);	
 			mav.addObject("result", "resultOK");
 			mav.addObject("vo", vo);
+			mav.addObject("newestList",list1);
+			mav.addObject("popularList",list2);
+			mav.addObject("buskingList",list3);
+			mav.addObject("noticeList",list4);
 			return mav;
 			}else{
 				mav.setViewName("main/a_mainPage");				
 				mav.addObject("result", "resultOK");
 				mav.addObject("vo", vo);
+				mav.addObject("newestList",list1);
+				mav.addObject("popularList",list2);
+				mav.addObject("buskingList",list3);
+				mav.addObject("noticeList",list4);
 				return mav;	
 			}
 		} else {
@@ -65,6 +104,14 @@ public class MemberLoginController {
 	
 	@RequestMapping(value = "userMainPage_home.do", method = RequestMethod.GET)
 	public ModelAndView adminMain(HttpServletRequest request) {
+		HashMap map=new HashMap();
+		map.put("startRow",1);
+		map.put("endRow",5);
+		List<PopularVO> list1=popularService.getMainNewest(map);
+		List<PopularVO> list2=popularService.getMainPopular(map);
+		List<BuskingVO> list3=buskingService.getMainBusking(map);
+		List<NoticeVO> list4=noticeListService.getBoardList(map);
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main/u_mainPage");
 		HttpSession session=request.getSession();
@@ -73,6 +120,10 @@ public class MemberLoginController {
 		try{money=service.getMoney(vo.getEmail());}catch(Exception e){}
 		mav.addObject("money",money);	
 		mav.addObject("vo", vo);
+		mav.addObject("newestList",list1);
+		mav.addObject("popularList",list2);
+		mav.addObject("buskingList",list3);
+		mav.addObject("noticeList",list4);
 		return mav;
 	}
 	

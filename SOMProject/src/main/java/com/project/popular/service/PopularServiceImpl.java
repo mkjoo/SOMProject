@@ -24,4 +24,14 @@ public class PopularServiceImpl implements PopularService{
 		return list;
 	}
 
+	@Override
+	public List<PopularVO> getMainNewest(Object obj) {
+		return dao.getMainNewest(obj);
+	}
+
+	@Override
+	public List<PopularVO> getMainPopular(Object obj) {
+		return dao.getMainPopular(obj);
+	}
+
 }

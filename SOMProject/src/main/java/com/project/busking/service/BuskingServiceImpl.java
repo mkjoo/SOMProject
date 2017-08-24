@@ -23,6 +23,11 @@ public class BuskingServiceImpl implements BuskingService{
 		List<BuskingVO> list=dao.getPopularBusking(vo);
 		return list;
 	}
+
+	@Override
+	public List<BuskingVO> getMainBusking(Object obj) {
+		return dao.getMainBusking(obj);
+	}
 	
 	
 }

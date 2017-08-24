@@ -17,6 +17,11 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
+	<!-- FreeBoard -->
+	<bean id="UserFreeBoardController" class="com.project.user.board.controller.UserFreeBoardController" p:service-ref="UserFreeBoardService" p:boardPaging-ref="boardPaging" />
+	<bean id="UserFreeBoardDAO" class="com.project.user.board.model.UserFreeBoardDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
+	<bean id="UserFreeBoardService" class="com.project.user.board.service.UserFreeBoardServiceImpl" p:dao-ref="UserFreeBoardDAO" />
+	
 	<!-- QNA 관련 BEAN -->		
 		<bean id="boardDao" class="com.project.user.board.model.QnaDAOImpl"
 		p:sqlSession-ref="sqlSessionTemplate" />

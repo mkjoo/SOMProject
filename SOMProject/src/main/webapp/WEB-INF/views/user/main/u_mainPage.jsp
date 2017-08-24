@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -201,66 +202,43 @@ window.onclick = function(event) {
 	<content>
 	<ul class="num">
 		<div class="slide_num" id="최신가요">
-
 			<h2>최신가요</h2>
 			</br> </br>
+			<c:forEach var="newestList" items="${newestList}">
 			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
-				height="35">&nbsp;&nbsp;|빨간 맛 - 레드벨벳</li>
-			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
-				height="35">&nbsp;&nbsp;|빨간 맛 - 레드벨벳</li>
-			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
-				height="35">&nbsp;&nbsp;|빨간 맛 - 레드벨벳</li>
-			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
-				height="35">&nbsp;&nbsp;|빨간 맛 - 레드벨벳</li>
-			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
-				height="35">&nbsp;&nbsp;|빨간 맛 - 레드벨벳</li>
-
+				height="35">&nbsp;&nbsp;${newestList.m_name}</li>
+			</c:forEach>
 
 
 		</div>
 		<div class="slide_num" id="인기가요">
 			<h2>인기가요</h2>
 			</br> </br>
-			<li><img src="images/myPage/지코.PNG" width="35" height="35">&nbsp;&nbsp;|Artist
-				- 지코</li>
-			<li><img src="images/myPage/지코.PNG" width="35" height="35">&nbsp;&nbsp;|Artist
-				- 지코</li>
-			<li><img src="images/myPage/지코.PNG" width="35" height="35">&nbsp;&nbsp;|Artist
-				- 지코</li>
-			<li><img src="images/myPage/지코.PNG" width="35" height="35">&nbsp;&nbsp;|Artist
-				- 지코</li>
-			<li><img src="images/myPage/지코.PNG" width="35" height="35">&nbsp;&nbsp;|Artist
-				- 지코</li>
+			<c:forEach var="popularList" items="${popularList}">
+			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+				height="35">&nbsp;&nbsp;${popularList.m_name}</li>
+			</c:forEach>
 
 		</div>
 		<div class="slide_num" id="버스킹">
 			<h2>버스킹</h2>
-			</br> </br>
-			<li><img src="images/myPage/블랙핑크.PNG" width="35" height="35">&nbsp;&nbsp;|마지막처럼
-				- 블랭핑크</li>
-			<li><img src="images/myPage/블랙핑크.PNG" width="35" height="35">&nbsp;&nbsp;|마지막처럼
-				- 블랭핑크</li>
-			<li><img src="images/myPage/블랙핑크.PNG" width="35" height="35">&nbsp;&nbsp;|마지막처럼
-				- 블랭핑크</li>
-			<li><img src="images/myPage/블랙핑크.PNG" width="35" height="35">&nbsp;&nbsp;|마지막처럼
-				- 블랭핑크</li>
-			<li><img src="images/myPage/블랙핑크.PNG" width="35" height="35">&nbsp;&nbsp;|마지막처럼
-				- 블랭핑크</li>
+						<c:forEach var="buskingList" items="${buskingList}">
+			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+				height="35">&nbsp;&nbsp;${buskingList.b_name}</li>
+			</c:forEach>
+			
 
 		</div>
 		<div class="slide_num" id="게시판">
-			<li><h2>게시판</h2></li>
-			<p></p>
-			<p></p>
-			</br> </br>
-			<h3>
-				[공지사항]
-				<p></p>
-				최신 공지글이 여기에
-				<p></p>
-				보여지게 됩니다.
-			</h3>
-			2017.8.7
+			<li><h2>공지</h2></li>
+        
+       	<c:forEach var="vo" items="${noticeList}">
+       	  		한개의 글내용 =  
+               <a align="center" href="noticeContent.do?num=${vo.num}&pageNum=1">${vo.subject}</a>
+                ${vo.writer}
+                ${vo.regdate}
+               <br>
+         </c:forEach>
 		</div>
 	</ul>
 	</content>

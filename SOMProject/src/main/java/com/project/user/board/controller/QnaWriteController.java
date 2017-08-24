@@ -2,6 +2,7 @@ package com.project.user.board.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,15 +21,18 @@ import com.project.user.member.model.MemberVO;
 @Controller
 public class QnaWriteController {
 	private QnaWriteService writeService;
+	
 	public void setWriteService(QnaWriteService writeService) {
 		this.writeService = writeService;
 	}
 
 	@RequestMapping(value="qnaWriteForm.do", method=RequestMethod.GET)
 	public ModelAndView setView(HttpServletRequest request){
-		HttpSession session=request.getSession();
+		HttpSession session=null;
+		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		session=request.getSession();
 		MemberVO vo=(MemberVO) session.getAttribute("loginID");
-		
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("board/qnaWriteForm");
 		mav.addObject("vo",vo);
@@ -88,15 +92,19 @@ public class QnaWriteController {
 		QnaVO2 vo2 = new QnaVO2();
 		vo2.setRef(ref);
 		vo2.setDepth(depth);
-		
 		this.writeService.updateStep(vo2);
-		
 		step=step+1;
 		depth=depth+1;
 		boardVo.setRef(ref);
 		boardVo.setStep(step);
 		boardVo.setDepth(depth);
 		this.writeService.insertWriting(boardVo);
+				
+		///////////여기부터는 댓글처럼 들어갈 부분을 넣어주는 인서트작업/////
+		HashMap map=new HashMap();
+		map.put("num",boardVo.getNum());
+		map.put("content",boardVo.getContent());
+		//writeService.insertQnaComment(map);
 		return new ModelAndView("redirect:qnaList.do");
 	}
 	

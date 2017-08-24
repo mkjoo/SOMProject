@@ -31,7 +31,7 @@
 		p:memberInsertService-ref="memberInsertService" 
 		p:memberCreateService-ref="memberCreateService" />
 	<bean id="memberLoginController" class="com.project.user.member.controller.MemberLoginController"
-		p:memberLoginService-ref="memberLoginService" p:service-ref="MyPagePointService" />	
+		p:memberLoginService-ref="memberLoginService" p:service-ref="MyPagePointService" p:buskingService-ref="BuskingService" p:noticeListService-ref="NoticeListService" p:popularService-ref="PopularService" />	
 		
 	<bean id="memberRegFormController" class="com.project.user.member.controller.MemberRegFormController"/>
 	<bean id="memberCertifyController" class="com.project.user.member.controller.MemberCertifyController" />

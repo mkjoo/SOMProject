@@ -23,6 +23,7 @@ public class MyPagePointController {
 
 	@RequestMapping(value="myPoint.do", method=RequestMethod.GET)
 	public ModelAndView myPoint(HttpServletRequest request){
+		if(request.getSession()==null){return new ModelAndView("main/mainPage");}
 		HttpSession session=request.getSession();
 		MemberVO MemberVo=(MemberVO)session.getAttribute("loginID");
 		String email=MemberVo.getEmail().trim();
@@ -37,6 +38,7 @@ public class MyPagePointController {
 
 	@RequestMapping(value="payment.do",method=RequestMethod.POST)
 	public ModelAndView charge(HttpServletRequest request,PointVO pointVo){
+		if(request.getSession()==null){return new ModelAndView("main/mainPage");}
 		ModelAndView mav=new ModelAndView();
 		HttpSession session=request.getSession();
 		MemberVO MemberVo=(MemberVO)session.getAttribute("loginID");
@@ -64,6 +66,7 @@ public class MyPagePointController {
 	
 	@RequestMapping(value="buyProc.do",method=RequestMethod.GET)
 	public ModelAndView buyMusic(HttpServletRequest request,PointVO pointVo){
+		if(request.getSession()==null){return new ModelAndView("main/mainPage");}
 		//내가 구매한 노래가 어디로 insert 해놔야하는데 어디로 넣는지 아직 모르겠다.
 		HttpSession session=request.getSession();
 		MemberVO MemberVo=(MemberVO)session.getAttribute("loginID");

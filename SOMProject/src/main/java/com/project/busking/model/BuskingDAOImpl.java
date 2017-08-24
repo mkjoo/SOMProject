@@ -22,4 +22,9 @@ public class BuskingDAOImpl implements BuskingDAO{
 		List<BuskingVO> list=sqlSession.selectList(statement, vo);
 		return list;
 	}
+	@Override
+	public List<BuskingVO> getMainBusking(Object obj) {
+		String statement="com.project.user.mainList.getMainBusking";
+		return sqlSession.selectList(statement,obj);
+	}
 }

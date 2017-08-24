@@ -157,7 +157,7 @@ window.onload=passCheck("${value}");
 				
 		<div id="notice_board" class="tabcontent">
 		
-      <h4>공지사항</h4>
+      <h4>QnA</h4>
      
       <table width="700" border="1">
       <tr>

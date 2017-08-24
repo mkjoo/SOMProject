@@ -30,6 +30,7 @@ public class MyPageMemberUpdateController {
 	
 	@RequestMapping(value="member_passConfirm.do",method=RequestMethod.POST)
 	public ModelAndView pwdConfirm(HttpServletRequest request,@RequestParam String password){
+		
 		HttpSession session=request.getSession();
 		MemberVO vo=(MemberVO)session.getAttribute("loginID");
 		String email=vo.getEmail().trim();
