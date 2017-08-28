@@ -116,4 +116,17 @@ public class MyPageDAOImpl implements MyPageDAO{
 		List<MusicVO> list=sqlSession.selectList(statement,obj);
 		return list;
 	}
+
+	@Override
+	public void insertMyPayment(Object obj) {
+		String statement="com.project.user.myPage.insertMyPayment";
+		sqlSession.insert(statement,obj);
+	}
+
+	@Override
+	public List<PaymentVO> getMyPayment(String str) {
+		String statement="com.project.user.myPage.getMyPayment";
+		List<PaymentVO> list=sqlSession.selectList(statement,str);
+		return list;
+	}
 }

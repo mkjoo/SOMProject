@@ -56,7 +56,7 @@
 	
 	<select id="getMainNotice" parameterType="java.util.Map" resultMap="NoticeResult">
 		<![CDATA[
-		select * from (select rownum rnum,num,writer,subject,content,regdate,readcount from (select * from notice order by num desc)) where rnum>=#{startRow} and rnum<=#{endRow}
+		select * from (select rownum rnum,num,writer,subject,content,regdate,readcount from (select * from notice order by regdate desc)) where rnum>=#{startRow} and rnum<=#{endRow}
 		]]>
 	</select>
 </mapper>

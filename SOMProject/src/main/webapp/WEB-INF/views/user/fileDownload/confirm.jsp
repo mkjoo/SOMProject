@@ -1,24 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 <script>
 function updateResult(value) {
-	if (value == "success") {alert('Æ÷ÀÎÆ®ºÎÁ·');}
+	if (value == "success") {alert('í¬ì¸íŠ¸ë¶€ì¡±');}
 }
 
 window.onload = updateResult("${value}");
 </script>
 </head>
 <body>
-500point°¡ Â÷°¨µË´Ï´Ù ±¸¸ÅÇÏ½Ã°Ú½À´Ï±î?<br>
-<input type="button" onclick="window.location='download.do?path=${path}&fileName=${fileName}'" value="±¸¸Å">
-<input type="button" onclick="javascript:self.close();" value="Ãë¼Ò">
-<br>
+500pointê°€ ì°¨ê°ë©ë‹ˆë‹¤ êµ¬ë§¤í•˜ì‹œê² ìŠµë‹ˆê¹Œ?<br>
 
+<input type="button" onclick="window.location='download.do?fileName=${fileName}&path=aa'" value="êµ¬ë§¤">
+<input type="button" onclick="javascript:self.close();" value="ì·¨ì†Œ">
+<br>
+${fileName}<br>
 ${fileName}<br>
 ${path}
 </body>

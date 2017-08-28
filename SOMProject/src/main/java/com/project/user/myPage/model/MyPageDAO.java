@@ -22,5 +22,6 @@ public interface MyPageDAO {
 	public void insertMyPlayList(Object obj);
 	public void insertMyMusicList(Object obj);
 	public void insertMyPlay(Object obj);
-	
+	public void insertMyPayment(Object obj);
+	public List<PaymentVO> getMyPayment(String str);
 }

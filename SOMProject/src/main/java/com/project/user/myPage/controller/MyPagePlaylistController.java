@@ -26,7 +26,7 @@ public class MyPagePlaylistController {
 	}
 
 	@RequestMapping(value="Playlist.do", method=RequestMethod.GET)
-	public ModelAndView Playlist(HttpServletRequest request){
+	public ModelAndView Playlist(HttpServletRequest request,@RequestParam String list_num){
 		HttpSession session=null;
 		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
 		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
@@ -35,12 +35,22 @@ public class MyPagePlaylistController {
 		String email=vo.getEmail().trim();
 		String[] str=email.split("@");
 		String deleteGolbengEE=str[0];
+		
 		String tableName=deleteGolbengEE+"_playList";
 		HashMap map=new HashMap();
 		map.put("tableName",tableName);
 		List<PlayListVO> list=service.getMyPlayList(map);
 		ModelAndView mav=new ModelAndView("myPage/Playlist");
 		mav.addObject("list",list);
+		
+		String tableName2=deleteGolbengEE+"_musicList";
+		HashMap map2=new HashMap();
+		map.put("tableName",tableName2);
+		map.put("list_num",list_num);
+		List<MusicVO> list2=service.getMyMusic(map);
+		mav.addObject("list2",list2);
+				
+		
 		return mav; 
 	}
 	
@@ -158,7 +168,7 @@ public class MyPagePlaylistController {
 			map.put("m_num",m_num);
 			service.insertMyPlay(map);			
 			List<MusicVO> list=service.getMyPlay(map);
-			ModelAndView mav=new ModelAndView("myPage/myPlay");
+			ModelAndView mav=new ModelAndView("musicPlayer/musicPlayer");
 			mav.addObject("songcount",list.size());
 			mav.addObject("list",list);
 			return mav; 
@@ -185,7 +195,7 @@ public class MyPagePlaylistController {
 				service.insertMyPlay(map);
 			}
 			List<MusicVO> list=service.getMyPlay(map);		
-			ModelAndView mav=new ModelAndView("myPage/myPlay");
+			ModelAndView mav=new ModelAndView("myPage/myPage_home");
 			mav.addObject("list",list);
 			return mav; 
 		}	

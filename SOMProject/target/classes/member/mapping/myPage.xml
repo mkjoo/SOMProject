@@ -30,6 +30,13 @@
 		<result property="list_name" column="list_name" jdbcType="VARCHAR" />
 		<result property="list_num" column="list_num" jdbcType="BIGINT" />
 	</resultMap>	
+	<resultMap id="MyPaymentResult" type="com.project.user.myPage.model.PaymentVO" >	
+		<result property="email" column="email" jdbcType="VARCHAR" />
+		<result property="usepoint" column="usepoint" jdbcType="BIGINT" />
+		<result property="usecontent" column="usecontent" jdbcType="VARCHAR" />
+		<result property="usedate" column="usedate" jdbcType="TIMESTAMP" />
+		<result property="chargepoint" column="chargepoint" jdbcType="BIGINT" />
+	</resultMap>	
 	
 	<select id="getMusic" resultMap="MyMusicResult" parameterType="java.util.Map">
 		select * from music
@@ -94,5 +101,14 @@
 	<select id="getMyPlay" resultMap="MyMusicResult" parameterType="java.util.Map">
 		select * from ${tableName} join music using(m_num)
 	</select>
+	
+	<insert id="insertMyPayment" parameterType="java.util.Map">
+		insert into paymentdetail(email,usepoint,usecontent,chargepoint) values(#{email},#{usepoint},#{usecontent},#{chargepoint})
+	</insert>
+	
+	<select id="getMyPayment" parameterType="String" resultMap="MyPaymentResult">
+		select * from paymentdetail where email=#{email}
+	</select>
+		
 	
 </mapper> 

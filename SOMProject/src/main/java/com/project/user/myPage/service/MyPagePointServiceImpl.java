@@ -1,6 +1,9 @@
 package com.project.user.myPage.service;
 
+import java.util.List;
+
 import com.project.user.myPage.model.MyPageDAO;
+import com.project.user.myPage.model.PaymentVO;
 import com.project.user.myPage.model.PointVO;
 
 public class MyPagePointServiceImpl implements MyPagePointService{
@@ -29,6 +32,17 @@ public class MyPagePointServiceImpl implements MyPagePointService{
 	@Override
 	public void buyMusic(PointVO vo) {
 		dao.buyMusic(vo);
+	}
+
+	@Override
+	public void insertMyPayment(Object obj) {
+		dao.insertMyPayment(obj);
+	}
+
+	@Override
+	public List<PaymentVO> getMyPayment(String str) {
+		return dao.getMyPayment(str);
+		
 	}
 
 

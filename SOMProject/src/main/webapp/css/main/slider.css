@@ -2,7 +2,7 @@
 
 body {
    font-family: Verdana, sans-serif;
-   margin: 0px;
+   margin: 0;
 }
 
 .mySlides {
@@ -11,9 +11,13 @@ body {
 
 /* Slideshow container */
 .slideshow-container {
+   list-style: none;
    max-width: max;
+   height: 400px;
    position: relative;
-   margin: 0 auto;
+   margin: autio;
+   background: #f6fcff;
+   padding-bottom: -10px;
 }
 
 /* Caption text */
@@ -53,50 +57,7 @@ body {
    padding-bottom:-25%;
    margin-bottom: -10%;
 }
-.nm {
-   display: inline-block;
-   width: 300px;
-   height: 300px;
-   float: center;
-}
-.nm_album{
-   padding-left: 15px;
-}
-.img{
-   padding-left: 13%;
-}
-.active {
-   background-color: #717171;
-}
 
-/* Fading animation */
-.fade {
-   -webkit-animation-name: fade;
-   -webkit-animation-duration: 1.5s;
-   animation-name: fade;
-   animation-duration: 1.5s;
-}
-
-@
--webkit-keyframes fade {
-   from {opacity: .4
-}
-
-to {
-   opacity: 1
-}
-
-}
-@
-keyframes fade {
-   from {opacity: .4
-}
-
-to {
-   opacity: 1
-}
-
-}
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {

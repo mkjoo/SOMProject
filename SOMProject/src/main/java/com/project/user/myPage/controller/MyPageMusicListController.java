@@ -26,16 +26,21 @@ public class MyPageMusicListController {
 	}
 	@RequestMapping(value="lyrics.do",method=RequestMethod.GET)
 	public ModelAndView viewLyrics(String lyrics){
+		System.out.println("lyrics="+lyrics);
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("myPage/lyrics");
+		String[] lyric=lyrics.split(",");
 		mav.addObject("lyrics",lyrics);
+		mav.addObject("lyric",lyrics);
 		return mav;
 	}
 	
 	@RequestMapping(value="myMusic_list.do", method=RequestMethod.GET)
 	public ModelAndView myMusic_list(HttpServletRequest request){
-		try{MemberVO vo=(MemberVO)request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/mainPage");mav.addObject("result","noLogin");return mav;}
-		HttpSession session=request.getSession();
+		HttpSession session=null;
+		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		session=request.getSession();
 		MemberVO memberVo=(MemberVO)session.getAttribute("loginID");
 		String email=memberVo.getEmail().trim();
 		HashMap map = new HashMap();
@@ -58,8 +63,10 @@ public class MyPageMusicListController {
 	
 	@RequestMapping(value="addMusicList.do", method=RequestMethod.GET)
 	public ModelAndView addMusic(HttpServletRequest request,@RequestParam String m_num,@RequestParam String list_num){
-		try{MemberVO vo=(MemberVO)request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/mainPage");mav.addObject("result","noLogin");return mav;}
-		HttpSession session=request.getSession();
+		HttpSession session=null;
+		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		session=request.getSession();
 		MemberVO memberVo=(MemberVO)session.getAttribute("loginID");
 		String email=memberVo.getEmail().trim();
 		String[] str=email.split("@");

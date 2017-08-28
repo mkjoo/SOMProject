@@ -1,106 +1,52 @@
 @CHARSET "UTF-8";
 
-body {
-   font-family: Verdana, sans-serif;
-   margin: 0px;
-}
-
-.mySlides {
-   display: none;
-}
-
-/* Slideshow container */
-.slideshow-container {
-   max-width: max;
-   position: relative;
-   margin: 0 auto;
-}
-
-/* Caption text */
-.text {
-   color: #f2f2f2;
-   font-size: 15px;
-   padding: 8px 12px;
-   position: absolute;
-   bottom: 8px;
+.num {
    width: 100%;
-   text-align: center;
-}
 
-/* Number text (1/3 etc) */
-.numbertext {
-   color: #f2f2f2;
-   font-size: 12px;
-   padding: 8px 12px;
-   position: absolute;
-   top: 0;
 }
-
-/* The dots/bullets/indicators */
-.dot {
-   height: 13px;
-   width: 13px;
-   margin: 0 2px;
-   background-color: #bbb;
-   border-radius: 50%;
-   display: inline-block;
-   transition: background-color 0.6s ease;
+li{
+   font: 13px arial, sans-serif;
+}
+#not{
+   color: #ec0000;
+   font-weight: bold;
+}
+#writer, #date{
+   float: right;
+}
+#최신가요 {
    
-}
-.c{
-   padding-left: 25%;
-   padding-top: 5%;
-   padding-bottom:-25%;
-   margin-bottom: -10%;
-}
-.nm {
-   display: inline-block;
-   width: 300px;
+   list-style: none;
+   float: left;
+   background: #bfcde3;
+   width: 21%;
    height: 300px;
-   float: center;
-}
-.nm_album{
-   padding-left: 15px;
-}
-.img{
-   padding-left: 13%;
-}
-.active {
-   background-color: #717171;
+   padding: 2%;
 }
 
-/* Fading animation */
-.fade {
-   -webkit-animation-name: fade;
-   -webkit-animation-duration: 1.5s;
-   animation-name: fade;
-   animation-duration: 1.5s;
+#인기가요 {
+   list-style: none;
+   float: left;
+   background: #fae181;
+   width: 21%;
+   height: 300px;
+   padding: 2%;
 }
 
-@
--webkit-keyframes fade {
-   from {opacity: .4
+#버스킹 {
+   list-style: none;
+   float: left;
+   background: #edc5fc;
+   width: 21%;
+   height: 300px;
+   padding: 2%;
 }
 
-to {
-   opacity: 1
-}
-
-}
-@
-keyframes fade {
-   from {opacity: .4
-}
-
-to {
-   opacity: 1
-}
-
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-   .text {
-      font-size: 11px
-   }
+#게시판 {
+   list-style: none;
+   float: left;
+   background: #a3b6d7;
+   width: 21%;
+   height: 300px;
+   padding: 2%;
 }

@@ -40,17 +40,17 @@ public class AdminMember_MController {
 	public ModelAndView submitVideo(@RequestParam("image") MultipartFile multipartFile1,@RequestParam("mp3") MultipartFile multipartFile2,MusicVO musicVo) throws Exception{
 		String imageFileName=multipartFile1.getOriginalFilename();
 		// 아래의 path 는 정해지면 바꿔주자 
-		String path="C:/Users/welcometothehell/Desktop/8.22/0/SOMProject/src/main/webapp/WEB-INF/mp3";
-		File f=new File("C:/Users/welcometothehell/Desktop/8.22/0/SOMProject/src/main/webapp/WEB-INF/mp3/"+imageFileName);
+		String path="C:/Users/welcometothehell/git/SOMProject/SOMProject/src/main/webapp/";
+		File f=new File(path+"images/music/"+imageFileName);
 		multipartFile1.transferTo(f);
 		
 		String mp3FileName=multipartFile2.getOriginalFilename();
-		File f2=new File("C:/Users/welcometothehell/Desktop/8.22/0/SOMProject/src/main/webapp/WEB-INF/mp3/"+mp3FileName);
+		File f2=new File(path+"music/"+mp3FileName);
 		multipartFile2.transferTo(f2);
 		//////////////////////여까지가 파일업로드//////////////////////////////
 		
-		musicVo.setM_path(path);
-		musicVo.setSrc(path);
+		musicVo.setM_path("/som/music/"+mp3FileName);
+		musicVo.setSrc("/som/images/musicPlayer/"+imageFileName);
 		service.addMusic(musicVo);
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("uploadComplete");

@@ -1,5 +1,8 @@
 package com.project.user.myPage.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.user.member.model.MemberVO;
+import com.project.user.myPage.model.PaymentVO;
 import com.project.user.myPage.model.PointVO;
 import com.project.user.myPage.service.MyPagePointService;
 
@@ -44,8 +48,16 @@ public class MyPagePointController {
 		MemberVO MemberVo=(MemberVO)session.getAttribute("loginID");
 		String email=MemberVo.getEmail().trim();
 		if(service.getMoney(email)==null){
-			pointVo.setEmail(email);
+			pointVo.setEmail(email);			
 			service.chargeMoney(pointVo);
+			
+			HashMap map=new HashMap();
+			map.put("email",email);
+			map.put("usepoint", 0);
+			map.put("usecontent", "충전");
+			map.put("chargepoint",Integer.valueOf(pointVo.getM_point()));
+			service.insertMyPayment(map);
+						
 			int money=service.getMoney(email);
 			mav.addObject("money",money);	
 			mav.addObject("value","success");
@@ -56,6 +68,15 @@ public class MyPagePointController {
 			pointVo.setEmail(email);
 			pointVo.setStartMoney(service.getMoney(email));
 			service.updateMoney(pointVo);
+			
+			HashMap map=new HashMap();
+			map.put("email",email);
+			map.put("usepoint", 0);
+			map.put("usecontent", "충전");
+			map.put("chargepoint",Integer.valueOf(pointVo.getM_point()));
+			service.insertMyPayment(map);
+			
+			
 			int money=service.getMoney(email);
 			mav.addObject("money",money);	
 			mav.addObject("value","success");
@@ -74,11 +95,33 @@ public class MyPagePointController {
 		
 		pointVo.setEmail(email);
 		pointVo.setM_point(service.getMoney(email));
-		service.buyMusic(pointVo);		
+		service.buyMusic(pointVo);	
+		
+		HashMap map=new HashMap();
+		map.put("email",email);
+		map.put("usepoint","500");
+		map.put("usecontent","buymusic");
+		map.put("chargepoint",0);
+		service.insertMyPayment(map);
+		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("value","success");		
 		mav.setViewName("myPage/myPage_home");
 		return mav;
 	}
+	
+	@RequestMapping(value="paymentdetail.do", method=RequestMethod.GET)
+	public ModelAndView paymentdetail(HttpServletRequest request){
+		if(request.getSession()==null){return new ModelAndView("main/mainPage");}
+		HttpSession session=request.getSession();
+		MemberVO MemberVo=(MemberVO)session.getAttribute("loginID");
+		String email=MemberVo.getEmail().trim();
+		ModelAndView mav=new ModelAndView();
+		List<PaymentVO> list=service.getMyPayment(email);
+		mav.addObject("list",list);	
+		mav.setViewName("myPage/paymentdetail");
+		return mav;
+	}
+	
 	
 }

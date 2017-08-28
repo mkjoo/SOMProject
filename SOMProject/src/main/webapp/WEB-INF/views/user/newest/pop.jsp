@@ -7,6 +7,7 @@
 <style>
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
 function myFunction2() {
     document.getElementById("myDropdown2").classList.toggle("show");
@@ -120,10 +121,10 @@ function a(genre){
 						<th>담기</th>
 					</tr>
 		<form action="addAllPlay.do" method="get" name="my_form">
-		<c:forEach var="musicVo" items="${list}">
+		<c:forEach var="musicVo" items="${list}" varStatus="status">
 			<tr>
 						<td><input type="checkbox" name="chk" value="${musicVo.m_num}" title="전체선택" ></td>
-						<td><h4>${musicVo.m_num}</h4></td>
+						<td><h4>${status.count}</h4></td>
 						<td><img src="버튼/캡처.PNG" width="50" height="50"></td>
 						<td>${musicVo.m_name}</td>
 						<td>${musicVo.m_artist}</td>

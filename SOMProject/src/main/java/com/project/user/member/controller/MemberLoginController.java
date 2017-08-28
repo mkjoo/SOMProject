@@ -78,7 +78,7 @@ public class MemberLoginController {
 			return mav;
 		}
 
-		if (pass.equals(decodingPass)) {
+		if (pass.equals(vo.getPass())) {
 			if(memberLoginService.getMemberLogin(email).equals("1")){ModelAndView mav2=new ModelAndView("main/mainPage");mav2.addObject("result","alreadyLogin");return mav2;}
 			HttpSession session=request.getSession();
 			session.setAttribute("loginID",vo);

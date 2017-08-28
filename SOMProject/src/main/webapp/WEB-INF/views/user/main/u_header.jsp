@@ -5,6 +5,14 @@
 <html>
 
 <head>
+<script>
+function a(genre){
+	window.location=genre+'Newest.do?m_genre='+genre;
+}
+function b(genre){
+	window.location=genre+'Popular.do?m_genre='+genre;
+}
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
@@ -23,7 +31,7 @@
 					
 				
 					<div id="myDropdown" class="dropdown-content">
-						<a class="dropmenu" href="newest.do">최신가요</a> <a class="dropmenu" href="popular.do">인기가요</a>
+						<a class="dropmenu" onclick="a('k-pop');">최신가요</a> <a class="dropmenu" onclick="b('k-pop');">인기가요</a>
 						<a class="dropmenu" href="busking.do">버스킹</a> <a class="dropmenu" href="noticeList.do">게시판</a>
 					</div>
 				</div>

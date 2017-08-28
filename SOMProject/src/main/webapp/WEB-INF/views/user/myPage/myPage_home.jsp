@@ -82,7 +82,7 @@ window.onclick = function(event) {
 		<div id="box2">
 			<table id="myPlaylist" border="0" width="300" height="200">
 				<tr>
-					<td><a href="Playlist.do" id="playlist"><img
+					<td><a href="Playlist.do?list_num=1" id="playlist"><img
 							src="/som/images/myPage/myPlaylist.jpg">내 Playlist</a></td>
 				</tr>
 			</table>
@@ -110,6 +110,15 @@ window.onclick = function(event) {
 			</table>
 		</div>
 
+		<div id="box4">
+			<table id="myPoint" border="0" width="300" height="200">
+				<tr>
+					<td><a href="paymentdetail.do" id="point_pay"><img
+							src="/som/images/myPage/mypoint.jpg">결제내역</a></td>
+				</tr>
+			</table>
+		</div>
+		
 	</section>
 	
 	
