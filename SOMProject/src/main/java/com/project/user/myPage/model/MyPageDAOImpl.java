@@ -129,4 +129,10 @@ public class MyPageDAOImpl implements MyPageDAO{
 		List<PaymentVO> list=sqlSession.selectList(statement,str);
 		return list;
 	}
+
+	@Override
+	public void upCountPlay2(int a) {
+		String statement="com.project.user.myPage.upCountPlay";
+		sqlSession.update(statement,a);
+	}
 }

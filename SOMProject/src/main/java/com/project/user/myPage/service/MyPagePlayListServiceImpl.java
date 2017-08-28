@@ -58,6 +58,13 @@ public class MyPagePlayListServiceImpl implements MyPagePlayListService{
 		return list;
 	}
 
+	@Override
+	public void upCountPlay2(Integer a) {
+		dao.upCountPlay2(a);
+	}
+
+	
+
 
 
 }

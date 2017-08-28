@@ -166,6 +166,7 @@ public class MyPagePlaylistController {
 			map.put("tableName",tableName);
 			map.put("sequenceName",sequenceName);
 			map.put("m_num",m_num);
+			service.upCountPlay2(Integer.valueOf(m_num));
 			service.insertMyPlay(map);			
 			List<MusicVO> list=service.getMyPlay(map);
 			ModelAndView mav=new ModelAndView("musicPlayer/musicPlayer");

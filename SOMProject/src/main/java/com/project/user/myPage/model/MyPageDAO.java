@@ -18,6 +18,7 @@ public interface MyPageDAO {
 	public List<MusicVO> getMyMysic(Object obj);
 	public List<MusicVO> getMyPlay(Object obj);
 	public void upCountPlay(String musicName);
+	public void upCountPlay2(int a);
 	public List<PlayListVO> getMyPlayList(Object obj);
 	public void insertMyPlayList(Object obj);
 	public void insertMyMusicList(Object obj);
