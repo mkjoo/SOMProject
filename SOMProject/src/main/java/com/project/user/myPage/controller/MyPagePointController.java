@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.user.member.model.MemberVO;
@@ -35,8 +36,8 @@ public class MyPagePointController {
 		int money=0;
 		try{money=service.getMoney(email);}catch(Exception e){}
 		mav.addObject("money",money);	
-		mav.setViewName("myPage/myPoint");
-		return mav;
+		mav.setViewName("myPage/myPoint");	
+		return mav;	
 	}
 	
 
@@ -123,5 +124,14 @@ public class MyPagePointController {
 		return mav;
 	}
 	
-	
+	@RequestMapping(value="cardpayment.do", method=RequestMethod.GET)
+	public ModelAndView cardpayment(HttpServletRequest request,@RequestParam String point){
+		if(request.getSession()==null){return new ModelAndView("main/mainPage");}
+		HttpSession session=request.getSession();
+		MemberVO MemberVo=(MemberVO)session.getAttribute("loginID");
+		String email=MemberVo.getEmail().trim();
+		ModelAndView mav=new ModelAndView("myPage/cardpayment");
+		mav.addObject("point",point);
+		return mav;
+	}
 }

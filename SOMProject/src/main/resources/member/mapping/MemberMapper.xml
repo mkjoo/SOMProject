@@ -44,4 +44,14 @@
 	<delete id="" >	
 		 
 	</delete>
+	
+	<select id="search_Email" parameterType="java.util.Map" resultType="String">
+      select email from member where name=#{name} and phone=#{phone}
+   </select>
+   
+   <select id="search_Password" parameterType="java.util.Map" resultType="String">
+      select pass from member where name=#{name} and email=#{email}
+   </select>
+   
+   
 </mapper> 

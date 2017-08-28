@@ -30,7 +30,8 @@ public class FileDownloadController {
 		HttpSession session=request.getSession();
 		MemberVO MemberVo=(MemberVO)session.getAttribute("loginID");
 		String email=MemberVo.getEmail().trim();
-		int mymoney=service.getMoney(email);
+		int mymoney=0;
+		try{mymoney=service.getMoney(email);}catch(Exception e){ModelAndView mav=new ModelAndView();mav.addObject("value","success");mav.setViewName("fileDownload/confirm"); }
 		if(mymoney<500){
 			ModelAndView mav=new ModelAndView();
 			mav.addObject("path",path);

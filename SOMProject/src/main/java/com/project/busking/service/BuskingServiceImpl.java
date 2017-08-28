@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.project.busking.model.BuskingDAO;
 import com.project.busking.model.BuskingVO;
+import com.project.user.myPage.model.MusicVO;
 
 public class BuskingServiceImpl implements BuskingService{
 	private BuskingDAO dao;
@@ -27,6 +28,16 @@ public class BuskingServiceImpl implements BuskingService{
 	@Override
 	public List<BuskingVO> getMainBusking(Object obj) {
 		return dao.getMainBusking(obj);
+	}
+
+	@Override
+	public void addMusic(MusicVO vo) {
+		dao.addMusic(vo);
+	}
+
+	@Override
+	public void insertBusking(BuskingVO vo) {
+		dao.insertBusking(vo);
 	}
 	
 	

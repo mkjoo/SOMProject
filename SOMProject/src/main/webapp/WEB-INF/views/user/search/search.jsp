@@ -207,12 +207,7 @@ window.onload = loginResult("${result}");
 
 	</div>
 	<script type="text/javascript" src="/som/js/main/modal.js"></script>
-	<div class="header_search">
-		<form action="search.do" method="get">
-		<input id="seach" name="search_text" type="text" placeholder="Search Music"> 
-		<input type="submit" value="Search" > <br />
-		</form>
-	</div>
+
 
 
 

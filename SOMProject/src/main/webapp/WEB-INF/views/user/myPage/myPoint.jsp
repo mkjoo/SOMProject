@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <style>
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,6 +23,9 @@ function chkBoxCheck(intChkNumber) {
 function updateResult(value) {
 	if (value == "success") {
 		alert('충전성공');
+	}
+	if(value== "close"){
+		self.close();
 	}
 }
 
@@ -42,7 +46,17 @@ window.onclick = function(event) {
 	    }
 	  }
 	}
-	
+
+</script>
+<script>
+function bb(){
+	var obj=document.getElementsByName('m_point');
+	for(var i=0;i<obj.length;i++){
+	if(obj[i].checked){
+		window.open('cardpayment.do?point='+obj[i].value,'get','height=300px, width=500px');
+		}
+	}
+}	
 </script>
 <script type="text/javascript" src="/som/js/main/slider.js"></script>
 <script type="text/javascript" src="/som/js/main/login.js"></script>
@@ -127,10 +141,10 @@ window.onclick = function(event) {
 			</tr>
 			<tr>
 				<td colspan="4" align="center">
-					<a href=""><img src="../images/credit-card.jpg">신용카드</a>&nbsp;&nbsp;
-					<a href=""><img src="../images/bank-transfer.jpg">계좌이체</a>&nbsp;&nbsp;
-					<a href=""><img src="../images/mobile-pay.jpg">핸드폰</a>&nbsp;&nbsp;
-					<a href=""><img src="../images/depositless-pay.jpg">무통장 입금</a>
+					<input type="button" value="신용카드" onclick="bb();"/>
+					<a href="" onclick="javascript:window.open('accountPayment.do','get','height=300px, width=300px')"><img src="../images/bank-transfer.jpg">계좌이체</a>&nbsp;&nbsp;
+					<a href="" onclick="javascript:window.open('phonePayment.do','get','height=300px, width=300px')"><img src="../images/mobile-pay.jpg">핸드폰</a>&nbsp;&nbsp;
+					<a href="" onclick="javascript:window.open('atmPayment.do','get','height=300px, width=300px')"><img src="../images/depositless-pay.jpg">무통장 입금</a>
 					<input type="submit" value="충전" >
 				</td>
 		</table>

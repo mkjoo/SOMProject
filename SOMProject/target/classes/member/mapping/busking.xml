@@ -20,5 +20,7 @@
 		select * from busking order by b_num asc
 	</select>
 
-	
+	<insert id="insertBusking" parameterType="com.project.busking.model.BuskingVO">
+		insert into busking(b_num,b_name,b_artist,b_regdate,b_path,b_count_play,b_lyrics,b_img_path) values(busking_seq,#{b_name},#{b_artist},#{b_regdate},#{b_path},#{b_count},#{b_lyrics},#{b_img_path})
+	</insert>
 </mapper>

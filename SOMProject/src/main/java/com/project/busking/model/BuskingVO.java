@@ -1,5 +1,7 @@
 package com.project.busking.model;
 
+import java.util.Date;
+
 public class BuskingVO {
 	private int b_num;
 	private String b_name;
@@ -8,7 +10,7 @@ public class BuskingVO {
 	private int b_count_play;
 	private String b_path;
 	private String b_img_path;
-	private String b_regdate;
+	private Date b_regdate;
 	public int getB_num() {
 		return b_num;
 	}
@@ -51,12 +53,13 @@ public class BuskingVO {
 	public void setB_img_path(String b_img_path) {
 		this.b_img_path = b_img_path;
 	}
-	public String getB_regdate() {
+	public Date getB_regdate() {
 		return b_regdate;
 	}
-	public void setB_regdate(String b_regdate) {
+	public void setB_regdate(Date b_regdate) {
 		this.b_regdate = b_regdate;
 	}
+
 	
 	
 	

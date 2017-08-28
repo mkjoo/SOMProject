@@ -151,7 +151,7 @@ public class MemberLoginController {
 		memberLoginService.updateMemberLogin(map);
 		session.invalidate();
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("main/mainPage");
+		mav.setViewName("redirect:mainPage.do");
 		return mav;
 	}
 }

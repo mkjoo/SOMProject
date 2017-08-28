@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
+import com.project.user.myPage.model.MusicVO;
+
 public class BuskingDAOImpl implements BuskingDAO{
 	SqlSessionTemplate sqlSession;
 	
@@ -27,4 +29,16 @@ public class BuskingDAOImpl implements BuskingDAO{
 		String statement="com.project.user.mainList.getMainBusking";
 		return sqlSession.selectList(statement,obj);
 	}
+	
+	@Override
+	public void addMusic(MusicVO vo) {
+		String statement="com.project.admin.addMusic";
+		sqlSession.insert(statement,vo);
+	}
+	@Override
+	public void insertBusking(BuskingVO vo) {
+		String statement="com.project.busking.insertBusking";
+		sqlSession.insert(statement,vo);
+	}
+
 }

@@ -33,6 +33,7 @@ function b(genre){
 					<div id="myDropdown" class="dropdown-content">
 						<a class="dropmenu" onclick="a('k-pop');">최신가요</a> <a class="dropmenu" onclick="b('k-pop');">인기가요</a>
 						<a class="dropmenu" href="busking.do">버스킹</a> <a class="dropmenu" href="noticeList.do">게시판</a>
+						<a class="dropmenu" href="buskingUploadForm.do">버스킹업로드</a>
 					</div>
 				</div>
 			</li>

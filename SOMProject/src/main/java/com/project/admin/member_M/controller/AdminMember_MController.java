@@ -50,7 +50,7 @@ public class AdminMember_MController {
 		//////////////////////여까지가 파일업로드//////////////////////////////
 		
 		musicVo.setM_path("/som/music/"+mp3FileName);
-		musicVo.setSrc("/som/images/musicPlayer/"+imageFileName);
+		musicVo.setSrc("/som/images/music/"+imageFileName);
 		service.addMusic(musicVo);
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("uploadComplete");
