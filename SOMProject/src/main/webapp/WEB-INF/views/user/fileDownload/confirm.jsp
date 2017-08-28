@@ -16,7 +16,7 @@ window.onload = updateResult("${value}");
 <body>
 500point가 차감됩니다 구매하시겠습니까?<br>
 
-<input type="button" onclick="window.location='download.do?fileName=${fileName}&path=aa'" value="구매">
+<input type="button" onclick="window.location='download.do?fileName=${fileName}&path=aa&m_name=${m_name}'" value="구매">
 <input type="button" onclick="javascript:self.close();" value="취소">
 <br>
 ${fileName}<br>

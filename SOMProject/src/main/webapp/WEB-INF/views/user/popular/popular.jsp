@@ -131,14 +131,11 @@ function a(genre){
 						<td>${musicVo.m_album}</td>
 						<td><a href="#" onclick="javascript:window.open('getPopularMovie.do?m_musicvideo=${musicVo.m_musicvideo}','aa','height=500px, width=500px')"><img src="버튼/뮤비버튼.png"
 								width="25" height="25"></a></td>
-		
-					<td><input type="button" value="구매" onclick="window.open('buy.do?path=${musicVo.m_path}&fileName=${musicVo.m_name}','get','height=500px, width=500px')"></td>
-						<td><a href="#" onclick="javascript:window.open('addPlay.do?m_num=${musicVo.m_num}','aa','height=310px, width=500px')"><img src="버튼/듣기버튼.png"
-								width="25" height="25"></a></td>
-						<td><input type="button" value="가사" onclick="window.open('lyrics.do?lyrics=${musicVo.m_lyrics}','get','height=500px, width=500px')"></td>
-						<!-- <td><input type="button" value="담기" onclick="window.location='insertPlay.do?email=${email}&m_name=${musicVo.m_name}&m_artist=${musicVo.m_artist}&m_album=${musicVo.m_album}&m_genre=${musicVo.m_genre}&m_lyrics=${musicVo.m_lyrics}'"></td>-->
-						<td><input type="button" value="담기" onclick="window.open('selectPlayList.do?m_num=${musicVo.m_num}','get','height=400px, width=400px')"></td>
-					</tr>
+		<td><a href="#" onclick="javascript:window.open('getPopularMovie.do?m_musicvideo=${musicVo.m_musicvideo}','aa','height=500px, width=500px')"><img src="/som/images/myPage/뮤비버튼.png" width="25" height="25"></a></td>
+						<td><a href="#" onclick="javascript:window.open('buy.do?path=${musicVo.m_path}&fileName=${musicVo.m_name}','get','height=500px, width=500px')"><img src="/som/images/myPage/다운버튼.png" width="25" height="25"></a></td>
+						<td><a href="#" onclick="javascript:window.open('addPlay.do?m_num=${musicVo.m_num}','aa','height=310px, width=500px')"><img src="/som/images/myPage/듣기버튼.png" width="25" height="25"></a></td>
+						<td><a href="#" onclick="javascript:window.open('lyrics.do?lyrics=${musicVo.m_lyrics}','get','height=500px, width=500px')"><img src="/som/images/myPage/가사버튼.png" width="25" height="25"></a></td>	
+						<td><a href="#" onclick="window.open('selectPlayList.do?m_num=${musicVo.m_num}','get','height=400px, width=400px')"><img src="/som/images/myPage/담기버튼.png" width="25" height="25"></a></td></tr>
 			
 		</c:forEach>
 		<input type="submit" value="선택한곡듣기">

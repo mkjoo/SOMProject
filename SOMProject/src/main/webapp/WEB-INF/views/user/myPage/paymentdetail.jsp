@@ -9,17 +9,18 @@
 </head>
 <body>
 				<table border="1">
-				<c:forEach var="list" items="${list}">
-				<tr>
+								<tr>
 					<td>사용금액</td>
 					<td>용도</td>
 					<td>사용날짜</td>
 					<td>충전금액</td>
 				</tr>
+				<c:forEach var="list" items="${list}">
+
 				<tr>
 					<td>${list.usepoint}</td>
 					<td>${list.usecontent}</td>
-					<td>${list.usedate}</td>
+					<td>${list.formatdate}</td>
 					<td>${list.chargepoint}</td>
 				</tr>
 				</c:forEach>

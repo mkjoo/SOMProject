@@ -8,8 +8,15 @@ public class PaymentVO {
 	private String usecontent;
 	private Date usedate;
 	private int chargepoint;
+	private String formatdate;
 	
 	
+	public String getFormatdate() {
+		return formatdate;
+	}
+	public void setFormatdate(String formatdate) {
+		this.formatdate = formatdate;
+	}
 	public int getChargepoint() {
 		return chargepoint;
 	}

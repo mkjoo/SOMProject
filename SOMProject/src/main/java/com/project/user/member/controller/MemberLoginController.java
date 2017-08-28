@@ -60,7 +60,7 @@ public class MemberLoginController {
 		MemberVO vo = memberLoginService.getMemberPass(email);
 		BASE64Encoder encoding = new BASE64Encoder();
 		BASE64Decoder decoding = new BASE64Decoder();
-		String decodingPass = new String(decoding.decodeBuffer(vo.getPass()));
+		try{String decodingPass = new String(decoding.decodeBuffer(vo.getPass()));}catch(Exception e){}
 		HashMap map=new HashMap();
 		map.put("startRow",1);
 		map.put("endRow",5);
@@ -73,13 +73,13 @@ public class MemberLoginController {
 		
 
 		if (vo == null) {
-			mav.setViewName("main/mainPage");
+			mav.setViewName("redirect:mainPage.do");
 			mav.addObject("result", "resultNoId");
 			return mav;
 		}
 
 		if (pass.equals(vo.getPass())) {
-			if(memberLoginService.getMemberLogin(email).equals("1")){ModelAndView mav2=new ModelAndView("main/mainPage");mav2.addObject("result","alreadyLogin");return mav2;}
+			if(memberLoginService.getMemberLogin(email).equals("1")){ModelAndView mav2=new ModelAndView("redirect:mainPage.do");mav2.addObject("result","alreadyLogin");return mav2;}
 			HttpSession session=request.getSession();
 			session.setAttribute("loginID",vo);
 			if(vo.getCode().equals("0")){
@@ -110,7 +110,7 @@ public class MemberLoginController {
 			}
 		} else {
 			System.out.println("3");
-			mav.setViewName("main/mainPage");
+			mav.setViewName("redirect:mainPage.do");
 			mav.addObject("result", "resultNoPass");
 			return mav;
 		}

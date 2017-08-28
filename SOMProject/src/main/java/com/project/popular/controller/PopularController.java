@@ -229,6 +229,7 @@ public class PopularController {
 		ModelAndView mav=new ModelAndView("fileDownload/confirm");
 		mav.addObject("path",path);
 		mav.addObject("fileName",fileName);
+		mav.addObject("m_name",fileName);
 		return mav;
 	}
 }

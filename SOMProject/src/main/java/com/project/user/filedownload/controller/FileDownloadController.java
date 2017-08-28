@@ -50,7 +50,7 @@ public class FileDownloadController {
 		HashMap map=new HashMap();
 		map.put("email",email);
 		map.put("usepoint","500");
-		map.put("usecontent","buymusic");
+		map.put("usecontent",fileName+" 노래 구매");
 		map.put("chargepoint",0);
 		service.insertMyPayment(map);
 		
