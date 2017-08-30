@@ -66,7 +66,8 @@ div#divide {
 	</header>
 	
 	<form action="buskingUploadProc.do" method="post" enctype="multipart/form-data">
-	<div id="setTable">
+	<input type="hidden" name="m_genre" value="busking">
+	<div id="setTable"> 
 		<table border="1" width="394">
 			<tr bgcolor="black" align="center">
 				<td colspan="3" rowspan="1" height="30">
@@ -112,27 +113,7 @@ div#divide {
 					<textarea id="content" name="m_lyrics" cols="35" rows="10"></textarea>
 				</td>
 			</tr>
-			<tr>
-				<th scope="row"><font size="1" color="#F29661">장르</font></th>
-				<td><font size="2"> <input id="pop" type="checkbox"
-						name="m_genre" value="pop" onclick="genreCheckBoxValidation(0)" /><label
-						for="pop">pop</label> <input id="dance" type="checkbox"
-						name="m_genre" value="ccm" onclick="genreCheckBoxValidation(1)" /><label
-						for="dance">ccm</label> <input id="hiphop" type="checkbox"
-						name="m_genre" value="classic" onclick="genreCheckBoxValidation(2)" /><label
-						for="hiphop">classic</label> <input id="balad" type="checkbox"
-						name="m_genre" value="jazz" onclick="genreCheckBoxValidation(3)" /><label
-						for="balad">jazz</label><br /> <input id="trot" type="checkbox"
-						name="m_genre" value="j-pop" onclick="genreCheckBoxValidation(4)" /><label
-						for="trot">j-pop</label> <input id="ost" type="checkbox"
-						name="m_genre" value="ost" onclick="genreCheckBoxValidation(5)" /><label
-						for="ost">OST</label> <input id="jpop" type="checkbox"
-						name="m_genre" value="edm" onclick="genreCheckBoxValidation(6)" /><label
-						for="jpop">edm</label> <input id="ccm" type="checkbox"
-						name="m_genre" value="k-pop" onclick="genreCheckBoxValidation(7)" /><label
-						for="ccm">k-pop</label>
-				</font></td>
-			</tr>
+			
 			<tr>
 				<th scope="row"><font size="1" color="#F29661"><label
 						for="uploadfilecount">mp3파일:</label></font></th>

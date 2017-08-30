@@ -48,9 +48,9 @@
 		]]>
 	</select>
 	
-	<select id="getMainBusking" parameterType="java.util.Map" resultMap="BuskingResult">
+	<select id="getMainBusking" parameterType="java.util.Map" resultMap="PopularResult">
 		<![CDATA[
-		select * from (select rownum rnum,b_num,b_name,b_artist,b_regdate,b_path,b_lyrics,b_img_path  from(select * from busking order by b_regdate desc)) where rnum>=#{startRow} and rnum <= #{endRow}
+		select * from (select rownum rnum,m_num,m_name,m_artist,m_create_date,m_path,m_lyrics,src from (select * from music where m_genre='busking' order by m_create_date desc)) where rnum>=#{startRow} and rnum <= #{endRow}
 		]]>
 	</select>
 	

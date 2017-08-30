@@ -1,5 +1,6 @@
 package com.project.user.board.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.user.board.model.NoticeVO;
 import com.project.user.board.model.Paging;
 import com.project.user.board.model.QnaVO;
 import com.project.user.board.service.QnaListService;
@@ -46,6 +48,10 @@ public class QnaListController {
 		map.put("endRow",boardPaging.getWriting_End());
 		List<QnaVO> boardList = this.boardListService.getBoardList(map);
 		Map<String,Object> model = new HashMap<String,Object>();
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		for(QnaVO vo:boardList){
+			vo.setFormatdate(simpledateformat.format(vo.getRegdate()));
+		}
 		model.put("boardList",boardList);
 		model.put("count",count);
 		model.put("number",number);

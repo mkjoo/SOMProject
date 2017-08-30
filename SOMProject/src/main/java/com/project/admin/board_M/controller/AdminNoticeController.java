@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.admin.board_M.model.FreeBoardVO;
 import com.project.admin.board_M.service.AdminNoticeService;
 import com.project.user.board.model.NoticeVO;
 import com.project.user.board.model.Paging;
@@ -46,6 +47,11 @@ public class AdminNoticeController {
 		map.put("endRow",boardPaging.getWriting_End());
 		List<NoticeVO> boardList = service.getList(map);
 		Map<String,Object> model = new HashMap<String,Object>();
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		for(NoticeVO vo:boardList){
+			vo.setFormatdate(simpledateformat.format(vo.getRegdate()));
+		}
+		
 		model.put("boardList",boardList);
 		model.put("count",count);
 		model.put("number",number);

@@ -1,0 +1,35 @@
+/* 
+	각 곡, 앨범들 페이지 관련 스타일 설정 
+*/
+
+div#song1 {
+	margin : 24px 40px 0 50px;
+	font-size : small;
+	border-style : solid 1px;
+}
+div#movie_link, div#album_intro {
+	margin : 24px 40px 0 60px;
+	font-size : small;
+	border-style : solid 1px;
+}
+div#lyrics, div#tracklist_bottom, div#tracklist {
+	margin : 25px 40px 15px 50px;
+}
+div#lyrics_main {
+	padding : 0 0 0 18px;
+}
+div#tracklist_head, div#bottom_btn {
+	padding : 10px 0px 10px 10px;
+}
+table#list {
+	font-size : small;
+}
+nav#album_info, nav#movie, nav#introduce {
+	margin : 24px 40px 0 50px;
+}
+#info1, #info2 {
+	float : left;
+}
+#info1 {
+	margin : 0 30px 0 0;
+}

@@ -11,7 +11,14 @@ public class NoticeVO {
 	private String content;
 	private int readcount;
 	private String pass;
+	private String formatdate;
 	
+	public String getFormatdate() {
+		return formatdate;
+	}
+	public void setFormatdate(String formatdate) {
+		this.formatdate = formatdate;
+	}
 	public String getPass() {
 		return pass;
 	}

@@ -1,40 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script>
-function hide(){
-	var x = document.getElementById('dropbutton');
-	x.style.display='none';
+<style>
+div#comment {
+	display: block;
+	width: 100%;
+	height: 30px;
 }
-function writeCheck(){
-	document.writeForm.submit();
-}
-function myFunction2() {
-    document.getElementById("myDropdown2").classList.toggle("show");
-}
-window.onclick = function(event) {
-	  if (!event.target.matches('.dropbtn2')) {
 
-	    var dropdowns = document.getElementsByClassName("dropdown2-content2");
-	    var i;
-	    for (i = 0; i < dropdowns.length; i++) {
-	      var openDropdown = dropdowns[i];
-	      if (openDropdown.classList.contains('show')) {
-	        openDropdown.classList.remove('show');
-	      }
-	    }
-	  }
+div.commentField {
+	border: solid 2px #ddd;
+	float: right;
+	width: 80%;
+	margin: 5% 0 5% 0;
+	padding: 10px 0 10px 0;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>자유게시판</title>
+<script>
+	function hide() {
+		var x = document.getElementById('dropbutton');
+		x.style.display = 'none';
+	}
+	function writeCheck() {
+		document.writeForm.submit();
+	}
+	function myFunction2() {
+		document.getElementById("myDropdown2").classList.toggle("show");
+	}
+	window.onclick = function(event) {
+		if (!event.target.matches('.dropbtn2')) {
+
+			var dropdowns = document
+					.getElementsByClassName("dropdown2-content2");
+			var i;
+			for (i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if (openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+		}
 	}
 </script>
 <script type="text/javascript" src="/som/js/main/slider.js"></script>
 <script type="text/javascript" src="/som/js/main/login.js"></script>
 <script type="text/javascript" src="/som/js/main/menu.js"></script>
 <script type="text/javascript" src="/som/js/main/signUp.js"></script>
-
 
 <link href="/som/css/main/modal.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/login.css" rel="stylesheet" type="text/css">
@@ -43,8 +59,8 @@ window.onclick = function(event) {
 <link href="/som/css/main/footer.css" rel="stylesheet" tyep="text/css">
 <link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/mp_header.css" rel="stylesheet" type="text/css">
-<link type="text/css" rel="stylesheet" href="/som/css/myPage/myPage_style.css">
-<link href="/som/css/board/board.css" rel="stylesheet" type="text/css">
+<link href="/som/css/myPage/myPage_style.css" rel="stylesheet" type="text/css">
+<link href="/som/css/board/board_style.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -52,7 +68,7 @@ window.onclick = function(event) {
 	<!-- header -->
 	<header>
 	<div class="header_menu">
-		<jsp:include page="../main/u_header.jsp" flush="false"/>
+		<jsp:include page="../main/u_header.jsp" flush="false" />
 	</div>
 	</header>
 
@@ -65,7 +81,7 @@ window.onclick = function(event) {
 				<button type="button" class="close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				
+
 				<h4 class="modal-title" id="myModalLabel">Login Page</h4>
 			</div>
 
@@ -104,21 +120,17 @@ window.onclick = function(event) {
 									value="Login">
 							</div>
 						</form>
-							<div class="loginbox-forgot">
-								<a href="">ID/Password 찾기</a>
-							</div>
+						<div class="loginbox-forgot">
+							<a href="">ID/Password 찾기</a>
+						</div>
 
 
 						<div class="loginbox-signup">
-								<button onclick="openSignUp()">회원가입</button>
-							</div>
+							<button onclick="openSignUp()">회원가입</button>
+						</div>
 					</div>
 					<div class="logobox"></div>
 				</div>
-
-
-
-
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -133,55 +145,72 @@ window.onclick = function(event) {
 
 	<!-- navigation -->
 	<nav>
-	<nav>
-		<h2>게시판 목록</h2>
+	<h2>게시판 목록</h2>
 	</nav>
-	
+
 	<hr style="width: 90%; margin-left: 40px" />
 	<div id="board_content">
-		<div class="tab">
-			<button class="tablinks" onclick="window.location='noticeList.do'">공지사항</button>				
-			<button class="tablinks" onclick="window.location='qnaList.do'">QNA</button>
-			<button class="active" onclick="window.location='freeboardList.do'">자유게시판</button>
+		<div class="board_tab">
+			<table width="120" height="80">
+				<tr>
+					<td><a onclick="window.location='noticeList.do'">공지사항</a></td>
+				</tr>
+				<tr>
+					<td><a onclick="window.location='qnaList.do'">Q&A</a></td>
+				</tr>
+				<tr>
+					<td><a onclick="window.location='freeboardList.do'">자유게시판</a></td>
+				</tr>
+			</table>
 		</div>
+
+		<div id="free_board" class="tabcontent">
+			<form method="post" name="writeForm" action="freeBoardUpdateProc.do">
+				<input type="hidden" name="num" value="${vo.num}" /> 
+				<input type="hidden" name="writer" value="${vo.writer}" />
+				<input type="hidden" name="readcount" value="${vo.readcount}" />
+				<table width="100%" border="1" cellspacing="2">
+					<tr>
+						<td align="center" width="100">번호</td>
+						<td align="center" width="200">${vo.num}</td>
+						<td align="center" width="100">작성일</td>
+						<td align="center" width="200">${vo.regdate}</td>
+					</tr>
+					<tr>
+						<td align="center">작성자</td>
+						<td align="center">${vo.writer}</td>
+						<td align="center">조회수</td>
+						<td align="center">${vo.readcount}</td>
+					</tr>
+					<tr>
+						<td align="center">제목</td>
+						<td align="center"><input type="text" name="subject" value="${vo.subject}"></td>
+					</tr>
+					<tr>
+						<td align="center">내용</td>
+						<td colspan="7" height="300">
+						<textarea name="content" cols="70" rows="20%">${vo.content}</textarea></td>
+					</tr>
+				</table>
 				
-		<div id="notice_board" class="tabcontent">
-			
-	<form method="post" name="writeForm" action="freeBoardUpdateProc.do">
-<input type="hidden" name="num" value="${vo.num}" />
-<input type="hidden" name="writer" value="${vo.writer}" />
-<input type="hidden" name="readcount" value="${vo.readcount}" />
-<table width="600" border="1">
-<tr>
-	<td align="center" width="100">번호</td>
-	<td align="center" width="200">${vo.num}</td>
-	<td align="center" width="100">작성일</td>
-	<td align="center" width="200">${vo.regdate}</td>
-</tr>
-<tr>
-	<td align="center">작성자</td>
-	<td align="center">${vo.writer}</td>
-	<td align="center">조회수</td>
-	<td align="center">${vo.readcount}</td>
-</tr>
-<tr>
-	<td align="center">제목</td>
-	<td align="center"><input type="text" name="subject" value="${vo.subject}"></td>
-</tr>
-<tr>
-	<td align="center">내용</td>
-	<td colspan="7" height="100"><input type="text" name="content" value="${vo.content}"></td>
-</tr>
-</table>
-
-<!-- 수정삭제 바꺼라.. -->
-<input type="submit" value="글수정" />
-<input type="button" value="목록보기" onclick="window.location='freeboardList.do'" />
-</form>
-    
-
-</div>
-
+				<table width="180" id="write_btn" style="float:right; margin-top:5px; padding:0">
+					<colgroup>
+						<col width="75"></col>
+						<col width="85"></col>
+					</colgroup>
+					<tr align="center">
+						<td>
+							<input type="submit" value="글수정" /> 
+						</td>
+						<td>
+							<input type="button" value="목록보기" onclick="window.location='freeboardList.do'" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+		
 	<!-- footer -->
 	<footer>
 	<hr>
@@ -204,6 +233,6 @@ window.onclick = function(event) {
 	</p>
 	</footer>
 
-	<script src="/som/js/main/slider.js" type="text/javascript"></script>
+		<script src="/som/js/main/slider.js" type="text/javascript"></script>
 </body>
 </html>

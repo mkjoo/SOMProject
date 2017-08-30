@@ -12,8 +12,14 @@ public class FreeBoardVO {
 	private int readcount;
 	private String pass;
 	private int commentcount;
+	private String formatdate;
 	
-	
+	public String getFormatdate() {
+		return formatdate;
+	}
+	public void setFormatdate(String formatdate) {
+		this.formatdate = formatdate;
+	}
 	public int getCommentcount() {
 		return commentcount;
 	}

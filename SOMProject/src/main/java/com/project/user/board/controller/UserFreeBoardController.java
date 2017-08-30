@@ -48,9 +48,11 @@ public class UserFreeBoardController {
 		map.put("startRow",boardPaging.getWriting_Start());
 		map.put("endRow",boardPaging.getWriting_End());
 		List<FreeBoardVO> boardList = service.getList(map);
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
 		for(FreeBoardVO vo:boardList){
 			int commentcount=service.getCommentCount(vo.getNum());
 			vo.setCommentcount(commentcount);
+			vo.setFormatdate(simpledateformat.format(vo.getRegdate()));
 		}
 		
 		Map<String,Object> model = new HashMap<String,Object>();

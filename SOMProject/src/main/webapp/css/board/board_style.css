@@ -1,0 +1,114 @@
+nav {
+	margin : 3% 0 1% 5%;
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: "Lato", sans-serif;
+}
+
+/*
+	유저용 게시판 및 탭의 스타일에 대한 설정
+*/
+div#board_content {
+	margin : 5% 5% 5% 5%;
+	width : 90%;
+	height : 100%;
+	overflow : auto;
+}
+div.board_tab {
+	float : left;
+	overflow : hidden;
+	background-color : white;
+	border-right : 2px solid teal;
+	cursor : pointer;
+	width : 16%;
+	height : 20%;
+}
+div.board_tab a {
+	display : block;
+	color : black;
+	text-align : right;
+	text-decoration : none;
+}
+div.board_tab a:hover {
+	background-color : gray;
+	color : white;
+}
+div.tabcontent {
+	float : right;
+}
+
+
+
+/*
+	탭내 내용의 관리자 모드 스타일
+*/
+div#board_divide {
+	margin : 8% 6% 5% 6%;
+	/*
+	padding : 3% 3% 5% 5%;
+	border : 2px solid #ddd;
+	*/
+	width : 88%;
+	height : 100%;
+	overflow : auto;
+}
+.admin_tabcontent {
+	float: right;
+}
+.admin_board_tab {
+	float : left;
+	overflow : hidden;
+	background-color : white;
+	border-right : 2px solid red;
+	width : 150px;
+	height : 200px;
+}
+.admin_board_tab a {
+	display : block;
+	color : black;
+	text-align : left;
+	text-decoration : none;
+}
+.admin_board_tab a:hover {
+	background-color : gray;
+	color : white;
+}
+.admin_board_tab .icon {
+	display : none;
+}
+table#write_btn {
+	border : none;
+	padding : 0 2%;
+}
+table#write_btn tr td button {
+	padding : 5px 8px;
+}
+table#write_btn tr td input {
+	padding : 5px 8px;
+}
+tr#tr_head {
+	font-weight: bolder;
+	font-style : inherit;
+}
+
+
+/*
+	페이징 처리의 스타일 설정
+*/
+.pagination {
+	float : left;
+	margin : 2% 0 0 45%;
+}
+.pagination a {
+	float : left;
+	padding : 7px 8px;
+	transition : background-color .3s;
+}
+.pagination a.active {
+	background-color : #4CAF50;
+	color : white;
+}
+.pagination a:hover:not(.active) {background-color : #ddd;}

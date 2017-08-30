@@ -167,13 +167,15 @@ public class MyPagePlaylistController {
 			map.put("sequenceName",sequenceName);
 			map.put("m_num",m_num);
 			service.upCountPlay2(Integer.valueOf(m_num));
-			service.insertMyPlay(map);			
+			service.insertMyPlay(map);
+			
 			List<MusicVO> list=service.getMyPlay(map);
 			ModelAndView mav=new ModelAndView("musicPlayer/musicPlayer");
 			mav.addObject("songcount",list.size());
 			mav.addObject("list",list);
 			return mav; 
 		}
+		
 		@RequestMapping(value="addAllPlay.do", method=RequestMethod.GET)
 		public ModelAndView addPlay2(HttpServletRequest request){
 			HttpSession session=null;
@@ -195,7 +197,9 @@ public class MyPagePlaylistController {
 				map.put("m_num", musicNumbers[i]);
 				service.insertMyPlay(map);
 			}
-			List<MusicVO> list=service.getMyPlay(map);		
+			
+			List<MusicVO> list=service.getMyPlay(map);
+			
 			ModelAndView mav=new ModelAndView("myPage/myPage_home");
 			mav.addObject("list",list);
 			return mav; 

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.admin.board_M.service.AdminQnaService;
+import com.project.user.board.model.NoticeVO;
 import com.project.user.board.model.Paging;
 import com.project.user.board.model.QnaVO;
 import com.project.user.board.model.QnaVO2;
@@ -50,6 +51,11 @@ public class AdminQnaController {
 		map.put("endRow",boardPaging.getWriting_End());
 		List<QnaVO> boardList = this.service.getList(map);
 		Map<String,Object> model = new HashMap<String,Object>();
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		for(QnaVO vo:boardList){
+			vo.setFormatdate(simpledateformat.format(vo.getRegdate()));
+		}
+		
 		model.put("qnaList",boardList);
 		model.put("qnaCount",count);
 		model.put("qnaNumber",number);

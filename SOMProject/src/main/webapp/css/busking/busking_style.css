@@ -1,0 +1,27 @@
+/*
+	버스킹 관련 페이지 스타일 설정
+*/
+div#left_sec {
+	float : left;
+	width : 450px;
+}
+div#right_sec {
+	float : left;
+	width : 450px;
+}
+nav#title1 {
+	margin : 5px 0 30px 20px;
+	width : 80%;
+}
+nav#title2 {
+	margin : 30px 20px 30px 20px;
+	width : 80%;
+}
+table#chart1 {
+	margin : 0 0 50px 40px;
+	font-size : smaller;
+}
+table#chart2 {
+	margin : 0 0 50px 40px;
+	font-size : smaller;
+}

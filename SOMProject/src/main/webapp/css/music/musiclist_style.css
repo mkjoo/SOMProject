@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/*
+	뮤직리스트 스타일
+*/
+div#content {
+	width: 660px;
+	margin: 0px auto 30px auto;
+	font-family: Arial, Helvetica;
+	font-size: small;
+	background: #FDF5E6;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+}
+
+p#about {
+	text-align: center;
+	padding: 0 0 50px 0;
+}
+
+ul#tabs {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	border-bottom: none;
+	margin: 40px 50px 0 161px;
+	width: 422px;
+	background-color: #f1f1f1;
+}
+
+ul#tabs button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+ul#tabs button:hover {
+	background-color: #ddd;
+}
+
+ul#tabs button.active {
+	background-color: #ccc;
+}

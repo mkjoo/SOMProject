@@ -44,13 +44,14 @@ public class MainController {
 		map.put("endRow",5);
 		List<PopularVO> list1=popularService.getMainNewest(map);
 		List<PopularVO> list2=popularService.getMainPopular(map);
-		List<BuskingVO> list3=buskingService.getMainBusking(map);
+		List<PopularVO> list3=buskingService.getMainBusking(map);
 		List<NoticeVO> list4=noticeListService.getBoardList(map);
 		ModelAndView mav=new ModelAndView("main/mainPage");
 		mav.addObject("newestList",list1);
 		mav.addObject("popularList",list2);
 		mav.addObject("buskingList",list3);
 		mav.addObject("noticeList",list4);
+		
 		return mav;
 	}
 	

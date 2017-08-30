@@ -5,7 +5,43 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script>
+<script language="javascript">
+// Logout Timer 객체 정의
+var LogOutTimer = function() {
+  var S = {
+            timer : null,
+            limit : 1000 * 60 * 5,
+            fnc   : function() {},
+            start : function() {
+                      S.timer = window.setTimeout(S.fnc, S.limit);
+                    },
+            reset : function() {
+                      window.clearTimeout(S.timer);
+                      S.start();
+                    }
+          };
+  
+document.onmousemove = function() { S.reset(); };
+  
+  return S;
+}();
+
+// 로그아웃 체크시간 설정
+LogOutTimer.limit = 1000 * 60 * 0.1;
+
+// 로그아웃 함수 설정
+LogOutTimer.fnc = function() {
+	window.location='logout.do';
+  alert("LogOut");
+  
+}
+
+// 로그아웃 타이머 실행
+LogOutTimer.start();
+
+
+
+
 function loginResult(result) {
 	if (result == "resultNoId") {
 		alert('아디가 틀려요');
@@ -209,7 +245,6 @@ window.onclick = function(event) {
 				height="35">&nbsp;&nbsp;${newestList.m_name}</li>
 			</c:forEach>
 
-
 		</div>
 		<div class="slide_num" id="인기가요">
 			<h2>인기가요</h2>
@@ -224,10 +259,9 @@ window.onclick = function(event) {
 			<h2>버스킹</h2>
 						<c:forEach var="buskingList" items="${buskingList}">
 			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
-				height="35">&nbsp;&nbsp;${buskingList.b_name}</li>
+				height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
 			</c:forEach>
-			
-
+		
 		</div>
 		<div class="slide_num" id="게시판">
 			<li><h2>공지</h2></li>

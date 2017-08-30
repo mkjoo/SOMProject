@@ -5,6 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script>
+
+
+
+</script>
 </head>
 <body>
 			<ul class="header_menu_ul" style="color: white">

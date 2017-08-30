@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.project.busking.model.BuskingDAO;
 import com.project.busking.model.BuskingVO;
+import com.project.popular.model.PopularVO;
 import com.project.user.myPage.model.MusicVO;
 
 public class BuskingServiceImpl implements BuskingService{
@@ -14,8 +15,8 @@ public class BuskingServiceImpl implements BuskingService{
 	}
 
 	@Override
-	public List<BuskingVO> getNewestBusking(BuskingVO vo) {
-		List<BuskingVO> list=dao.getNewestBusking(vo);
+	public List<PopularVO> getNewestBusking(BuskingVO vo) {
+		List<PopularVO> list=dao.getNewestBusking(vo);
 		return list;
 	}
 
@@ -26,7 +27,7 @@ public class BuskingServiceImpl implements BuskingService{
 	}
 
 	@Override
-	public List<BuskingVO> getMainBusking(Object obj) {
+	public List<PopularVO> getMainBusking(Object obj) {
 		return dao.getMainBusking(obj);
 	}
 

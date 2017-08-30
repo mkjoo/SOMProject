@@ -8,9 +8,16 @@ public class QnaVO {
 	private String email; private String subject;
 	private String pass;
 	private Date regdate; private String content;
-	int ref;
+	int ref;private String formatdate;
 	int step;
 	int depth;
+	
+	public String getFormatdate() {
+		return formatdate;
+	}
+	public void setFormatdate(String formatdate) {
+		this.formatdate = formatdate;
+	}
 	public int getRef() {
 		return ref;
 	}

@@ -66,7 +66,7 @@ public class MemberLoginController {
 		map.put("endRow",5);
 		List<PopularVO> list1=popularService.getMainNewest(map);
 		List<PopularVO> list2=popularService.getMainPopular(map);
-		List<BuskingVO> list3=buskingService.getMainBusking(map);
+		List<PopularVO> list3=buskingService.getMainBusking(map);
 		List<NoticeVO> list4=noticeListService.getBoardList(map);
 				
 		ModelAndView mav = new ModelAndView();
@@ -123,7 +123,7 @@ public class MemberLoginController {
 		map.put("endRow",5);
 		List<PopularVO> list1=popularService.getMainNewest(map);
 		List<PopularVO> list2=popularService.getMainPopular(map);
-		List<BuskingVO> list3=buskingService.getMainBusking(map);
+		List<PopularVO> list3=buskingService.getMainBusking(map);
 		List<NoticeVO> list4=noticeListService.getBoardList(map);
 		
 		ModelAndView mav = new ModelAndView();

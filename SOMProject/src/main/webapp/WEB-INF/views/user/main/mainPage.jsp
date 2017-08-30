@@ -153,6 +153,7 @@
             <div class="slide_num" >
                <h2>인기가요</h2>
                </br> </br>
+              
                <c:forEach var="popularList" items="${popularList}">
                   <li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
                      height="35">&nbsp;&nbsp;${popularList.m_name}</li>
@@ -168,10 +169,12 @@
             <div class="slide_num" >
                <h2>버스킹</h2>
                </br> </br>
+                  <!-- 
                <c:forEach var="buskingList" items="${buskingList}">
                   <li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
-                     height="35">&nbsp;&nbsp;${buskingList.b_name}</li>
+                     height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
                </c:forEach>
+               -->
             </div>
          </div>
          <div class="text">music 3</div>
@@ -213,10 +216,11 @@
       <div class="slide_num" id="버스킹">
          <h2>버스킹</h2>
          </br> </br>
+         
          <c:forEach var="buskingList" items="${buskingList}">
             <li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
-               height="35">&nbsp;&nbsp;${buskingList.b_name}</li>
-         </c:forEach>
+               height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
+         </c:forEach>  
 
 
       </div>

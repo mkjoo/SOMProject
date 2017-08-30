@@ -1,0 +1,38 @@
+/*
+	앨범 및 미디어 업로드 관련 스타일
+*/
+div#divide {
+	margin : 8% 6% 5% 6%;
+	/*
+	padding : 3% 3% 5% 5%;
+	border : 2px solid #ddd;
+	*/
+	width : 88%;
+	height : 100%;
+	overflow : auto;
+}
+#setTable {
+	float : right;
+}
+
+.admin_tab {
+	float : left;
+	overflow : hidden;
+	background-color : white;
+	border-right : 2px solid red;
+	width : 18%;
+	height : 12%;
+}
+.admin_tab a {
+	display : block;
+	color : black;
+	text-align : left;
+	text-decoration : none;
+}
+.admin_tab a:hover {
+	background-color : gray;
+	color : white;
+}
+.admin_tab .icon {
+	display : none;
+}

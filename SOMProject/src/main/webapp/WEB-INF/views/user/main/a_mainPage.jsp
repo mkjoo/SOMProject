@@ -210,7 +210,7 @@ function myFunction2(){
 			<h2>버스킹</h2>
 						<c:forEach var="buskingList" items="${buskingList}">
 			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
-				height="35">&nbsp;&nbsp;${buskingList.b_name}</li>
+				height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
 			</c:forEach>
 			
 

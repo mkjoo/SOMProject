@@ -20,6 +20,7 @@ import com.project.admin.board_M.service.AdminFreeBoardService;
 import com.project.user.board.model.NoticeVO;
 import com.project.user.board.model.Paging;
 import com.project.user.member.model.MemberVO;
+import com.project.user.myPage.model.PaymentVO;
 
 @Controller
 public class AdminFreeBoardController {
@@ -50,8 +51,10 @@ public class AdminFreeBoardController {
 		map.put("startRow",boardPaging.getWriting_Start());
 		map.put("endRow",boardPaging.getWriting_End());
 		List<FreeBoardVO> boardList = service.getList(map);
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
 		for(FreeBoardVO vo:boardList){
 			int commentcount=service.getCommentCount(vo.getNum());
+			vo.setFormatdate(simpledateformat.format(vo.getRegdate()));
 			vo.setCommentcount(commentcount);
 		}
 		

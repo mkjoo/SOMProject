@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
+import com.project.popular.model.PopularVO;
 import com.project.user.myPage.model.MusicVO;
 
 public class BuskingDAOImpl implements BuskingDAO{
@@ -13,9 +14,9 @@ public class BuskingDAOImpl implements BuskingDAO{
 		this.sqlSession = sqlSession;
 	}
 	@Override
-	public List<BuskingVO> getNewestBusking(BuskingVO vo){
+	public List<PopularVO> getNewestBusking(BuskingVO vo){
 		String statement="com.project.busking.getNewestBusking";
-		List<BuskingVO> list=sqlSession.selectList(statement, vo);
+		List<PopularVO> list=sqlSession.selectList(statement);
 		return list;
 	}
 	@Override
@@ -25,7 +26,7 @@ public class BuskingDAOImpl implements BuskingDAO{
 		return list;
 	}
 	@Override
-	public List<BuskingVO> getMainBusking(Object obj) {
+	public List<PopularVO> getMainBusking(Object obj) {
 		String statement="com.project.user.mainList.getMainBusking";
 		return sqlSession.selectList(statement,obj);
 	}

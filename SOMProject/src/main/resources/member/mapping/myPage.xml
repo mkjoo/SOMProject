@@ -99,7 +99,7 @@
 	</insert>
 	
 	<select id="getMyPlay" resultMap="MyMusicResult" parameterType="java.util.Map">
-		select * from ${tableName} join music using(m_num)
+		select * from ${tableName} join music using(m_num) order by turn asc
 	</select>
 	
 	<insert id="insertMyPayment" parameterType="java.util.Map">

@@ -8,7 +8,14 @@ public class CommentVO {
 	private String name;
 	private String content;
 	private Date regdate;
-			
+	private String formatdate;
+	
+	public String getFormatdate() {
+		return formatdate;
+	}
+	public void setFormatdate(String formatdate) {
+		this.formatdate = formatdate;
+	}
 	public int getCnum() {
 		return cnum;
 	}

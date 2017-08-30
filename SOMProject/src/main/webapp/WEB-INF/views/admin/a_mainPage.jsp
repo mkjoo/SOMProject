@@ -5,6 +5,39 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script>
+//Logout Timer 객체 정의
+var LogOutTimer = function() {
+  var S = {
+            timer : null,
+            limit : 1000 * 60 * 5,
+            fnc   : function() {},
+            start : function() {
+                      S.timer = window.setTimeout(S.fnc, S.limit);
+                    },
+            reset : function() {
+                      window.clearTimeout(S.timer);
+                      S.start();
+                    }
+          };
+  
+document.onmousemove = function() { S.reset(); };
+  
+  return S;
+}();
+
+// 로그아웃 체크시간 설정
+LogOutTimer.limit = 1000 * 60 * 0.1;
+
+// 로그아웃 함수 설정
+LogOutTimer.fnc = function() {
+	window.location='logout.do';
+  alert("LogOut");
+  
+}
+
+// 로그아웃 타이머 실행
+LogOutTimer.start();
+
 function loginResult(result) {
 	if (result == "resultNoId") {
 		alert('아디가 틀려요');
@@ -129,12 +162,7 @@ function myFunction2(){
 
 
 
-	<div class="header_search">
-		<form action="search.do" method="get">
-		<input id="seach" name="search_text" type="text" placeholder="Search Music"> 
-		<input type="submit" value="Search" > <br />
-		</form>
-	</div>
+
 
 
 	<!-- navigation -->
