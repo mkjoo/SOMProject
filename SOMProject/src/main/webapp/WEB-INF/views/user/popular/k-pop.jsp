@@ -85,7 +85,7 @@ function c(genre){
 		
 		 
 <nav id="myp_title">
-		<h2>&nbsp;인기가요kkkkkkkkkk</h2>
+		<h2>&nbsp;인기가요</h2>
 		<hr/>
 	</nav>
 	<section>

@@ -5,6 +5,38 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript" src="/som/js/main/modal.js"></script>
+   <!-- API 스크립트 -->
+   <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+   <script type="text/javascript">
+      Kakao.init('df328bb008ac1bbc251e428accb4cb91');
+      function loginWithKakao() {
+         Kakao.Auth
+               .login({
+                  success : function(authObj) {
+                     alert('success');
+                     alert(JSON.stringify(authObj));
+                     Kakao.API
+                           .request({
+                              url : '/v1/user/me',
+                              success : function(res) {
+                                 alert(res.properties.nickname
+                                       + '님 환영합니다.');
+                                 document.getElementById("myBtn").innerHTML = res.kaccount_email;
+                                 window.location='login.do';
+                                 
+                              },
+                              fail : function(error) {
+                                 alert(JSON.stringify(error));
+                              }
+                           });
+                  },
+                  fail : function(err) {
+                     alert('fail');
+                     alert(JSON.stringify(err));
+                  }
+                  </script>
+                  
 <script>
    function loginResult(result) {
       if (result == "resultNoId") {
@@ -86,7 +118,11 @@
                      <div class="or-line"></div>
                      <div class="or">OR</div>
                   </div>
-                  <form method="post" action="loginProc.do">
+
+
+<form method="post" action="loginProc.do">
+                     <table>
+                     <td>
                      <div class="loginbox-textbox">
                         <input type="text" name="email" class="form-control"
                            placeholder="Email">
@@ -95,12 +131,17 @@
                         <input type="text" name="pass" class="form-control"
                            placeholder="Password">
                      </div>
-
+                     </td>
+                     <td>
                      <div class="loginbox-submit">
                         <input type="submit" class="btn btn-primary btn-block"
-                           value="Login">
+                           value="Login" style="width:60pt;height:60pt;padding-left:0;margin-left:-50px;">
                      </div>
-                  </form>
+                     </td>
+                     </table>
+              </form>
+              
+              
                   <div class="loginbox-forgot">
                      <a href="#" onclick="javascript:window.open('gumseck.do','get','width=600px,height=600px');">ID/Password 찾기</a>
                   </div>

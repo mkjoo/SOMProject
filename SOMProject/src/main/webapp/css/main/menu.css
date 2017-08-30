@@ -40,9 +40,18 @@
     text-decoration: none;
     display: block;
 }
+.dropbtn2 {
+	
+	background-color: #303C43;
+    padding: 3px;
+    font-size: 16px;
+    border: none;
+    opacity: 0%;
+
+}
 
 .dropdown2 {
-    float: right;
+    position: relative;
     display: inline-block;
 }
 
@@ -65,5 +74,6 @@
 
 
 .dropdown a:hover {background-color: #f1f1f1}
+.dropdown2 a:hover {background-color: #f1f1f1}
 
 .show {display:block;}

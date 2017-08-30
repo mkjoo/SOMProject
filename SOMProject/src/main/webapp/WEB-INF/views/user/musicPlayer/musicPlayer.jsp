@@ -7,24 +7,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="/som/js/musicPlayer/musicPlayer.js"></script>
 <script type="text/javascript" src="/som/js/musicPlayer/html5slider.js"></script>
+
+<link href="/som/css/musicPlayer/musicPlayer.css" rel="stylesheet" type="text/css">
 <title>Insert title here</title>
-<style>
-input[type="range"] {
-   border: none;
-   display: block;
-   width: 70px;
-   margin: auto;
-}
-</style>
 </head>
-<body style="background-color: #15183c; margin: auto;">
+<body>
 
    <form name="changemusic">
       <!-- 오디오 만들기 -->
       <audio id="myAudio" autoplay onended="autoNextSong()" src="">
       <font color="#FFFFFF">Your user agent does not support the
          HTML5 Audio element.</font> </audio>
-      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <table id="playerTable">
          <tr height="6"></tr>
          <tr>
             <td rowspan="7" width="10"></td>
@@ -61,10 +55,16 @@ input[type="range"] {
          </tr>
 
          <tr>
-            <td colspan="2"><a href="#" onclick="openAlbumInfor()"><img
-                  src="/som/images/musicPlayer/albuminfo.gif" border="0" /></a> <img
+            <td colspan="2"><a href="#" onclick="openPlayList()"><img
                src="/som/images/musicPlayer/list.png" border="0" width="20px"
-               height="25px" />/반복/섞기</td>
+               height="25px" /></a>
+               <a href="#" onclick="selectRepeat()"><img
+               src="/som/images/musicPlayer/Repeat.png" border="0" width="20px"
+               height="25px" /></a>
+               <a href="#" onclick="selectRandom()"style="margin=4px;"><img id="selectRandom"
+               src="/som/images/musicPlayer/mix.png" style="border: 0; width: 20px;
+               height: 15px;"/></a>
+               </td>
             <td align="center"><a href="#" onclick="presong()"><img
                   src="/som/images/musicPlayer/preplay.png" border="0" width="35px"
                   height="35px" /></a> <a href="#" onclick="playandpause()"><img
@@ -81,7 +81,7 @@ input[type="range"] {
       </table>
    </form>
 
-   <table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <table id="playListTable">
       <tr>
          <td width="10"></td>
          <td>
@@ -114,9 +114,9 @@ input[type="range"] {
                   <c:forEach var="m_list" items="${list}" varStatus="num">
                      <input type="hidden" id="m_num" value="${m_list.m_num}" />
                      <input type="hidden" id="m_info"
-                        value="${num.index},${m_list.m_num},${m_list.m_path},${m_list.m_name},${m_list.m_artist},${m_list.src},${m_list.m_lyrics},${m_list.m_album}" />
+                        value="${num.index},${m_list.m_num},${m_list.m_path},${m_list.m_name},${m_list.m_artist},${m_list.src},${m_list.m_album},${m_list.m_lyrics}" />
                      <c:set var="songInformation1"
-                        value="${num.index},${m_list.m_num},${m_list.m_path},${m_list.m_name},${m_list.m_artist},${m_list.src},${m_list.m_lyrics},${m_list.m_album}" />
+                        value="${num.index},${m_list.m_num},${m_list.m_path},${m_list.m_name},${m_list.m_artist},${m_list.src},${m_list.m_album},${m_list.m_lyrics}" />
 
                      <tr style="text-align: center">
                         <td width="8%"><input type="checkbox" name="check"

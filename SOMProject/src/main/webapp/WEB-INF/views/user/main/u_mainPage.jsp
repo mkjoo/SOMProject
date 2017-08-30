@@ -1,83 +1,85 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script language="javascript">
-// Logout Timer 객체 정의
-var LogOutTimer = function() {
-  var S = {
-            timer : null,
-            limit : 1000 * 60 * 5,
-            fnc   : function() {},
-            start : function() {
-                      S.timer = window.setTimeout(S.fnc, S.limit);
-                    },
-            reset : function() {
-                      window.clearTimeout(S.timer);
-                      S.start();
-                    }
-          };
-  
-document.onmousemove = function() { S.reset(); };
-  
-  return S;
-}();
+	// Logout Timer 객체 정의
+	/* var LogOutTimer = function() {
+		var S = {
+			timer : null,
+			limit : 1000 * 60 * 5,
+			fnc : function() {
+			},
+			start : function() {
+				S.timer = window.setTimeout(S.fnc, S.limit);
+			},
+			reset : function() {
+				window.clearTimeout(S.timer);
+				S.start();
+			}
+		};
 
-// 로그아웃 체크시간 설정
-LogOutTimer.limit = 1000 * 60 * 0.1;
+		document.onmousemove = function() {
+			S.reset();
+		};
 
-// 로그아웃 함수 설정
-LogOutTimer.fnc = function() {
-	window.location='logout.do';
-  alert("LogOut");
-  
-}
+		return S;
+	}(); */
 
-// 로그아웃 타이머 실행
-LogOutTimer.start();
+	// 로그아웃 체크시간 설정
+	LogOutTimer.limit = 1000 * 60 * 0.1;
 
+	// 로그아웃 함수 설정
+	LogOutTimer.fnc = function() {
+		window.location = 'logout.do';
+		alert("LogOut");
 
-
-
-function loginResult(result) {
-	if (result == "resultNoId") {
-		alert('아디가 틀려요');
 	}
-	if (result == "resultNoPass") {
-		alert('비번이 틀려요');
+
+	// 로그아웃 타이머 실행
+	LogOutTimer.start();
+
+	function loginResult(result) {
+		if (result == "resultNoId") {
+			alert('아디가 틀려요');
+		}
+		if (result == "resultNoPass") {
+			alert('비번이 틀려요');
+		}
+		if (result == "resultOK") {
+			alert('로그인 성공');
+		}
 	}
-	if (result == "resultOK") {
-		alert('로그인 성공');
+	function openSignUp() {
+		window.open("regForm1.do", "_blank", "width=550, height=800");
 	}
-}
-function openSignUp() {
-	window.open("regForm1.do", "_blank", "width=550, height=800");
-}
-function hide(){
-	var x = document.getElementById('dropbutton');
-	x.style.display='none';
-}
+	function hide() {
+		var x = document.getElementById('dropbutton');
+		x.style.display = 'none';
+	}
 
-window.onload = loginResult("${result}");hide();
+	window.onload = loginResult("${result}");
+	hide();
 
-function myFunction2() {
-    document.getElementById("myDropdown2").classList.toggle("show");
-}
-window.onclick = function(event) {
-	  if (!event.target.matches('.dropbtn2')) {
+	function myFunction2() {
+		document.getElementById("myDropdown2").classList.toggle("show");
+	}
+	window.onclick = function(event) {
+		if (!event.target.matches('.dropbtn2')) {
 
-	    var dropdowns = document.getElementsByClassName("dropdown2-content2");
-	    var i;
-	    for (i = 0; i < dropdowns.length; i++) {
-	      var openDropdown = dropdowns[i];
-	      if (openDropdown.classList.contains('show')) {
-	        openDropdown.classList.remove('show');
-	      }
-	    }
-	  }
+			var dropdowns = document
+					.getElementsByClassName("dropdown2-content2");
+			var i;
+			for (i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if (openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+		}
 	}
 </script>
 <script type="text/javascript" src="/som/js/main/slider.js"></script>
@@ -92,7 +94,8 @@ window.onclick = function(event) {
 <link href="/som/css/main/content.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/footer.css" rel="stylesheet" tyep="text/css">
 <link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
-<link href="/som/css/main/mp_header.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/mp_header.css" rel="stylesheet"
+	type="text/css">
 
 </head>
 
@@ -100,7 +103,7 @@ window.onclick = function(event) {
 	<!-- header -->
 	<header>
 	<div class="header_menu">
-		<jsp:include page="u_header.jsp" flush="false"/>
+		<jsp:include page="u_header.jsp" flush="false" />
 	</div>
 	</header>
 
@@ -113,7 +116,7 @@ window.onclick = function(event) {
 				<button type="button" class="close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				
+
 				<h4 class="modal-title" id="myModalLabel">Login Page</h4>
 			</div>
 
@@ -152,14 +155,14 @@ window.onclick = function(event) {
 									value="Login">
 							</div>
 						</form>
-							<div class="loginbox-forgot">
-								<a href="">ID/Password 찾기</a>
-							</div>
+						<div class="loginbox-forgot">
+							<a href="">ID/Password 찾기</a>
+						</div>
 
 
 						<div class="loginbox-signup">
-								<button onclick="openSignUp()">회원가입</button>
-							</div>
+							<button onclick="openSignUp()">회원가입</button>
+						</div>
 					</div>
 					<div class="logobox"></div>
 				</div>
@@ -181,15 +184,19 @@ window.onclick = function(event) {
 
 	<!-- navigation -->
 	<nav>
+
 	<div class="slideshow-container">
 		<div class="mySlides fade">
 			<div class="numbertext">1 / 3</div>
 			<div class="c">
-				<img class="nm" src="/som/images/main/flower.jpg" width="50%">
-				<div class="nm" id="nm_album">
-					<h1>오빠</h1>
-					<h3>(PROD.Brother Su)</h3>
-					<br />유승우, 산들(B1A4)<br />발라드
+				<div class="slide_num">
+					<h2>최신가요</h2>
+					</br> </br>
+					<c:forEach var="newestList" items="${newestList}">
+						<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+							height="35">&nbsp;&nbsp;${newestList.m_name}</li>
+					</c:forEach>
+
 				</div>
 			</div>
 			<div class="text">music 1</div>
@@ -198,12 +205,13 @@ window.onclick = function(event) {
 		<div class="mySlides fade">
 			<div class="numbertext">2 / 3</div>
 			<div class="c">
-				<img class="nm"
-					src="/som/images/main/pink_guy-wallpaper-1920x1280.jpg" width="50%">
-				<div class="nm" id="nm_album">
-					<h1>오빠</h1>
-					<h3>(PROD.Brother Su)</h3>
-					<br />유승우, 산들(B1A4)<br />발라드
+				<div class="slide_num">
+					<h2>인기가요</h2>
+					</br> </br>
+					<c:forEach var="popularList" items="${popularList}">
+						<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+							height="35">&nbsp;&nbsp;${popularList.m_name}</li>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="text">music 2</div>
@@ -212,12 +220,13 @@ window.onclick = function(event) {
 		<div class="mySlides fade">
 			<div class="numbertext">3 / 3</div>
 			<div class="c">
-				<img class="nm"
-					src="/som/images/main/KakaoTalk_20170718_143925493.png" width="50%">
-				<div class="nm" id="nm_album">
-					<h1>오빠</h1>
-					<h3>(PROD.Brother Su)</h3>
-					<br />유승우, 산들(B1A4)<br />발라드
+				<div class="slide_num">
+					<h2>버스킹</h2>
+					</br> </br>
+					<c:forEach var="buskingList" items="${buskingList}">
+						<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+							height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="text">music 3</div>
@@ -241,38 +250,45 @@ window.onclick = function(event) {
 			<h2>최신가요</h2>
 			</br> </br>
 			<c:forEach var="newestList" items="${newestList}">
-			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
-				height="35">&nbsp;&nbsp;${newestList.m_name}</li>
+				<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+					height="35">&nbsp;&nbsp;${newestList.m_name}</li>
 			</c:forEach>
+
 
 		</div>
 		<div class="slide_num" id="인기가요">
 			<h2>인기가요</h2>
 			</br> </br>
 			<c:forEach var="popularList" items="${popularList}">
-			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
-				height="35">&nbsp;&nbsp;${popularList.m_name}</li>
+				<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+					height="35">&nbsp;&nbsp;${popularList.m_name}</li>
 			</c:forEach>
 
 		</div>
 		<div class="slide_num" id="버스킹">
 			<h2>버스킹</h2>
-						<c:forEach var="buskingList" items="${buskingList}">
-			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
-				height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
+			<c:forEach var="buskingList" items="${buskingList}">
+				<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+					height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
 			</c:forEach>
-		
+
+
 		</div>
 		<div class="slide_num" id="게시판">
-			<li><h2>공지</h2></li>
-        
-       	<c:forEach var="vo" items="${noticeList}">
-       	  		한개의 글내용 =  
-               <a align="center" href="noticeContent.do?num=${vo.num}&pageNum=1">${vo.subject}</a>
-                ${vo.writer}
-                ${vo.regdate}
-               <br>
-         </c:forEach>
+			<li><h2>게시판</h2></li> </br> </br>
+
+			<c:forEach var="vo" items="${noticeList}" begin="0" step="1" end="0">
+				<font id="not">[ 공지사항 ]</font>
+				</br>
+				</br>
+				<a text-align="center"
+					href="noticeContent.do?num=${vo.num}&pageNum=1">${vo.subject}</a>
+				</br>
+				<font id="writer">${vo.writer}</font>
+				</br>
+				<font id="date">${vo.regdate}</font>
+				<br>
+			</c:forEach>
 		</div>
 	</ul>
 	</content>
