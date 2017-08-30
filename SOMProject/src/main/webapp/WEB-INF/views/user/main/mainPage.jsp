@@ -85,7 +85,7 @@
    </div>
    </header>
 
-   <!-- The Modal -->
+ <!-- The Modal -->
    <div id="myModal" class="modal">
 
       <!-- Modal content -->
@@ -103,26 +103,28 @@
                <div class="loginbox bg-white">
                   <div class="loginbox-title">Log In</div>
                   <div class="loginbox-social">
-                     <div class="social-title ">sns 계정으로 LogIn 하기</div>
+                     <div class="social-title">sns 계정으로 LogIn 하기</div>
                      <div class="social-buttons">
-                        <a href="" class="button-facebook"> <i
-                           class="social-icon fa fa-facebook"></i>
-                        </a> <a href="" class="button-twitter"> <i
-                           class="social-icon fa fa-twitter"></i>
-                        </a> <a href="" class="button-google"> <i
-                           class="social-icon fa fa-google-plus"></i>
-                        </a>
+
+                        <a href="javascript:loginWithKakao()" id="custom-login-btn" class="button-kakao"><img
+                           src="/som/images/main/KakaoLogo.png"
+                           class="social-icon fa fa-kakao" width="30px" height="30px"
+                           style="margin-top: 20%;"></img></a> <a
+                           href="https://www.google.co.uk/" class="button-google"><img
+                           src="/som/images/main/GoogleLogo.png"
+                           class="social-icon fa fa-google" width="30px" height="30px"
+                           style="margin-top: 20%;"></img></a> <a href="https://twitter.com/"
+                           class="button-twitter"><img
+                           src="/som/images/main/TwitterLogo.png"
+                           class="social-icon fa fa-twitter" width="50px" height="50px"
+                           style="margin-top: 4%;"></img></a>
                      </div>
                   </div>
                   <div class="loginbox-or">
                      <div class="or-line"></div>
                      <div class="or">OR</div>
                   </div>
-
-
-<form method="post" action="loginProc.do">
-                     <table>
-                     <td>
+                  <form method="post" action="loginProc.do">
                      <div class="loginbox-textbox">
                         <input type="text" name="email" class="form-control"
                            placeholder="Email">
@@ -131,19 +133,14 @@
                         <input type="text" name="pass" class="form-control"
                            placeholder="Password">
                      </div>
-                     </td>
-                     <td>
+
                      <div class="loginbox-submit">
                         <input type="submit" class="btn btn-primary btn-block"
-                           value="Login" style="width:60pt;height:60pt;padding-left:0;margin-left:-50px;">
+                           value="Login">
                      </div>
-                     </td>
-                     </table>
-              </form>
-              
-              
+                  </form>
                   <div class="loginbox-forgot">
-                     <a href="#" onclick="javascript:window.open('gumseck.do','get','width=600px,height=600px');">ID/Password 찾기</a>
+                     <a href="#">ID/Password 찾기</a>
                   </div>
 
 
