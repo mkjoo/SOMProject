@@ -5,6 +5,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script language="javascript"> 
+function loginResult(result) {
+	
+	if (result == "resultNoId") {
+		alert('아디가 틀려요');
+	}
+	if (result == "resultNoPass") {
+		alert('비번이 틀려요');
+	}
+	if (result == "resultOK") {
+		alert('로그인 성공');
+	}
+}
+window.onload = loginResult("${result}");
+</script>
 <script language="javascript">
 	// Logout Timer 객체 정의
 	/* var LogOutTimer = function() {
@@ -42,17 +57,7 @@
 	// 로그아웃 타이머 실행
 	LogOutTimer.start();
 
-	function loginResult(result) {
-		if (result == "resultNoId") {
-			alert('아디가 틀려요');
-		}
-		if (result == "resultNoPass") {
-			alert('비번이 틀려요');
-		}
-		if (result == "resultOK") {
-			alert('로그인 성공');
-		}
-	}
+
 	function openSignUp() {
 		window.open("regForm1.do", "_blank", "width=550, height=800");
 	}
@@ -61,9 +66,8 @@
 		x.style.display = 'none';
 	}
 
-	window.onload = loginResult("${result}");
-	hide();
-
+	
+	
 	function myFunction2() {
 		document.getElementById("myDropdown2").classList.toggle("show");
 	}

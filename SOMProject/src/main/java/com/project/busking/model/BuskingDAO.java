@@ -15,4 +15,7 @@ public interface BuskingDAO {
 	void addMusic(MusicVO vo);
 	
 	void insertBusking(BuskingVO vo);
+	
+	public List<BuskingVO> getBuskingNew(BuskingVO vo);
+	public List<BuskingVO> getBuskingPopular(BuskingVO vo);
 }

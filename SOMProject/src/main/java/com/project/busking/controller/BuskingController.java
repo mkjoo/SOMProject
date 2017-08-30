@@ -63,5 +63,21 @@ public class BuskingController {
 		return mav; 
 	}
 	
+	@RequestMapping(value="busking_new.do", method=RequestMethod.GET)
+	public ModelAndView busking2(BuskingVO BuskingVo){
+		List<BuskingVO> list=service.getBuskingNew(BuskingVo);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("busking/busking_new");
+		mav.addObject("list", list);
+		return mav;
+	}
+	@RequestMapping(value="busking_popular.do", method=RequestMethod.GET)
+	public ModelAndView busking3(BuskingVO BuskingVo){
+		List<BuskingVO> list=service.getBuskingPopular(BuskingVo);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("busking/busking_popular");
+		mav.addObject("list", list);
+		return mav;
+	}
 	
 }

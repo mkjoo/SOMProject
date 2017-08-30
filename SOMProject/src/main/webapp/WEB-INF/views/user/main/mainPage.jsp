@@ -8,6 +8,21 @@
 <script type="text/javascript" src="/som/js/main/modal.js"></script>
 <!-- API 스크립트 -->
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script language="javascript"> 
+function loginResult(result) {
+	if (result == "resultNoId") {
+		alert('아디가 틀려요');
+	}
+	if (result == "resultNoPass") {
+		alert('비번이 틀려요');
+	}
+	if (result == "resultOK") {
+		alert('로그인 성공');
+	}
+}
+window.onload = loginResult("${result}");
+</script>
+
 <script type="text/javascript">
 	Kakao.init('df328bb008ac1bbc251e428accb4cb91');
 	function loginWithKakao() {
@@ -39,29 +54,8 @@
 	}
 </script>
 
-<script>
-	function loginResult(result) {
-		if (result == "resultNoId") {
-			alert('아디가 틀려요');
-		}
-		if (result == "resultNoPass") {
-			alert('비번이 틀려요');
-		}
-		if (result == "resultOK") {
-			alert('로그인 성공');
-		}
-		if (result == "noLogin") {
-			alert('로그인을 해주세요');
-		}
-		if (result == "alreadyLogin") {
-			alert('이미로그인 되있어요');
-		}
-	}
-	function openSignUp() {
-		window.open("regForm1.do", "_blank", "width=550, height=800");
-	}
-	window.onload = loginResult("${result}");
-</script>
+
+
 <script type="text/javascript" src="/som/js/main/slider.js"></script>
 <script type="text/javascript" src="/som/js/main/login.js"></script>
 <script type="text/javascript" src="/som/js/main/menu.js"></script>
@@ -195,7 +189,7 @@
 					<h2>최신가요</h2>
 					</br> </br>
 					<c:forEach var="newestList" items="${newestList}">
-						<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+						<li><img alt="" src="${newestList.src}" width="35"
 							height="35">&nbsp;&nbsp;${newestList.m_name}</li>
 					</c:forEach>
 
@@ -212,7 +206,7 @@
 					</br> </br>
 
 					<c:forEach var="popularList" items="${popularList}">
-						<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+						<li><img alt="" src="${popularList.src}" width="35"
 							height="35">&nbsp;&nbsp;${popularList.m_name}</li>
 					</c:forEach>
 				</div>
@@ -255,7 +249,7 @@
 			<h2>최신가요</h2>
 			</br> </br>
 			<c:forEach var="newestList" items="${newestList}">
-				<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+				<li><img alt="" src="${newestList.src}" width="35"
 					height="35">&nbsp;&nbsp;${newestList.m_name}</li>
 			</c:forEach>
 
@@ -265,7 +259,7 @@
 			<h2>인기가요</h2>
 			</br> </br>
 			<c:forEach var="popularList" items="${popularList}">
-				<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+				<li><img alt="" src=${popularList.src} width="35"
 					height="35">&nbsp;&nbsp;${popularList.m_name}</li>
 			</c:forEach>
 
@@ -275,7 +269,7 @@
 			</br> </br>
 
 			<c:forEach var="buskingList" items="${buskingList}">
-				<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+				<li><img alt="" src="${buskingList.src}" width="35"
 					height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
 			</c:forEach>
 

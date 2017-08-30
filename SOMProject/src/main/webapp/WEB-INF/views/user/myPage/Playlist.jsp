@@ -115,8 +115,8 @@ window.onclick = function(event) {
                         <th><input type="checkbox" name="all" class="checkall" id="checkall"></th>
                      </div></th>
                   <th scope="col"><div class="wrap pd_none">NO</div></th>
-                  <th scope="col"><div class="wrap none">가수</div></th>
                   <th scope="col"><div class="wrap">곡명</div></th>
+                  <th scope="col"><div class="wrap none">가수</div></th>
                   <th scope="col" class="t_left"><div class="wrap right_none">듣기</div></th>
                   <th scope="col"><div class="wrap pd_none left">가사</div></th>
                   
@@ -127,8 +127,8 @@ window.onclick = function(event) {
                <td></td>
                <td><input type="checkbox" name="chk" value="${musicVo.m_num}"></td>
                <td>${number.count}</td>
+               <td>${musicVo.m_name}</td>
                <td>${musicVo.m_artist}</td>
-               <td><a href="../songs_jsp/kard_holahola.jsp">${musicVo.m_name}</a></td>
                <td><a href="#" onclick="javascript:window.open('addPlay.do?m_num=${musicVo.m_num}','aa','height=310px, width=500px')"><img src="버튼/듣기버튼.png"
                         width="25" height="25"></a></td>
                <td><input type="button" value="가사" onclick="window.open('lyrics.do?lyrics=${musicVo.m_lyrics}','get','height=500px, width=500px')"></td>

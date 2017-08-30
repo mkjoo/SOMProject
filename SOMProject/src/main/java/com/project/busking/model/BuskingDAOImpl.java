@@ -41,5 +41,16 @@ public class BuskingDAOImpl implements BuskingDAO{
 		String statement="com.project.busking.insertBusking";
 		sqlSession.insert(statement,vo);
 	}
-
+	@Override
+	public List<BuskingVO> getBuskingNew(BuskingVO vo) {
+		String statement="com.project.busking.getBuskingNew";
+		List<BuskingVO> list=sqlSession.selectList(statement, vo);
+		return list;
+	}
+	@Override
+	public List<BuskingVO> getBuskingPopular(BuskingVO vo) {
+		String statement="com.project.busking.getBuskingPopular";
+		List<BuskingVO> list=sqlSession.selectList(statement, vo);
+		return list;
+	}
 }

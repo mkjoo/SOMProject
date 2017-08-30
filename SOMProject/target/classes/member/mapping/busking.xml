@@ -14,8 +14,21 @@
 		<result property="m_lyrics" column="m_lyrics" jdbcType="VARCHAR" />
 		<result property="m_musicvideo" column="m_musicvideo" jdbcType="VARCHAR" />
 	</resultMap>
+	 <resultMap id="BuskingResult" type="com.project.busking.model.BuskingVO">
+   <result property="b_num" column="b_num" jdbcType="BIGINT" />
+   <result property="b_name" column="b_name" jdbcType="VARCHAR" />
+   <result property="b_artist" column="b_artist" jdbcType="VARCHAR" />
+   <result property="b_lyrics" column="b_lyrics" jdbcType="VARCHAR" />
+   <result property="b_count_play" column="b_count_play" jdbcType="BIGINT" />
+   <result property="b_path" column="b_path" jdbcType="VARCHAR" />
+   <result property="b_img_path" column="b_img_path" jdbcType="VARCHAR"/>
+   <result property="b_regdate" column="b_regdate" jdbcType="DATE"/>
+   </resultMap>
+	
 	<select id="getNewestBusking" resultMap="PopularResult">
-		select * from music where m_genre='busking' order by m_create_date desc
+		<![CDATA[
+			select * from (select rownum rnum,m_num,m_name,m_artist,m_create_date,m_path,m_lyrics,src from (select * from music where m_genre='busking' order by m_create_date desc)) where rnum>=#{startRow} and rnum <= #{endRow}
+		]]>
 	</select>
 	
 	<insert id="insertBusking" parameterType="com.project.busking.model.BuskingVO">
@@ -23,8 +36,15 @@
 	</insert>	
 	
 	<select id="getPopularBusking" resultMap="PopularResult">
-		select * from music where m_genre='busking' order by m_count_play desc
+		<![CDATA[
+			select * from (select rownum rnum,m_num,m_name,m_artist,m_create_date,m_path,m_lyrics,src from (select * from music where m_genre='busking' order by m_count_play desc)) where rnum>=#{startRow} and rnum <= #{endRow}
+		]]>	
 	</select>
 				
-	
+	 <select id="getBuskingNew" resultMap="BuskingResult" parameterType="com.project.busking.model.BuskingVO">
+      select * from busking
+   </select>
+   <select id="getBuskingPopular" resultMap="BuskingResult" parameterType="com.project.busking.model.BuskingVO">
+      select * from busking
+   </select>
 </mapper>

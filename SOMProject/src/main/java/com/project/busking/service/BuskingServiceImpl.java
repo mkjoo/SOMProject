@@ -40,6 +40,16 @@ public class BuskingServiceImpl implements BuskingService{
 	public void insertBusking(BuskingVO vo) {
 		dao.insertBusking(vo);
 	}
-	
+	@Override
+	public List<BuskingVO> getBuskingNew(BuskingVO vo) {
+		List<BuskingVO> list=dao.getBuskingNew(vo);
+		return list;
+	}
+
+	@Override
+	public List<BuskingVO> getBuskingPopular(BuskingVO vo) {
+		List<BuskingVO> list=dao.getBuskingPopular(vo);
+		return list;
+	}
 	
 }
