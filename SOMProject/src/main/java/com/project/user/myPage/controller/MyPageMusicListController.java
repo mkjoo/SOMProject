@@ -29,9 +29,9 @@ public class MyPageMusicListController {
 		System.out.println("lyrics="+lyrics);
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("myPage/lyrics");
-		String[] lyric=lyrics.split("^");
+		String[] lyric=lyrics.split(";");
 		mav.addObject("lyrics",lyrics);
-		mav.addObject("lyric",lyrics);
+		mav.addObject("lyric",lyric);
 		return mav;
 	}
 	

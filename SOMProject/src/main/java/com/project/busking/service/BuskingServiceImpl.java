@@ -15,14 +15,14 @@ public class BuskingServiceImpl implements BuskingService{
 	}
 
 	@Override
-	public List<PopularVO> getNewestBusking(BuskingVO vo) {
-		List<PopularVO> list=dao.getNewestBusking(vo);
+	public List<PopularVO> getNewestBusking(Object obj) {
+		List<PopularVO> list=dao.getNewestBusking(obj);
 		return list;
 	}
 
 	@Override
-	public List<PopularVO> getPopularBusking(BuskingVO vo) {
-		List<PopularVO> list=dao.getPopularBusking(vo);
+	public List<PopularVO> getPopularBusking(Object obj) {
+		List<PopularVO> list=dao.getPopularBusking(obj);
 		return list;
 	}
 

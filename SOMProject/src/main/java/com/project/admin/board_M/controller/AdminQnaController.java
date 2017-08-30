@@ -51,7 +51,7 @@ public class AdminQnaController {
 		map.put("endRow",boardPaging.getWriting_End());
 		List<QnaVO> boardList = this.service.getList(map);
 		Map<String,Object> model = new HashMap<String,Object>();
-		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		for(QnaVO vo:boardList){
 			vo.setFormatdate(simpledateformat.format(vo.getRegdate()));
 		}

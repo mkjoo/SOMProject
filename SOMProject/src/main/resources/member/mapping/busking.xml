@@ -25,7 +25,7 @@
    <result property="b_regdate" column="b_regdate" jdbcType="DATE"/>
    </resultMap>
 	
-	<select id="getNewestBusking" resultMap="PopularResult">
+	<select id="getNewestBusking" resultMap="PopularResult" parameterType="java.util.Map">
 		<![CDATA[
 			select * from (select rownum rnum,m_num,m_name,m_artist,m_create_date,m_path,m_lyrics,src from (select * from music where m_genre='busking' order by m_create_date desc)) where rnum>=#{startRow} and rnum <= #{endRow}
 		]]>
@@ -35,7 +35,7 @@
 		insert into music(m_num,m_name,m_artist,m_album,m_genre,m_path,m_lyrics,m_musicvideo,src) values(music_seq.nextval,#{m_name},#{m_artist},#{m_album},#{m_genre},#{m_path},#{m_lyrics},#{m_musicvideo},#{src})
 	</insert>	
 	
-	<select id="getPopularBusking" resultMap="PopularResult">
+	<select id="getPopularBusking" resultMap="PopularResult" parameterType="java.util.Map">
 		<![CDATA[
 			select * from (select rownum rnum,m_num,m_name,m_artist,m_create_date,m_path,m_lyrics,src from (select * from music where m_genre='busking' order by m_count_play desc)) where rnum>=#{startRow} and rnum <= #{endRow}
 		]]>	

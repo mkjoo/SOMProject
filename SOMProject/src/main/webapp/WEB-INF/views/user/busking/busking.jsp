@@ -6,16 +6,7 @@
 <head>
 <title>Insert title here</title>
 <script type="text/javascript" src="/som/js/main/menu.js"></script>
-<script>
-	function c(genre){
-		
-		window.location = 'busking_new.do?m_genre=' + genre;
-	}
-	function d(genre){
-		window.location = 'busking_popular.do?=m_genre=' + genre;
-	}
-</script>
-<link href="/som/css/busking/busking.css?ver=1" rel="stylesheet"
+<link href="/som/css/busking/busking.css" rel="stylesheet"
 	type="text/css">
 <link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
 </head>
@@ -34,7 +25,7 @@
 		</div>
 		<div class="nav2">
 			<h3>Busking음원올리기</h3>
-			<button>Upload</button>
+			<input type="button" onclick="window.location='buskingUploadForm.do'" value="Upload">
 		</div>
 	</nav>
 
@@ -43,57 +34,55 @@
 
 			<h2>New</h2>
 			<br /> <br />
-			<c:forEach var="list" items="${list}">
-				<table>
-					<tr>
-						<td rowspan="2" width="8%"><img
-							src="/som/images/main/new.gif" class="newImg" width="25" height="25" ></td>
-						<td rowspan="2" width="15%"><img
-							src="/som/images/myPage/악동뮤지션.PNG" class="img" width="60" height="60"></td>
-						<td width="53%">${list.b_name}</td>
-						<td rowspan="2" width="8%"><a><input type="image"
-								src="images/myPage/듣기버튼.png" onClick="" width="25" height="25">&nbsp;&nbsp;</a></td>
-						<td rowspan="2" width="8%"><a><input type="image"
-								src="images/myPage/가사버튼.png" onClick="" width="25" height="25">&nbsp;&nbsp;</a></td>
-						<td rowspan="2" width="8%"><a><input type="image"
-								src="images/myPage/담기버튼.png" onClick="" width="25" height="25">&nbsp;&nbsp;</a></td>
-					</tr>
-					<tr>
-						<td>${list.b_artist}</td>
-					</tr>
-						
-				</table>
-			</c:forEach>
-			<input id="more" type="button" value="더보기" onclick="c('busking_new')">
-		</div>
-
-		<div id="popular">
-			
-			<h2>Popular</h2>
-			<br />
-			<br />
 			<c:forEach var="list" items="${list}" varStatus="number">
 				<table>
 					<tr>
 						<td rowspan="2" width="8%"><h4>${number.count}</h4></td>
 						<td rowspan="2" width="15%"><img
 							src="images/myPage/악동뮤지션.PNG" class="img" width="60" height="60"></td>
-						<td width="53%">${list.b_name}</td>
+						<td width="53%">${list.m_name}</td>
 
-						<td rowspan="2" width="8%"><a  onclick="javascript:window.open('addPlay.do?m_num=${list.b_num}','aa','height=310px, width=500px')" ><input type="image"
-								src="images/myPage/듣기버튼.png" onclick="javascript:window.open('addPlay.do?m_num=${list.b_num}','aa','height=310px, width=500px')" width="25" height="25">&nbsp;&nbsp;</a></td>
+						<td rowspan="2" width="8%"><a  onclick="javascript:window.open('addPlay.do?m_num=${list.m_num}','aa','height=310px, width=500px')" ><input type="image"
+								src="images/myPage/듣기버튼.png" onclick="javascript:window.open('addPlay.do?m_num=${list.m_num}','aa','height=310px, width=500px')" width="25" height="25">&nbsp;&nbsp;</a></td>
 						<td rowspan="2" width="8%"><a><input type="image"
-								src="images/myPage/가사버튼.png" onclick="window.open('lyrics.do?lyrics=${list.b_lyrics}','get','height=500px, width=500px')" width="25" height="25">&nbsp;&nbsp;</a></td>
+								src="images/myPage/가사버튼.png" onclick="window.open('lyrics.do?lyrics=${list.m_lyrics}','get','height=500px, width=500px')" width="25" height="25">&nbsp;&nbsp;</a></td>
 						<td rowspan="2" width="8%"><a><input type="image"
-								src="images/myPage/담기버튼.png" onclick="window.open('selectPlayList.do?m_num=${list.b_num}','get','height=400px, width=400px')" width="25" height="25">&nbsp;&nbsp;</a></td>
+								src="images/myPage/담기버튼.png" onclick="window.open('selectPlayList.do?m_num=${list.m_num}','get','height=400px, width=400px')" width="25" height="25">&nbsp;&nbsp;</a></td>
 					</tr>
 					<tr>
-						<td>${list.b_artist}</td>
+						<td>${list.m_artist}</td>
 					</tr>
-					
+
 				</table>
 			</c:forEach>
-		<input id="more" type="submit" value="더보기" onclick="d('busking_popular')">
+		</div>
+
+		<div id="popular">
+			<br />
+			<h2>Popular</h2>
+			<br />
+			<br />
+			<c:forEach var="list" items="${list2}" varStatus="number">
+				<table>
+					<tr>
+						<td rowspan="2" width="8%"><h4>${number.count}</h4></td>
+						<td rowspan="2" width="15%"><img
+							src="images/myPage/악동뮤지션.PNG" class="img" width="60" height="60"></td>
+						<td width="53%">${list.m_name}</td>
+
+						<td rowspan="2" width="8%"><a  onclick="javascript:window.open('addPlay.do?m_num=${list.m_num}','aa','height=310px, width=500px')" ><input type="image"
+								src="images/myPage/듣기버튼.png" onclick="javascript:window.open('addPlay.do?m_num=${list.m_num}','aa','height=310px, width=500px')" width="25" height="25">&nbsp;&nbsp;</a></td>
+						<td rowspan="2" width="8%"><a><input type="image"
+								src="images/myPage/가사버튼.png" onclick="window.open('lyrics.do?lyrics=${list.m_lyrics}','get','height=500px, width=500px')" width="25" height="25">&nbsp;&nbsp;</a></td>
+						<td rowspan="2" width="8%"><a><input type="image"
+								src="images/myPage/담기버튼.png" onclick="window.open('selectPlayList.do?m_num=${list.m_num}','get','height=400px, width=400px')" width="25" height="25">&nbsp;&nbsp;</a></td>
+					</tr>
+					<tr>
+						<td>${list.m_artist}</td>
+					</tr>
+				</table>
+			</c:forEach>
+
 
 		</div>
 

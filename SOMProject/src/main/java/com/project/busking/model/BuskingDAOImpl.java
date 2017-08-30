@@ -14,15 +14,15 @@ public class BuskingDAOImpl implements BuskingDAO{
 		this.sqlSession = sqlSession;
 	}
 	@Override
-	public List<PopularVO> getNewestBusking(BuskingVO vo){
+	public List<PopularVO> getNewestBusking(Object obj){
 		String statement="com.project.busking.getNewestBusking";
-		List<PopularVO> list=sqlSession.selectList(statement);
+		List<PopularVO> list=sqlSession.selectList(statement,obj);
 		return list;
 	}
 	@Override
-	public List<PopularVO> getPopularBusking(BuskingVO vo) {
+	public List<PopularVO> getPopularBusking(Object obj) {
 		String statement="com.project.busking.getPopularBusking";
-		List<PopularVO> list=sqlSession.selectList(statement, vo);
+		List<PopularVO> list=sqlSession.selectList(statement, obj);
 		return list;
 	}
 	@Override

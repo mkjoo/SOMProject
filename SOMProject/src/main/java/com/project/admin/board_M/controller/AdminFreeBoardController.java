@@ -84,7 +84,7 @@ public class AdminFreeBoardController {
 	
 	@RequestMapping(value="adminFreeBoardWriteProc.mdo", method=RequestMethod.POST)
 	public ModelAndView onSubmit(FreeBoardVO boardVo){
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String date=sdf.format(new Date());
 		boardVo.setRegdate(new Date());
 		service.insertArticle(boardVo);

@@ -48,7 +48,7 @@ public class UserFreeBoardController {
 		map.put("startRow",boardPaging.getWriting_Start());
 		map.put("endRow",boardPaging.getWriting_End());
 		List<FreeBoardVO> boardList = service.getList(map);
-		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		for(FreeBoardVO vo:boardList){
 			int commentcount=service.getCommentCount(vo.getNum());
 			vo.setCommentcount(commentcount);

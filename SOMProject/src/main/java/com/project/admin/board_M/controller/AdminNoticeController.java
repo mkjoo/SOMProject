@@ -47,7 +47,7 @@ public class AdminNoticeController {
 		map.put("endRow",boardPaging.getWriting_End());
 		List<NoticeVO> boardList = service.getList(map);
 		Map<String,Object> model = new HashMap<String,Object>();
-		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		for(NoticeVO vo:boardList){
 			vo.setFormatdate(simpledateformat.format(vo.getRegdate()));
 		}

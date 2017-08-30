@@ -2,6 +2,7 @@ package com.project.busking.controller;
 
 import java.io.File;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -26,8 +27,11 @@ public class BuskingController {
 	
 	@RequestMapping(value="busking.do", method=RequestMethod.GET)
 	public ModelAndView busking(BuskingVO BuskingVo){
-		List<PopularVO> list=service.getNewestBusking(BuskingVo);
-		List<PopularVO> list2=service.getPopularBusking(BuskingVo);
+		HashMap map=new HashMap();
+		map.put("startRow",1);
+		map.put("endRow",5);
+		List<PopularVO> list=service.getNewestBusking(map);
+		List<PopularVO> list2=service.getPopularBusking(map);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("busking/busking");
 		mav.addObject("list", list);
