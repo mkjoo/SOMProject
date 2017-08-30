@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -46,93 +46,61 @@ window.onclick = function(event) {
 <link href="/som/css/main/content.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/mp_header.css" rel="stylesheet" type="text/css">
-<link type="text/css" rel="stylesheet" href="/som/css/myPage/myPage_style.css">
-<link href="/som/css/board/board.css" rel="stylesheet" type="text/css">
+<link href="/som/css/myPage/myPage_style.css" rel="stylesheet" type="text/css">
+<link href="/som/css/board/board_style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-<input type="button" value="나의뮤직" onclick="javascript:window.open('musicPlayer.do','aa','width=310px height=500px');">
+	<input type="button" value="나의뮤직"
+		onclick="javascript:window.open('musicPlayer.do','aa','width=310px height=500px');">
 	<!-- header -->
 	<header>
 	<div class="header_menu">
-		<jsp:include page="../main/u_header.jsp" flush="false"/>
+		<jsp:include page="../main/u_header.jsp" flush="false" />
 	</div>
 	</header>
-	
-	
-	<hr style="width: 90%; margin-left: 40px" />
-	
-		
-		 
-<nav id="myp_title">
-		<h2>&nbsp;MyPage</h2>
-		<hr/>
+
+
+
+	<nav id="myp_title">
+	<h2>&nbsp;MyPage</h2>
+	<hr/>
 	</nav>
-	<section>
-		<div class="container-fluid"></div>
-		<div id="box1">
-			<table id="member_info" border="0" width="300" height="200">
-				<tr>
-					<td><a href="myPage_acc.do" id="mem_info"><img
-							src="/som/images/myPage/member_info.jpg">회원정보</a></td>
-				</tr>
-			</table>
-		</div>
-
-		<div id="box2">
-			<table id="myPlaylist" border="0" width="300" height="200">
-				<tr>
-					<td><a href="Playlist.do?list_num=1" id="playlist"><img
-							src="/som/images/myPage/myPlaylist.jpg">내 Playlist</a></td>
-				</tr>
-			</table>
-		</div>
-
-
-
-		<div id="box3">
-			<table id="myMusic" border="0" width="300" height="200">
-				<tr>
-					<td><a href="myMusic_list.do" id="m_list"><img
-							src="/som/images/myPage/myMusic.jpg">내 Music</a></td>
-				</tr>
-			</table>
-		</div>
-
-
-
-		<div id="box4">
-			<table id="myPoint" border="0" width="300" height="200">
-				<tr>
-					<td><a href="myPoint.do" id="point_pay"><img
-							src="/som/images/myPage/mypoint.jpg">내 Point</a></td>
-				</tr>
-			</table>
-		</div>
-
-		<div id="box4">
-			<table id="myPoint" border="0" width="300" height="200">
-				<tr>
-					<td><a href="paymentdetail.do" id="point_pay"><img
-							src="/som/images/myPage/mypoint.jpg">결제내역</a></td>
-				</tr>
-			</table>
-		</div>
-		
-	</section>
 	
-	
-
-
+	<a href="myPage_acc.do" id="mem_info"><button class="button1">
+		<img src="/som/images/myPage/member_info.jpg"><p>회원정보</p></button></a>
+			
+	<a href="Playlist.do?list_num=1" id="playlist"><button class="button2">
+		<img src="/som/images/myPage/myPlaylist.jpg"><p>내 Playlist</p></button></a>
+			
+	<a href="myMusic_list.do" id="m_list"><button class="button3">
+		<img src="/som/images/myPage/myMusic.jpg"><p>내 Music</p></button></a>
+			
+	<a href="myPoint.do" id="point_pay"><button class="button4">
+	<img src="/som/images/myPage/mypoint.jpg"><p>내 Point</p></button></a>
+			
 	<!-- footer -->
-	<div>
-		<span style="white-space: nowrap;">통신판매업신고번호 : 제 2011-서울강서-95051호 |</span><br>
+	<footer>
+	<hr>
+	<div class="">
+		<div class="">Copyright ⓒ 2017 Apple Inc. 모든 권리 보유.</div>
+		<div class="">
+			<a class="" href="">개인정보 취급방침</a> <a class="" href="">약관</a> <a
+				class="" href="">판매 및 환불</a> <a class="" href="">법적 고지</a> <a
+				class="" href="">사이트 맵</a>
+		</div>
+	</div>
+	<br />
+	<p style="margin-top: -20px; margin-bottom: 20px; color: #999;">
+		<span style="white-space: nowrap;">사업자등록번호 : 120-95-0515 |</span> <span
+			style="white-space: nowrap;">통신판매업신고번호 : 제 2011-서울강서-95051호 |</span>
 		<span style="white-space: nowrap;">대표이사 : Swanson Choi |</span> <span
 			style="white-space: nowrap;">주소 : 서울 특별시 강서구 가로공원로 184-11 |</span> <span
 			style="white-space: nowrap;">대표전화 : 010-9252-2095 |</span> <span
-			style="white-space: nowrap;">팩스 : 02-9252-2095</span><br>
-		<span >COPYLIGHT</span>
-	</div>
+			style="white-space: nowrap;">팩스 : 02-9252-2095</span>
+	</p>
+	</footer>
+
 
 	<script src="/som/js/main/slider.js" type="text/javascript"></script>
 </body>

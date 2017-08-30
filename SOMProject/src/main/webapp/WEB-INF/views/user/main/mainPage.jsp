@@ -102,7 +102,7 @@
                      </div>
                   </form>
                   <div class="loginbox-forgot">
-                     <a href="" onclick="javascript:window.open('gumseck.do','get','width=600px,height=600px');">ID/Password 찾기</a>
+                     <a href="#" onclick="javascript:window.open('gumseck.do','get','width=600px,height=600px');">ID/Password 찾기</a>
                   </div>
 
 

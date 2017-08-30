@@ -49,7 +49,8 @@ $(document).ready(function(){
     });
 });
 
-function a(genre){
+function c(genre){
+	alert('1');
 	window.location=genre+'Popular.do?m_genre='+genre;
 }	
 </script>
@@ -84,22 +85,21 @@ function a(genre){
 		
 		 
 <nav id="myp_title">
-		<h2>&nbsp;인기가요</h2>
+		<h2>&nbsp;인기가요kkkkkkkkkk</h2>
 		<hr/>
 	</nav>
 	<section>
 		<div class="container-fluid"></div>
 		<div id="list" class="tab">
 			<ul class="music">
-				<li><button class="active" onclick="a('k-pop');"
-						>가요</button></li>
-				<li><button class="tablinks" onclick="a('pop');">POP</button></li>
-				<li><button class="tablinks" onclick="a('ost');">OST</button></li>
-				<li><button class="tablinks" onclick="a('edm');">DEM</button></li>
-				<li><button class="tablinks" onclick="a('jazz')">JAZZ</button></li>
-				<li><button class="tablinks" onclick="a('classic')">CLASSIC</button></li>
-				<li><button class="tablinks" onclick="a('j-pop')">J-POP</button></li>
-				<li><button class="tablinks" onclick="a('ccm')">CCM</button></li>
+				<li><button class="active" onclick="c('k-pop');">가요</button></li>
+				<li><button class="tablinks" onclick="c('pop');">POP</button></li>
+				<li><button class="tablinks" onclick="c('ost');">OST</button></li>
+				<li><button class="tablinks" onclick="c('edm');">DEM</button></li>
+				<li><button class="tablinks" onclick="c('jazz')">JAZZ</button></li>
+				<li><button class="tablinks" onclick="c('classic')">CLASSIC</button></li>
+				<li><button class="tablinks" onclick="c('j-pop')">J-POP</button></li>
+				<li><button class="tablinks" onclick="c('ccm')">CCM</button></li>
 				</ul>
 		</div>
 		<div id="kpop" class="tabcontent">

@@ -128,26 +128,26 @@ window.onclick = function(event) {
 		</table>
 	
 	<hr>
-	<div>
-		<div class="">Copyright ⓒ 2017 Apple Inc. 모든 권리 보유.</div>
-		<div class="">
-			<a class="" href="">개인정보 취급방침</a> <a class="" href="">약관</a> <a
-				class="" href="">판매 및 환불</a> <a class="" href="">법적 고지</a> <a
-				class="" href="">사이트 맵</a>
-		</div>
-	</div>
-	
-	<br><br><br>
-	
-	<p style="margin-top: -20px; margin-bottom: 20px; color: #999;">
-		<span style="white-space: nowrap;">사업자등록번호 : 120-95-0515 |</span> <span
-			style="white-space: nowrap;">통신판매업신고번호 : 제 2011-서울강서-95051호 |</span>
-		<span style="white-space: nowrap;">대표이사 : Swanson Choi |</span> <span
-			style="white-space: nowrap;">주소 : 서울 특별시 강서구 가로공원로 184-11 |</span> <span
-			style="white-space: nowrap;">대표전화 : 010-9252-2095 |</span> <span
-			style="white-space: nowrap;">팩스 : 02-9252-2095</span>
-	</p>
-	</div>
+	<footer>
+			<hr>
+			<div class="">
+				<div class="">Copyright ⓒ 2017 Apple Inc. 모든 권리 보유.</div>
+				<div class="">
+					<a class="" href="">개인정보 취급방침</a> <a class="" href="">약관</a> <a
+						class="" href="">판매 및 환불</a> <a class="" href="">법적 고지</a> <a
+						class="" href="">사이트 맵</a>
+				</div>
+			</div>
+			<br />
+			<p style="margin-top: -20px; margin-bottom: 20px; color: #999;">
+				<span style="white-space: nowrap;">사업자등록번호 : 120-95-0515 |</span> <span
+					style="white-space: nowrap;">통신판매업신고번호 : 제 2011-서울강서-95051호
+					|</span> <span style="white-space: nowrap;">대표이사 : Swanson Choi |</span> <span
+					style="white-space: nowrap;">주소 : 서울 특별시 강서구 가로공원로 184-11 |</span>
+				<span style="white-space: nowrap;">대표전화 : 010-9252-2095 |</span> <span
+					style="white-space: nowrap;">팩스 : 02-9252-2095</span>
+			</p>
+		</footer>
 	
 	</form>
 	
