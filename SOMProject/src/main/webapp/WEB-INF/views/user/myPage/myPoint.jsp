@@ -5,6 +5,7 @@
 <html>
 <head>
 <style>
+
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script>
@@ -43,6 +44,14 @@
 			}
 		}
 	}
+	function bb(){
+		var obj=document.getElementsByName('m_point');
+		for(var i=0;i<obj.length;i++){
+		if(obj[i].checked){
+			window.open('cardpayment.do?point='+obj[i].value,'get','height=300px, width=500px');
+			}
+		}
+	}	
 </script>
 <script type="text/javascript" src="/som/js/main/slider.js"></script>
 <script type="text/javascript" src="/som/js/main/login.js"></script>
@@ -79,11 +88,9 @@
 	<div class="container-fluid"></div>
 	<div class="point_main">
 		<table id="point_category">
+			
 			<tr>
-				<td><ul><li style="color:#5ABEFF"><a href="">포인트 결제</a></li></ul></td>
-			</tr>
-			<tr>
-				<td><ul><li style="color:#5ABEFF"><a href="">최근 결제내역</a></li></ul></td>
+				<td><ul><li style="color:#5ABEFF"><a href="paymentdetail.do">최근 결제내역</a></li></ul></td>
 			</tr>
 			<tr>
 				<td height="170"></td>
@@ -94,7 +101,7 @@
 		</table>
 		<div id="point_list">
 		<form name="myForm" action="payment.do" method="post">
-			<table border="1" width="600" height="400">
+			<table style="border:1px solid #333; background-color: #eceef4" width="600" height="400">
 				<tr align="center">
 					<td></td>
 					<td>결제금액 선택</td>
@@ -144,12 +151,12 @@
 					<td>35,000원</td>
 				</tr>
 				<tr>
-					<td colspan="4" align="center"><a href=""><img
-							src="../images/credit-card.jpg">신용카드</a>&nbsp;&nbsp; <a href=""><img
-							src="../images/bank-transfer.jpg">계좌이체</a>&nbsp;&nbsp; <a
-						href=""><img src="../images/mobile-pay.jpg">핸드폰</a>&nbsp;&nbsp;
-						<a href=""><img src="../images/depositless-pay.jpg">무통장
-							입금</a> <input type="submit" value="충전"></td>
+					<td colspan="4" align="center">
+					<img src="/som/images/myPage/credit-card.jpg" onclick="javascript:bb();">					
+					<a href="" onclick="javascript:window.open('accountPayment.do','get','height=300px, width=300px')"><img src="/som/images/myPage/bank-transfer.jpg"></a>&nbsp;&nbsp;
+					<a href="" onclick="javascript:window.open('phonePayment.do','get','height=300px, width=300px')"><img src="/som/images/myPage/mobile-pay.jpg"></a>&nbsp;&nbsp;
+					<a href="" onclick="javascript:window.open('atmPayment.do','get','height=300px, width=300px')"><img src="/som/images/myPage/depositless-pay.jpg"></a>
+					<input type="submit" value="충전" >
 			</table>
 		</form>
 	</div>

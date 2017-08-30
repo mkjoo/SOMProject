@@ -94,8 +94,8 @@
 <link href="/som/css/main/content.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/footer.css" rel="stylesheet" tyep="text/css">
 <link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
-<link href="/som/css/main/mp_header.css" rel="stylesheet"
-	type="text/css">
+<link href="/som/css/main/mp_header.css?ver=1" rel="stylesheet"
+   type="text/css">
 
 </head>
 

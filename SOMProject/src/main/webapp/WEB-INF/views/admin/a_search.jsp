@@ -62,37 +62,6 @@ body {
 	margin: 0px;
 }
 
-html, * {
-	margin: 0;
-	padding: 0;
-}
-
-header {
-	background-color: #303C43;
-	padding-top: 10px;
-	padding-bottom: 7px;
-}
-
-.header_menu_ul {
-	list-style: none;
-}
-
-.menu {
-	display: inline;
-	padding: 0 205px;
-	color: white;
-}
-
-.hd_mn_ul_li_span {
-	color: white;
-}
-
-.header_search {
-	width: 100%;
-	height: 35px;
-	text-align: center;
-}
-
 </style>
 <script>
 function loginResult(result) {
@@ -123,7 +92,7 @@ window.onload = loginResult("${result}");
 <link href="/som/css/main/slider.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/footer.css" rel="stylesheet" tyep="text/css">
-<link href="/som/css/main/mp_header.css" rel="stylesheet" type="text/css">
+<link href="/som/css/main/mp_header.css?ver=1" rel="stylesheet" type="text/css">
 
 <link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
 <link href="/som/css/popular/verticalTabs.css" rel="stylesheet"

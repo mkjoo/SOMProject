@@ -43,8 +43,8 @@ function myFunction2(){
 <link href="/som/css/main/content.css" rel="stylesheet" type="text/css">
 <link href="/som/css/main/footer.css" rel="stylesheet" tyep="text/css">
 <link href="/som/css/main/menu.css" rel="stylesheet" type="text/css">
-<link href="/som/css/main/mp_header.css" rel="stylesheet" type="text/css">
-
+<link href="/som/css/main/mp_header.css?ver=1" rel="stylesheet"
+   type="text/css">
 </head>
 
 <body>
@@ -104,7 +104,7 @@ function myFunction2(){
 							</div>
 						</form>
 							<div class="loginbox-forgot">
-								<a href="">ID/Password 찾기</a>
+								                     <a href="" onclick="javascript:window.open('gumseck.do','get','width=600px,height=600px');">ID/Password 찾기</a>
 							</div>
 
 

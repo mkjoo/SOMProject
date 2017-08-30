@@ -121,7 +121,7 @@ public class MyPagePointController {
 		String email=MemberVo.getEmail().trim();
 		ModelAndView mav=new ModelAndView();
 		List<PaymentVO> list=service.getMyPayment(email);
-		SimpleDateFormat simpledateformat =new SimpleDateFormat("yy년mm월dd일E요일");
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-mm-dd hh:mm");
 		for(PaymentVO vo:list){
 			vo.setFormatdate(simpledateformat.format(vo.getUsedate()));
 		}
