@@ -9,7 +9,7 @@ import com.project.user.myPage.model.MusicVO;
 public interface BuskingService {
 	public List<PopularVO> getNewestBusking(BuskingVO vo);
 	
-	public List<BuskingVO> getPopularBusking(BuskingVO vo);
+	public List<PopularVO> getPopularBusking(BuskingVO vo);
 	
 	public List<PopularVO> getMainBusking(Object obj);
 	

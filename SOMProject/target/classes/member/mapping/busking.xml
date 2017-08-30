@@ -21,9 +21,10 @@
 	<insert id="insertBusking" parameterType="com.project.busking.model.BuskingVO">
 		insert into music(m_num,m_name,m_artist,m_album,m_genre,m_path,m_lyrics,m_musicvideo,src) values(music_seq.nextval,#{m_name},#{m_artist},#{m_album},#{m_genre},#{m_path},#{m_lyrics},#{m_musicvideo},#{src})
 	</insert>	
-				
-	<select id="getPopularBusking" parameterType="com.project.busking.model.BuskingVO">
-		select * from busking order by b_num asc
+	
+	<select id="getPopularBusking" resultMap="PopularResult">
+		select * from music where m_genre='busking' order by m_count_play desc
 	</select>
-
+				
+	
 </mapper>

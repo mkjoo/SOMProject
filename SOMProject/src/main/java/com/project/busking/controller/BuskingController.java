@@ -27,19 +27,14 @@ public class BuskingController {
 	@RequestMapping(value="busking.do", method=RequestMethod.GET)
 	public ModelAndView busking(BuskingVO BuskingVo){
 		List<PopularVO> list=service.getNewestBusking(BuskingVo);
+		List<PopularVO> list2=service.getPopularBusking(BuskingVo);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("busking/busking");
 		mav.addObject("list", list);
+		mav.addObject("list2", list2);
 		return mav;
 	}
-	@RequestMapping(value="busking1.do", method=RequestMethod.GET)
-	public ModelAndView busking1(BuskingVO BuskingVo){
-		List<BuskingVO> list=service.getPopularBusking(BuskingVo);
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("busking/busking");
-		mav.addObject("list", list);
-		return mav;
-	}
+	
 	@RequestMapping(value="buskingUploadForm.do", method=RequestMethod.GET)
 	public String b(){
 		return "busking/buskingUploadForm";

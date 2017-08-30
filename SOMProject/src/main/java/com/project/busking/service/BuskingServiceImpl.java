@@ -21,8 +21,8 @@ public class BuskingServiceImpl implements BuskingService{
 	}
 
 	@Override
-	public List<BuskingVO> getPopularBusking(BuskingVO vo) {
-		List<BuskingVO> list=dao.getPopularBusking(vo);
+	public List<PopularVO> getPopularBusking(BuskingVO vo) {
+		List<PopularVO> list=dao.getPopularBusking(vo);
 		return list;
 	}
 

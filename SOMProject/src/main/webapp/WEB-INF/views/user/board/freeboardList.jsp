@@ -136,7 +136,7 @@ window.onload=passCheck("${value}");
 
 	<!-- navigation -->
 	<nav>
-	<h2>게시판 목록</h2>
+	<h2>게시판<h4>-자유게시판</h4></h2>
 	</nav>
 
 	<hr style="width: 90%; margin-left: 40px" />
@@ -157,7 +157,7 @@ window.onload=passCheck("${value}");
 
 		<div id="free_board" class="tabcontent">
 
-			<h4>자유게시판</h4>
+			
 			<table id="write_btn" width="100%" cellspacing="1">
 				<tr height="40">
 					<td align="right">

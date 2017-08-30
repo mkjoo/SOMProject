@@ -20,9 +20,9 @@ public class BuskingDAOImpl implements BuskingDAO{
 		return list;
 	}
 	@Override
-	public List<BuskingVO> getPopularBusking(BuskingVO vo) {
+	public List<PopularVO> getPopularBusking(BuskingVO vo) {
 		String statement="com.project.busking.getPopularBusking";
-		List<BuskingVO> list=sqlSession.selectList(statement, vo);
+		List<PopularVO> list=sqlSession.selectList(statement, vo);
 		return list;
 	}
 	@Override
