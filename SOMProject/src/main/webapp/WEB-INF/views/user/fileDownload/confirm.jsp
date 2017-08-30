@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<link href="/som/css/popular/confirm.css?ver=1" rel="stylesheet" type="text/css">
+
 <script>
 function updateResult(value) {
 	if (value == "success") {alert('포인트부족');}
@@ -14,13 +16,17 @@ window.onload = updateResult("${value}");
 </script>
 </head>
 <body>
-500point가 차감됩니다 구매하시겠습니까?<br>
+<div id="buy">
 
-<input type="button" onclick="window.location='download.do?fileName=${fileName}&path=aa&m_name=${m_name}'" value="구매">
-<input type="button" onclick="javascript:self.close();" value="취소">
 <br>
 ${fileName}<br>
-${fileName}<br>
-${path}
+${path}<br><br>
+500point가 차감됩니다 구매하시겠습니까?<br>
+<br>
+</div>
+
+<center><input id="button" type="button" onclick="window.location='download.do?fileName=${fileName}&path=aa'" value="구매">
+<input id="button" type="button" onclick="javascript:self.close();" value="취소"></center>
+
 </body>
 </html>

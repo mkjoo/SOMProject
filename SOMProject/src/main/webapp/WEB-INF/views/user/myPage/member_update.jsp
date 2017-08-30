@@ -46,6 +46,7 @@ window.onclick = function(event) {
 <link href="/som/css/main/mp_header.css" rel="stylesheet" type="text/css">
 <link type="text/css" rel="stylesheet" href="/som/css/myPage/myPage_style.css">
 <link href="/som/css/board/board.css" rel="stylesheet" type="text/css">
+<link href="/som/css/myPage/member_update.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -57,10 +58,10 @@ window.onclick = function(event) {
 	</header>
 	
 	
-	<hr style="width: 90%; margin-left: 40px" />
+	
 	
 		
-		 
+<div id="all">		 
 <form method="post" action="member_updateProc.do">
 	<input type="hidden" name="email" value="${vo.email}">
 	<div id="updt_info">
@@ -121,36 +122,36 @@ window.onclick = function(event) {
 			<tr>
 				<td colspan="2" align="center">
 					<br>
-					<a href="myPage_home.jsp"><input type="submit" value="수정"></a>&nbsp;&nbsp;
-					<a href="myPage_home.do"><input type="button" value="취소" onclick="window.location='myPage_home.do'"></a>
+					<a href="myPage_home.jsp"><input id="button" type="submit" value="수정"></a>&nbsp;&nbsp;
+					<a href="myPage_home.do"><input id="button" type="button" value="취소" onclick="window.location='myPage_home.do'"></a>
 				</td>
 			</tr>
 		</table>
 	
 	<hr>
-	<footer>
-			<hr>
-			<div class="">
-				<div class="">Copyright ⓒ 2017 Apple Inc. 모든 권리 보유.</div>
-				<div class="">
-					<a class="" href="">개인정보 취급방침</a> <a class="" href="">약관</a> <a
-						class="" href="">판매 및 환불</a> <a class="" href="">법적 고지</a> <a
-						class="" href="">사이트 맵</a>
-				</div>
-			</div>
-			<br />
-			<p style="margin-top: -20px; margin-bottom: 20px; color: #999;">
-				<span style="white-space: nowrap;">사업자등록번호 : 120-95-0515 |</span> <span
-					style="white-space: nowrap;">통신판매업신고번호 : 제 2011-서울강서-95051호
-					|</span> <span style="white-space: nowrap;">대표이사 : Swanson Choi |</span> <span
-					style="white-space: nowrap;">주소 : 서울 특별시 강서구 가로공원로 184-11 |</span>
-				<span style="white-space: nowrap;">대표전화 : 010-9252-2095 |</span> <span
-					style="white-space: nowrap;">팩스 : 02-9252-2095</span>
-			</p>
-		</footer>
+	<div>
+		<div class="">Copyright ⓒ 2017 Apple Inc. 모든 권리 보유.</div>
+		<div class="">
+			<a class="" href="">개인정보 취급방침</a> <a class="" href="">약관</a> <a
+				class="" href="">판매 및 환불</a> <a class="" href="">법적 고지</a> <a
+				class="" href="">사이트 맵</a>
+		</div>
+	</div>
+	
+	<br><br><br>
+	
+	<p style="margin-top: -20px; margin-bottom: 20px; color: #999;">
+		<span style="white-space: nowrap;">사업자등록번호 : 120-95-0515 |</span> <span
+			style="white-space: nowrap;">통신판매업신고번호 : 제 2011-서울강서-95051호 |</span>
+		<span style="white-space: nowrap;">대표이사 : Swanson Choi |</span> <span
+			style="white-space: nowrap;">주소 : 서울 특별시 강서구 가로공원로 184-11 |</span> <span
+			style="white-space: nowrap;">대표전화 : 010-9252-2095 |</span> <span
+			style="white-space: nowrap;">팩스 : 02-9252-2095</span>
+	</p>
+	</div>
 	
 	</form>
-	
+	</div>
 	
 
 
