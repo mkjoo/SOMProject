@@ -130,7 +130,7 @@ function a(genre){
 						<td>${musicVo.m_artist}</td>
 						<td>${musicVo.m_album}</td>
 						<td><a href="#" onclick="javascript:window.open('getPopularMovie.do?m_musicvideo=${musicVo.m_musicvideo}','aa','height=500px, width=500px')"><img src="/som/images/myPage/뮤비버튼.png" width="25" height="25"></a></td>
-						<td><a href="#" onclick="javascript:window.open('buy.do?path=${musicVo.m_path}&fileName=${musicVo.m_name}','get','height=500px, width=500px')"><img src="/som/images/myPage/다운버튼.png" width="25" height="25"></a></td>
+						<td><a href="#" onclick="javascript:window.open('buy.do?path=${musicVo.m_path}&fileName=${musicVo.m_name}-${musicVo.m_artist}','get','height=500px, width=500px')"><img src="/som/images/myPage/다운버튼.png" width="25" height="25"></a></td>
 						<td><a href="#" onclick="javascript:window.open('addPlay.do?m_num=${musicVo.m_num}','aa','width=310px height=500px')"><img src="/som/images/myPage/듣기버튼.png" width="25" height="25"></a></td>
 						<td><a href="#" onclick="javascript:window.open('lyrics.do?lyrics=${musicVo.m_lyrics}','get','height=500px, width=500px')"><img src="/som/images/myPage/가사버튼.png" width="25" height="25"></a></td>	
 						<td><a href="#" onclick="window.open('selectPlayList.do?m_num=${musicVo.m_num}','get','height=400px, width=400px')"><img src="/som/images/myPage/담기버튼.png" width="25" height="25"></a></td>

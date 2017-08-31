@@ -11,7 +11,7 @@
 <script type="text/javascript" src="/som/js/main/signUp.js"></script>
 </head>
 <body>
-	<form id="reg" onsubmit="sendIt()" action="regProc.do">
+	<form id="reg" onsubmit="return false;" action="regProc.do">
 		<div class="container">
 			<div class="email">
 				<label><b>Email</b></label> 

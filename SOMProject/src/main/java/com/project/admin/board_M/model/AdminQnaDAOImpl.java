@@ -62,7 +62,9 @@ public class AdminQnaDAOImpl implements AdminQnaDAO{
 	@Override
 	public int getMaxRef() {
 		String statement="com.project.admin.qna.getMaxRef";
-		int a=sqlSession.selectOne(statement);
+		int a=0;
+		try{a=sqlSession.selectOne(statement);
+		}catch(Exception e){a=0;}
 		return a;
 	}
 

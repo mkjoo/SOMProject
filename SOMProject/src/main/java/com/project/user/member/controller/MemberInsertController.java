@@ -47,25 +47,28 @@ public class MemberInsertController {
 		String decodingPass = new String(decoding.decodeBuffer(encodingPass));
 		vo.setPass(encodingPass);
 		vo.setJoindate(new Date());
-		memberInsertService.insertMember(vo);
+		//memberInsertService.insertMember(vo);
 		HashMap map=new HashMap();
 		String[] str=vo.getEmail().split("@");
 		String deleteAt=str[0];
 		String tableName=deleteAt+"_playList";
-		String sql="create table "+tableName+"(list_name varchar2(40), list_num number(6,0))";
+		String sql="create table "+tableName+"(list_name varchar2(40), list_num number(6,0) primary key)";
 		map.put("sql",sql);
-		//memberCreateService.createTable(map);
+		memberCreateService.createTable(map);
 		///////////////////CREATE PLAYLIST/////////
-		String tableName2=deleteAt+"_musicList";
-		String sql2="create table "+tableName2+"(num number(6,0), m_num number(6,0), list_num number(6,0))";
-		map.put("sql",sql2);
-		//memberCreateService.createTableMusicList(map);
-		///////////////////CREATE MUSICLIST/////////////////
+		
 		String tableName3=deleteAt+"_play";
-		String sql3="create table "+tableName3+"(turn number(6,0), m_num number(6,0))";
+		String sql3="create table "+tableName3+"(turn number(6,0), m_num number(6,0), constraint "+tableName3+"_FK foreign key(m_num) references music(m_num))";
 		map.put("sql",sql3);
-		//memberCreateService.createTablePlay(map);
+		memberCreateService.createTablePlay(map);
 		///////////////////CREATE PLAY/////////////////
+		
+		String tableName2=deleteAt+"_musicList";
+		String sql2="create table "+tableName2+"(num number(6,0), m_num number(6,0), list_num number(6,0), constraint "+tableName2+"_FK1 foreign key(m_num) references music(m_num), "+"constraint "+tableName2+"_FK2 foreign key(list_num) references "+tableName+"(list_num))";
+		map.put("sql",sql2);
+		memberCreateService.createTableMusicList(map);
+		///////////////////CREATE MUSICLIST/////////////////
+	
 		String sequenceName1 = deleteAt+"_playList_seq";
 		String sql4="create sequence "+sequenceName1+" increment by 1 nocache nomaxvalue";
 		map.put("sql",sql4);

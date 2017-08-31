@@ -3,7 +3,6 @@ package com.project.admin.board_M.model;
 import java.util.Date;
 
 public class FreeBoardVO {
-
 	private int num;
 	private String writer;
 	private String subject;
@@ -13,7 +12,14 @@ public class FreeBoardVO {
 	private String pass;
 	private int commentcount;
 	private String formatdate;
+	private String email;
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getFormatdate() {
 		return formatdate;
 	}

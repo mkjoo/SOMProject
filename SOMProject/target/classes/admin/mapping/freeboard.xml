@@ -54,7 +54,7 @@
 	
 	<insert id="insertArticle" parameterType="com.project.admin.board_M.model.FreeBoardVO">
 	<![CDATA[
-	insert into freeboard(num,writer,subject,content,regdate) values(freeboard_seq.nextval,#{writer},#{subject},#{content},#{regdate})
+	insert into freeboard(num,writer,subject,content,regdate,email) values(freeboard_seq.nextval,#{writer},#{subject},#{content},#{regdate},#{email})
 		
 	]]>
 	</insert>

@@ -35,6 +35,7 @@
 		<jsp:include page="../admin_tab.jsp" flush="false" />
 		<div id="qna_board" class="admin_tabcontent">
 			<form method="post" name="writeForm" action="adminQnaWriteProc.mdo">
+		<input type="hidden" name="email" value="admin@naver.com">
 				<table width="100%" border="1" cellspacing="2">
 					<tr>
 						<td align="center">작성자</td>
@@ -46,10 +47,7 @@
 						<td><input type="password" name="pass" value="${pass}"></td>
 					</tr>
 
-					<tr>
-						<td>이메일</td>
-						<td><input type="text" name="email" value="${email}"></td>
-					</tr>
+					
 					<tr>
 						<td>제목</td>
 						<td><input type="text" name="subject" value="${subject}"></td>

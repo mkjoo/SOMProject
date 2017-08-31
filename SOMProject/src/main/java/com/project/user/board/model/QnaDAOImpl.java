@@ -58,7 +58,8 @@ public class QnaDAOImpl implements QnaDAO{
 	@Override
 	public int getMaxRef() {
 		String statement="com.project.user.board.qna.getMaxRef";
-		int a=sqlSession.selectOne(statement);
+		int a=0;
+		try{a=sqlSession.selectOne(statement);}catch(Exception e){a=0;}
 		return a;
 	}
 

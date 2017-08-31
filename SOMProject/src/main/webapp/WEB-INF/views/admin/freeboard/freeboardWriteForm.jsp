@@ -34,6 +34,7 @@
 		<jsp:include page="../admin_tab.jsp" flush="false" />
 		<div id="free_board" class="admin_tabcontent">
 			<form method="post" name="writeForm" action="adminFreeBoardWriteProc.mdo">
+				<input type="hidden" name="email" value="admin@naver.com">
 				<input type="hidden" name="writer" value="${writer}" />
 				<table width="450" border="1">
 					<tr>
@@ -45,11 +46,7 @@
 						<td width="145"><input type="password" name="pass"
 							value="${pass}"></td>
 					</tr>
-					<tr>
-						<td>이메일</td>
-						<td><input type="text" size="60" name="email"
-							value="${email}"></td>
-					</tr>
+				
 					<tr>
 						<td>제목</td>
 						<td><input type="text" size="60" name="subject"

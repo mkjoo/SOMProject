@@ -39,14 +39,7 @@
 						<td align="center">작성자</td>
 						<td><input type="text" name="writer" value="${writer}"></td>
 					</tr>
-					<tr>
-						<td>비밀번호</td>
-						<td width="145"><input type="password" name="pass" value="${pass}"></td>
-					</tr>
-					<tr>
-						<td>이메일</td>
-						<td><input type="text" size="60" name="email" value="${email}"></td>
-					</tr>
+
 					<tr>
 						<td>제목</td>
 						<td><input type="text" size="60" name="subject" value="${subject}"></td>
