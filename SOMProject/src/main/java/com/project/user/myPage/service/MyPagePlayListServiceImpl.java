@@ -63,6 +63,11 @@ public class MyPagePlayListServiceImpl implements MyPagePlayListService{
 		dao.upCountPlay2(a);
 	}
 
+	@Override
+	public void deleteList(Object obj) {
+		dao.deleteList(obj);
+	}
+
 	
 
 

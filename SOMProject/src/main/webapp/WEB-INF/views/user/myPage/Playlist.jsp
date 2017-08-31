@@ -6,10 +6,43 @@
 <head>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <style>
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
+.chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.closebtn {
+    padding-left: 10px;
+    color: #888;
+    font-weight: bold;
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.closebtn:hover {
+    color: #000;
+}
 </style>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<script>
+<script type="text/javascript">
+
+
 function updateResult(value) {
    if (value == "success") {
       alert('구매성공');
@@ -50,7 +83,8 @@ window.onclick = function(event) {
        }
      }
    }
-   
+
+
 </script>
 
 <script type="text/javascript" src="/som/js/main/slider.js"></script>
@@ -91,7 +125,13 @@ window.onclick = function(event) {
       <div class="container-fluid"></div>
       <div id="box1">
 <c:forEach var="playListVo" items="${list}">
-   <input id="button" type="button" value="${playListVo.list_name}" onclick="window.location='Playlist.do?list_num=${playListVo.list_num}'"/>
+
+   <div class="chip">
+   <input id="button" name="bt" type="button" value="${playListVo.list_name}" onclick="window.location='Playlist.do?list_num=${playListVo.list_num}'"/>
+	
+	   <span class="closebtn" onclick="javascript:window.location='deleteList.do?list_num=${playListVo.list_num}'">&times;</span>
+	</div>
+	
 </c:forEach>
       </div>
    </section>
@@ -144,5 +184,6 @@ window.onclick = function(event) {
 
 
    <script src="/som/js/main/slider.js" type="text/javascript"></script>
+
 </body>
 </html>

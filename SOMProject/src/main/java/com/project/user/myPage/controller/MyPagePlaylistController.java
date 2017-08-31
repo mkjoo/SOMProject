@@ -245,4 +245,27 @@ public class MyPagePlaylistController {
 			mav.addObject("list",list);
 			return mav; 
 		}
+		
+		
+		@RequestMapping(value="deleteList.do", method=RequestMethod.GET)
+		public ModelAndView deleteList(HttpServletRequest request,@RequestParam String list_num){
+			HttpSession session=null;
+			session=request.getSession();
+			MemberVO vo=(MemberVO)session.getAttribute("loginID");
+			String email=vo.getEmail().trim();
+			String[] str=email.split("@");
+			String deleteGolbengEE=str[0];
+			String tableName=deleteGolbengEE+"_playList";
+			HashMap map=new HashMap();
+			map.put("tableName",tableName);
+			map.put("list_num",Integer.valueOf(list_num));
+			service.deleteList(map);
+			ModelAndView mav=new ModelAndView();
+			mav.addObject("list_num",1);
+			mav.setViewName("redirect:Playlist.do");
+			return mav; 
+		}
+		
+		
+		
 }

@@ -135,4 +135,10 @@ public class MyPageDAOImpl implements MyPageDAO{
 		String statement="com.project.user.myPage.upCountPlay";
 		sqlSession.update(statement,a);
 	}
+
+	@Override
+	public void deleteList(Object obj) {
+		String statement="com.project.user.myPage.deleteList";
+		sqlSession.delete(statement,obj);
+	}
 }

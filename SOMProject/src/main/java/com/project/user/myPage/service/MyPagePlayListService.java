@@ -15,5 +15,5 @@ public interface MyPagePlayListService {
 	public void insertMyPlay(Object obj);
 	public List<MusicVO> getMyPlay(Object obj);
 	public void upCountPlay2(Integer a);
-	
+	public void deleteList(Object obj);
 }

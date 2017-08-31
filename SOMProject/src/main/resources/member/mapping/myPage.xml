@@ -110,5 +110,9 @@
 		select * from paymentdetail where email=#{email}
 	</select>
 		
+	<delete id="deleteList" parameterType="java.util.Map">
+		delete from ${tableName} where list_num=${list_num}
+	</delete>
+	
 	
 </mapper> 

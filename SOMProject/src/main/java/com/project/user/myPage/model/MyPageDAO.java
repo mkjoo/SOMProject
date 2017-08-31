@@ -25,4 +25,5 @@ public interface MyPageDAO {
 	public void insertMyPlay(Object obj);
 	public void insertMyPayment(Object obj);
 	public List<PaymentVO> getMyPayment(String str);
+	public void deleteList(Object obj);
 }
