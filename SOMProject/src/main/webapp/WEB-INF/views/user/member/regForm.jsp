@@ -14,7 +14,7 @@
 	<form id="reg" action="regProc.do">
 		<div class="container">
 			<div class="email">
-				<label><b>Email</b></label> <input type="text" class="emailInput"
+				<label> <b>Email</b></label> <input type="text" class="emailInput"
 					id="email" value="${Address}" name="email" readOnly />
 				<div style="display: none;">
 					<input type="text" class="certify" id="certify" value="${certify}"
