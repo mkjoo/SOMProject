@@ -1,5 +1,6 @@
 package com.project.main.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 
@@ -46,6 +47,11 @@ public class MainController {
 		List<PopularVO> list2=popularService.getMainPopular(map);
 		List<PopularVO> list3=buskingService.getMainBusking(map);
 		List<NoticeVO> list4=noticeListService.getBoardList(map);
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		for(NoticeVO vo:list4){
+			vo.setFormatdate(simpledateformat.format(vo.getRegdate()));
+		}
+		
 		ModelAndView mav=new ModelAndView("main/mainPage");
 		mav.addObject("newestList",list1);
 		mav.addObject("popularList",list2);

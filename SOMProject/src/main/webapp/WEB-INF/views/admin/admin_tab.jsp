@@ -47,13 +47,13 @@ div#divide {
 <body>
 <div class="admin_tab" id="maintable">
 	<table width="140">
-		<!-- 
+		
 		<tr>
-			<td><a href="admin_home.mdo">관리자 페이지</a></td>
+			<td><a href="admin_home.mdo">관리자 홈</a></td>
 		</tr>
-		-->
+		
 		<tr>
-			<td><a href="admin_home.mdo">회원 관리</a></td>
+			<td><a href="admin_member.mdo">회원 관리</a></td>
 		</tr>
 		
 		<tr>

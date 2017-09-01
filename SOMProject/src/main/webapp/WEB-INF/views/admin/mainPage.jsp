@@ -4,7 +4,41 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script>
+  
+  <!-- API 스크립트 -->
+   <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+   <script type="text/javascript">
+      Kakao.init('df328bb008ac1bbc251e428accb4cb91');
+      function loginWithKakao() {
+         Kakao.Auth
+               .login({
+                  success : function(authObj) {
+                     alert('success');
+                     alert(JSON.stringify(authObj));
+                     Kakao.API
+                           .request({
+                              url : '/v1/user/me',
+                              success : function(res) {
+                                 alert(res.properties.nickname
+                                       + '님 환영합니다.');
+                                 document.getElementById("myBtn").innerHTML = res.kaccount_email;
+                                 window.location='login.do?'+res.kaccount_email;
+                                 
+                              },
+                              fail : function(error) {
+                                 alert(JSON.stringify(error));
+                              }
+                           });
+                  },
+                  fail : function(err) {
+                     alert('fail');
+                     alert(JSON.stringify(err));
+                  }
+               });
+      }
+   </script>
+   
+  <script>
 function loginResult(result) {
 	if (result == "resultNoId") {
 		alert('아디가 틀려요');
@@ -67,75 +101,71 @@ window.onload = loginResult("${result}");
 	</header>
 
 	<!-- The Modal -->
-	<div id="myModal" class="modal">
+   <div id="myModal" class="modal">
 
-		<!-- Modal content -->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				
-				<h4 class="modal-title" id="myModalLabel">Login Page</h4>
-			</div>
+      <!-- Modal content -->
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close">
+               <span aria-hidden="true">&times;</span>
+            </button>
 
-			<div class="modal-body">
-				<div class="login-container animated fadeInDown bootstrap snippets">
-					<div class="loginbox bg-white">
-						<div class="loginbox-title">Log In</div>
-						<div class="loginbox-social">
-							<div class="social-title ">sns 계정으로 LogIn 하기</div>
-							<div class="social-buttons">
-								<a href="" class="button-facebook"> <i
-									class="social-icon fa fa-facebook"></i>
-								</a> <a href="" class="button-twitter"> <i
-									class="social-icon fa fa-twitter"></i>
-								</a> <a href="" class="button-google"> <i
-									class="social-icon fa fa-google-plus"></i>
-								</a>
-							</div>
-						</div>
-						<div class="loginbox-or">
-							<div class="or-line"></div>
-							<div class="or">OR</div>
-						</div>
-						<form method="post" action="loginProc.do">
-							<div class="loginbox-textbox">
-								<input type="text" name="email" class="form-control"
-									placeholder="Email">
-							</div>
-							<div class="loginbox-textbox">
-								<input type="text" name="pass" class="form-control"
-									placeholder="Password">
-							</div>
+            <h4 class="modal-title" id="myModalLabel">Login Page</h4>
+         </div>
 
-							<div class="loginbox-submit">
-								<input type="submit" class="btn btn-primary btn-block"
-									value="Login">
-							</div>
-						</form>
-							<div class="loginbox-forgot">
-								<a href="#" onclick="javascript:window.open('gumseck.do','get','width=600px,height=600px');">ID/Password 찾기</a>
-							</div>
+         <div class="modal-body">
+            <div class="login-container animated fadeInDown bootstrap snippets">
+               <div class="loginbox bg-white">
+                  <div class="loginbox-title">Log In</div>
+                  <div class="loginbox-social">
+                     <div class="social-title">sns 계정으로 LogIn 하기</div>
+                     <div class="social-buttons">
 
+                        <a href="javascript:loginWithKakao()" id="custom-login-btn" class="button-kakao"><img
+                           src="/som/images/main/KakaoLogo.png"
+                           class="social-icon fa fa-kakao" width="30px" height="30px"
+                           style="margin-top: 20%;"></img></a> <a
+                           href="https://www.google.co.uk/" class="button-google"><img
+                           src="/som/images/main/GoogleLogo.png"
+                           class="social-icon fa fa-google" width="30px" height="30px"
+                           style="margin-top: 20%;"></img></a> <a href="https://twitter.com/"
+                           class="button-twitter"><img
+                           src="/som/images/main/TwitterLogo.png"
+                           class="social-icon fa fa-twitter" width="50px" height="50px"
+                           style="margin-top: 4%;"></img></a>
+                     </div>
+                  </div>
+                  <div class="loginbox-or">
+                     <div class="or-line"></div>
+                     <div class="or">OR</div>
+                  </div>
+                  <form method="post" action="loginProc.do">
+                     <div class="loginbox-textbox">
+                        <input type="text" name="email" class="form-control"
+                           placeholder="Email">
+                     </div>
+                     <div class="loginbox-textbox">
+                        <input type="text" name="pass" class="form-control"
+                           placeholder="Password">
+                     </div>
 
-						<div class="loginbox-signup">
-								<button onclick="openSignUp()">회원가입</button>
-							</div>
-					</div>
-					<div class="logobox"></div>
-				</div>
+                     <div class="loginbox-submit">
+                        <input type="submit" class="btn btn-primary btn-block"
+                           value="Login">
+                     </div>
+                  </form>
+                  <div class="loginbox-forgot">
+                     <a href="">ID/Password 찾기</a>
+                  </div>
 
 
+                  <div class="loginbox-signup">
+                     <button onclick="openSignUp()">회원가입</button>
+                  </div>
+               </div>
+               <div class="logobox"></div>
+            </div>
 
-
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-
-	</div>
 
 	<script type="text/javascript" src="/som/js/main/modal.js"></script>
 

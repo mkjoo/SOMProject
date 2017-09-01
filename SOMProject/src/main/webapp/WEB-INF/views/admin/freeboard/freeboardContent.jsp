@@ -84,7 +84,9 @@ function writeCheck(){
 					</colgroup>
 					<tr align="center">
 						<td>
+							<c:if test="${vo.writer eq writer}">
 							<input type="button" value="글수정" onclick="window.location='adminFreeBoardUpdateForm.mdo?num=${vo.num}'">
+							</c:if>
 						</td>
 						<td>
 							<input type="button" value="삭제" onclick="window.location='adminFreeBoardDeleteProc.mdo?num=${vo.num}'">
@@ -117,7 +119,9 @@ function writeCheck(){
 								<input type="button" value="삭제" onclick="window.location='deleteComment.mdo?cnum=${commentList.cnum}&num=${commentList.num}'">
 							</td>
 							<td align="center">
+							<c:if test="${writer eq commentList.name}">
 								<input type="button" value="수정" onclick="window.location='updateCommentForm.mdo?cnum=${commentList.cnum}&num=${commentList.num}&name=${commentList.name}&content=${commentList.content}'"></button>
+							</c:if>
 							</td>
 						</tr>
 					</table>
@@ -135,7 +139,7 @@ function writeCheck(){
 						<td><input type="hidden" name="num" value="${vo.num}">
 								<input type="hidden" name="name" value="${writer}"><label>${writer} : </label>
 						</td>
-						<td rowspan="3" align="center"><textarea name="content" cols="70" rows="6">"${content}"</textarea></td>
+						<td rowspan="3" align="center"><textarea name="content" cols="70" rows="6"></textarea></td>
 						<td>&nbsp;</td>
 					</tr>
 					<tr>

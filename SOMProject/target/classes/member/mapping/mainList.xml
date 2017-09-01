@@ -38,13 +38,13 @@
 	
 	<select id="getMainNewest" parameterType="java.util.Map" resultMap="PopularResult">
 		<![CDATA[
-		select * from (select rownum rnum,m_num,m_name,m_artist,m_create_date,m_path,m_lyrics,src from (select * from music order by m_create_date desc)) where rnum>=#{startRow} and rnum <= #{endRow}		
+		select * from (select rownum rnum,m_num,m_name,m_artist,m_create_date,m_path,m_lyrics,src from (select * from music where not m_genre = 'busking' order by m_create_date desc)) where rnum>=#{startRow} and rnum <= #{endRow}		
 		]]>
 	</select>
 	
 	<select id="getMainPopular" parameterType="java.util.Map" resultMap="PopularResult">
 		<![CDATA[
-		select * from (select rownum rnum,m_num,m_name,m_artist,m_create_date,m_path,m_lyrics,src from (select * from music order by m_count_play desc)) where rnum>=#{startRow} and rnum <= #{endRow}
+		select * from (select rownum rnum,m_num,m_name,m_artist,m_create_date,m_path,m_lyrics,src from (select * from music where not m_genre = 'busking' order by m_count_play desc)) where rnum>=#{startRow} and rnum <= #{endRow}
 		]]>
 	</select>
 	

@@ -36,23 +36,7 @@
 	공지사항 글개수=${countNotice}&nbsp;&nbsp;&nbsp;QNA 글개수=${countQna}	
 	
 	<br><br><br><br>
-		<h4>회원목록</h4>
-		<table border="1">
-			<tr>
-				<td>이름</td>
-				<td>폰번호</td>
-				<td>생년월일</td>
-				<td></td>				
-			</tr>
-		<c:forEach var="member" items="${list}" varStatus="number">
-			<tr>
-				<td>${member.name}</td>
-				<td>${member.phone}</td>
-				<td>${member.birth}</td>
-				<td><input type="button" value="제거" onclick="window.location='deleteMember.mdo?email=${member.email}'"></td>
-			</tr>
-		</c:forEach>
-		</table>
+		
 	</div>
 	
 	<footer>

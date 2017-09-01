@@ -59,7 +59,7 @@ public class FileDownloadController {
 		//c:/본인꺼/somProject/넣고싶은곳/xx.mp3
 		//String fullPath = path+"/"+fileName+".mp3";
 		System.out.println(fileName);
-		String fullPath="C:/Users/welcometothehell/git/SOMProject/SOMProject/src/main/webapp/music/"+fileName+".mp3";
+		String fullPath="C:/Users/주민경/git/SOMProject/SOMProject/src/main/webapp/music/"+fileName+".mp3";
 		File file = new File(fullPath);
 		System.out.println(fullPath);
 		ModelAndView mav=new ModelAndView("download","downloadFile",file);

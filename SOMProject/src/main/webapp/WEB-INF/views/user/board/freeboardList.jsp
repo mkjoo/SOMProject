@@ -198,6 +198,7 @@ window.onload=passCheck("${value}");
 									(${vo.commentcount}) </a></td>
 							<td align="center">${vo.writer}</td>
 							<td align="center">${vo.formatdate}</td>
+							<td align="center">${vo.readcount}</td>
 						</tr>
 					</c:forEach>
 				</c:if>

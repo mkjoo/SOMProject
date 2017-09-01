@@ -77,17 +77,17 @@
 					</colgroup>
 					<tr align="center">
 						<td>
-							<button onclick="window.location='adminQnaUpdateForm.mdo?num=${vo.num}'">글수정</button>
+							<input type="button" value="답글쓰기" onclick="writeCheck()">
 						</td>
+
 						<td>
-							<button onclick="window.location='adminQnaDeleteProc.mdo?num=${vo.num}'">삭제</button>
+							<input type="button" value="목록보기" onclick="window.location='adminQnaList.mdo'">
 						</td>
+												
 						<td>
-							<button onclick="window.location='adminQnaList.mdo'">목록보기</button>
+							<input type="button" value="삭제"  onclick="window.location='adminQnaDeleteProc.mdo?num=${vo.num}'">
 						</td>
-						<td>
-							<button onclick="writeCheck()">답글쓰기</button>
-						</td>
+
 					</tr>
 				</table>
 			</form>

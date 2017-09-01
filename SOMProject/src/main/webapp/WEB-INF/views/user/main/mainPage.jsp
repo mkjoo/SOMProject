@@ -8,19 +8,19 @@
 <script type="text/javascript" src="/som/js/main/modal.js"></script>
 <!-- API 스크립트 -->
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<script language="javascript"> 
-function loginResult(result) {
-	if (result == "resultNoId") {
-		alert('아디가 틀려요');
+<script language="javascript">
+	function loginResult(result) {
+		if (result == "resultNoId") {
+			alert('아디가 틀려요');
+		}
+		if (result == "resultNoPass") {
+			alert('비번이 틀려요');
+		}
+		if (result == "resultOK") {
+			alert('로그인 성공');
+		}
 	}
-	if (result == "resultNoPass") {
-		alert('비번이 틀려요');
-	}
-	if (result == "resultOK") {
-		alert('로그인 성공');
-	}
-}
-window.onload = loginResult("${result}");
+	window.onload = loginResult("${result}");
 </script>
 
 <script type="text/javascript">
@@ -130,42 +130,42 @@ window.onload = loginResult("${result}");
 						<form method="post" action="loginProc.do">
 							<table>
 								<tr>
-									<div class="loginbox-textbox">
-										<input type="text" name="email" class="form-control"
-											placeholder="Email">
-									</div>
+									<td>
+										<div class="loginbox-textbox">
+											<input type="text" name="email" class="form-control"
+												placeholder="Email">
+										</div>
+									</td>
+									<td rowspan="2" width="60px" float="left"><input
+										type="image" src="/som/images/main/login.png"
+										class="btn btn-primary btn-block"
+										style="width: 50px; height: 50px;"></td>
+
 								</tr>
 								<tr>
 									<td>
 										<div class="loginbox-textbox">
-											<input type="text" name="pass" class="form-control"
+											<input type="password" name="pass" class="form-control"
 												placeholder="Password">
 										</div>
 									</td>
-									<td>
-										<div class="loginbox-submit">
-											<input type="image" src="/som/images/main/login.png" class="btn btn-primary btn-block"
-														style="width: 50px; height: 50px;">
-										</div>
-									</td>
+
 								</tr>
 
 							</table>
 						</form>
-						<div class="loginbox-forgot">
-							<a href="#" onclick="javascript:window.open('gumseck.do','get','width=600px,height=600px');">ID/Password 찾기</a>
+						<div class="loginbox-signup">
+							<a href="#"
+								onclick="javascript:window.open('gumseck.do','get','width=600px,height=600px');">ID/Password
+								찾기</a>
 						</div>
 
-
 						<div class="loginbox-signup">
-							<img src="/som/images/main/gaip.png" onclick="openSignUp()">
+							<a href="#" onclick="openSignUp()">회원가입</a>
 						</div>
 					</div>
 					<div class="logobox"></div>
 				</div>
-
-
-
 
 			</div>
 			<div class="modal-footer">
@@ -190,7 +190,7 @@ window.onload = loginResult("${result}");
 					</br> </br>
 					<c:forEach var="newestList" items="${newestList}">
 						<li><img alt="" src="${newestList.src}" width="35"
-							height="35">&nbsp;&nbsp;${newestList.m_name}</li>
+							height="35" style="vertical-align: middle;">&nbsp;&nbsp;${newestList.m_name}&nbsp;&nbsp;-&nbsp;&nbsp;${newestList.m_artist}</li>
 					</c:forEach>
 
 				</div>
@@ -207,7 +207,7 @@ window.onload = loginResult("${result}");
 
 					<c:forEach var="popularList" items="${popularList}">
 						<li><img alt="" src="${popularList.src}" width="35"
-							height="35">&nbsp;&nbsp;${popularList.m_name}</li>
+							height="35" style="vertical-align: middle;">&nbsp;&nbsp;${popularList.m_name}&nbsp;&nbsp;-&nbsp;&nbsp;${popularList.m_artist}</li>
 					</c:forEach>
 				</div>
 			</div>
@@ -220,12 +220,10 @@ window.onload = loginResult("${result}");
 				<div class="slide_num">
 					<h2>버스킹</h2>
 					</br> </br>
-					<!-- 
-               <c:forEach var="buskingList" items="${buskingList}">
-                  <li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
-                     height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
-               </c:forEach>
-               -->
+			<c:forEach var="buskingList" items="${buskingList}">
+				<li><img alt="" src="${buskingList.src}" width="35" height="35"
+					style="vertical-align: middle;">&nbsp;&nbsp;${buskingList.m_name}&nbsp;&nbsp;-&nbsp;&nbsp;${buskingList.m_artist}</li>
+			</c:forEach>
 				</div>
 			</div>
 			<div class="text">music 3</div>
@@ -249,8 +247,8 @@ window.onload = loginResult("${result}");
 			<h2>최신가요</h2>
 			</br> </br>
 			<c:forEach var="newestList" items="${newestList}">
-				<li><img alt="" src="${newestList.src}" width="35"
-					height="35">&nbsp;&nbsp;${newestList.m_name}</li>
+				<li><img alt="" src="${newestList.src}" width="35" height="35"
+					style="vertical-align: middle;">&nbsp;&nbsp;${newestList.m_name}&nbsp;&nbsp;-&nbsp;&nbsp;${newestList.m_artist}</li>
 			</c:forEach>
 
 
@@ -259,8 +257,8 @@ window.onload = loginResult("${result}");
 			<h2>인기가요</h2>
 			</br> </br>
 			<c:forEach var="popularList" items="${popularList}">
-				<li><img alt="" src=${popularList.src} width="35"
-					height="35">&nbsp;&nbsp;${popularList.m_name}</li>
+				<li><img alt="" src=${popularList.src } width="35" height="35"
+					style="vertical-align: middle;">&nbsp;&nbsp;${popularList.m_name}&nbsp;&nbsp;-&nbsp;&nbsp;${popularList.m_artist}</li>
 			</c:forEach>
 
 		</div>
@@ -269,8 +267,8 @@ window.onload = loginResult("${result}");
 			</br> </br>
 
 			<c:forEach var="buskingList" items="${buskingList}">
-				<li><img alt="" src="${buskingList.src}" width="35"
-					height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
+				<li><img alt="" src="${buskingList.src}" width="35" height="35"
+					style="vertical-align: middle;">&nbsp;&nbsp;${buskingList.m_name}&nbsp;&nbsp;-&nbsp;&nbsp;${buskingList.m_artist}</li>
 			</c:forEach>
 
 
@@ -287,7 +285,7 @@ window.onload = loginResult("${result}");
 				</br>
 				<font id="writer">${vo.writer}</font>
 				</br>
-				<font id="date">${vo.regdate}</font>
+				<font id="date">${vo.formatdate}</font>
 				<br>
 			</c:forEach>
 		</div>

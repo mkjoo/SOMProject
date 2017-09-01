@@ -290,7 +290,7 @@ window.onload = loginResult("${result}");
 				</br>
 				<font id="writer">${vo.writer}</font>
 				</br>
-				<font id="date">${vo.regdate}</font>
+				<font id="date">${vo.formatdate}</font>
 				<br>
 			</c:forEach>
 		</div>

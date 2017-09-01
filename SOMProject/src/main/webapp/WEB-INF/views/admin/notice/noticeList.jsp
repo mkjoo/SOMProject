@@ -38,8 +38,7 @@
 				<tr height="40">
 					<td align="right">
 						<button onclick="window.location='adminNoticeWriteForm.mdo'">글쓰기</button>&nbsp;
-						<button onclick="window.location='noticeList.do'">전체목록</button>
-					</td>
+						</td>
 				</tr>
 			</table>
 			<table width="100%" border="1" cellspacing="2">

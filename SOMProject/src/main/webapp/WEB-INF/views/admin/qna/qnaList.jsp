@@ -37,8 +37,6 @@
 			<table id="write_btn" width="100%" cellspacing="1">
 				<tr height="40">
 					<td align="right">
-						<button onclick="window.location='adminQnaWriteForm.mdo'">글쓰기</button>&nbsp;
-						<button onclick="window.location='adminQnaList.mdo'">전체목록</button>
 					</td>
 				</tr>
 			</table>

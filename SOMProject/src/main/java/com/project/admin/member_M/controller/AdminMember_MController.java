@@ -1,6 +1,7 @@
 package com.project.admin.member_M.controller;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 
@@ -61,7 +62,7 @@ public class AdminMember_MController {
 	public ModelAndView submitVideo(@RequestParam("image") MultipartFile multipartFile1,@RequestParam("mp3") MultipartFile multipartFile2,MusicVO musicVo) throws Exception{
 		String imageFileName=multipartFile1.getOriginalFilename();
 		// 아래의 path 는 정해지면 바꿔주자 
-		String path="C:/Users/welcometothehell/git/SOMProject/SOMProject/src/main/webapp/";
+		String path="C:/Users/주민경/git/SOMProject/SOMProject/src/main/webapp/";
 		File f=new File(path+"images/music/"+imageFileName);
 		multipartFile1.transferTo(f);
 		
@@ -97,6 +98,23 @@ public class AdminMember_MController {
 		mav.addObject("countMusic",countMusic);
 		return mav;
 	}
+	@RequestMapping(value="admin_member.mdo",method=RequestMethod.GET)
+	public ModelAndView adminMember(){
+		ModelAndView mav=new ModelAndView();
+		List<MemberVO> list=service.getAllMember();
+		int countMember=service.getCountMember();
+		int countNotice=service.getCountNotice();
+		int countQna=service.getCountQna();
+		int countMusic=service.getCountMusic();
+		
+		mav.setViewName("admin_member");
+		mav.addObject("list",list);
+		mav.addObject("countMember",countMember);
+		mav.addObject("countNotice",countNotice);
+		mav.addObject("countQna",countQna);
+		mav.addObject("countMusic",countMusic);
+		return mav;
+	}
 	
 	@RequestMapping(value="deleteMember.mdo",method=RequestMethod.GET)
 	public ModelAndView delete(@RequestParam String email){
@@ -121,6 +139,10 @@ public class AdminMember_MController {
 		List<PopularVO> list2=popularService.getMainPopular(map);
 		List<PopularVO> list3=buskingService.getMainBusking(map);
 		List<NoticeVO> list4=noticeListService.getBoardList(map);
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		for(NoticeVO vo2:list4){
+			vo2.setFormatdate(simpledateformat.format(vo2.getRegdate()));
+		}		
 		mav.addObject("newestList",list1);
 		mav.addObject("popularList",list2);
 		mav.addObject("buskingList",list3);

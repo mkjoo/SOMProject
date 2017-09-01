@@ -49,7 +49,7 @@ public class BuskingController {
 	public ModelAndView submitVideo(@RequestParam("image") MultipartFile multipartFile1,@RequestParam("mp3") MultipartFile multipartFile2,MusicVO musicVo) throws Exception{
 		String imageFileName=multipartFile1.getOriginalFilename();
 		// 아래의 path 는 정해지면 바꿔주자 
-		String path="C:/Users/welcometothehell/git/SOMProject/SOMProject/src/main/webapp/";
+		String path="C:/Users/주민경/git/SOMProject/SOMProject/src/main/webapp/";
 		File f=new File(path+"images/music/"+imageFileName);
 		multipartFile1.transferTo(f);
 		

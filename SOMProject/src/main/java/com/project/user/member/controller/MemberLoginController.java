@@ -1,6 +1,7 @@
 package com.project.user.member.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 import java.util.List;
@@ -68,7 +69,10 @@ public class MemberLoginController {
 		List<PopularVO> list2=popularService.getMainPopular(map);
 		List<PopularVO> list3=buskingService.getMainBusking(map);
 		List<NoticeVO> list4=noticeListService.getBoardList(map);
-				
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		for(NoticeVO vo2:list4){
+			vo2.setFormatdate(simpledateformat.format(vo2.getRegdate()));
+		}		
 		ModelAndView mav = new ModelAndView();
 		
 
@@ -93,6 +97,7 @@ public class MemberLoginController {
 			mav.addObject("popularList",list2);
 			mav.addObject("buskingList",list3);
 			mav.addObject("noticeList",list4);
+			
 			HashMap map2 = new HashMap();
 			map2.put("email",email);
 			map2.put("login","1");
@@ -125,6 +130,10 @@ public class MemberLoginController {
 		List<PopularVO> list2=popularService.getMainPopular(map);
 		List<PopularVO> list3=buskingService.getMainBusking(map);
 		List<NoticeVO> list4=noticeListService.getBoardList(map);
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		for(NoticeVO vo2:list4){
+			vo2.setFormatdate(simpledateformat.format(vo2.getRegdate()));
+		}		
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main/u_mainPage");
@@ -153,6 +162,11 @@ public class MemberLoginController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:mainPage.do");
 		return mav;
+	}
+	
+	public void a(){
+		
+		
 	}
 }
 

@@ -28,6 +28,7 @@
 				</tr>
 			</c:forEach>
 		</table>
+	<input type="button" value="홈" onclick="javascript:window.location='myPage_home.do'">
 	</div>
 	
 	
