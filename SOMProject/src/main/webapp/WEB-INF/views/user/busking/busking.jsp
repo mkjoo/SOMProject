@@ -51,12 +51,9 @@ function d(genre){
 							src="${list.src}" class="img" width="60" height="60"></td>
 						<td width="53%">${list.m_name}</td>
 
-						<td rowspan="2" width="8%"><a  onclick="javascript:window.open('addPlay.do?m_num=${list.m_num}','aa','height=310px, width=500px')" ><input type="image"
-								src="images/myPage/듣기버튼.png" onclick="javascript:window.open('addPlay.do?m_num=${list.m_num}','aa','height=310px, width=500px')" width="25" height="25">&nbsp;&nbsp;</a></td>
-						<td rowspan="2" width="8%"><a><input type="image"
-								src="images/myPage/가사버튼.png" onclick="window.open('lyrics.do?lyrics=${list.m_lyrics}','get','height=500px, width=500px')" width="25" height="25">&nbsp;&nbsp;</a></td>
-						<td rowspan="2" width="8%"><a><input type="image"
-								src="images/myPage/담기버튼.png" onclick="window.open('selectPlayList.do?m_num=${list.m_num}','get','height=400px, width=400px')" width="25" height="25">&nbsp;&nbsp;</a></td>
+						<td><a href="#" onclick="javascript:window.open('addPlay.do?m_num=${list.m_num}','aa','width=310px height=500px')"><img src="/som/images/myPage/듣기버튼.png" width="25" height="25"></a></td>
+						<td><a href="#" onclick="javascript:window.open('lyrics.do?lyrics=${list.m_lyrics}','get','height=500px, width=500px')"><img src="/som/images/myPage/가사버튼.png" width="25" height="25"></a></td>	
+						<td><a href="#" onclick="window.open('selectPlayList.do?m_num=${list.m_num}','get','height=400px, width=400px')"><img src="/som/images/myPage/담기버튼.png" width="25" height="25"></a></td>
 					</tr>
 					<tr>
 						<td>${list.m_artist}</td>
@@ -81,12 +78,9 @@ function d(genre){
 							src="${list2.src}" class="img" width="60" height="60"></td>
 						<td width="53%">${list2.m_name}</td>
 
-						<td rowspan="2" width="8%"><a  onclick="javascript:window.open('addPlay.do?m_num=${list2.m_num}','aa','height=310px, width=500px')" ><input type="image"
-								src="images/myPage/듣기버튼.png" onclick="javascript:window.open('addPlay.do?m_num=${list2.m_num}','aa','height=310px, width=500px')" width="25" height="25">&nbsp;&nbsp;</a></td>
-						<td rowspan="2" width="8%"><a><input type="image"
-								src="images/myPage/가사버튼.png" onclick="window.open('lyrics.do?lyrics=${list2.m_lyrics}','get','height=500px, width=500px')" width="25" height="25">&nbsp;&nbsp;</a></td>
-						<td rowspan="2" width="8%"><a><input type="image"
-								src="images/myPage/담기버튼.png" onclick="window.open('selectPlayList.do?m_num=${list2.m_num}','get','height=400px, width=400px')" width="25" height="25">&nbsp;&nbsp;</a></td>
+						<td><a href="#" onclick="javascript:window.open('addPlay.do?m_num=${list2.m_num}','aa','width=310px height=500px')"><img src="/som/images/myPage/듣기버튼.png" width="25" height="25"></a></td>
+						<td><a href="#" onclick="javascript:window.open('lyrics.do?lyrics=${list2.m_lyrics}','get','height=500px, width=500px')"><img src="/som/images/myPage/가사버튼.png" width="25" height="25"></a></td>	
+						<td><a href="#" onclick="window.open('selectPlayList.do?m_num=${list2.m_num}','get','height=400px, width=400px')"><img src="/som/images/myPage/담기버튼.png" width="25" height="25"></a></td>
 					</tr>
 					<tr>
 						<td>${list2.m_artist}</td>
