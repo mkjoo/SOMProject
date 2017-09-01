@@ -197,7 +197,7 @@ window.onload = loginResult("${result}");
 					<h2>최신가요</h2>
 					</br> </br>
 					<c:forEach var="newestList" items="${newestList}">
-						<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+						<li><img alt="" src="${newestList.src}" width="35"
 							height="35">&nbsp;&nbsp;${newestList.m_name}</li>
 					</c:forEach>
 
@@ -213,7 +213,7 @@ window.onload = loginResult("${result}");
 					<h2>인기가요</h2>
 					</br> </br>
 					<c:forEach var="popularList" items="${popularList}">
-						<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+						<li><img alt="" src="${popularList.src}" width="35"
 							height="35">&nbsp;&nbsp;${popularList.m_name}</li>
 					</c:forEach>
 				</div>
@@ -228,7 +228,7 @@ window.onload = loginResult("${result}");
 					<h2>버스킹</h2>
 					</br> </br>
 					<c:forEach var="buskingList" items="${buskingList}">
-						<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+						<li><img alt="" src="${buskingList.src}" width="35"
 							height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
 					</c:forEach>
 				</div>
@@ -254,7 +254,7 @@ window.onload = loginResult("${result}");
 			<h2>최신가요</h2>
 			</br> </br>
 			<c:forEach var="newestList" items="${newestList}">
-				<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+				<li><img alt="" src="${newestList.src}" width="35"
 					height="35">&nbsp;&nbsp;${newestList.m_name}</li>
 			</c:forEach>
 
@@ -264,7 +264,7 @@ window.onload = loginResult("${result}");
 			<h2>인기가요</h2>
 			</br> </br>
 			<c:forEach var="popularList" items="${popularList}">
-				<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+				<li><img alt="" src="${popularList.src}" width="35"
 					height="35">&nbsp;&nbsp;${popularList.m_name}</li>
 			</c:forEach>
 
@@ -272,7 +272,7 @@ window.onload = loginResult("${result}");
 		<div class="slide_num" id="버스킹">
 			<h2>버스킹</h2>
 			<c:forEach var="buskingList" items="${buskingList}">
-				<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+				<li><img alt="" src="${buskingList.src}" width="35"
 					height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
 			</c:forEach>
 

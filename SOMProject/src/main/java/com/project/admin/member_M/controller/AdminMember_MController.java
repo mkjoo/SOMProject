@@ -1,6 +1,7 @@
 package com.project.admin.member_M.controller;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,12 +15,32 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.admin.member_M.service.AdminMember_MService;
+import com.project.busking.service.BuskingService;
+import com.project.popular.model.PopularVO;
+import com.project.popular.service.PopularService;
+import com.project.user.board.model.NoticeVO;
+import com.project.user.board.service.NoticeListService;
 import com.project.user.member.model.MemberVO;
 import com.project.user.myPage.model.MusicVO;
 
 @Controller
 public class AdminMember_MController {
 	private AdminMember_MService service;
+	private PopularService popularService;
+	private BuskingService buskingService;
+	private NoticeListService noticeListService;
+
+	public void setPopularService(PopularService popularService) {
+		this.popularService = popularService;
+	}
+
+	public void setBuskingService(BuskingService buskingService) {
+		this.buskingService = buskingService;
+	}
+
+	public void setNoticeListService(NoticeListService noticeListService) {
+		this.noticeListService = noticeListService;
+	}
 
 	public AdminMember_MService getService() {
 		return service;
@@ -92,6 +113,18 @@ public class AdminMember_MController {
 		mav.setViewName("a_mainPage");
 		HttpSession session=request.getSession();
 		MemberVO vo=(MemberVO) session.getAttribute("loginID");
+
+		HashMap map=new HashMap();
+		map.put("startRow",1);
+		map.put("endRow",5);
+		List<PopularVO> list1=popularService.getMainNewest(map);
+		List<PopularVO> list2=popularService.getMainPopular(map);
+		List<PopularVO> list3=buskingService.getMainBusking(map);
+		List<NoticeVO> list4=noticeListService.getBoardList(map);
+		mav.addObject("newestList",list1);
+		mav.addObject("popularList",list2);
+		mav.addObject("buskingList",list3);
+		mav.addObject("noticeList",list4);
 		mav.addObject("vo", vo);
 		return mav;
 	}

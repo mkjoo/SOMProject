@@ -72,8 +72,8 @@ public class UserFreeBoardController {
 	@RequestMapping(value="freeBoardWriteForm.do", method=RequestMethod.GET)
 	public ModelAndView setView(HttpServletRequest request){
 		HttpSession session=null;
-		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/mainPage");mav.addObject("result","noLogin");return mav;}
-		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/mainPage");mav.addObject("result","noLogin");return mav;}
+		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin2");mav.addObject("result","noLogin");return mav;}
+		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin2");mav.addObject("result","noLogin");return mav;}
 		session=request.getSession();
 		MemberVO vo=(MemberVO)session.getAttribute("loginID");
 		String name=vo.getName().trim();

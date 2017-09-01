@@ -29,8 +29,8 @@ public class QnaWriteController {
 	@RequestMapping(value="qnaWriteForm.do", method=RequestMethod.GET)
 	public ModelAndView setView(HttpServletRequest request){
 		HttpSession session=null;
-		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
-		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin");mav.addObject("result","noLogin");return mav;}
+		try{session=request.getSession();}catch(Exception e){ModelAndView mav=new ModelAndView("main/noLogin2");mav.addObject("result","noLogin");return mav;}
+		if((MemberVO)session.getAttribute("loginID") == null){ModelAndView mav=new ModelAndView("main/noLogin2");mav.addObject("result","noLogin");return mav;}
 		session=request.getSession();
 		MemberVO vo=(MemberVO) session.getAttribute("loginID");
 		ModelAndView mav=new ModelAndView();

@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 	<!-- 회원관리 -->
-	<bean id="AdminMember_MController" class="com.project.admin.member_M.controller.AdminMember_MController" p:service-ref="AdminMember_MService" />
+	<bean id="AdminMember_MController" class="com.project.admin.member_M.controller.AdminMember_MController" p:service-ref="AdminMember_MService" p:buskingService-ref="BuskingService" p:noticeListService-ref="NoticeListService" p:popularService-ref="PopularService" />
 	<bean id="AdminMember_MDAO" class="com.project.admin.member_M.model.AdminMember_MDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
 	<bean id="AdminMember_MService" class="com.project.admin.member_M.service.AdminMember_MServiceImpl" p:dao-ref="AdminMember_MDAO" />	
 	

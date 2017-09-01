@@ -5,7 +5,12 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-
+	<bean id="BuskingDAO" class="com.project.busking.model.BuskingDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
+	<bean id="BuskingService" class="com.project.busking.service.BuskingServiceImpl" p:dao-ref="BuskingDAO" />
+	<bean id="PopularDAO" class="com.project.popular.model.PopularDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
+	<bean id="PopularService" class="com.project.popular.service.PopularServiceImpl" p:dao-ref="PopularDAO" />
+	<bean id="NoticeDao" class="com.project.user.board.model.NoticeDAOImpl" p:sqlSession-ref="sqlSessionTemplate" />
+	<bean id="NoticeListService" class="com.project.user.board.service.NoticeListServiceImpl"	p:dao-ref="NoticeDao" />
 	
 	<bean id="memberVo" class="com.project.user.member.model.MemberVO" />
 	

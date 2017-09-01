@@ -135,12 +135,15 @@ function myFunction2(){
 		<div class="mySlides fade">
 			<div class="numbertext">1 / 3</div>
 			<div class="c">
-				<img class="nm" src="/som/images/main/flower.jpg" width="50%">
-				<div class="nm" id="nm_album">
-					<h1>오빠</h1>
-					<h3>(PROD.Brother Su)</h3>
-					<br />유승우, 산들(B1A4)<br />발라드
-				</div>
+				<div class="slide_num" id="인기가요">
+			<h2>인기가요</h2>
+			</br> </br>
+			<c:forEach var="popularList" items="${popularList}">
+			<li><img alt="" src="${popularList.src}" width="35"
+				height="35">&nbsp;&nbsp;${popularList.m_name}</li>
+			</c:forEach>
+
+		</div>
 			</div>
 			<div class="text">music 1</div>
 		</div>
@@ -148,13 +151,15 @@ function myFunction2(){
 		<div class="mySlides fade">
 			<div class="numbertext">2 / 3</div>
 			<div class="c">
-				<img class="nm"
-					src="/som/images/main/pink_guy-wallpaper-1920x1280.jpg" width="50%">
-				<div class="nm" id="nm_album">
-					<h1>오빠</h1>
-					<h3>(PROD.Brother Su)</h3>
-					<br />유승우, 산들(B1A4)<br />발라드
-				</div>
+			<div class="slide_num" id="최신가요">
+			<h2>최신가요</h2>
+			<c:forEach var="newestList" items="${newestList}">
+			<li><img alt="" src="${newestList.src}" width="35"
+				height="35">&nbsp;&nbsp;${newestList.m_name}</li>
+			</c:forEach>
+
+
+		</div>
 			</div>
 			<div class="text">music 2</div>
 		</div>
@@ -162,13 +167,14 @@ function myFunction2(){
 		<div class="mySlides fade">
 			<div class="numbertext">3 / 3</div>
 			<div class="c">
-				<img class="nm"
-					src="/som/images/main/KakaoTalk_20170718_143925493.png" width="50%">
-				<div class="nm" id="nm_album">
-					<h1>오빠</h1>
-					<h3>(PROD.Brother Su)</h3>
-					<br />유승우, 산들(B1A4)<br />발라드
-				</div>
+				<div class="slide_num" id="인기가요">
+			<h2>버스킹</h2>
+						<c:forEach var="buskingList" items="${buskingList}">
+			<li><img alt="" src="${buskingList.src}" width="35"
+				height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
+			</c:forEach>
+
+		</div>
 			</div>
 			<div class="text">music 3</div>
 		</div>
@@ -191,7 +197,7 @@ function myFunction2(){
 			<h2>최신가요</h2>
 			</br> </br>
 			<c:forEach var="newestList" items="${newestList}">
-			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+			<li><img alt="" src="${newestList.src}" width="35"
 				height="35">&nbsp;&nbsp;${newestList.m_name}</li>
 			</c:forEach>
 
@@ -201,7 +207,7 @@ function myFunction2(){
 			<h2>인기가요</h2>
 			</br> </br>
 			<c:forEach var="popularList" items="${popularList}">
-			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+			<li><img alt="" src="${popularList.src}" width="35"
 				height="35">&nbsp;&nbsp;${popularList.m_name}</li>
 			</c:forEach>
 
@@ -209,7 +215,7 @@ function myFunction2(){
 		<div class="slide_num" id="버스킹">
 			<h2>버스킹</h2>
 						<c:forEach var="buskingList" items="${buskingList}">
-			<li><img alt="" src="images/myPage/레드벨벳.PNG" width="35"
+			<li><img alt="" src="${buskingList.src}" width="35"
 				height="35">&nbsp;&nbsp;${buskingList.m_name}</li>
 			</c:forEach>
 			

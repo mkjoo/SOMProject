@@ -19,6 +19,7 @@
 	<!-- 공지사항 관련 BEAN -->
 	<bean id="NoticeDao" class="com.project.user.board.model.NoticeDAOImpl"
 		p:sqlSession-ref="sqlSessionTemplate" />
+
 	<bean id="NoticePaging" class="com.project.user.board.model.Paging" />
 
 	<bean id="NoticeListController" class="com.project.user.board.controller.NoticeListController"
