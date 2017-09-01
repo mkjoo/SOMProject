@@ -10,7 +10,6 @@ var checkvalue='';
 
 
 function hi(){
-	alert('hi');
 	for(var i=0;i<songcount;i++){
 		var obj=document.getElementsByName("check");
 		if(obj[i].checked){
@@ -18,7 +17,6 @@ function hi(){
 		checkvalue= checkvalue+obj[i].value+";";
 		}
 	}//end for문
-		alert(checkvalue);
 		window.location='deleteMusicPlayer.do?turn='+checkvalue;
 }//end hi() 메서드
 </script>

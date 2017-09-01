@@ -109,42 +109,42 @@
 					<td>충전 금액</td>
 				</tr>
 				<tr align="center">
-					<td><input type="checkbox" name="m_point" value="5000"
+					<td><input type="checkbox" name="m_point" value="5500"
 						onClick="chkBoxCheck(0)"></td>
 					<td>5,000원</td>
 					<td>-></td>
 					<td>5,500원</td>
 				</tr>
 				<tr align="center">
-					<td><input type="checkbox" name="m_point" value="10000"
+					<td><input type="checkbox" name="m_point" value="11500"
 						onClick="chkBoxCheck(1)"></td>
 					<td>10,000원</td>
 					<td>-></td>
 					<td>11,500원</td>
 				</tr>
 				<tr align="center">
-					<td><input type="checkbox" name="m_point" value="15000"
+					<td><input type="checkbox" name="m_point" value="16500"
 						onClick="chkBoxCheck(2)"></td>
 					<td>15,000원</td>
 					<td>-></td>
 					<td>16,500원</td>
 				</tr>
 				<tr align="center">
-					<td><input type="checkbox" name="m_point" value="20000"
+					<td><input type="checkbox" name="m_point" value="21500"
 						onClick="chkBoxCheck(3)"></td>
 					<td>20,000원</td>
 					<td>-></td>
 					<td>21,500원</td>
 				</tr>
 				<tr align="center">
-					<td><input type="checkbox" name="m_point" value="25000"
+					<td><input type="checkbox" name="m_point" value="26500"
 						onClick="chkBoxCheck(4)"></td>
 					<td>25,000원</td>
 					<td>-></td>
 					<td>26,500원</td>
 				</tr>
 				<tr align="center">
-					<td><input type="checkbox" name="m_point" value="30000"
+					<td><input type="checkbox" name="m_point" value="35000"
 						onClick="chkBoxCheck(5)"></td>
 					<td>30,000원</td>
 					<td>-></td>
