@@ -33,12 +33,13 @@
 						alert(JSON.stringify(authObj));
 						Kakao.API
 								.request({
-									url : '/v1/user/me',
 									success : function(res) {
 										alert(res.properties.nickname
 												+ '님 환영합니다.');
 										document.getElementById("myBtn").innerHTML = res.kaccount_email;
-										window.location = 'login.do';
+										alert('gg');
+										window.location = 'login.do?'
+												+ res.kaccount_email;
 
 									},
 									fail : function(error) {
@@ -53,7 +54,20 @@
 				});
 	}
 </script>
+<script>
+Kakao.init('df328bb008ac1bbc251e428accb4cb91'); //카카오에서 제공 myceo.co.kr 수정
+Kakao.Auth.logout(
+function(obj) {
+if(obj==true){}else{}
+ location.href='로그아웃후 이동할 주소';
+ }
+);
+</script>
+<script src='https://developers.kakao.com/sdk/js/kakao.min.js'></script>
 
+<script>
+	
+</script>
 
 
 <script type="text/javascript" src="/som/js/main/slider.js"></script>
@@ -220,10 +234,10 @@
 				<div class="slide_num">
 					<h2>버스킹</h2>
 					</br> </br>
-			<c:forEach var="buskingList" items="${buskingList}">
-				<li><img alt="" src="${buskingList.src}" width="35" height="35"
-					style="vertical-align: middle;">&nbsp;&nbsp;${buskingList.m_name}&nbsp;&nbsp;-&nbsp;&nbsp;${buskingList.m_artist}</li>
-			</c:forEach>
+					<c:forEach var="buskingList" items="${buskingList}">
+						<li><img alt="" src="${buskingList.src}" width="35"
+							height="35" style="vertical-align: middle;">&nbsp;&nbsp;${buskingList.m_name}&nbsp;&nbsp;-&nbsp;&nbsp;${buskingList.m_artist}</li>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="text">music 3</div>

@@ -111,7 +111,7 @@ window.onload = loginResult("${result}");
 	</div>
 	</header>
 
-	<!-- The Modal -->
+		<!-- The Modal -->
 	<div id="myModal" class="modal">
 
 		<!-- Modal content -->
@@ -120,7 +120,7 @@ window.onload = loginResult("${result}");
 				<button type="button" class="close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-
+				
 				<h4 class="modal-title" id="myModalLabel">Login Page</h4>
 			</div>
 
@@ -159,14 +159,14 @@ window.onload = loginResult("${result}");
 									value="Login">
 							</div>
 						</form>
-						<div class="loginbox-forgot">
-							<a href="">ID/Password 찾기</a>
-						</div>
+							<div class="loginbox-forgot">
+								<a href="#" onclick="javascript:window.open('gumseck.do','get','width=600px,height=600px');">ID/Password 찾기</a>
+							</div>
 
 
 						<div class="loginbox-signup">
-							<button onclick="openSignUp()">회원가입</button>
-						</div>
+								<button onclick="openSignUp()">회원가입</button>
+							</div>
 					</div>
 					<div class="logobox"></div>
 				</div>
