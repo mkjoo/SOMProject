@@ -26,6 +26,22 @@
 		<result property="src" column="src" jdbcType="VARCHAR" />
 	</resultMap>
 	
+		<resultMap id="MyMusicResult2" type="com.project.user.myPage.model.MusicVO">
+		<result property="m_num" column="m_num" jdbcType="BIGINT" />
+		<result property="m_name" column="m_name" jdbcType="VARCHAR" />
+		<result property="m_artist" column="m_artist" jdbcType="VARCHAR" />
+		<result property="m_album" column="m_album" jdbcType="VARCHAR" />
+		<result property="m_genre" column="m_genre" jdbcType="VARCHAR" />
+		<result property="m_create_date" column="m_create_date" jdbcType="TIMESTAMP" />
+		<result property="m_path" column="m_path" jdbcType="VARCHAR" />
+		<result property="m_count_play" column="m_count_play" jdbcType="BIGINT" />
+		<result property="m_download" column="m_download" jdbcType="BIGINT" />
+		<result property="m_lyrics" column="m_lyrics" jdbcType="VARCHAR" />
+		<result property="m_musicvideo" column="m_musicvideo" jdbcType="VARCHAR" />
+		<result property="src" column="src" jdbcType="VARCHAR" />
+		<result property="turn" column="turn" jdbcType="BIGINT" />
+	</resultMap>
+	
 	<resultMap id="MyPlayListResult" type="com.project.user.myPage.model.PlayListVO" >	
 		<result property="list_name" column="list_name" jdbcType="VARCHAR" />
 		<result property="list_num" column="list_num" jdbcType="BIGINT" />
@@ -98,7 +114,7 @@
 		insert into ${tableName}(turn,m_num) values(${sequenceName}.nextval,${m_num})
 	</insert>
 	
-	<select id="getMyPlay" resultMap="MyMusicResult" parameterType="java.util.Map">
+	<select id="getMyPlay" resultMap="MyMusicResult2" parameterType="java.util.Map">
 		select * from ${tableName} join music using(m_num) order by turn asc
 	</select>
 	
@@ -114,5 +130,8 @@
 		delete from ${tableName} where list_num=${list_num}
 	</delete>
 	
+	<delete id="deleteMusicPlayer" parameterType="java.util.Map">
+		delete from ${tableName} where turn=${turn}
+	</delete>
 	
 </mapper> 

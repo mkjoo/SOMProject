@@ -2,7 +2,7 @@ package com.project.user.myPage.model;
 
 import java.util.Date;
 
-public class MusicVO {
+public class MusicVO2 {
 	private int m_num;
 	private String m_name;
 	private String m_artist;

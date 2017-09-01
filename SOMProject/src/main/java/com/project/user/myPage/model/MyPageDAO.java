@@ -16,7 +16,7 @@ public interface MyPageDAO {
 	public List<PlayListVO> getPlayList(String email);
 	public List<MusicVO> getMusic(Object obj);
 	public List<MusicVO> getMyMysic(Object obj);
-	public List<MusicVO> getMyPlay(Object obj);
+	public List<MusicVO2> getMyPlay(Object obj);
 	public void upCountPlay(String musicName);
 	public void upCountPlay2(int a);
 	public List<PlayListVO> getMyPlayList(Object obj);
@@ -26,4 +26,5 @@ public interface MyPageDAO {
 	public void insertMyPayment(Object obj);
 	public List<PaymentVO> getMyPayment(String str);
 	public void deleteList(Object obj);
+	public void deleteMusicPlayer(Object obj);
 }

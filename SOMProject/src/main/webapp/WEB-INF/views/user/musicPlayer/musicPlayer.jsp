@@ -4,6 +4,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript">
+var songcount=${songcount};
+var checkvalue='';
+
+
+function hi(){
+	alert('hi');
+	for(var i=0;i<songcount;i++){
+		var obj=document.getElementsByName("check");
+		if(obj[i].checked){
+		//alert(obj[i].value);
+		checkvalue= checkvalue+obj[i].value+";";
+		}
+	}//end for문
+		alert(checkvalue);
+		window.location='deleteMusicPlayer.do?turn='+checkvalue;
+}//end hi() 메서드
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="/som/js/musicPlayer/musicPlayer.js"></script>
 <script type="text/javascript" src="/som/js/musicPlayer/html5slider.js"></script>
@@ -120,7 +138,8 @@
 
                      <tr style="text-align: center">
                         <td width="8%"><input type="checkbox" name="check"
-                           value="${m_list.m_num }" /></td>
+                           value="${m_list.turn}" /></td>
+                          
                         <td width="6%"><font size="1px" color="#ffffff">${num.count }</font></td>
                         <td width="40%"><font size="1px" color="#ffffff">${m_list.m_name}</font></td>
                         <td width="30%"><font size="1px" color="#ffffff">${m_list.m_artist}</font></td>
@@ -132,7 +151,7 @@
          </td>
       </tr>
    </table>
-
+<img onclick="javascript:hi();" src="/som/images/musicPlayer/music.png">
 
 </body>
 </html>

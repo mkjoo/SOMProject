@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.user.member.model.MemberVO;
 import com.project.user.myPage.model.MusicVO;
+import com.project.user.myPage.model.MusicVO2;
 import com.project.user.myPage.model.PlayListVO;
 import com.project.user.myPage.service.MyPagePlayListService;
 
@@ -169,7 +170,7 @@ public class MyPagePlaylistController {
 			service.upCountPlay2(Integer.valueOf(m_num));
 			service.insertMyPlay(map);
 			
-			List<MusicVO> list=service.getMyPlay(map);
+			List<MusicVO2> list=service.getMyPlay(map);
 			ModelAndView mav=new ModelAndView("musicPlayer/musicPlayer");
 			mav.addObject("songcount",list.size());
 			mav.addObject("list",list);
@@ -198,7 +199,7 @@ public class MyPagePlaylistController {
 				service.insertMyPlay(map);
 			}
 			
-			List<MusicVO> list=service.getMyPlay(map);
+			List<MusicVO2> list=service.getMyPlay(map);
 			
 			ModelAndView mav=new ModelAndView("myPage/myPage_home");
 			mav.addObject("list",list);
@@ -236,10 +237,10 @@ public class MyPagePlaylistController {
 			String tableName=deleteGolbengEE+"_play";
 			HashMap map=new HashMap();
 			map.put("tableName",tableName);
-			List<MusicVO> list=service.getMyPlay(map);
-			for(MusicVO oo:list){
-				System.out.println(oo.getM_path());
-			}
+			List<MusicVO2> list=service.getMyPlay(map);
+//			for(MusicVO2 oo:list){
+//				System.out.println(oo.getM_path());
+//			}
 			ModelAndView mav=new ModelAndView("musicPlayer/musicPlayer");
 			mav.addObject("songcount",list.size());
 			mav.addObject("list",list);
@@ -266,6 +267,28 @@ public class MyPagePlaylistController {
 			return mav; 
 		}
 		
+		@RequestMapping(value="deleteMusicPlayer.do", method=RequestMethod.GET)
+		public ModelAndView deletemusicPlayer(HttpServletRequest request,@RequestParam String turn){
+			HttpSession session=null;
+			session=request.getSession();
+			MemberVO vo=(MemberVO)session.getAttribute("loginID");
+			String email=vo.getEmail().trim();
+			String[] str=email.split("@");
+			String deleteGolbengEE=str[0];
+			String tableName=deleteGolbengEE+"_play";
+			HashMap map=new HashMap();
+			map.put("tableName",tableName);
+			String[] turnArray=turn.split(";");
+			for(int i=0;i<turnArray.length;i++){
+				System.out.println(turnArray[i]);
+				map.put("turn",turnArray[i].trim());
+				service.deleteMusicPlayer(map);
+			}
+			
+			ModelAndView mav=new ModelAndView();
+			mav.setViewName("redirect:musicPlayer.do");
+			return mav; 
+		}
 		
 		
 }

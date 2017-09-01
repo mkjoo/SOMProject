@@ -35,6 +35,7 @@ public class BuskingController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("busking/busking");
 		mav.addObject("list", list);
+		System.out.println(list2.size());
 		mav.addObject("list2", list2);
 		return mav;
 	}
@@ -72,6 +73,7 @@ public class BuskingController {
 		List<BuskingVO> list=service.getBuskingNew(BuskingVo);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("busking/busking_new");
+		System.out.println(list.size());
 		mav.addObject("list", list);
 		return mav;
 	}
@@ -80,6 +82,7 @@ public class BuskingController {
 		List<BuskingVO> list=service.getBuskingPopular(BuskingVo);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("busking/busking_popular");
+		System.out.println(list.size());
 		mav.addObject("list", list);
 		return mav;
 	}

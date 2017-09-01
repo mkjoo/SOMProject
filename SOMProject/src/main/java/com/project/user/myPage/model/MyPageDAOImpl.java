@@ -111,9 +111,9 @@ public class MyPageDAOImpl implements MyPageDAO{
 	}
 
 	@Override
-	public List<MusicVO> getMyPlay(Object obj) {
+	public List<MusicVO2> getMyPlay(Object obj) {
 		String statement="com.project.user.myPage.getMyPlay";
-		List<MusicVO> list=sqlSession.selectList(statement,obj);
+		List<MusicVO2> list=sqlSession.selectList(statement,obj);
 		return list;
 	}
 
@@ -140,5 +140,12 @@ public class MyPageDAOImpl implements MyPageDAO{
 	public void deleteList(Object obj) {
 		String statement="com.project.user.myPage.deleteList";
 		sqlSession.delete(statement,obj);
+	}
+
+	@Override
+	public void deleteMusicPlayer(Object obj) {
+		String statement="com.project.user.myPage.deleteMusicPlayer";
+		sqlSession.delete(statement,obj);
+		
 	}
 }

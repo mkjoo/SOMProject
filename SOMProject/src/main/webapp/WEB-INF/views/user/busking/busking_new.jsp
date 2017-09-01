@@ -103,6 +103,7 @@ function cc(genre){
 						<th></th>
 						<th>곡명</th>
 						<th>가수</th>
+						<th>뮤비</th>
 						<th>다운</th>
 						<th>듣기</th>
 						<th>가사</th>
@@ -111,20 +112,18 @@ function cc(genre){
 					<form action="addAllPlay.do" method="get" name="my_form">
 		<c:forEach var="musicVo" items="${list}" varStatus="status">
 			<tr>
-						<td><input type="checkbox" name="chk" value="${musicVo.b_num}" title="전체선택" ></td>
+						<td><input type="checkbox" name="chk" value="${musicVo.m_num}" title="전체선택" ></td>
 						<td><h4>${status.count}</h4></td>
-						<td><img src="버튼/캡처.PNG" width="50" height="50"></td>
-						<td>${musicVo.b_name}</td>
-						<td>${musicVo.b_artist}</td>
+						<td><img src="${musicVo.src}" width="50" height="50"></td>
+						<td>${musicVo.m_name}</td>
+						<td>${musicVo.m_artist}</td>
 						
 		
-					<td><input type="button" value="구매" onclick="window.open('buy.do?path=${musicVo.b_path}&fileName=${musicVo.b_name}','get','height=150px, width=300px')"></td>
-						<td><a href="#" onclick="javascript:window.open('addPlay.do?m_num=${musicVo.b_num}','aa','height=310px, width=500px')"><img src="버튼/듣기버튼.png"
-								width="25" height="25"></a></td>
-						<td><input type="button" value="가사" onclick="window.open('lyrics.do?lyrics=${musicVo.b_lyrics}','get','height=500px, width=500px')"></td>
-						<td><input type="button" value="담기" onclick="window.open('selectPlayList.do?m_num=${musicVo.b_num}','get','height=400px, width=400px')"></td>
-					</tr>
-			
+						<td><a href="#" onclick="javascript:window.open('getPopularMovie.do?m_musicvideo=${musicVo.m_musicvideo}','aa','height=500px, width=500px')"><img src="/som/images/myPage/뮤비버튼.png" width="25" height="25"></a></td>
+						<td><a href="#" onclick="javascript:window.open('buy.do?path=${musicVo.m_path}&fileName=${musicVo.m_name}-${musicVo.m_artist}','get','height=500px, width=500px')"><img src="/som/images/myPage/다운버튼.png" width="25" height="25"></a></td>
+						<td><a href="#" onclick="javascript:window.open('addPlay.do?m_num=${musicVo.m_num}','aa','width=310px height=500px')"><img src="/som/images/myPage/듣기버튼.png" width="25" height="25"></a></td>
+						<td><a href="#" onclick="javascript:window.open('lyrics.do?lyrics=${musicVo.m_lyrics}','get','height=500px, width=500px')"><img src="/som/images/myPage/가사버튼.png" width="25" height="25"></a></td>	
+						<td><a href="#" onclick="window.open('selectPlayList.do?m_num=${musicVo.m_num}','get','height=400px, width=400px')"><img src="/som/images/myPage/담기버튼.png" width="25" height="25"></a></td></tr>
 		</c:forEach>
 		<input type="submit" value="선택한곡듣기">
 		</form>

@@ -3,6 +3,7 @@ package com.project.user.myPage.service;
 import java.util.List;
 
 import com.project.user.myPage.model.MusicVO;
+import com.project.user.myPage.model.MusicVO2;
 import com.project.user.myPage.model.MyPageDAO;
 import com.project.user.myPage.model.PlayListVO;
 
@@ -53,8 +54,8 @@ public class MyPagePlayListServiceImpl implements MyPagePlayListService{
 	}
 
 	@Override
-	public List<MusicVO> getMyPlay(Object obj) {
-		List<MusicVO> list=dao.getMyPlay(obj);
+	public List<MusicVO2> getMyPlay(Object obj) {
+		List<MusicVO2> list=dao.getMyPlay(obj);
 		return list;
 	}
 
@@ -66,6 +67,11 @@ public class MyPagePlayListServiceImpl implements MyPagePlayListService{
 	@Override
 	public void deleteList(Object obj) {
 		dao.deleteList(obj);
+	}
+
+	@Override
+	public void deleteMusicPlayer(Object obj) {
+		dao.deleteMusicPlayer(obj);
 	}
 
 	

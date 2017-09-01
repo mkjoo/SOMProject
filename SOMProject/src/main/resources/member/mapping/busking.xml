@@ -41,10 +41,10 @@
 		]]>	
 	</select>
 				
-	 <select id="getBuskingNew" resultMap="BuskingResult" parameterType="com.project.busking.model.BuskingVO">
-      select * from busking
+	 <select id="getBuskingNew" resultMap="PopularResult" parameterType="com.project.busking.model.BuskingVO">
+      select * from music where m_genre='busking' order by m_create_date desc 
    </select>
-   <select id="getBuskingPopular" resultMap="BuskingResult" parameterType="com.project.busking.model.BuskingVO">
-      select * from busking
+   <select id="getBuskingPopular" resultMap="PopularResult" parameterType="com.project.busking.model.BuskingVO">
+      select * from music where m_genre='busking' order by m_count_play desc
    </select>
 </mapper>
