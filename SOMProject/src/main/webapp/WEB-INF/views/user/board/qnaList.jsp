@@ -198,7 +198,7 @@
 							<td align="center">${number}<c:set var="number"
 									value="${number-1 }" scope="page" /></td>
 							<td align="left"><c:if test="${vo.depth>0}">
-									<label>답변- </label>
+									<img src="/som/images/main/reply.png" width="13" height="13">
 								</c:if> <a align="center"
 								href="passConfirm.do?num=${vo.num}&pageNum=${bp.cur_Page}">${vo.subject}</a>
 							</td>

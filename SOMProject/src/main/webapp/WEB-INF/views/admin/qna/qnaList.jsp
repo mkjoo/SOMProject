@@ -69,7 +69,7 @@
 							<td align="center">${qnaNumber}<c:set var="qnaNumber"
 									value="${qnaNumber-1 }" scope="page" /></td>
 							<td align="left"><c:if test="${qnaVo.depth>0}">
-									<img src=re.gif />
+								<img src="/som/images/main/reply.png" width="13" height="13">
 								</c:if> <a align="center"
 								href="adminQnaContent.mdo?num=${qnaVo.num}&pageNum=${qnaBp.cur_Page}">${qnaVo.subject}</a>
 							</td>
