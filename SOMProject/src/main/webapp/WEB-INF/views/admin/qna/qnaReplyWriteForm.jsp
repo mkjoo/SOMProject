@@ -44,10 +44,11 @@
 				<input type="hidden" name="ref" value="${ref}">
 				<input type="hidden" name="step" value="${step}">
 				<input type="hidden" name="depth" value="${depth}">
+				<input type="hidden" name="writer" value="${writer}">
 				<table width="100%" border="1" cellspacing="2">
 					<tr>
 						<td align="center">작성자</td>
-						<td><input type="text" name="writer" value="${writer}"></td>
+						<td>${writer}</td>
 					</tr>
 
 					<tr>

@@ -64,6 +64,10 @@ public class QnaWriteController {
 	
 	@RequestMapping(value="qnaReplyWriteForm.do", method=RequestMethod.GET)
 	public ModelAndView onSubmit3(HttpServletRequest request,QnaVO boardVo)throws Exception{
+		HttpSession session=null;
+		session=request.getSession();
+		MemberVO vo=(MemberVO) session.getAttribute("loginID");
+		
 		int num=Integer.valueOf(request.getParameter("num"));
 		int ref=Integer.valueOf(request.getParameter("ref"));
 		int step=Integer.valueOf(request.getParameter("step"));
@@ -74,6 +78,7 @@ public class QnaWriteController {
 		mav.addObject("ref",ref);
 		mav.addObject("step",step);
 		mav.addObject("depth",depth);
+		mav.addObject("vo",vo);
 		System.out.println("n="+num+"/  r="+ref+"/  s="+step+"/  d="+depth);
 		return mav;
 	}

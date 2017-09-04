@@ -156,10 +156,11 @@
 			<div id="qna_board" class="tabcontent">
 				<form method="post" name="writeForm" action="qnaWriteProc.do">
 					<input type="hidden" name="email" value="${vo.email}">
+					<input type="hidden" name="writer" value="${vo.name}">
 					<table width="100%" border="1" cellspacing="2">
 						<tr>
 							<td align="center">작성자</td>
-							<td><input type="text" name="writer" value="${writer}"></td>
+							<td>${vo.name}</td>
 						</tr>
 
 						<tr>

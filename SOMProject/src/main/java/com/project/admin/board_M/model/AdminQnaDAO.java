@@ -17,4 +17,5 @@ public interface AdminQnaDAO {
 	void updateStep(QnaVO2 vo);
 	String getQnaComment(Integer num);
 	void insertQnaComment(Object obj);
+	void updateCommentOX(Object obj);
 }

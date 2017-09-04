@@ -36,10 +36,12 @@
 		<div id="qna_board" class="admin_tabcontent">
 			<form method="post" name="writeForm" action="adminQnaWriteProc.mdo">
 		<input type="hidden" name="email" value="admin@naver.com">
+		<input type="hidden" name="writer" value="${writer}">
+		
 				<table width="100%" border="1" cellspacing="2">
 					<tr>
 						<td align="center">작성자</td>
-						<td><input type="text" name="writer" value="${writer}"></td>
+						<td>${writer}</td>
 					</tr>
 
 					<tr>

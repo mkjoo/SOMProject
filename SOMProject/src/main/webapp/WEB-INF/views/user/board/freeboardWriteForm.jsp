@@ -156,11 +156,12 @@
 
 		<div id="free_board" class="tabcontent">
 			<form method="post" name="writeForm" action="freeBoardWriteProc.do">
-				<input type="hidden" name="writer" value="${writer}" />
+				<input type="hidden" name="writer" value="${vo.name}" />
+				<input type="hidden" name="email" value="${vo.email}" />
 				<table width="100%" border="1" cellspacing="2">
 					<tr>
 						<td align="center">작성자</td>
-						<td>${writer}</td>
+						<td>${vo.name}</td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>
@@ -169,8 +170,7 @@
 					</tr>
 					<tr>
 						<td>이메일</td>
-						<td><input type="text" size="60" name="email"
-							value="${email}"></td>
+						<td>${vo.email}</td>
 					</tr>
 					<tr>
 						<td>제목</td>

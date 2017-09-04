@@ -1,5 +1,6 @@
 package com.project.user.board.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +22,8 @@ public class QnaUpdateController {
 	@RequestMapping(value="qnaUpdateForm.do", method=RequestMethod.GET)
 	public ModelAndView setView(Integer num){
 		QnaVO boardVo = service.getArticle(num);
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		boardVo.setFormatdate(simpledateformat.format(boardVo.getRegdate()));
 		Map<String,Object> model=new HashMap<String,Object>();
 		model.put("vo",boardVo);
 		ModelAndView mav = new ModelAndView();

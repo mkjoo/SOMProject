@@ -13,6 +13,7 @@
 		<result property="ref" column="REF" jdbcType="BIGINT" />
 		<result property="step" column="STEP" jdbcType="BIGINT" />
 		<result property="depth" column="DEPTH" jdbcType="BIGINT" />
+		<result property="commentOX" column="commentOX" jdbcType="VARCHAR" />
 	</resultMap>
 	
 	
@@ -23,7 +24,7 @@
 	
 	<select id="getList" parameterType="java.util.Map" resultMap="QnaResult">
 	<![CDATA[
-	select * from (select rownum rnum,num,writer,email,subject,pass,regdate,content,ref,step,depth from (select * from qna order by ref desc,step asc)) where rnum>=#{startRow} and rnum<=#{endRow}
+	select * from (select rownum rnum,num,writer,email,subject,pass,regdate,content,ref,step,depth,commentOX from (select * from qna order by ref desc,step asc)) where rnum>=#{startRow} and rnum<=#{endRow}
 	]]>
 	</select>
 

@@ -1,5 +1,7 @@
 package com.project.user.board.controller;
 
+import java.text.SimpleDateFormat;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -42,7 +44,12 @@ public class QnaGetController {
 		try{
 		if(getArticleService.getPass(Integer.valueOf(num)).equals(pass)){
 			QnaVO QnaVo = this.getArticleService.getArticle(Integer.valueOf(num));
+			SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+			QnaVo.setFormatdate(simpledateformat.format(QnaVo.getRegdate()));
 			String content=getArticleService.getQnaComment(Integer.valueOf(num));
+			//System.out.println("content="+content);
+			//if(content==null){System.out.println("content="+content);}else{QnaVo.setCommentOX(true);System.out.println("content commentOX 트루셋팅완료");}
+			
 			ModelAndView mav=new ModelAndView();
 			mav.setViewName("board/qnaContent");
 			mav.addObject("vo",QnaVo);

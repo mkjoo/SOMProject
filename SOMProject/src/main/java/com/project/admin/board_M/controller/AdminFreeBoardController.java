@@ -79,6 +79,7 @@ public class AdminFreeBoardController {
 		String name=vo.getName().trim();
 		ModelAndView mav=new ModelAndView("freeboard/freeboardWriteForm");
 		mav.addObject("writer",name);
+		mav.addObject("email",vo.getEmail().trim());
 		return mav;
 	}
 	
@@ -98,7 +99,9 @@ public class AdminFreeBoardController {
 		MemberVO vo=(MemberVO)session.getAttribute("loginID");
 		String name=vo.getName().trim();
 		service.upReadcount(num);
-		FreeBoardVO boardVo = service.getArticle(num);		
+		FreeBoardVO boardVo = service.getArticle(num);	
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		boardVo.setFormatdate(simpledateformat.format(boardVo.getRegdate()));
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("freeboard/freeboardContent");
 		mav.addObject("list",commentList);
@@ -116,6 +119,8 @@ public class AdminFreeBoardController {
 	@RequestMapping(value="adminFreeBoardUpdateForm.mdo", method=RequestMethod.GET)
 	public ModelAndView setView(Integer num){
 		FreeBoardVO boardVo = service.getArticle(num);
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		boardVo.setFormatdate(simpledateformat.format(boardVo.getRegdate()));		
 		Map<String,Object> model=new HashMap<String,Object>();
 		model.put("vo",boardVo);
 		ModelAndView mav = new ModelAndView();
@@ -162,6 +167,8 @@ public class AdminFreeBoardController {
 		String name=vo.getName().trim();
 		
 		FreeBoardVO boardVo = service.getArticle(num);	
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		boardVo.setFormatdate(simpledateformat.format(boardVo.getRegdate()));
 		CommentVO commentvo = service.getMyComment(ccnum);
 		
 		ModelAndView mav=new ModelAndView();

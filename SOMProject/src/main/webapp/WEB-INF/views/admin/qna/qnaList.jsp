@@ -73,6 +73,7 @@
 							</td>
 							<td align="center">${qnaVo.writer}</td>
 							<td align="center">${qnaVo.formatdate}</td>
+							<td align="center">${qnaVo.commentOX}<c:if test="${qnaVo.commentOX eq null}">답변없음</c:if></td>
 						</tr>
 					</c:forEach>
 				</c:if>

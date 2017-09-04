@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -21,6 +22,7 @@ import com.project.user.board.model.NoticeVO;
 import com.project.user.board.model.Paging;
 import com.project.user.board.model.QnaVO;
 import com.project.user.board.model.QnaVO2;
+import com.project.user.member.model.MemberVO;
 
 @Controller
 public class AdminQnaController {
@@ -53,6 +55,7 @@ public class AdminQnaController {
 		Map<String,Object> model = new HashMap<String,Object>();
 		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		for(QnaVO vo:boardList){
+			System.out.println("찍어:"+vo.getCommentOX());
 			vo.setFormatdate(simpledateformat.format(vo.getRegdate()));
 		}
 		
@@ -73,6 +76,8 @@ public class AdminQnaController {
 	@RequestMapping(value="adminQnaContent.mdo",method=RequestMethod.GET)
 	public ModelAndView getArticle(@RequestParam String num){
 			QnaVO QnaVo =service.getArticle(Integer.valueOf(num));
+			SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+			QnaVo.setFormatdate(simpledateformat.format(QnaVo.getRegdate()));
 			ModelAndView mav=new ModelAndView();
 			mav.setViewName("qna/qnaContent");
 			mav.addObject("vo",QnaVo);
@@ -81,9 +86,16 @@ public class AdminQnaController {
 	
 	
 	@RequestMapping(value="adminQnaWriteForm.mdo", method=RequestMethod.GET)
-	public String setView(){
-		return "qna/qnaWriteForm";
+	public ModelAndView setView(HttpServletRequest request){
+		HttpSession session=request.getSession();
+		MemberVO vo=(MemberVO)session.getAttribute("loginID");
+		String name=vo.getName().trim();
+		ModelAndView mav=new ModelAndView("qna/qnaWriteForm");
+		mav.addObject("writer",name);
+		mav.addObject("email",vo.getEmail().trim());
+		return mav;
 	}
+	
 		
 	@RequestMapping(value="adminQnaWriteProc.mdo", method=RequestMethod.POST)
 	public ModelAndView onSubmit(HttpServletRequest request,QnaVO boardVo,BindingResult bindingResult)throws Exception{
@@ -103,12 +115,19 @@ public class AdminQnaController {
 	
 	@RequestMapping(value="adminQnaReplyWriteForm.mdo", method=RequestMethod.GET)
 	public ModelAndView onSubmit3(HttpServletRequest request,QnaVO boardVo)throws Exception{
+		HttpSession session=request.getSession();
+		MemberVO vo=(MemberVO)session.getAttribute("loginID");
+		String name=vo.getName().trim();
+
+		
 		int num=Integer.valueOf(request.getParameter("num"));
 		int ref=Integer.valueOf(request.getParameter("ref"));
 		int step=Integer.valueOf(request.getParameter("step"));
 		int depth=Integer.valueOf(request.getParameter("depth"));
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("qna/qnaReplyWriteForm");
+		mav.addObject("writer",name);
+		mav.addObject("email",vo.getEmail().trim());
 		mav.addObject("num",num);
 		mav.addObject("ref",ref);
 		mav.addObject("step",step);
@@ -139,8 +158,10 @@ public class AdminQnaController {
 ///////////여기부터는 댓글처럼 들어갈 부분을 넣어주는 인서트작업/////
 		HashMap map=new HashMap();
 		map.put("num",boardVo.getNum());
-		map.put("content",boardVo.getContent());
+		map.put("content",boardVo.getContent());		
 		service.insertQnaComment(map);
+		service.updateCommentOX(map);
+		
 		return new ModelAndView("redirect:adminQnaList.mdo");
 	}
 	
@@ -155,6 +176,8 @@ public class AdminQnaController {
 	@RequestMapping(value="adminQnaUpdateForm.mdo", method=RequestMethod.GET)
 	public ModelAndView setView(Integer num){
 		QnaVO boardVo = service.getArticle(num);
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		boardVo.setFormatdate(simpledateformat.format(boardVo.getRegdate()));
 		Map<String,Object> model=new HashMap<String,Object>();
 		model.put("vo",boardVo);
 		ModelAndView mav = new ModelAndView();

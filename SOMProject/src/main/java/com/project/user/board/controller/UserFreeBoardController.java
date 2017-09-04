@@ -78,7 +78,7 @@ public class UserFreeBoardController {
 		MemberVO vo=(MemberVO)session.getAttribute("loginID");
 		String name=vo.getName().trim();
 		ModelAndView mav=new ModelAndView("board/freeboardWriteForm");
-		mav.addObject("writer",name);
+		mav.addObject("vo",vo);
 		return mav;
 	}
 	
@@ -100,7 +100,9 @@ public class UserFreeBoardController {
 		String email="noLogin";
 		try{name=vo.getName().trim();email=vo.getEmail().trim();}catch(Exception e){}
 		service.upReadcount(num);
-		FreeBoardVO boardVo = service.getArticle(num);		
+		FreeBoardVO boardVo = service.getArticle(num);	
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		boardVo.setFormatdate(simpledateformat.format(boardVo.getRegdate()));
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("board/freeboardContent");
 		mav.addObject("list",commentList);
@@ -121,6 +123,8 @@ public class UserFreeBoardController {
 	@RequestMapping(value="freeBoardUpdateForm.do", method=RequestMethod.GET)
 	public ModelAndView setView(Integer num){
 		FreeBoardVO boardVo = service.getArticle(num);
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		boardVo.setFormatdate(simpledateformat.format(boardVo.getRegdate()));
 		Map<String,Object> model=new HashMap<String,Object>();
 		model.put("vo",boardVo);
 		ModelAndView mav = new ModelAndView();
@@ -167,6 +171,8 @@ public class UserFreeBoardController {
 		String name=vo.getName().trim();
 		
 		FreeBoardVO boardVo = service.getArticle(num);	
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		boardVo.setFormatdate(simpledateformat.format(boardVo.getRegdate()));
 		CommentVO commentvo = service.getMyComment(ccnum);
 		
 		ModelAndView mav=new ModelAndView();

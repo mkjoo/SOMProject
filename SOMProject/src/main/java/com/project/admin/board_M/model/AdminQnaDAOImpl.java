@@ -84,4 +84,9 @@ public class AdminQnaDAOImpl implements AdminQnaDAO{
 		String statement="com.project.admin.qna.insertQnaComment";
 		sqlSession.insert(statement,obj);
 	}
+	@Override
+	public void updateCommentOX(Object obj) {
+		String statement="com.project.admin.qna.updateCommentOX";
+		sqlSession.update(statement,obj);
+	}
 }

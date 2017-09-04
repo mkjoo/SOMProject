@@ -172,7 +172,7 @@ window.onload=passCheck("${value}");
 	<td align="center" width="100">번호</td>
 	<td align="center" width="200">${vo.num}</td>
 	<td align="center" width="100">작성일</td>
-	<td align="center" width="200">${vo.regdate}</td>
+	<td align="center" width="200">${vo.formatdate}</td>
 </tr>
 <tr>
 	<td align="center">작성자</td>

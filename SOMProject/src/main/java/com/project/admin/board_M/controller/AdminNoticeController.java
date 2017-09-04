@@ -83,6 +83,8 @@ public class AdminNoticeController {
 	public ModelAndView getArticle(Integer num){
 		service.upReadcount(num);
 		NoticeVO boardVo = service.getArticle(num);
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		boardVo.setFormatdate(simpledateformat.format(boardVo.getRegdate()));
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("notice/noticeContent");
 		mav.addObject("vo",boardVo);
@@ -98,6 +100,8 @@ public class AdminNoticeController {
 	@RequestMapping(value="adminNoticeUpdateForm.mdo", method=RequestMethod.GET)
 	public ModelAndView setView(Integer num){
 		NoticeVO boardVo = service.getArticle(num);
+		SimpleDateFormat simpledateformat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		boardVo.setFormatdate(simpledateformat.format(boardVo.getRegdate()));
 		Map<String,Object> model=new HashMap<String,Object>();
 		model.put("vo",boardVo);
 		ModelAndView mav = new ModelAndView();

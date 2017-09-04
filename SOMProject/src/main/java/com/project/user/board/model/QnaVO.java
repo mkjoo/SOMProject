@@ -11,7 +11,15 @@ public class QnaVO {
 	int ref;private String formatdate;
 	int step;
 	int depth;
+	private String commentOX;
 	
+	
+	public String getCommentOX() {
+		return commentOX;
+	}
+	public void setCommentOX(String commentOX) {
+		this.commentOX = commentOX;
+	}
 	public String getFormatdate() {
 		return formatdate;
 	}

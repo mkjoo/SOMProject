@@ -204,6 +204,7 @@
 							</td>
 							<td align="center">${vo.writer}</td>
 							<td align="center">${vo.formatdate}</td>
+							<td align="center">${vo.commentOX}<c:if test="${vo.commentOX eq null}">답변없음</c:if></td>
 						</tr>
 					</c:forEach>
 				</c:if>

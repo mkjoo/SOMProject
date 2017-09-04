@@ -70,5 +70,10 @@ public class AdminQnaServiceImpl implements AdminQnaService{
 	public void insertQnaComment(Object obj) {
 		dao.insertQnaComment(obj);		
 	}
+
+	@Override
+	public void updateCommentOX(Object obj) {
+		dao.updateCommentOX(obj);
+	}
 	
 }
