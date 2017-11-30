@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<title>캐시모아_main01</title>
+
+
+
+<link href="css/index.css" type="text/css" rel="stylesheet"  />
+<link href="css/animate.css" type="text/css" rel="stylesheet"  />
+
+<style>
+.wrap{display:block; position:relative;}
+.area{padding: 0 0 0 0;}
+#back-top{position: absolute; bottom:3%; display: block; width:5%; left:49%; z-index: 888;}
+#back-top img{display: block;}
+
+.content{position:relative;}
+
+
+
+.bg_star{position:absolute; right:4%; bottom:67.5%; width:65%; z-index:999;}
+.titleIcon{position:absolute; left:2%; top:0.5%; width:55%; z-index:999;}
+.titleIcon img{display:block;}
+.numberWrap{display:block; position:absolute; right:2%; top:-1.5%; width:18%; z-index:999;}
+.numberWrap a{margin: 7% 2.5% 0 0;}
+.numberWrap a img{display:block;}
+
+
+
+
+
+.footerWrap{position: relative; padding:0 0 0 0; background-color:#0f0f0f;}
+.footerWrap .footerArea{padding: 18px 12px 84px 19px; font-size:12px; font-family:'AppleSDGothicNeo-Regular'; color:#fff;}
+.footerWrap .footerArea .info_i{margin: 0 0 30px 0;}
+.footerWrap .footerArea .info_i .i_area{margin: 0 0 1% 0; line-height: 17px;}
+.footerWrap .footerArea .info_i .i_area:after{content:""; clear: both; display: block;}
+.footerWrap .footerArea .info_i .i_area .title{float:left;}
+.footerWrap .footerArea .info_i .i_area .txt01{float:left; margin: 0 0 0 1%; color:#fff;}
+.footerWrap .footerArea .info_i .i_area a{float:left; margin: 0 0 0 1%; color:#fff;}
+.footerWrap .footerArea .ex{position: relative;}
+.footerWrap .footerArea .ex .list{position: relative; padding: 0 0 0 5px; margin: 0 0 8px 0;}
+.footerWrap .footerArea .ex .list .leftIcon{position: absolute; left:0; top:0; background:url(image/list_bar.png) 0 8px no-repeat; }
+.footerWrap .footerArea .ex .list .textArea .txt{float:left;}
+.footerWrap .footerArea .ex .list .textArea a{float:left; margin: 0 0 0 6px; color:#fff;}
+.footerWrap .footerArea .urlWrap{position: absolute; left:0; bottom:0; right:0;}
+.footerWrap .footerArea .urlWrap img{display: block;}
+.listArea{}
+.listArea .list{position: relative;}
+
+
+/*bg_star*/
+
+.bg_star{
+	animation-name: swing;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	transform-origin: 0%;
+	background-repeat: no-repeat;
+	animation-fill-mode: both;
+	
+}
+@keyframes swing{
+20% { transform: rotate(15deg); } 
+            40% { transform: rotate(-10deg); } 
+            60% { transform: rotate(5deg); } 
+            80% { transform: rotate(-5deg); } 
+            100% { transform: rotate(0deg); } 
+         }
+         
+/*@keyframes shake {
+  from, to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+}
+@keyframes rotate{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+@keyframes hideAndShow {
+    0% {
+      opacity:1;  
+    }
+    50% {
+      opacity:0;
+    }
+    0% {
+      opacity:1;
+    }
+}
+*/
+</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="area">
+			<div class="content">
+				<div class="bg01">
+					<img src="c-image/bg.png" width="100%"/>
+				</div>
+				<div class="bg_star">
+					<img src="c-image/star1.png" width="100%"/>
+				</div>
+				<div class="titleIcon">
+					<img src="c-image/title.png" width="100%" />
+				</div>
+				<div class="numberWrap">
+					<a href="tel: 1544:0344"><img src="c-image/top_tel.png" width="100%"/></a>
+				</div>
+			</div>
+			
+			
+			<div class="footerWrap" style="padding: 0 0 0 0;">
+				<div class="footerArea">
+				<div class="info_i">
+					<div class="i_area"><span class="title">사업자등록번호:</span><span class="txt01"> 264-81-35136</span></div>
+					<div class="i_area"><span class="title">대표지:</span><span class="txt01"> 김철희</span></div>
+					<div class="i_area"><span class="title">업체명:</span><span class="txt01"> (주)캐시모아대부중개</span></div>
+					<div class="i_area"><span class="title">업종:</span><span class="txt01"> 대부중개업</span></div>
+					<div class="i_area"><span class="title">수수료 유무:</span><span class="txt01"> 없음</span></div>
+					<div class="i_area"><span class="title">TEL:</span><a class="txt_Btn" href="tel:1544-0344"><span class="txt"> 1544-0344</span></div></a>
+					<div class="i_area"><span class="title">E_mail:</span><a class="txt_Btn"><span class="txt"> cash-moa@cash-moa.co.kr</span></div></a>
+					<div class="i_area"><span class="title">주소:</span><span class="txt01"> 서울시 서초구 강남대로 51길 1 8층(서초동,대현블루타워)</span></div>
+					<div class="i_area"><span class="title">대부업등록기관:</span><span class="txt01"> 서울시 서초구청</span><a class="txt_Btn" href="tel:02-2155-8753"> (02-2155-8753)</a></div>
+					<div class="i_area"><span class="title">대출금리:</span><span class="txt01"> 연 27.9%</span></div>
+					<div class="i_area"><span class="title">연체금리:</span><span class="txt01"> 연 27.9% 이내, 이자 외 추가비용없음</span></div>
+				</div>
+				<ul class="ex">
+					<li class="list">
+						<span class="leftIcon">&nbsp;</span>
+						<span class="textArea">부대비용일체 없음 중개수수료를 요구하거나 받는것은 불법입니다.</span>
+					</li>
+					<li class="list">
+						<span class="leftIcon">&nbsp;</span>
+						<span class="textArea">캐시모아대부중개는 중개수수료를 요구하거나 받지 않습니다.</span>
+					</li>
+					<li class="list">
+						<span class="leftIcon">&nbsp;</span>
+						<span class="textArea">과도한 빚은 당신에게 큰 불행을 안겨줄 수 있습니다.</span>
+					</li>
+					<li class="list">
+						<span class="leftIcon">&nbsp;</span>
+						<span class="textArea">고객님의 불편사항을 말씀해주시면 고객님의 충고와 소중한 의견에 항상 귀를 기울이는 회사가 되도록 노력하겠습니다.</span>
+					</li>
+					<li class="list">
+						<span class="leftIcon">&nbsp;</span>
+						<span class="textArea"><span class="txt">고객불편상담전화:</span><a href="tel:02-6730-0547">02-6730-0547</a></span>
+					</li>
+				</ul>
+				<div class="urlWrap">
+					<img src="c-image/footer_url.png" width="100%" />
+				</div>
+				</div>
+			</div>
+			<div id="back-top">
+				<a href="#top"><img src="c-image/back_top.png" width="100%"></a>
+			</div>
+			<!-- Modal 자세히보기 -->
+		</div>
+	</div>
+</body>
+</html>
